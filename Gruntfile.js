@@ -12,6 +12,8 @@ const path = require("path");
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github
  */
 
 module.exports = function (grunt) {
@@ -255,7 +257,7 @@ module.exports = function (grunt) {
                     "!build/prod/index.html",
                     "!build/prod/BundleAnalyzerReport.html",
                 ],
-                dest: `build/prod/CyberChef_v${pkg.version}.zip`
+                dest: `build/prod/SRK_Toolbox_v${pkg.version}.zip`
             }
         },
         connect: {

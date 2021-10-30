@@ -3,6 +3,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github
  */
 
 import Utils, { debounce } from "../../core/Utils.mjs";
@@ -1011,11 +1013,11 @@ class OutputWaiter {
         const lengthStr = length.toString().padStart(width, " ").replace(/ /g, "&nbsp;");
         const timeStr = (duration.toString() + "ms").padStart(width, " ").replace(/ /g, "&nbsp;");
 
-        let msg = "time: " + timeStr + "<br>length: " + lengthStr;
+        let msg = "耗时： " + timeStr + "<br>长度： " + lengthStr;
 
         if (typeof lines === "number") {
             const linesStr = lines.toString().padStart(width, " ").replace(/ /g, "&nbsp;");
-            msg += "<br>lines: " + linesStr;
+            msg += "<br>行数： " + linesStr;
         }
 
         document.getElementById("output-info").innerHTML = msg;

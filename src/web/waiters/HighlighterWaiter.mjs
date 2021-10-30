@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github
  */
 
 /**
@@ -318,7 +320,7 @@ class HighlighterWaiter {
         const endStr = end.toString().padStart(width, " ").replace(/ /g, "&nbsp;");
         const lenStr = (end-start).toString().padStart(width, " ").replace(/ /g, "&nbsp;");
 
-        return "start: " + startStr + "<br>end: " + endStr + "<br>length: " + lenStr;
+        return "选取开始： " + startStr + "<br>选取结束： " + endStr + "<br>选取长度： " + lenStr;
     }
 
 

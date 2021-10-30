@@ -26,7 +26,7 @@ import OperationConfig from "../core/config/OperationConfig.json";
  */
 function main() {
     const defaultFavourites = [
-        "To Base64",
+        "Base64编码",
         "From Base64",
         "To Hex",
         "From Hex",
@@ -62,7 +62,7 @@ function main() {
     window.app.setup();
 }
 
-window.compileTime = moment.tz(COMPILE_TIME, "DD/MM/YYYY HH:mm:ss z", "UTC").valueOf();
+window.compileTime = moment.tz(COMPILE_TIME, "DD/MM/YYYY HH:mm:ss z", "UTC+8").valueOf();
 window.compileMessage = COMPILE_MSG;
 
 // Make libs available to operation outputs

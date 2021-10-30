@@ -3,6 +3,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github
  */
 
 import LoaderWorker from "worker-loader?inline=no-fallback!../workers/LoaderWorker.js";
@@ -659,11 +661,11 @@ class InputWaiter {
         width = width < 2 ? 2 : width;
 
         const lengthStr = length.toString().padStart(width, " ").replace(/ /g, "&nbsp;");
-        let msg = "length: " + lengthStr;
+        let msg = "长度： " + lengthStr;
 
         if (typeof lines === "number") {
             const linesStr = lines.toString().padStart(width, " ").replace(/ /g, "&nbsp;");
-            msg += "<br>lines: " + linesStr;
+            msg += "<br>行数： " + linesStr;
         }
 
         document.getElementById("input-info").innerHTML = msg;

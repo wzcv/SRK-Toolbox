@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah
  */
 
 import HTMLOperation from "../HTMLOperation.mjs";
@@ -222,7 +224,7 @@ class OperationsWaiter {
 
         // Add favourites to modal
         const favCat = this.app.categories.filter(function(c) {
-            return c.name === "Favourites";
+            return c.name === "收藏";
         })[0];
 
         let html = "";

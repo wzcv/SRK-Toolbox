@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github
  */
 
 /**
@@ -164,91 +166,91 @@ class BindingsWaiter {
         }
         document.getElementById("keybList").innerHTML = `
         <tr>
-            <td><b>Command</b></td>
-            <td><b>Shortcut (Win/Linux)</b></td>
-            <td><b>Shortcut (Mac)</b></td>
+            <td><b>命令</b></td>
+            <td><b>快捷键(Win/Linux)</b></td>
+            <td><b>快捷键(Mac)</b></td>
         </tr>
         <tr>
-            <td>Place cursor in search field</td>
+            <td>光标置于搜索框</td>
             <td>Ctrl+${modWinLin}+f</td>
             <td>Ctrl+${modMac}+f</td>
         <tr>
-            <td>Place cursor in input box</td>
+            <td>光标置于输入框</td>
             <td>Ctrl+${modWinLin}+i</td>
             <td>Ctrl+${modMac}+i</td>
         </tr>
         <tr>
-            <td>Place cursor in output box</td>
+            <td>光标置于输出框</td>
             <td>Ctrl+${modWinLin}+o</td>
             <td>Ctrl+${modMac}+o</td>
         </tr>
         <tr>
-            <td>Place cursor in first argument field of the next operation in the recipe</td>
+            <td>光标置于流程中下一个操作的第一个参数框</td>
             <td>Ctrl+${modWinLin}+.</td>
             <td>Ctrl+${modMac}+.</td>
         </tr>
         <tr>
-            <td>Place cursor in first argument field of the nth operation in the recipe</td>
+            <td>光标置于流程中第N个操作的第一个参数框</td>
             <td>Ctrl+${modWinLin}+[1-9]</td>
             <td>Ctrl+${modMac}+[1-9]</td>
         </tr>
         <tr>
-            <td>Disable current operation</td>
+            <td>禁用当前操作</td>
             <td>Ctrl+${modWinLin}+d</td>
             <td>Ctrl+${modMac}+d</td>
         </tr>
         <tr>
-            <td>Set/clear breakpoint</td>
+            <td>设置/清除断点</td>
             <td>Ctrl+${modWinLin}+b</td>
             <td>Ctrl+${modMac}+b</td>
         </tr>
         <tr>
-            <td>Bake</td>
+            <td>执行流程/开整！</td>
             <td>Ctrl+${modWinLin}+Space</td>
             <td>Ctrl+${modMac}+Space</td>
         </tr>
         <tr>
-            <td>Step</td>
+            <td>步进</td>
             <td>Ctrl+${modWinLin}+'</td>
             <td>Ctrl+${modMac}+'</td>
         </tr>
         <tr>
-            <td>Clear recipe</td>
+            <td>清除流程</td>
             <td>Ctrl+${modWinLin}+c</td>
             <td>Ctrl+${modMac}+c</td>
         </tr>
         <tr>
-            <td>Save to file</td>
+            <td>保存到文件</td>
             <td>Ctrl+${modWinLin}+s</td>
             <td>Ctrl+${modMac}+s</td>
         </tr>
         <tr>
-            <td>Load recipe</td>
+            <td>载入流程</td>
             <td>Ctrl+${modWinLin}+l</td>
             <td>Ctrl+${modMac}+l</td>
         </tr>
         <tr>
-            <td>Move output to input</td>
+            <td>输出内容替换到输入</td>
             <td>Ctrl+${modWinLin}+m</td>
             <td>Ctrl+${modMac}+m</td>
         </tr>
         <tr>
-            <td>Create a new tab</td>
+            <td>新建标签</td>
             <td>Ctrl+${modWinLin}+t</td>
             <td>Ctrl+${modMac}+t</td>
         </tr>
         <tr>
-            <td>Close the current tab</td>
+            <td>关闭当前标签</td>
             <td>Ctrl+${modWinLin}+w</td>
             <td>Ctrl+${modMac}+w</td>
         </tr>
         <tr>
-            <td>Go to next tab</td>
+            <td>下一个标签</td>
             <td>Ctrl+${modWinLin}+RightArrow</td>
             <td>Ctrl+${modMac}+RightArrow</td>
         </tr>
         <tr>
-            <td>Go to previous tab</td>
+            <td>上一个标签</td>
             <td>Ctrl+${modWinLin}+LeftArrow</td>
             <td>Ctrl+${modMac}+LeftArrow</td>
         </tr>

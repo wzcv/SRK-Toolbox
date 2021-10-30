@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github
  */
 
 import Utils from "../Utils.mjs";
@@ -135,9 +137,9 @@ export function fromBase64(data, alphabet="A-Za-z0-9+/=", returnType="string", r
  * Base64 alphabets.
  */
 export const ALPHABET_OPTIONS = [
-    {name: "Standard (RFC 4648): A-Za-z0-9+/=", value: "A-Za-z0-9+/="},
-    {name: "URL safe (RFC 4648 \u00A75): A-Za-z0-9-_", value: "A-Za-z0-9-_"},
-    {name: "Filename safe: A-Za-z0-9+-=", value: "A-Za-z0-9+\\-="},
+    {name: "标准 (RFC 4648): A-Za-z0-9+/=", value: "A-Za-z0-9+/="},
+    {name: "URL安全 (RFC 4648 \u00A75): A-Za-z0-9-_", value: "A-Za-z0-9-_"},
+    {name: "文件名安全: A-Za-z0-9+-=", value: "A-Za-z0-9+\\-="},
     {name: "itoa64: ./0-9A-Za-z=", value: "./0-9A-Za-z="},
     {name: "XML: A-Za-z0-9_.", value: "A-Za-z0-9_."},
     {name: "y64: A-Za-z0-9._-", value: "A-Za-z0-9._-"},
