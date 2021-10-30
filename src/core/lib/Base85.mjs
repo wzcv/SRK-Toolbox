@@ -4,6 +4,8 @@
  * @author PenguinGeorge [george@penguingeorge.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 /**
@@ -11,7 +13,7 @@
  */
 export const ALPHABET_OPTIONS = [
     {
-        name: "Standard",
+        name: "标准",
         value: "!-u",
     },
     {

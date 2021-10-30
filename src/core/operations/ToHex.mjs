@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,20 +21,20 @@ class ToHex extends Operation {
     constructor() {
         super();
 
-        this.name = "To Hex";
+        this.name = "Hex编码";
         this.module = "Default";
-        this.description = "Converts the input string to hexadecimal bytes separated by the specified delimiter.<br><br>e.g. The UTF-8 encoded string <code>Γειά σου</code> becomes <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code>";
+        this.description = "将输入字符串转换为对应的十六进制表示（使用给定的分隔符）。<br><br>例如：UTF-8字符串 <code>Γειά σου</code> 编码成 <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code>";
         this.infoURL = "https://wikipedia.org/wiki/Hexadecimal";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: TO_HEX_DELIM_OPTIONS
             },
             {
-                name: "Bytes per line",
+                name: "每行字节数",
                 type: "number",
                 value: 0
             }
@@ -46,11 +48,11 @@ class ToHex extends Operation {
      */
     run(input, args) {
         let delim, comma;
-        if (args[0] === "0x with comma") {
+        if (args[0] === "0x和逗号") {
             delim = "0x";
             comma = ",";
         } else {
-            delim = Utils.charRep(args[0] || "Space");
+            delim = Utils.charRep(args[0] || "空格");
         }
         const lineSize = args[1];
 
@@ -68,11 +70,11 @@ class ToHex extends Operation {
      */
     highlight(pos, args) {
         let delim, commaLen;
-        if (args[0] === "0x with comma") {
+        if (args[0] === "0x和逗号") {
             delim = "0x";
             commaLen = 1;
         } else {
-            delim = Utils.charRep(args[0] || "Space");
+            delim = Utils.charRep(args[0] || "空格");
         }
 
         const lineSize = args[1],
@@ -106,11 +108,11 @@ class ToHex extends Operation {
      */
     highlightReverse(pos, args) {
         let delim, commaLen;
-        if (args[0] === "0x with comma") {
+        if (args[0] === "0x和逗号") {
             delim = "0x";
             commaLen = 1;
         } else {
-            delim = Utils.charRep(args[0] || "Space");
+            delim = Utils.charRep(args[0] || "空格");
         }
 
         const lineSize = args[1],

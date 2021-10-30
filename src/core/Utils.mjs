@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import utf8 from "utf8";
@@ -1165,19 +1167,28 @@ class Utils {
     static charRep(token) {
         return {
             "Space":         " ",
+            "空格":           " ",
             "Percent":       "%",
+            "百分号":         "%",
             "Comma":         ",",
+            "逗号":           ",",
             "Semi-colon":    ";",
+            "分号":           ";",
             "Colon":         ":",
+            "冒号":           ":",
             "Tab":           "\t",
             "Line feed":     "\n",
+            "换行":           "\n",
             "CRLF":          "\r\n",
             "Forward slash": "/",
+            "斜杠":           "/",
             "Backslash":     "\\",
+            "反斜杠":         "\\",
             "0x":            "0x",
             "\\x":           "\\x",
             "Nothing (separate chars)": "",
             "None":          "",
+            "无":             "",
         }[token];
     }
 
@@ -1202,7 +1213,17 @@ class Utils {
             "0x with comma": /,?0x/g,
             "0x":            /0x/g,
             "\\x":           /\\x/g,
-            "None":          /\s+/g // Included here to remove whitespace when there shouldn't be any
+            "None":          /\s+/g,
+            "空格":         /\s+/g,
+            "百分号":       /%/g,
+            "逗号":         /,/g,
+            "分号":    /;/g,
+            "冒号":         /:/g,
+            "换行":     /\n/g,
+            "斜杠": /\//g,
+            "反斜杠":     /\\/g,
+            "0x和逗号": /,?0x/g,
+            "无":          /\s+/g  // Included here to remove whitespace when there shouldn't be any
         }[token];
     }
 

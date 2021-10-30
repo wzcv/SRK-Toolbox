@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import Operation from "../Operation.mjs";
@@ -19,31 +21,31 @@ class ToHexdump extends Operation {
     constructor() {
         super();
 
-        this.name = "To Hexdump";
+        this.name = "转换到Hexdump";
         this.module = "Default";
-        this.description = "Creates a hexdump of the input data, displaying both the hexadecimal values of each byte and an ASCII representation alongside.<br><br>The 'UNIX format' argument defines which subset of printable characters are displayed in the preview column.";
+        this.description = "生成输入数据的hexdump，显示十六进制以及每个字节的ASCII字符。<br><br>'UNIX格式'参数用于确定显示哪些可打印的ASCII字符。";
         this.infoURL = "https://wikipedia.org/wiki/Hex_dump";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Width",
+                "name": "宽度",
                 "type": "number",
                 "value": 16,
                 "min": 1
             },
             {
-                "name": "Upper case hex",
+                "name": "十六进制大写",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Include final length",
+                "name": "包括最终长度",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "UNIX format",
+                "name": "UNIX格式",
                 "type": "boolean",
                 "value": false
             }
@@ -61,7 +63,7 @@ class ToHexdump extends Operation {
         const padding = 2;
 
         if (length < 1 || Math.round(length) !== length)
-            throw new OperationError("Width must be a positive integer");
+            throw new OperationError("宽度必须为正整数");
 
         let output = "";
         for (let i = 0; i < data.length; i += length) {

@@ -3,7 +3,7 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
- * 
+ *
  * Modified by Raka-loah@github
  */
 
@@ -1055,11 +1055,11 @@ class OutputWaiter {
         if (options[0].recipe.length) {
             const opSequence = options[0].recipe.map(o => o.op).join(", ");
             newRecipeConfig = currentRecipeConfig.concat(options[0].recipe);
-            msg = `<i>${opSequence}</i> will produce <span class="data-text">"${Utils.escapeHtml(Utils.truncate(options[0].data), 30)}"</span>`;
+            msg = `<i>${opSequence}</i> 可以解码成 <span class="data-text">"${Utils.escapeHtml(Utils.truncate(options[0].data), 30)}"</span>`;
         } else if (options[0].fileType && options[0].fileType.name) {
             const ft = options[0].fileType;
             newRecipeConfig = currentRecipeConfig.concat([{op: "Detect File Type", args: []}]);
-            msg = `<i>${ft.name}</i> file detected`;
+            msg = `检测到 <i>${ft.name}</i> 文件`;
         } else {
             return;
         }

@@ -402,7 +402,7 @@ class WorkerWaiter {
             avgTime = Math.round(avgTime / numOutputs).toLocaleString() + "ms";
             avgTime = avgTime.padStart(width, " ").replace(/ /g, "&nbsp;");
 
-            const msg = `total: ${totalStr}<br>time: ${durationStr}<br>average: ${avgTime}`;
+            const msg = `总计： ${totalStr}<br>时间： ${durationStr}<br>平均： ${avgTime}`;
 
             const bakeInfo = document.getElementById("bake-info");
             bakeInfo.innerHTML = msg;
@@ -767,13 +767,13 @@ class WorkerWaiter {
             const pendingStr = progress.pending.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
             const bakingStr = progress.baking.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
 
-            let msg = "total: " + totalStr;
-            msg += "<br>baked: " + bakedStr;
+            let msg = "总计： " + totalStr;
+            msg += "<br>已执行： " + bakedStr;
 
             if (progress.pending > 0) {
-                msg += "<br>pending: " + pendingStr;
+                msg += "<br>等待中： " + pendingStr;
             } else if (progress.baking > 0) {
-                msg += "<br>baking: " + bakingStr;
+                msg += "<br>执行中： " + bakingStr;
             }
             bakeInfo.innerHTML = msg;
             bakeInfo.style.display = "";

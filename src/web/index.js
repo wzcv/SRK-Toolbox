@@ -62,7 +62,7 @@ function main() {
     window.app.setup();
 }
 
-window.compileTime = moment.tz(COMPILE_TIME, "DD/MM/YYYY HH:mm:ss z", "UTC+8").valueOf();
+window.compileTime = moment.tz(COMPILE_TIME, "DD/MM/YYYY HH:mm:ss z", "UTC").valueOf();
 window.compileMessage = COMPILE_MSG;
 
 // Make libs available to operation outputs

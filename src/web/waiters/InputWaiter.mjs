@@ -3,7 +3,7 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
- * 
+ *
  * Modified by Raka-loah@github
  */
 
@@ -954,17 +954,17 @@ class InputWaiter {
         width = width < 2 ? 2 : width;
 
         const totalStr = total.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
-        let msg = "total: " + totalStr;
+        let msg = "总计： " + totalStr;
 
         const loadedStr = loaded.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
-        msg += "<br>loaded: " + loadedStr;
+        msg += "<br>已载入： " + loadedStr;
 
         if (pending > 0) {
             const pendingStr = pending.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
-            msg += "<br>pending: " + pendingStr;
+            msg += "<br>等待中： " + pendingStr;
         } else if (loading > 0) {
             const loadingStr = loading.toLocaleString().padStart(width, " ").replace(/ /g, "&nbsp;");
-            msg += "<br>loading: " + loadingStr;
+            msg += "<br>载入中： " + loadingStr;
         }
 
         const inFiles = document.getElementById("input-files-info");

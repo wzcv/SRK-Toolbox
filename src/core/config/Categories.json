@@ -6,10 +6,10 @@
     {
         "name": "数据格式转换",
         "ops": [
-            "To Hexdump",
+            "转换到Hexdump",
             "From Hexdump",
-            "To Hex",
-            "From Hex",
+            "Hex编码",
+            "Hex解码",
             "To Charcode",
             "From Charcode",
             "To Decimal",
@@ -27,7 +27,7 @@
             "Base64编码",
             "From Base64",
             "Show Base64 offsets",
-            "To Base85",
+            "Base85编码",
             "From Base85",
             "To Base",
             "From Base",

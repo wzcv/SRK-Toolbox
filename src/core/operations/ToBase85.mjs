@@ -2,6 +2,8 @@
  * @author PenguinGeorge [george@penguingeorge.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class ToBase85 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base85";
+        this.name = "Base85编码";
         this.module = "Default";
-        this.description = "Base85 (also called Ascii85) is a notation for encoding arbitrary byte data. It is usually more efficient that Base64.<br><br>This operation encodes data in an ASCII string (with an alphabet of your choosing, presets included).<br><br>e.g. <code>hello world</code> becomes <code>BOu!rD]j7BEbo7</code><br><br>Base85 is commonly used in Adobe's PostScript and PDF file formats.<br><br><strong>Options</strong><br><u>Alphabet</u><ul><li>Standard - The standard alphabet, referred to as Ascii85</li><li>Z85 (ZeroMQ) - A string-safe variant of Base85, which avoids quote marks and backslash characters</li><li>IPv6 - A variant of Base85 suitable for encoding IPv6 addresses (RFC 1924)</li></ul><u>Include delimiter</u><br>Adds a '<~' and '~>' delimiter to the start and end of the data. This is standard for Adobe's implementation of Base85.";
+        this.description = "Base85 （也叫Ascii85）是把字节数据转换成特定字符组合的编码方式。通常比Base64效率更高。<br><br>此操作将原始数据编码成使用ASCII字符的Base64字符串。字符表可选，带有预设。<br><br>例如：<code>hello world</code> 编码成 <code>BOu!rD]j7BEbo7</code><br><br>Base85在Adobe的PostScript和PDF格式中较为常见。<br><br><strong>选项</strong><br><u>可用字符</u><ul><li>标准 - 标准字母表，又叫Ascii85</li><li>Z85 (ZeroMQ) - 不带有引号和反斜杠之类，适用于生成字符串。</li><li>IPv6 - 适合编码IPV6地址的变体 (RFC 1924)</li></ul><u>包括分隔符</u><br>在数据开头和结尾添加 '<~' 和 '~>'。Adobe的Base85一般采用此格式。";
         this.infoURL = "https://wikipedia.org/wiki/Ascii85";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "editableOption",
                 value: ALPHABET_OPTIONS
             },
             {
-                name: "Include delimeter",
+                name: "包括分隔符",
                 type: "boolean",
                 value: false
             }
@@ -54,7 +56,7 @@ class ToBase85 extends Operation {
 
         if (alphabet.length !== 85 ||
             [].unique.call(alphabet).length !== 85) {
-            throw new OperationError("Error: Alphabet must be of length 85");
+            throw new OperationError("错误：字符表必须包含85个字符");
         }
 
         if (input.length === 0) return "";
@@ -68,7 +70,7 @@ class ToBase85 extends Operation {
                 ((input[i + 3] || 0))
             ) >>> 0;
 
-            if (encoding !== "Standard" || block > 0) {
+            if (encoding !== "标准" || block > 0) {
                 let digits = [];
                 for (let j = 0; j < 5; j++) {
                     digits.push(block % 85);
@@ -83,7 +85,7 @@ class ToBase85 extends Operation {
 
                 result += digits.map(digit => alphabet[digit]).join("");
             } else {
-                result += (encoding === "Standard") ? "z" : null;
+                result += (encoding === "标准") ? "z" : null;
             }
         }
 

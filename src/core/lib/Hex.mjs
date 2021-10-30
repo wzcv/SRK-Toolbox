@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Utils from "../Utils.mjs";
@@ -100,12 +102,12 @@ export function toHexFast(data) {
  * // returns [10,20,30]
  * fromHex("0a:14:1e", "Colon");
  */
-export function fromHex(data, delim="Auto", byteLen=2) {
+export function fromHex(data, delim="自动", byteLen=2) {
     if (byteLen < 1 || Math.round(byteLen) !== byteLen)
-        throw new OperationError("Byte length must be a positive integer");
+        throw new OperationError("字节长度必须为正整数");
 
-    if (delim !== "None") {
-        const delimRegex = delim === "Auto" ? /[^a-f\d]|(0x)/gi : Utils.regexRep(delim);
+    if (delim !== "无") {
+        const delimRegex = delim === "自动" ? /[^a-f\d]|(0x)/gi : Utils.regexRep(delim);
         data = data.replace(delimRegex, "");
     }
 
@@ -120,10 +122,10 @@ export function fromHex(data, delim="Auto", byteLen=2) {
 /**
  * To Hexadecimal delimiters.
  */
-export const TO_HEX_DELIM_OPTIONS = ["Space", "Percent", "Comma", "Semi-colon", "Colon", "Line feed", "CRLF", "0x", "0x with comma", "\\x", "None"];
+export const TO_HEX_DELIM_OPTIONS = ["空格", "百分号", "逗号", "分号", "冒号", "换行", "CRLF", "0x", "0x和逗号", "\\x", "无"];
 
 
 /**
  * From Hexadecimal delimiters.
  */
-export const FROM_HEX_DELIM_OPTIONS = ["Auto"].concat(TO_HEX_DELIM_OPTIONS);
+export const FROM_HEX_DELIM_OPTIONS = ["自动"].concat(TO_HEX_DELIM_OPTIONS);

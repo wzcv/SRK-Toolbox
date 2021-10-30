@@ -12,7 +12,7 @@ const path = require("path");
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
- * 
+ *
  * Modified by Raka-loah@github
  */
 
