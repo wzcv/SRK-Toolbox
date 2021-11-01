@@ -5,6 +5,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 /**
@@ -12,7 +14,7 @@
  */
 export const ALPHABET_OPTIONS = [
     {
-        name: "Bitcoin",
+        name: "比特币",
         value: "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz",
     },
     {

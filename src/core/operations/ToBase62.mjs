@@ -2,6 +2,8 @@
  * @author tcode2k16 [tcode2k16@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class ToBase62 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base62";
+        this.name = "Base62编码";
         this.module = "Default";
-        this.description = "Base62 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system.";
+        this.description = "Base62是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取。<br><br>此操作将原始数据编码成使用ASCII字符的Base62字符串。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "string",
                 value: "0-9A-Za-z"
             }

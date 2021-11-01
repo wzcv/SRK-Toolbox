@@ -2,6 +2,8 @@
  * @author PenguinGeorge [george@penguingeorge.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class FromBase85 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base85";
+        this.name = "Base85解码";
         this.module = "Default";
-        this.description = "Base85 (also called Ascii85) is a notation for encoding arbitrary byte data. It is usually more efficient that Base64.<br><br>This operation decodes data from an ASCII string (with an alphabet of your choosing, presets included).<br><br>e.g. <code>BOu!rD]j7BEbo7</code> becomes <code>hello world</code><br><br>Base85 is commonly used in Adobe's PostScript and PDF file formats.";
+        this.description = "Base85（也叫Ascii85）是把字节数据转换成特定字符组合的编码方式。通常比Base64效率更高。<br><br>此操作将使用ASCII字符的Base64字符串解码成原始数据。字符表可选，带有预设。<br><br>例： <code>BOu!rD]j7BEbo7</code> 解码成 <code>hello world</code><br><br>Base85在Adobe的PostScript和PDF格式中较为常见。";
         this.infoURL = "https://wikipedia.org/wiki/Ascii85";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "editableOption",
                 value: ALPHABET_OPTIONS
             },
@@ -47,7 +49,7 @@ class FromBase85 extends Operation {
 
         if (alphabet.length !== 85 ||
             [].unique.call(alphabet).length !== 85) {
-            throw new OperationError("Alphabet must be of length 85");
+            throw new OperationError("错误：可用字符必须是85个");
         }
 
         if (input.length === 0) return [];
@@ -58,7 +60,7 @@ class FromBase85 extends Operation {
         let i = 0;
         let block, blockBytes;
         while (i < input.length) {
-            if (encoding === "Standard" && input[i] === "z") {
+            if (encoding === "标准" && input[i] === "z") {
                 result.push(0, 0, 0, 0);
                 i++;
             } else {
@@ -69,7 +71,7 @@ class FromBase85 extends Operation {
                     .map((chr, idx) => {
                         const digit = alphabet.indexOf(chr);
                         if (digit < 0 || digit > 84) {
-                            throw `Invalid character '${chr}' at index ${idx}`;
+                            throw `非法字符：'${chr}'（位置：${idx}）`;
                         }
                         return digit;
                     });

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class FromHTMLEntity extends Operation {
     constructor() {
         super();
 
-        this.name = "From HTML Entity";
+        this.name = "HTML实体解码";
         this.module = "Encodings";
-        this.description = "Converts HTML entities back to characters<br><br>e.g. <code>&amp;<span>amp;</span></code> becomes <code>&amp;</code>";
+        this.description = "把HTML实体解码为原始字符。<br><br>例： <code>&amp;<span>amp;</span></code> 解码为 <code>&amp;</code>";
         this.infoURL = "https://wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references";
         this.inputType = "string";
         this.outputType = "string";

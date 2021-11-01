@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,30 +23,30 @@ class ToBCD extends Operation {
     constructor() {
         super();
 
-        this.name = "To BCD";
+        this.name = "BCD码编码";
         this.module = "Default";
-        this.description = "Binary-Coded Decimal (BCD) is a class of binary encodings of decimal numbers where each decimal digit is represented by a fixed number of bits, usually four or eight. Special bit patterns are sometimes used for a sign";
+        this.description = "BCD码（Binary-Coded Decimal)是一种十进制数字编码的形式。在这种编码下，每个十进制数字用一串单独的二进制比特来存储与表示。常见的有以4位或8位表示1个十进制数字。有时会用特殊的码位表示特殊符号。";
         this.infoURL = "https://wikipedia.org/wiki/Binary-coded_decimal";
         this.inputType = "BigNumber";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Scheme",
+                "name": "编码方式",
                 "type": "option",
                 "value": ENCODING_SCHEME
             },
             {
-                "name": "Packed",
+                "name": "压缩",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Signed",
+                "name": "有符号",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
                 "value": FORMAT
             }
@@ -58,9 +60,9 @@ class ToBCD extends Operation {
      */
     run(input, args) {
         if (input.isNaN())
-            throw new OperationError("Invalid input");
+            throw new OperationError("无效输入");
         if (!input.integerValue(BigNumber.ROUND_DOWN).isEqualTo(input))
-            throw new OperationError("Fractional values are not supported by BCD");
+            throw new OperationError("BCD不支持非整数");
 
         const encoding = ENCODING_LOOKUP[args[0]],
             packed = args[1],
@@ -123,15 +125,15 @@ class ToBCD extends Operation {
 
         // Output
         switch (outputFormat) {
-            case "Nibbles":
+            case "半字节":
                 return nibbles.map(n => {
                     return n.toString(2).padStart(4, "0");
                 }).join(" ");
-            case "Bytes":
+            case "字节":
                 return bytes.map(b => {
                     return b.toString(2).padStart(8, "0");
                 }).join(" ");
-            case "Raw":
+            case "原始数据":
             default:
                 return Utils.byteArrayToChars(bytes);
         }

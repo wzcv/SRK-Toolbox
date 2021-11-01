@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class FromBase58 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base58";
+        this.name = "Base58解码";
         this.module = "Default";
-        this.description = "Base58 (similar to Base64) is a notation for encoding arbitrary byte data. It differs from Base64 by removing easily misread characters (i.e. l, I, 0 and O) to improve human readability.<br><br>This operation decodes data from an ASCII string (with an alphabet of your choosing, presets included) back into its raw form.<br><br>e.g. <code>StV1DL6CwTryKyV</code> becomes <code>hello world</code><br><br>Base58 is commonly used in cryptocurrencies (Bitcoin, Ripple, etc).";
+        this.description = "Base58（类似于Base64）是把字节数据转换成特定字符组合的编码方式。和Base64的区别是移除了形状相近的易混字符（例如l、I、0和O)来提高可读性。<br><br>此操作将已编码成ASCII字符的Base58字符串解码为原始数据。<br><br>例： <code>StV1DL6CwTryKyV</code> 解码为 <code>hello world</code><br><br>Base58常见于加密货币（比特币、Ripple等)。";
         this.infoURL = "https://wikipedia.org/wiki/Base58";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Alphabet",
+                "name": "可用字符",
                 "type": "editableOption",
                 "value": ALPHABET_OPTIONS
             },
             {
-                "name": "Remove non-alphabet chars",
+                "name": "移除输入中的非可用字符",
                 "type": "boolean",
                 "value": true
             }
@@ -66,7 +68,7 @@ class FromBase58 extends Operation {
 
         if (alphabet.length !== 58 ||
             [].unique.call(alphabet).length !== 58) {
-            throw new OperationError("Alphabet must be of length 58");
+            throw new OperationError("错误：可用字符必须是58个");
         }
 
         if (input.length === 0) return [];
@@ -83,7 +85,7 @@ class FromBase58 extends Operation {
                 if (removeNonAlphaChars) {
                     return;
                 } else {
-                    throw new OperationError(`Char '${c}' at position ${charIndex} not in alphabet`);
+                    throw new OperationError(`字符'${c}'（位置 ${charIndex}）不是可用字符`);
                 }
             }
 

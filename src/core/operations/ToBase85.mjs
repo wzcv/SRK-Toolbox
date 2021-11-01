@@ -24,7 +24,7 @@ class ToBase85 extends Operation {
 
         this.name = "Base85编码";
         this.module = "Default";
-        this.description = "Base85 （也叫Ascii85）是把字节数据转换成特定字符组合的编码方式。通常比Base64效率更高。<br><br>此操作将原始数据编码成使用ASCII字符的Base64字符串。字符表可选，带有预设。<br><br>例如：<code>hello world</code> 编码成 <code>BOu!rD]j7BEbo7</code><br><br>Base85在Adobe的PostScript和PDF格式中较为常见。<br><br><strong>选项</strong><br><u>可用字符</u><ul><li>标准 - 标准字母表，又叫Ascii85</li><li>Z85 (ZeroMQ) - 不带有引号和反斜杠之类，适用于生成字符串。</li><li>IPv6 - 适合编码IPV6地址的变体 (RFC 1924)</li></ul><u>包括分隔符</u><br>在数据开头和结尾添加 '<~' 和 '~>'。Adobe的Base85一般采用此格式。";
+        this.description = "Base85（也叫Ascii85）是把字节数据转换成特定字符组合的编码方式。通常比Base64效率更高。<br><br>此操作将原始数据编码成使用ASCII字符的Base64字符串。字符表可选，带有预设。<br><br>例如：<code>hello world</code> 编码成 <code>BOu!rD]j7BEbo7</code><br><br>Base85在Adobe的PostScript和PDF格式中较为常见。<br><br><strong>选项</strong><br><u>可用字符</u><ul><li>标准 - 标准字母表，又叫Ascii85</li><li>Z85 (ZeroMQ) - 不带有引号和反斜杠之类，适用于生成字符串。</li><li>IPv6 - 适合编码IPV6地址的变体 (RFC 1924)</li></ul><u>包括分隔符</u><br>在数据开头和结尾添加 '<~' 和 '~>'。Adobe的Base85一般采用此格式。";
         this.infoURL = "https://wikipedia.org/wiki/Ascii85";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

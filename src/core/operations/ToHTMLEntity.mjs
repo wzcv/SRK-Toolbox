@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,22 +20,22 @@ class ToHTMLEntity extends Operation {
     constructor() {
         super();
 
-        this.name = "To HTML Entity";
+        this.name = "HTML实体编码";
         this.module = "Encodings";
-        this.description = "Converts characters to HTML entities<br><br>e.g. <code>&amp;</code> becomes <code>&amp;<span>amp;</span></code>";
+        this.description = "把字符编码为HTML实体<br><br>例： <code>&amp;</code> 编码为 <code>&amp;<span>amp;</span></code>";
         this.infoURL = "https://wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Convert all characters",
+                "name": "转换所有字符",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Convert to",
+                "name": "转换成",
                 "type": "option",
-                "value": ["Named entities", "Numeric entities", "Hex entities"]
+                "value": ["名称", "十进制", "十六进制"]
             }
         ];
     }
@@ -45,8 +47,8 @@ class ToHTMLEntity extends Operation {
      */
     run(input, args) {
         const convertAll = args[0],
-            numeric = args[1] === "Numeric entities",
-            hexa = args[1] === "Hex entities";
+            numeric = args[1] === "十进制",
+            hexa = args[1] === "十六进制";
 
         const charcodes = Utils.strToCharcode(input);
         let output = "";

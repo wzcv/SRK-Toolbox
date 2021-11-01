@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class ToBase58 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base58";
+        this.name = "Base58编码";
         this.module = "Default";
-        this.description = "Base58 (similar to Base64) is a notation for encoding arbitrary byte data. It differs from Base64 by removing easily misread characters (i.e. l, I, 0 and O) to improve human readability.<br><br>This operation encodes data in an ASCII string (with an alphabet of your choosing, presets included).<br><br>e.g. <code>hello world</code> becomes <code>StV1DL6CwTryKyV</code><br><br>Base58 is commonly used in cryptocurrencies (Bitcoin, Ripple, etc).";
+        this.description = "Base58（类似于Base64）是把字节数据转换成特定字符组合的编码方式。和Base64的区别是移除了形状相近的易混字符（例如l、I、0和O)来提高可读性。<br><br>此操作将原始数据编码成使用ASCII字符的Base64字符串。<br><br>例： <code>hello world</code> 编码为 <code>StV1DL6CwTryKyV</code><br><br>Base58常见于加密货币（比特币、Ripple等)。";
         this.infoURL = "https://wikipedia.org/wiki/Base58";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Alphabet",
+                "name": "可用字符",
                 "type": "editableOption",
                 "value": ALPHABET_OPTIONS
             }
@@ -49,7 +51,7 @@ class ToBase58 extends Operation {
 
         if (alphabet.length !== 58 ||
             [].unique.call(alphabet).length !== 58) {
-            throw new OperationError("Error: alphabet must be of length 58");
+            throw new OperationError("错误：可用字符必须是58个");
         }
 
         if (input.length === 0) return "";

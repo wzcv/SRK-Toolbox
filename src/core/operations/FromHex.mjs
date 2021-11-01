@@ -21,7 +21,7 @@ class FromHex extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex解码";
+        this.name = "十六进制转字符";
         this.module = "Default";
         this.description = "把十六进制字符串解码为原先的内容。<br><br>例如： <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code> 解码为UTF-8字符串 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Hexadecimal";

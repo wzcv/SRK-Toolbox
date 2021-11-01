@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,20 +23,20 @@ class FromCharcode extends Operation {
     constructor() {
         super();
 
-        this.name = "From Charcode";
+        this.name = "从字符码提取";
         this.module = "Default";
-        this.description = "Converts unicode character codes back into text.<br><br>e.g. <code>0393 03b5 03b9 03ac 20 03c3 03bf 03c5</code> becomes <code>Γειά σου</code>";
+        this.description = "把Unicode字符码还原为字符。<br><br>例： <code>0393 03b5 03b9 03ac 20 03c3 03bf 03c5</code> 解码为 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Plane_(Unicode)";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             },
             {
-                "name": "Base",
+                "name": "进制",
                 "type": "number",
                 "value": 16
             }
@@ -49,13 +51,13 @@ class FromCharcode extends Operation {
      * @throws {OperationError} if base out of range
      */
     run(input, args) {
-        const delim = Utils.charRep(args[0] || "Space"),
+        const delim = Utils.charRep(args[0] || "空格"),
             base = args[1];
         let bites = input.split(delim),
             i = 0;
 
         if (base < 2 || base > 36) {
-            throw new OperationError("Error: Base argument must be between 2 and 36");
+            throw new OperationError("错误：进制必须在2~36之间");
         }
 
         if (input.length === 0) {

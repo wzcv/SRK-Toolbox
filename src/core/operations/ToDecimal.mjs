@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,19 +22,19 @@ class ToDecimal extends Operation {
     constructor() {
         super();
 
-        this.name = "To Decimal";
+        this.name = "字符转十进制";
         this.module = "Default";
-        this.description = "Converts the input data to an ordinal integer array.<br><br>e.g. <code>Hello</code> becomes <code>72 101 108 108 111</code>";
+        this.description = "将输入字符串转换为对应的十进制表示（使用给定的分隔符）。<br><br>例： <code>Hello</code> 编码为 <code>72 101 108 108 111</code>";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             },
             {
-                "name": "Support signed values",
+                "name": "支持带符号数值（signed int）",
                 "type": "boolean",
                 "value": false
             }

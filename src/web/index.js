@@ -30,8 +30,8 @@ function main() {
     const defaultFavourites = [
         "Base64编码",
         "Base64解码",
-        "Hex编码",
-        "Hex解码",
+        "字符转十六进制",
+        "十六进制转字符",
         "转换到Hexdump",
         "从Hexdump提取",
         "URL解码",

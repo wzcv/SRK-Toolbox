@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,19 +21,19 @@ class FromDecimal extends Operation {
     constructor() {
         super();
 
-        this.name = "From Decimal";
+        this.name = "十进制转字符";
         this.module = "Default";
-        this.description = "Converts the data from an ordinal integer array back into its raw form.<br><br>e.g. <code>72 101 108 108 111</code> becomes <code>Hello</code>";
+        this.description = "把十进制字符串解码为原先的内容。<br><br>例： <code>72 101 108 108 111</code> 解码为 <code>Hello</code>";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             },
             {
-                "name": "Support signed values",
+                "name": "支持带符号数字（signed int）",
                 "type": "boolean",
                 "value": false
             }
@@ -40,27 +42,27 @@ class FromDecimal extends Operation {
             {
                 pattern: "^(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])(?: (?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5]))*$",
                 flags: "",
-                args: ["Space", false]
+                args: ["空格", false]
             },
             {
                 pattern: "^(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])(?:,(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5]))*$",
                 flags: "",
-                args: ["Comma", false]
+                args: ["逗号", false]
             },
             {
                 pattern: "^(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])(?:;(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5]))*$",
                 flags: "",
-                args: ["Semi-colon", false]
+                args: ["分号", false]
             },
             {
                 pattern: "^(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])(?::(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5]))*$",
                 flags: "",
-                args: ["Colon", false]
+                args: ["冒号", false]
             },
             {
                 pattern: "^(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])(?:\\n(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5]))*$",
                 flags: "",
-                args: ["Line feed", false]
+                args: ["换行符", false]
             },
             {
                 pattern: "^(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5])(?:\\r\\n(?:\\d{1,2}|1\\d{2}|2[0-4]\\d|25[0-5]))*$",

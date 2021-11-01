@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class ToBinary extends Operation {
     constructor() {
         super();
 
-        this.name = "To Binary";
+        this.name = "字符转二进制";
         this.module = "Default";
-        this.description = "Displays the input data as a binary string.<br><br>e.g. <code>Hi</code> becomes <code>01001000 01101001</code>";
+        this.description = "将输入字符串转换为对应的二进制表示（使用给定的分隔符）。<br><br>例 <code>Hi</code> 编码为 <code>01001000 01101001</code>";
         this.infoURL = "https://wikipedia.org/wiki/Binary_code";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": BIN_DELIM_OPTIONS
             },
             {
-                "name": "Byte Length",
+                "name": "字节长度",
                 "type": "number",
                 "value": 8
             }
@@ -61,7 +63,7 @@ class ToBinary extends Operation {
      * @returns {Object[]} pos
      */
     highlight(pos, args) {
-        const delim = Utils.charRep(args[0] || "Space");
+        const delim = Utils.charRep(args[0] || "空格");
         pos[0].start = pos[0].start * (8 + delim.length);
         pos[0].end = pos[0].end * (8 + delim.length) - delim.length;
         return pos;
@@ -77,7 +79,7 @@ class ToBinary extends Operation {
      * @returns {Object[]} pos
      */
     highlightReverse(pos, args) {
-        const delim = Utils.charRep(args[0] || "Space");
+        const delim = Utils.charRep(args[0] || "空格");
         pos[0].start = pos[0].start === 0 ? 0 : Math.floor(pos[0].start / (8 + delim.length));
         pos[0].end = pos[0].end === 0 ? 0 : Math.ceil(pos[0].end / (8 + delim.length));
         return pos;

@@ -21,7 +21,7 @@ class ToHex extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex编码";
+        this.name = "字符转十六进制";
         this.module = "Default";
         this.description = "将输入字符串转换为对应的十六进制表示（使用给定的分隔符）。<br><br>例如：UTF-8字符串 <code>Γειά σου</code> 编码成 <code>ce 93 ce b5 ce b9 ce ac 20 cf 83 ce bf cf 85 0a</code>";
         this.infoURL = "https://wikipedia.org/wiki/Hexadecimal";

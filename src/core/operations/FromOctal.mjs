@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,15 +21,15 @@ class FromOctal extends Operation {
     constructor() {
         super();
 
-        this.name = "From Octal";
+        this.name = "八进制转字符";
         this.module = "Default";
-        this.description = "Converts an octal byte string back into its raw value.<br><br>e.g. <code>316 223 316 265 316 271 316 254 40 317 203 316 277 317 205</code> becomes the UTF-8 encoded string <code>Γειά σου</code>";
+        this.description = "把八进制字符串解码为原先的内容。<br><br>例： <code>316 223 316 265 316 271 316 254 40 317 203 316 277 317 205</code> 解码成UTF-8字符串 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Octal";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             }

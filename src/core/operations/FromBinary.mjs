@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class FromBinary extends Operation {
     constructor() {
         super();
 
-        this.name = "From Binary";
+        this.name = "二进制转字符";
         this.module = "Default";
-        this.description = "Converts a binary string back into its raw form.<br><br>e.g. <code>01001000 01101001</code> becomes <code>Hi</code>";
+        this.description = "把二进制字符串解码为原先的内容<br><br>例 <code>01001000 01101001</code> 解码为 <code>Hi</code>";
         this.infoURL = "https://wikipedia.org/wiki/Binary_code";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": BIN_DELIM_OPTIONS
             },
             {
-                "name": "Byte Length",
+                "name": "字节长度",
                 "type": "number",
                 "value": 8,
                 "min": 1

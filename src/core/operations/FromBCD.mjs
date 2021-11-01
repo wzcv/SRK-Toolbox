@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,30 +23,30 @@ class FromBCD extends Operation {
     constructor() {
         super();
 
-        this.name = "From BCD";
+        this.name = "BCD码解码";
         this.module = "Default";
-        this.description = "Binary-Coded Decimal (BCD) is a class of binary encodings of decimal numbers where each decimal digit is represented by a fixed number of bits, usually four or eight. Special bit patterns are sometimes used for a sign.";
+        this.description = "BCD码（Binary-Coded Decimal)是一种十进制数字编码的形式。在这种编码下，每个十进制数字用一串单独的二进制比特来存储与表示。常见的有以4位或8位表示1个十进制数字。有时会用特殊的码位表示特殊符号。";
         this.infoURL = "https://wikipedia.org/wiki/Binary-coded_decimal";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Scheme",
+                "name": "编码方式",
                 "type": "option",
                 "value": ENCODING_SCHEME
             },
             {
-                "name": "Packed",
+                "name": "压缩",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Signed",
+                "name": "有符号",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
                 "value": FORMAT
             }
@@ -53,7 +55,7 @@ class FromBCD extends Operation {
             {
                 pattern: "^(?:\\d{4} ){3,}\\d{4}$",
                 flags: "",
-                args: ["8 4 2 1", true, false, "Nibbles"]
+                args: ["8 4 2 1", true, false, "半字节"]
             },
         ];
     }
@@ -75,14 +77,14 @@ class FromBCD extends Operation {
 
         // Normalise the input
         switch (inputFormat) {
-            case "Nibbles":
-            case "Bytes":
+            case "半字节":
+            case "字节":
                 input = input.replace(/\s/g, "");
                 for (let i = 0; i < input.length; i += 4) {
                     nibbles.push(parseInt(input.substr(i, 4), 2));
                 }
                 break;
-            case "Raw":
+            case "原始数据":
             default:
                 byteArray = Utils.strToByteArray(input);
                 byteArray.forEach(b => {
@@ -109,9 +111,9 @@ class FromBCD extends Operation {
         }
 
         nibbles.forEach(n => {
-            if (isNaN(n)) throw new OperationError("Invalid input");
+            if (isNaN(n)) throw new OperationError("无效输入");
             const val = encoding.indexOf(n);
-            if (val < 0) throw new OperationError(`Value ${Utils.bin(n, 4)} is not in the encoding scheme`);
+            if (val < 0) throw new OperationError(`值 ${Utils.bin(n, 4)} 无法被编码`);
             output += val.toString();
         });
 

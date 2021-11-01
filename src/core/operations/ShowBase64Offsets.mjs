@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,27 +22,27 @@ class ShowBase64Offsets extends Operation {
     constructor() {
         super();
 
-        this.name = "Show Base64 offsets";
+        this.name = "显示Base64偏移形式";
         this.module = "Default";
-        this.description = "When a string is within a block of data and the whole block is Base64'd, the string itself could be represented in Base64 in three distinct ways depending on its offset within the block.<br><br>This operation shows all possible offsets for a given string so that each possible encoding can be considered.";
+        this.description = "当一个字符串被包含在其他数据中间一起被Base64编码的时候，根据字符串所在的位置，可能有三种不同的编码结果。<br><br>此操作会显示三种不同结果，用于后期匹配。";
         this.infoURL = "https://wikipedia.org/wiki/Base64#Output_padding";
         this.inputType = "byteArray";
         this.outputType = "html";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "binaryString",
                 value: "A-Za-z0-9+/="
             },
             {
-                name: "Show variable chars and padding",
+                name: "显示可变字符与填充位",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Raw", "Base64"]
+                value: ["原始字符串", "Base64"]
             }
         ];
     }
@@ -69,7 +71,7 @@ class ShowBase64Offsets extends Operation {
             script = "<script type='application/javascript'>$('[data-toggle=\"tooltip\"]').tooltip()</script>";
 
         if (input.length < 1) {
-            throw new OperationError("Please enter a string.");
+            throw new OperationError("请输入字符串");
         }
 
         // Highlight offset 0
@@ -157,13 +159,13 @@ class ShowBase64Offsets extends Operation {
             offset2 = staticSection;
         }
 
-        return (showVariable ? "Characters highlighted in <span class='hl5'>green</span> could change if the input is surrounded by more data." +
-            "\nCharacters highlighted in <span class='hl3'>red</span> are for padding purposes only." +
-            "\nUnhighlighted characters are <span data-toggle='tooltip' data-placement='top' title='Tooltip on left'>static</span>." +
-            "\nHover over the static sections to see what they decode to on their own.\n" +
-            "\nOffset 0: " + offset0 +
-            "\nOffset 1: " + offset1 +
-            "\nOffset 2: " + offset2 +
+        return (showVariable ? "<span class='hl5'>绿色</span>字符表示它根据前后数据的不同可能会发生变化。" +
+            "\n<span class='hl3'>红色</span>字符只是用于填充占位。" +
+            "\n无背景色的字符表示<span data-toggle='tooltip' data-placement='top' title='不会根据前后数据发生变化'>固定内容</span>。" +
+            "\n鼠标放到固定内容部分查看此部分会解码成什么内容。\n" +
+            "\n偏移量0: " + offset0 +
+            "\n偏移量1: " + offset1 +
+            "\n偏移量2: " + offset2 +
             script :
             offset0 + "\n" + offset1 + "\n" + offset2);
     }

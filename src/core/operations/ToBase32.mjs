@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,15 +20,15 @@ class ToBase32 extends Operation {
     constructor() {
         super();
 
-        this.name = "To Base32";
+        this.name = "Base32编码";
         this.module = "Default";
-        this.description = "Base32 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. It uses a smaller set of characters than Base64, usually the uppercase alphabet and the numbers 2 to 7.";
+        this.description = "Base32是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取。Base32比Base64使用的字母表小一些，通常只包含大写字母和数字2到7。";
         this.infoURL = "https://wikipedia.org/wiki/Base32";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "binaryString",
                 value: "A-Z2-7="
             }
