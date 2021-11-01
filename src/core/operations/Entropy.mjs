@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import * as d3temp from "d3";
@@ -23,18 +25,18 @@ class Entropy extends Operation {
     constructor() {
         super();
 
-        this.name = "Entropy";
+        this.name = "熵";
         this.module = "Charts";
-        this.description = "Shannon Entropy, in the context of information theory, is a measure of the rate at which information is produced by a source of data. It can be used, in a broad sense, to detect whether data is likely to be structured or unstructured. 8 is the maximum, representing highly unstructured, 'random' data. English language text usually falls somewhere between 3.5 and 5. Properly encrypted or compressed data should have an entropy of over 7.5.";
+        this.description = "在信息论中，香农熵是接收的每条消息中包含的信息的平均量，又被称为信息熵、信源熵、平均自信息量。通常可以用来衡量一段数据具有（或不具有）某种特定结构。对于单字节的英文字符，最大值是8（8个比特），表示完全随机的一段内容。英语文章的香农熵通常在3.5~5。通常情况下，加密或压缩后的密文需要高于7.5的熵。";
         this.infoURL = "https://wikipedia.org/wiki/Entropy_(information_theory)";
         this.inputType = "ArrayBuffer";
         this.outputType = "json";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Visualisation",
+                "name": "可视化",
                 "type": "option",
-                "value": ["Shannon scale", "Histogram (Bar)", "Histogram (Line)", "Curve", "Image"]
+                "value": ["香农量表", "图表 (柱状图)", "图表 (折线图)", "曲线图", "图像"]
             }
         ];
     }
@@ -348,13 +350,13 @@ class Entropy extends Operation {
      * @returns {HTML}
      */
     createShannonEntropyVisualization(entropy) {
-        return `Shannon entropy: ${entropy}
+        return `香农熵： ${entropy}
         <br><canvas id='chart-area'></canvas><br>
-        - 0 represents no randomness (i.e. all the bytes in the data have the same value) whereas 8, the maximum, represents a completely random string.
-        - Standard English text usually falls somewhere between 3.5 and 5.
-        - Properly encrypted or compressed data of a reasonable length should have an entropy of over 7.5.
+        - 0代表完全不随机（比如所有的字节都是相同内容）；最大值为8，代表完全随机的字符串。
+        - 通常情况下英语文章的熵在3.5~5。
+        - 通常对于加密或压缩后的密文熵应该达到7.5以上。
 
-        The following results show the entropy of chunks of the input data. Chunks with particularly high entropy could suggest encrypted or compressed sections.
+        此结果显示输入内容的熵。对于特别高熵的内容，可能为加密或压缩后的密文。
 
         <br><script>
             var canvas = document.getElementById("chart-area"),
@@ -389,13 +391,13 @@ class Entropy extends Operation {
         input = new Uint8Array(input);
 
         switch (visualizationType) {
-            case "Histogram (Bar)":
-            case "Histogram (Line)":
+            case "图表 (柱状图)":
+            case "图表 (折线图)":
                 return this.calculateByteFrequency(input);
-            case "Curve":
-            case "Image":
+            case "曲线图":
+            case "图像":
                 return this.calculateScanningEntropy(input).entropyData;
-            case "Shannon scale":
+            case "香农量表":
             default:
                 return this.calculateShannonEntropy(input);
         }
@@ -412,15 +414,15 @@ class Entropy extends Operation {
         const visualizationType = args[0];
 
         switch (visualizationType) {
-            case "Histogram (Bar)":
+            case "图表 (柱状图)":
                 return this.createByteFrequencyBarHistogram(entropyData);
-            case "Histogram (Line)":
+            case "图表 (折线图)":
                 return this.createByteFrequencyLineHistogram(entropyData);
-            case "Curve":
+            case "曲线图":
                 return this.createEntropyCurve(entropyData);
-            case "Image":
+            case "图像":
                 return this.createEntropyImage(entropyData);
-            case "Shannon scale":
+            case "香农量表":
             default:
                 return this.createShannonEntropyVisualization(entropyData);
         }

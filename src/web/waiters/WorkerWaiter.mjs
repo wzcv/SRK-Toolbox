@@ -3,6 +3,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import ChefWorker from "worker-loader?inline=no-fallback!../../core/ChefWorker.js";
@@ -430,7 +432,7 @@ class WorkerWaiter {
         if (typeof nextInput.inputNum === "string") nextInput.inputNum = parseInt(nextInput.inputNum, 10);
 
         log.debug(`Baking input ${nextInput.inputNum}.`);
-        this.manager.output.updateOutputMessage(`Baking input ${nextInput.inputNum}...`, nextInput.inputNum, false);
+        this.manager.output.updateOutputMessage(`正在执行 输入 ${nextInput.inputNum}...`, nextInput.inputNum, false);
         this.manager.output.updateOutputStatus("baking", nextInput.inputNum);
 
         this.chefWorkers[workerIdx].inputNum = nextInput.inputNum;

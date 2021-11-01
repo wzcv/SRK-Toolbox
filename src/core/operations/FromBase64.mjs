@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,20 +20,20 @@ class FromBase64 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base64";
+        this.name = "Base64解码";
         this.module = "Default";
-        this.description = "Base64 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers.<br><br>This operation decodes data from an ASCII Base64 string back into its raw format.<br><br>e.g. <code>aGVsbG8=</code> becomes <code>hello</code>";
+        this.description = "Base64是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取。<br><br>此操作将已编码成ASCII字符的Base64字符串解码为原始数据。<br><br>例： <code>aGVsbG8=</code> 解码成 <code>hello</code>";
         this.infoURL = "https://wikipedia.org/wiki/Base64";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "editableOption",
                 value: ALPHABET_OPTIONS
             },
             {
-                name: "Remove non-alphabet chars",
+                name: "移除输入中的非可用字符",
                 type: "boolean",
                 value: true
             }

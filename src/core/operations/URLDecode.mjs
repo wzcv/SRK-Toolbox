@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class URLDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "URL Decode";
+        this.name = "URL解码";
         this.module = "URL";
-        this.description = "Converts URI/URL percent-encoded characters back to their raw values.<br><br>e.g. <code>%3d</code> becomes <code>=</code>";
+        this.description = "把URI/URL百分号编码的内容解码为原始内容。<br><br>例： <code>%3d</code> 解码为 <code>=</code>";
         this.infoURL = "https://wikipedia.org/wiki/Percent-encoding";
         this.inputType = "string";
         this.outputType = "string";

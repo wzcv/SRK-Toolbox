@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 // Styles
@@ -27,14 +29,14 @@ import OperationConfig from "../core/config/OperationConfig.json";
 function main() {
     const defaultFavourites = [
         "Base64编码",
-        "From Base64",
-        "To Hex",
-        "From Hex",
-        "To Hexdump",
-        "From Hexdump",
-        "URL Decode",
-        "Regular expression",
-        "Entropy",
+        "Base64解码",
+        "Hex编码",
+        "Hex解码",
+        "转换到Hexdump",
+        "从Hexdump提取",
+        "URL解码",
+        "正则表达式",
+        "熵",
         "Fork",
         "Magic"
     ];

@@ -22,7 +22,7 @@ class ToBase64 extends Operation {
 
         this.name = "Base64编码";
         this.module = "Default";
-        this.description = "Base64是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取.<br><br>此操作将原始数据编码成使用ASCII字符的Base64字符串。<br><br>例： <code>hello</code> 编码成 <code>aGVsbG8=</code>";
+        this.description = "Base64是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取。<br><br>此操作将原始数据编码成使用ASCII字符的Base64字符串。<br><br>例： <code>hello</code> 编码成 <code>aGVsbG8=</code>";
         this.infoURL = "https://wikipedia.org/wiki/Base64";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

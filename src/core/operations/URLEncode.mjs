@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,15 +19,15 @@ class URLEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "URL Encode";
+        this.name = "URL编码";
         this.module = "URL";
-        this.description = "Encodes problematic characters into percent-encoding, a format supported by URIs/URLs.<br><br>e.g. <code>=</code> becomes <code>%3d</code>";
+        this.description = "把特殊字符编码为百分号开头的形式，即URI/URL编码。<br><br>例： <code>=</code> 编码为 <code>%3d</code>";
         this.infoURL = "https://wikipedia.org/wiki/Percent-encoding";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Encode all special chars",
+                "name": "编码所有特殊字符",
                 "type": "boolean",
                 "value": false
             }

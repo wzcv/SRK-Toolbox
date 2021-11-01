@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class FromHexdump extends Operation {
     constructor() {
         super();
 
-        this.name = "From Hexdump";
+        this.name = "从Hexdump提取";
         this.module = "Default";
-        this.description = "Attempts to convert a hexdump back into raw data. This operation supports many different hexdump variations, but probably not all. Make sure you verify that the data it gives you is correct before continuing analysis.";
+        this.description = "尝试提取hexdump包含的原始数据。此操作支持大部分hexdump类型。在进行下一步分析之前务必确认输入数据的正确性。";
         this.infoURL = "https://wikipedia.org/wiki/Hex_dump";
         this.inputType = "string";
         this.outputType = "byteArray";
