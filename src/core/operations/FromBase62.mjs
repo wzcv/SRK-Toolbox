@@ -2,6 +2,8 @@
  * @author tcode2k16 [tcode2k16@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import Operation from "../Operation.mjs";

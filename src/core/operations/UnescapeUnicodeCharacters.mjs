@@ -18,14 +18,14 @@ class UnescapeUnicodeCharacters extends Operation {
     constructor() {
         super();
 
-        this.name = "Unescape Unicode Characters";
+        this.name = "Unicode转义恢复";
         this.module = "Default";
-        this.description = "Converts unicode-escaped character notation back into raw characters.<br><br>Supports the prefixes:<ul><li><code>\\u</code></li><li><code>%u</code></li><li><code>U+</code></li></ul>e.g. <code>\\u03c3\\u03bf\\u03c5</code> becomes <code>σου</code>";
+        this.description = "把转义后的Unicode字符恢复成原本形式。<br><br>支持以下前缀：<ul><li><code>\\u</code></li><li><code>%u</code></li><li><code>U+</code></li></ul>例： <code>\\u03c3\\u03bf\\u03c5</code> 解码为 <code>σου</code>";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Prefix",
+                "name": "前缀",
                 "type": "option",
                 "value": ["\\u", "%u", "U+"]
             }

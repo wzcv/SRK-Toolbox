@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import r from "jsrsasign";
@@ -18,15 +20,15 @@ class HexToPEM extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex to PEM";
+        this.name = "十六进制转PEM";
         this.module = "PublicKey";
-        this.description = "Converts a hexadecimal DER (Distinguished Encoding Rules) string into PEM (Privacy Enhanced Mail) format.";
+        this.description = "把十六进制DER(Distinguished Encoding Rules)字符串转换成PEM(Privacy Enhanced Mail)格式。";
         this.infoURL = "https://wikipedia.org/wiki/Privacy-Enhanced_Mail";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Header string",
+                "name": "Header字符串",
                 "type": "string",
                 "value": "CERTIFICATE"
             }

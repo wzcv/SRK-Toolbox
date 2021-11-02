@@ -6,6 +6,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,9 +23,9 @@ class FromQuotedPrintable extends Operation {
     constructor() {
         super();
 
-        this.name = "From Quoted Printable";
+        this.name = "QP解码";
         this.module = "Default";
-        this.description = "Converts QP-encoded text back to standard text.<br><br>e.g. The quoted-printable encoded string <code>hello=20world</code> becomes <code>hello world</code>";
+        this.description = "把QP编码的字符还原。<br><br>例：QP编码的字符串 <code>hello=20world</code> 解码为 <code>hello world</code>";
         this.infoURL = "https://wikipedia.org/wiki/Quoted-printable";
         this.inputType = "string";
         this.outputType = "byteArray";

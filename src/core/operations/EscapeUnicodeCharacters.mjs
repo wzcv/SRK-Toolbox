@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,29 +19,29 @@ class EscapeUnicodeCharacters extends Operation {
     constructor() {
         super();
 
-        this.name = "Escape Unicode Characters";
+        this.name = "Unicode字符转义";
         this.module = "Default";
-        this.description = "Converts characters to their unicode-escaped notations.<br><br>Supports the prefixes:<ul><li><code>\\u</code></li><li><code>%u</code></li><li><code>U+</code></li></ul>e.g. <code>σου</code> becomes <code>\\u03C3\\u03BF\\u03C5</code>";
+        this.description = "把Unicode字符根据选定的前缀格式进行转义。<br><br>支持以下前缀：<ul><li><code>\\u</code></li><li><code>%u</code></li><li><code>U+</code></li></ul>例： <code>σου</code> 编码为 <code>\\u03C3\\u03BF\\u03C5</code>";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Prefix",
+                "name": "前缀",
                 "type": "option",
                 "value": ["\\u", "%u", "U+"]
             },
             {
-                "name": "Encode all chars",
+                "name": "转义所有字符",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Padding",
+                "name": "填充位数",
                 "type": "number",
                 "value": 4
             },
             {
-                "name": "Uppercase hex",
+                "name": "十六进制大写",
                 "type": "boolean",
                 "value": true
             }

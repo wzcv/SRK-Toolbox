@@ -2,6 +2,8 @@
  * @author Matthieu [m@tthieu.xyz]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class NormaliseUnicode extends Operation {
     constructor() {
         super();
 
-        this.name = "Normalise Unicode";
+        this.name = "Unicode正规化";
         this.module = "Encodings";
-        this.description = "Transform Unicode characters to one of the Normalisation Forms";
+        this.description = "按照选定的正规形式对Unicode字符执行正规化操作。";
         this.infoURL = "https://wikipedia.org/wiki/Unicode_equivalence#Normal_forms";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Normal Form",
+                name: "正规形式",
                 type: "option",
                 value: UNICODE_NORMALISATION_FORMS
             }
@@ -53,7 +55,7 @@ class NormaliseUnicode extends Operation {
             case "NFKC":
                 return unorm.nfkc(input);
             default:
-                throw new OperationError("Unknown Normalisation Form");
+                throw new OperationError("未知的正规形式");
         }
     }
 

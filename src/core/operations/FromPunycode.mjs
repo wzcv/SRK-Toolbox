@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,15 +20,15 @@ class FromPunycode extends Operation {
     constructor() {
         super();
 
-        this.name = "From Punycode";
+        this.name = "Punycode解码";
         this.module = "Encodings";
-        this.description = "Punycode is a way to represent Unicode with the limited character subset of ASCII supported by the Domain Name System.<br><br>e.g. <code>mnchen-3ya</code> decodes to <code>m\xfcnchen</code>";
+        this.description = "Punycode是用ASCII字符的一个子集来编码Unicode域名的一种方法。<br><br>例： <code>mnchen-3ya</code> 解码为 <code>m\xfcnchen</code>";
         this.infoURL = "https://wikipedia.org/wiki/Punycode";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Internationalised domain name",
+                "name": "国际化域名（带xn--）",
                 "type": "boolean",
                 "value": false
             }

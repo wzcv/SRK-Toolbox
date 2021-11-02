@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class FromHexContent extends Operation {
     constructor() {
         super();
 
-        this.name = "From Hex Content";
+        this.name = "Snort Content解码";
         this.module = "Default";
-        this.description = "Translates hexadecimal bytes in text back to raw bytes. This format is used by SNORT for representing hex within ASCII text.<br><br>e.g. <code>foo|3d|bar</code> becomes <code>foo=bar</code>.";
+        this.description = "把十六进制恢复成原始字符。SNORT的Content关键字使用此格式。<br><br>例： <code>foo|3d|bar</code> 解码为<code>foo=bar</code>.";
         this.infoURL = "http://manual-snort-org.s3-website-us-east-1.amazonaws.com/node32.html#SECTION00451000000000000000";
         this.inputType = "string";
         this.outputType = "byteArray";
