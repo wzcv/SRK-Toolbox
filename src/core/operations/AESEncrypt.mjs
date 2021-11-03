@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class AESEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "AES Encrypt";
+        this.name = "AES加密";
         this.module = "Ciphers";
-        this.description = "Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.<br><br><b>Key:</b> The following algorithms will be used based on the size of the key:<ul><li>16 bytes = AES-128</li><li>24 bytes = AES-192</li><li>32 bytes = AES-256</li></ul>You can generate a password-based key using one of the KDF operations.<br><br><b>IV:</b> The Initialization Vector should be 16 bytes long. If not entered, it will default to 16 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used.";
+        this.description = "高级加密标准(AES)是美国联邦政府采用的一种区块加密标准(FIPS)。十五种不同算法，经过五年的甄选流程，Rijndael加密法脱颖而出，成为有效标准。<br><br><b>Key：</b>根据Key的长度，会应用以下不同算法：<ul><li>16字节 = AES-128</li><li>24字节 = AES-192</li><li>32字节 = AES-256</li></ul>你可以通过密钥派生操作来生成基于密码的key。<br><br><b>IV：</b> 初始化向量的长度是16字节。<br><br><b>填充：</b>CBC和ECB模式下会使用PKCS#7填充。";
         this.infoURL = "https://wikipedia.org/wiki/Advanced_Encryption_Standard";
         this.inputType = "string";
         this.outputType = "string";
@@ -31,16 +33,16 @@ class AESEncrypt extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "IV",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "argSelector",
                 "value": [
                     {
@@ -70,20 +72,20 @@ class AESEncrypt extends Operation {
                 ]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始内容", "十六进制"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始内容"]
             },
             {
-                "name": "Additional Authenticated Data",
+                "name": "额外鉴权数据",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             }
         ];
     }
@@ -104,12 +106,12 @@ class AESEncrypt extends Operation {
             aad = Utils.convertToByteString(args[5].string, args[5].option);
 
         if ([16, 24, 32].indexOf(key.length) < 0) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`无效的Key长度： ${key.length} 字节
 
-The following algorithms will be used based on the size of the key:
-  16 bytes = AES-128
-  24 bytes = AES-192
-  32 bytes = AES-256`);
+根据Key的长度，会应用以下不同算法：
+  16字节 = AES-128
+  24字节 = AES-192
+  32字节 = AES-256`);
         }
 
         input = Utils.convertToByteString(input, inputType);
@@ -122,7 +124,7 @@ The following algorithms will be used based on the size of the key:
         cipher.update(forge.util.createBuffer(input));
         cipher.finish();
 
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             if (mode === "GCM") {
                 return cipher.output.toHex() + "\n\n" +
                     "Tag: " + cipher.mode.tag.toHex();

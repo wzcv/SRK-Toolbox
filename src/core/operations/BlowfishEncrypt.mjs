@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,9 +23,9 @@ class BlowfishEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "Blowfish Encrypt";
+        this.name = "Blowfish加密";
         this.module = "Ciphers";
-        this.description = "Blowfish is a symmetric-key block cipher designed in 1993 by Bruce Schneier and included in a large number of cipher suites and encryption products. AES now receives more attention.<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.";
+        this.description = "Blowfish是一个对称密钥加密分组密码算法，由布鲁斯·施奈尔于1993年设计，现已应用在多种加密产品。Blowfish算法由于分组长度太小已被认为不安全，施奈尔更建议在现代应用中使用Twofish密码。<br><br><b>IV：</b> 初始化向量必须是8字节长度。";
         this.infoURL = "https://wikipedia.org/wiki/Blowfish_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
@@ -32,28 +34,28 @@ class BlowfishEncrypt extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "IV",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始内容", "十六进制"]
             },
             {
-                "name": "Output",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始内容"]
             }
         ];
     }
@@ -71,9 +73,9 @@ class BlowfishEncrypt extends Operation {
             outputType = args[4];
 
         if (key.length !== 8) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`无效的key长度： ${key.length}字节
 
-Blowfish uses a key length of 8 bytes (64 bits).`);
+Blowfish的key长度为8字节（64位）。`);
         }
 
         input = Utils.convertToByteString(input, inputType);
@@ -83,7 +85,7 @@ Blowfish uses a key length of 8 bytes (64 bits).`);
         cipher.update(forge.util.createBuffer(input));
         cipher.finish();
 
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             return cipher.output.toHex();
         } else {
             return cipher.output.getBytes();

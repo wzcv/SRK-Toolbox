@@ -67,14 +67,14 @@
         ]
     },
     {
-        "name": "解密 / 解码",
+        "name": "加密算法",
         "ops": [
-            "AES Encrypt",
-            "AES Decrypt",
-            "Blowfish Encrypt",
-            "Blowfish Decrypt",
-            "DES Encrypt",
-            "DES Decrypt",
+            "AES加密",
+            "AES解密",
+            "Blowfish加密",
+            "Blowfish解密",
+            "DES加密",
+            "DES解密",
             "Triple DES Encrypt",
             "Triple DES Decrypt",
             "RC2 Encrypt",

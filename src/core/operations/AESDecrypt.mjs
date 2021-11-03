@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class AESDecrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "AES Decrypt";
+        this.name = "AES解密";
         this.module = "Ciphers";
-        this.description = "Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.<br><br><b>Key:</b> The following algorithms will be used based on the size of the key:<ul><li>16 bytes = AES-128</li><li>24 bytes = AES-192</li><li>32 bytes = AES-256</li></ul><br><br><b>IV:</b> The Initialization Vector should be 16 bytes long. If not entered, it will default to 16 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used.<br><br><b>GCM Tag:</b> This field is ignored unless 'GCM' mode is used.";
+        this.description = "高级加密标准(AES)是美国联邦政府采用的一种区块加密标准(FIPS)。十五种不同算法，经过五年的甄选流程，Rijndael加密法脱颖而出，成为有效标准。<br><br><b>Key：</b>根据Key的长度，会应用以下不同算法：<ul><li>16字节 = AES-128</li><li>24字节 = AES-192</li><li>32字节 = AES-256</li></ul>你可以通过密钥派生操作来生成基于密码的key。<br><br><b>IV：</b> 初始化向量的长度是16字节。<br><br><b>填充：</b>CBC和ECB模式下会使用PKCS#7填充。<br><br><b>GCM Tag:</b>非GCM模式中忽略。";
         this.infoURL = "https://wikipedia.org/wiki/Advanced_Encryption_Standard";
         this.inputType = "string";
         this.outputType = "string";
@@ -31,13 +33,13 @@ class AESDecrypt extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "IV",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "Mode",
@@ -70,26 +72,26 @@ class AESDecrypt extends Operation {
                 ]
             },
             {
-                "name": "Input",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始数据"]
             },
             {
-                "name": "Output",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始数据", "十六进制"]
             },
             {
                 "name": "GCM Tag",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Additional Authenticated Data",
+                "name": "额外鉴权数据",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             }
         ];
     }
@@ -111,12 +113,12 @@ class AESDecrypt extends Operation {
             aad = Utils.convertToByteString(args[6].string, args[6].option);
 
         if ([16, 24, 32].indexOf(key.length) < 0) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`无效的Key长度： ${key.length} 字节
 
-The following algorithms will be used based on the size of the key:
-  16 bytes = AES-128
-  24 bytes = AES-192
-  32 bytes = AES-256`);
+根据Key的长度，会应用以下不同算法：
+    16字节 = AES-128
+    24字节 = AES-192
+    32字节 = AES-256`);
         }
 
         input = Utils.convertToByteString(input, inputType);
@@ -131,9 +133,9 @@ The following algorithms will be used based on the size of the key:
         const result = decipher.finish();
 
         if (result) {
-            return outputType === "Hex" ? decipher.output.toHex() : decipher.output.getBytes();
+            return outputType === "十六进制" ? decipher.output.toHex() : decipher.output.getBytes();
         } else {
-            throw new OperationError("Unable to decrypt input with these parameters.");
+            throw new OperationError("无法解密，参数错误");
         }
     }
 

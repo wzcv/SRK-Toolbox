@@ -314,7 +314,7 @@ module.exports = function (grunt) {
                 files: [
                     {
                         src: ["build/prod/index.html"],
-                        dest: `build/prod/CyberChef_v${pkg.version}.html`
+                        dest: `build/prod/SRK_Toolbox_v${pkg.version}.html`
                     }
                 ]
             }

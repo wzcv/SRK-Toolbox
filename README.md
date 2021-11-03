@@ -1,3 +1,13 @@
+# SRK Toolbox
+
+CyberChef汉化版，因为是Apache 2.0 License，所以我可以给整个项目改名字 :)
+
+目前缓慢汉化中，汉化进度可参考issues。
+
+[汉化预览版在这里](https://btsrk.me) - have fun!
+
+以下是CyberChef的原版README：
+
 # CyberChef
 
 [![](https://github.com/gchq/CyberChef/workflows/Master%20Build,%20Test%20&%20Deploy/badge.svg)](https://github.com/gchq/CyberChef/actions?query=workflow%3A%22Master+Build%2C+Test+%26+Deploy%22)

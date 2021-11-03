@@ -367,8 +367,14 @@ class Utils {
         switch (type.toLowerCase()) {
             case "binary":
                 return Utils.byteArrayToChars(fromBinary(str));
+            case "二进制":
+                return Utils.byteArrayToChars(fromBinary(str));
+            case "十六进制":
+                return Utils.byteArrayToChars(fromHex(str));
             case "hex":
                 return Utils.byteArrayToChars(fromHex(str));
+            case "十进制":
+                return Utils.byteArrayToChars(fromDecimal(str));
             case "decimal":
                 return Utils.byteArrayToChars(fromDecimal(str));
             case "base64":
