@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,21 +22,21 @@ class ChangeIPFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Change IP format";
+        this.name = "IP地址格式转换";
         this.module = "Default";
-        this.description = "Convert an IP address from one format to another, e.g. <code>172.20.23.54</code> to <code>ac141736</code>";
+        this.description = "转换IP地址的表示方法。例： <code>172.20.23.54</code> 转换成 <code>ac141736</code>";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Dotted Decimal", "Decimal", "Octal", "Hex"]
+                "value": ["十进制用点分隔", "十进制", "八进制", "十六进制"]
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Dotted Decimal", "Decimal", "Octal", "Hex"]
+                "value": ["十进制用点分隔", "十进制", "八进制", "十六进制"]
             }
         ];
     }
@@ -62,23 +64,23 @@ class ChangeIPFormat extends Operation {
 
             // Convert to byte array IP from input format
             switch (inFormat) {
-                case "Dotted Decimal":
+                case "十进制用点分隔":
                     octets = lines[i].split(".");
                     for (j = 0; j < octets.length; j++) {
                         baIp.push(parseInt(octets[j], 10));
                     }
                     break;
-                case "Decimal":
+                case "十进制":
                     baIp = this.fromNumber(lines[i].toString(), 10);
                     break;
-                case "Octal":
+                case "八进制":
                     baIp = this.fromNumber(lines[i].toString(), 8);
                     break;
-                case "Hex":
+                case "十六进制":
                     baIp = fromHex(lines[i]);
                     break;
                 default:
-                    throw new OperationError("Unsupported input IP format");
+                    throw new OperationError("不支持输入的IP格式");
             }
 
             let ddIp;
@@ -87,22 +89,22 @@ class ChangeIPFormat extends Operation {
 
             // Convert byte array IP to output format
             switch (outFormat) {
-                case "Dotted Decimal":
+                case "十进制用点分隔":
                     ddIp = "";
                     for (j = 0; j < baIp.length; j++) {
                         ddIp += baIp[j] + ".";
                     }
                     output += ddIp.slice(0, ddIp.length-1) + "\n";
                     break;
-                case "Decimal":
+                case "十进制":
                     decIp = ((baIp[0] << 24) | (baIp[1] << 16) | (baIp[2] << 8) | baIp[3]) >>> 0;
                     output += decIp.toString() + "\n";
                     break;
-                case "Octal":
+                case "八进制":
                     decIp = ((baIp[0] << 24) | (baIp[1] << 16) | (baIp[2] << 8) | baIp[3]) >>> 0;
                     output += "0" + decIp.toString(8) + "\n";
                     break;
-                case "Hex":
+                case "十六进制":
                     hexIp = "";
                     for (j = 0; j < baIp.length; j++) {
                         hexIp += Utils.hex(baIp[j]);
@@ -110,7 +112,7 @@ class ChangeIPFormat extends Operation {
                     output += hexIp + "\n";
                     break;
                 default:
-                    throw new OperationError("Unsupported output IP format");
+                    throw new OperationError("不支持的输出IP格式");
             }
         }
 

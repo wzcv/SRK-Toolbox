@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import r from "jsrsasign";
@@ -18,20 +20,20 @@ class ParseASN1HexString extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse ASN.1 hex string";
+        this.name = "解析ASN.1十六进制字符串";
         this.module = "PublicKey";
-        this.description = "Abstract Syntax Notation One (ASN.1) is a standard and notation that describes rules and structures for representing, encoding, transmitting, and decoding data in telecommunications and computer networking.<br><br>This operation parses arbitrary ASN.1 data and presents the resulting tree.";
+        this.description = "在电信和计算机网络领域，ASN.1（Abstract Syntax Notation One) 是一套标准，是描述数据的表示、编码、传输、解码的灵活的记法。<br><br>此操作用于解析十六进制ASN.1字符串。";
         this.infoURL = "https://wikipedia.org/wiki/Abstract_Syntax_Notation_One";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Starting index",
+                "name": "起始位置索引",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Truncate octet strings longer than",
+                "name": "截断超过以下长度的八字节字符串",
                 "type": "number",
                 "value": 32
             }

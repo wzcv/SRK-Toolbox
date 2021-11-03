@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class FromBraille extends Operation {
     constructor() {
         super();
 
-        this.name = "From Braille";
+        this.name = "盲文解码";
         this.module = "Default";
-        this.description = "Converts six-dot braille symbols to text.";
+        this.description = "把六点盲文转换成文字。";
         this.infoURL = "https://wikipedia.org/wiki/Braille";
         this.inputType = "string";
         this.outputType = "string";

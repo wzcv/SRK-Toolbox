@@ -2,6 +2,8 @@
  * @author jarrodconnolly [jarrod@nestedquotes.ca]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,15 +21,15 @@ class AvroToJSON extends Operation {
     constructor() {
         super();
 
-        this.name = "Avro to JSON";
+        this.name = "Avro转JSON";
         this.module = "Serialise";
-        this.description = "Converts Avro encoded data into JSON.";
+        this.description = "将Apache Avro编码格式转换为JSON。";
         this.infoURL = "https://wikipedia.org/wiki/Apache_Avro";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Force Valid JSON",
+                name: "强制有效JSON",
                 type: "boolean",
                 value: true
             }

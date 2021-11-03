@@ -2,6 +2,8 @@
  * @author Danh4 [dan.h4@ncsc.gov.uk]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class CBOREncode extends Operation {
     constructor() {
         super();
 
-        this.name = "CBOR Encode";
+        this.name = "CBOR编码";
         this.module = "Serialise";
-        this.description = "Concise Binary Object Representation (CBOR) is a binary data serialization format loosely based on JSON. Like JSON it allows the transmission of data objects that contain name–value pairs, but in a more concise manner. This increases processing and transfer speeds at the cost of human readability. It is defined in IETF RFC 8949.";
+        this.description = "简明二进制对象展现（CBOR，Concise Binary Object Representation）是一种提供良好压缩性，扩展性强，不需要进行版本协商的二进制数据交换形式。这些特性使它有别于早期的ASN.1和MessagePack等二进制序列化方式。IETF RFC 8949定义了详细的CBOR格式与说明。";
         this.infoURL = "https://wikipedia.org/wiki/CBOR";
         this.inputType = "JSON";
         this.outputType = "ArrayBuffer";

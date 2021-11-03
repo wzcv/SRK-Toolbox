@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class ToMessagePack extends Operation {
     constructor() {
         super();
 
-        this.name = "To MessagePack";
+        this.name = "MessagePack编码";
         this.module = "Code";
-        this.description = "Converts JSON to MessagePack encoded byte buffer. MessagePack is a computer data interchange format. It is a binary form for representing simple data structures like arrays and associative arrays.";
+        this.description = "把JSON转换成MessagePack编码的字节buffer。MessagePack是一种计算机数据交换格式。它是一种二进制形式，用于表示简单的数据结构，如数组和关联数组。";
         this.infoURL = "https://wikipedia.org/wiki/MessagePack";
         this.inputType = "JSON";
         this.outputType = "ArrayBuffer";
@@ -44,7 +46,7 @@ class ToMessagePack extends Operation {
                 return (new Uint8Array(res)).buffer;
             }
         } catch (err) {
-            throw new OperationError(`Could not encode JSON to MessagePack: ${err}`);
+            throw new OperationError(`无法将 JSON 转换为 MessagePack: ${err}`);
         }
     }
 

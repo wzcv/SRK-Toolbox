@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class JSONToCSV extends Operation {
     constructor() {
         super();
 
-        this.name = "JSON to CSV";
+        this.name = "JSON转CSV";
         this.module = "Default";
-        this.description = "Converts JSON data to a CSV based on the definition in RFC 4180.";
+        this.description = "把JSON转换为CSV格式（RFC 4180）。";
         this.infoURL = "https://wikipedia.org/wiki/Comma-separated_values";
         this.inputType = "JSON";
         this.outputType = "string";
         this.args = [
             {
-                name: "Cell delimiter",
+                name: "单元格分隔符",
                 type: "binaryShortString",
                 value: ","
             },
             {
-                name: "Row delimiter",
+                name: "行分隔符",
                 type: "binaryShortString",
                 value: "\\r\\n"
             }
@@ -101,7 +103,7 @@ class JSONToCSV extends Operation {
                 }
                 return this.toCSV(true);
             } catch (err) {
-                throw new OperationError("Unable to parse JSON to CSV: " + err.toString());
+                throw new OperationError("无法转换JSON到CSV：" + err.toString());
             }
         }
     }

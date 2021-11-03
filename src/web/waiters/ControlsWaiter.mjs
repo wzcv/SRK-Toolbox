@@ -59,9 +59,9 @@ class ControlsWaiter {
      */
     bakeClick() {
         const btnBake = document.getElementById("bake");
-        if (btnBake.textContent.indexOf("Bake") > 0) {
+        if (btnBake.textContent.indexOf("开整！") > 0) {
             this.app.manager.input.bakeAll();
-        } else if (btnBake.textContent.indexOf("Cancel") > 0) {
+        } else if (btnBake.textContent.indexOf("取消") > 0) {
             this.manager.worker.cancelBake(false, true);
         }
     }

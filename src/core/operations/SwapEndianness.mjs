@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,25 +22,25 @@ class SwapEndianness extends Operation {
     constructor() {
         super();
 
-        this.name = "Swap endianness";
+        this.name = "端序转换";
         this.module = "Default";
-        this.description = "Switches the data from big-endian to little-endian or vice-versa. Data can be read in as hexadecimal or raw bytes. It will be returned in the same format as it is entered.";
+        this.description = "转换输入数据的大小端序。可以读取十六进制或原始文本。输出格式与输入保持一致。";
         this.infoURL = "https://wikipedia.org/wiki/Endianness";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Data format",
+                "name": "数据格式",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始文本"]
             },
             {
-                "name": "Word length (bytes)",
+                "name": "字长 (字节)",
                 "type": "number",
                 "value": 4
             },
             {
-                "name": "Pad incomplete words",
+                "name": "填充不完整字编码",
                 "type": "boolean",
                 "value": true
             }
@@ -59,15 +61,15 @@ class SwapEndianness extends Operation {
             data = [];
 
         if (wordLength <= 0) {
-            throw new OperationError("Word length must be greater than 0");
+            throw new OperationError("字长必须大于0");
         }
 
         // Convert input to raw data based on specified data format
         switch (dataFormat) {
-            case "Hex":
+            case "十六进制":
                 data = fromHex(input);
                 break;
-            case "Raw":
+            case "原始文本":
                 data = Utils.strToByteArray(input);
                 break;
             default:
@@ -98,9 +100,9 @@ class SwapEndianness extends Operation {
 
         // Convert data back to specified data format
         switch (dataFormat) {
-            case "Hex":
+            case "十六进制":
                 return toHex(result);
-            case "Raw":
+            case "原始文本":
                 return Utils.byteArrayToUtf8(result);
             default:
                 return result;

@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,25 +22,25 @@ class ParseTLV extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse TLV";
+        this.name = "解析TLV";
         this.module = "Default";
-        this.description = "Converts a Type-Length-Value (TLV) encoded string into a JSON object.  Can optionally include a <code>Key</code> / <code>Type</code> entry. <br><br>Tags: Key-Length-Value, KLV, Length-Value, LV";
+        this.description = "把Type-Length-Value (TLV)编码的字符串转换为JSON对象。可选包含一个 <code>Key</code> / <code>Type</code> 字段。 <br><br>标签： Key-Length-Value, KLV, Length-Value, LV";
         this.infoURL = "https://wikipedia.org/wiki/Type-length-value";
         this.inputType = "ArrayBuffer";
         this.outputType = "JSON";
         this.args = [
             {
-                name: "Type/Key size",
+                name: "Type/Key大小",
                 type: "number",
                 value: 1
             },
             {
-                name: "Length size",
+                name: "Length大小",
                 type: "number",
                 value: 1
             },
             {
-                name: "Use BER",
+                name: "使用BER",
                 type: "boolean",
                 value: false
             }
@@ -55,7 +57,7 @@ class ParseTLV extends Operation {
         input = new Uint8Array(input);
 
         if (bytesInKey <= 0 && bytesInLength <= 0)
-            throw new OperationError("Type or Length size must be greater than 0");
+            throw new OperationError("Type或Length大小必须大于0");
 
         const tlv = new TLVParser(input, { bytesInLength, basicEncodingRules });
 

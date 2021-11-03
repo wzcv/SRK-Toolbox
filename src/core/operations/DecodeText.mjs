@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,12 +21,12 @@ class DecodeText extends Operation {
     constructor() {
         super();
 
-        this.name = "Decode text";
+        this.name = "文本解码";
         this.module = "Encodings";
         this.description = [
-            "Decodes text from the chosen character encoding.",
+            "使用给定的字符集解码输入文本。",
             "<br><br>",
-            "Supported charsets are:",
+            "支持的字符集：",
             "<ul>",
             Object.keys(IO_FORMAT).map(e => `<li>${e}</li>`).join("\n"),
             "</ul>",
@@ -34,7 +36,7 @@ class DecodeText extends Operation {
         this.outputType = "string";
         this.args = [
             {
-                "name": "Encoding",
+                "name": "字符集",
                 "type": "option",
                 "value": Object.keys(IO_FORMAT)
             }

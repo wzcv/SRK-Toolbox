@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 /**
@@ -116,11 +118,11 @@ export const IO_FORMAT = {
     "ISCII Gujarati (57010)": 57010,
     "ISCII Punjabi (57011)": 57011,
     "Japanese Shift-JIS (932)": 932,
-    "Simplified Chinese GBK (936)": 936,
+    "简体中文 GBK (936)": 936,
     "Korean (949)": 949,
-    "Traditional Chinese Big5 (950)": 950,
+    "繁体中文 Big5 (950)": 950,
     "US-ASCII (7-bit) (20127)": 20127,
-    "Simplified Chinese GB2312 (20936)": 20936,
+    "简体中文 GB2312 (20936)": 20936,
     "KOI8-R Russian Cyrillic (20866)": 20866,
     "KOI8-U Ukrainian Cyrillic (21866)": 21866,
     "Mazovia (Polish) MS-DOS (620)": 620,
@@ -130,13 +132,13 @@ export const IO_FORMAT = {
     "Korean (Johab) (1361)": 1361,
     "MAC Roman (10000)": 10000,
     "Japanese (Mac) (10001)": 10001,
-    "MAC Traditional Chinese (Big5) (10002)": 10002,
+    "MAC繁体中文 (Big5) (10002)": 10002,
     "Korean (Mac) (10003)": 10003,
     "Arabic (Mac) (10004)": 10004,
     "Hebrew (Mac) (10005)": 10005,
     "Greek (Mac) (10006)": 10006,
     "Cyrillic (Mac) (10007)": 10007,
-    "MAC Simplified Chinese (GB 2312) (10008)": 10008,
+    "MAC简体中文 (GB 2312) (10008)": 10008,
     "Romanian (Mac) (10010)": 10010,
     "Ukrainian (Mac) (10017)": 10017,
     "Thai (Mac) (10021)": 10021,
@@ -160,8 +162,8 @@ export const IO_FORMAT = {
     "Extended/Ext Alpha Lowercase (21027)": 21027,
     "Europa 3 (29001)": 29001,
     "Atari ST/TT (47451)": 47451,
-    "HZ-GB2312 Simplified Chinese (52936)": 52936,
-    "Simplified Chinese GB18030 (54936)": 54936,
+    "HZ-GB2312 简体中文 (52936)": 52936,
+    "简体中文 GB18030 (54936)": 54936,
 };
 
 /**

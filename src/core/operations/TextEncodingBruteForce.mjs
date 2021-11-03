@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,12 +23,12 @@ class TextEncodingBruteForce extends Operation {
     constructor() {
         super();
 
-        this.name = "Text Encoding Brute Force";
+        this.name = "文本编码暴力破解";
         this.module = "Encodings";
         this.description = [
-            "Enumerates all supported text encodings for the input, allowing you to quickly spot the correct one.",
+            "列出所有支持的字符集解码/编码结果，让你可以看出哪个是正确的。",
             "<br><br>",
-            "Supported charsets are:",
+            "支持的字符集：",
             "<ul>",
             Object.keys(IO_FORMAT).map(e => `<li>${e}</li>`).join("\n"),
             "</ul>"
@@ -37,9 +39,9 @@ class TextEncodingBruteForce extends Operation {
         this.presentType = "html";
         this.args = [
             {
-                name: "Mode",
+                name: "模式",
                 type: "option",
-                value: ["Encode", "Decode"]
+                value: ["编码", "解码"]
             }
         ];
     }
@@ -56,13 +58,13 @@ class TextEncodingBruteForce extends Operation {
 
         charsets.forEach(charset => {
             try {
-                if (mode === "Decode") {
+                if (mode === "解码") {
                     output[charset] = cptable.utils.decode(IO_FORMAT[charset], input);
                 } else {
                     output[charset] = Utils.arrayBufferToStr(cptable.utils.encode(IO_FORMAT[charset], input));
                 }
             } catch (err) {
-                output[charset] = "Could not decode.";
+                output[charset] = "无法解码";
             }
         });
 
@@ -76,7 +78,7 @@ class TextEncodingBruteForce extends Operation {
      * @returns {html}
      */
     present(encodings) {
-        let table = "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>Encoding</th><th>Value</th></tr>";
+        let table = "<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>字符集</th><th>结果</th></tr>";
 
         for (const enc in encodings) {
             const value = Utils.escapeHtml(Utils.printable(encodings[enc], true));

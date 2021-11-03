@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import OperationConfig from "./config/OperationConfig.json";
@@ -204,7 +206,7 @@ class Recipe  {
                 log.debug(`Executing operation '${op.name}'`);
 
                 if (isWorkerEnvironment()) {
-                    self.sendStatusMessage(`Baking... (${i+1}/${this.opList.length})`);
+                    self.sendStatusMessage(`执行中... (${i+1}/${this.opList.length})`);
                     self.sendProgressMessage(i + 1, this.opList.length);
                 }
 
