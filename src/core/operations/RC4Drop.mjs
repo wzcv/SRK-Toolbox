@@ -21,29 +21,29 @@ class RC4Drop extends Operation {
 
         this.name = "RC4 Drop";
         this.module = "Ciphers";
-        this.description = "It was discovered that the first few bytes of the RC4 keystream are strongly non-random and leak information about the key. We can defend against this attack by discarding the initial portion of the keystream. This modified algorithm is traditionally called RC4-drop.";
+        this.description = "由于RC4加密流前部的数个字节随机性不足且泄露关于key的信息，因此丢弃前部数据能提高加密安全性。通常这种优化后的算法称作RC4-drop。";
         this.infoURL = "https://wikipedia.org/wiki/RC4#Fluhrer,_Mantin_and_Shamir_attack";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Passphrase",
+                "name": "加密密码",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["UTF8", "UTF16", "UTF16LE", "UTF16BE", "Latin1", "Hex", "Base64"]
+                "toggleValues": ["UTF8", "UTF16", "UTF16LE", "UTF16BE", "Latin1", "十六进制", "Base64"]
             },
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "Hex", "Base64"]
+                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "十六进制", "Base64"]
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "Hex", "Base64"]
+                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "十六进制", "Base64"]
             },
             {
-                "name": "Number of bytes to drop",
+                "name": "丢弃的字节数",
                 "type": "number",
                 "value": 768
             }

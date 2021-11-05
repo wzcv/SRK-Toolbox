@@ -2,6 +2,8 @@
  * @author Karsten Silkenbäumer [github.com/kassi]
  * @copyright Karsten Silkenbäumer 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,30 +23,30 @@ class BaconCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Bacon Cipher Encode";
+        this.name = "培根密码加密";
         this.module = "Default";
-        this.description = "Bacon's cipher or the Baconian cipher is a method of steganography devised by Francis Bacon in 1605. A message is concealed in the presentation of text, rather than its content.";
+        this.description = "培根密码，又名倍康尼密码（英语：Bacon's cipher）是由弗朗西斯·培根发明的一种隐写术。密文用一段其它文字的形式表现，而不是使用它本身的内容。";
         this.infoURL = "https://wikipedia.org/wiki/Bacon%27s_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Alphabet",
+                "name": "可用字符",
                 "type": "option",
                 "value": Object.keys(BACON_ALPHABETS)
             },
             {
-                "name": "Translation",
+                "name": "翻译方式",
                 "type": "option",
                 "value": BACON_TRANSLATIONS_FOR_ENCODING
             },
             {
-                "name": "Keep extra characters",
+                "name": "保留无法编码的其它字符",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Invert Translation",
+                "name": "反向翻译（0/A换成1/B，1/B换成0/A）",
                 "type": "boolean",
                 "value": false
             }

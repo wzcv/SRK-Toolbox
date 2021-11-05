@@ -332,6 +332,8 @@ class Utils {
                 return fromBinary(str);
             case "hex":
                 return fromHex(str);
+            case "十六进制":
+                return fromHex(str);
             case "decimal":
                 return fromDecimal(str);
             case "base64":

@@ -7,6 +7,7 @@
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import OperationError from "../errors/OperationError.mjs";
@@ -73,6 +74,7 @@ export function genPolybiusSquare (keyword) {
  */
 export const format = {
     "Hex":     CryptoJS.enc.Hex,
+    "十六进制":  CryptoJS.enc.Hex,
     "Base64":  CryptoJS.enc.Base64,
     "UTF8":    CryptoJS.enc.Utf8,
     "UTF16":   CryptoJS.enc.Utf16,

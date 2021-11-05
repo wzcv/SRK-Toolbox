@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 /**
@@ -25,18 +27,24 @@ export function bitOp (input, key, func, nullPreserving, scheme) {
 
     for (let i = 0; i < input.length; i++) {
         k = key[i % key.length];
-        if (scheme === "Cascade") k = input[i + 1] || 0;
+        if (scheme === "Cascade" || scheme === "级联") k = input[i + 1] || 0;
         o = input[i];
         x = nullPreserving && (o === 0 || o === k) ? o : func(o, k);
         result.push(x);
         if (scheme &&
-            scheme !== "Standard" &&
+            scheme !== "Standard" && scheme !== "标准" &&
             !(nullPreserving && (o === 0 || o === k))) {
             switch (scheme) {
                 case "Input differential":
                     key[i % key.length] = o;
                     break;
+                case "输入差分":
+                    key[i % key.length] = o;
+                    break;
                 case "Output differential":
+                    key[i % key.length] = x;
+                    break;
+                case "输出差分":
                     key[i % key.length] = x;
                     break;
             }
@@ -121,4 +129,4 @@ export function sub(operand, key) {
 /**
  * Delimiter options for bitwise operations
  */
-export const BITWISE_OP_DELIMS = ["Hex", "Decimal", "Binary", "Base64", "UTF8", "Latin1"];
+export const BITWISE_OP_DELIMS = ["十六进制", "Decimal", "Binary", "Base64", "UTF8", "Latin1"];

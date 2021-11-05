@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,26 +23,26 @@ class RC4 extends Operation {
 
         this.name = "RC4";
         this.module = "Ciphers";
-        this.description = "RC4 (also known as ARC4) is a widely-used stream cipher designed by Ron Rivest. It is used in popular protocols such as SSL and WEP. Although remarkable for its simplicity and speed, the algorithm's history doesn't inspire confidence in its security.";
+        this.description = "RC4（又叫ARC4）是一种广泛使用的流加密算法，由Ron Rivest设计。在很多流行协议中均有应用，如SSL和WEP。RC4加密方法简洁高效，但安全性没有保障。";
         this.infoURL = "https://wikipedia.org/wiki/RC4";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Passphrase",
+                "name": "加密密码",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["UTF8", "UTF16", "UTF16LE", "UTF16BE", "Latin1", "Hex", "Base64"]
+                "toggleValues": ["UTF8", "UTF16", "UTF16LE", "UTF16BE", "Latin1", "十六进制", "Base64"]
             },
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "Hex", "Base64"]
+                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "十六进制", "Base64"]
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "Hex", "Base64"]
+                "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "十六进制", "Base64"]
             }
         ];
     }

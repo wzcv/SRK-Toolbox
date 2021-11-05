@@ -4,24 +4,26 @@
  * @author Karsten Silkenbäumer [github.com/kassi]
  * @copyright Karsten Silkenbäumer 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 /**
  * Bacon definitions.
  */
 export const BACON_ALPHABETS = {
-    "Standard (I=J and U=V)": {
+    "标准 (I=J, U=V)": {
         alphabet: "ABCDEFGHIKLMNOPQRSTUWXYZ",
         codes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 19, 20, 21, 22, 23]
     },
-    "Complete": {
+    "完全": {
         alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     }
 };
 export const BACON_TRANSLATION_01 = "0/1";
 export const BACON_TRANSLATION_AB = "A/B";
-export const BACON_TRANSLATION_CASE = "Case";
-export const BACON_TRANSLATION_AMNZ = "A-M/N-Z first letter";
+export const BACON_TRANSLATION_CASE = "大小写";
+export const BACON_TRANSLATION_AMNZ = "A-M/N-Z首字母";
 export const BACON_TRANSLATIONS = [
     BACON_TRANSLATION_01,
     BACON_TRANSLATION_AB,

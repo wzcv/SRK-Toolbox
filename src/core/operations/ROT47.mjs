@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,13 +22,13 @@ class ROT47 extends Operation {
 
         this.name = "ROT47";
         this.module = "Default";
-        this.description = "A slightly more complex variation of a caesar cipher, which includes ASCII characters from 33 '!' to 126 '~'. Default rotation: 47.";
+        this.description = "稍微复杂点的凯撒密码，使用了ASCII里从 33 '!' 到 126 '~'的字符。默认的偏移数量是47。";
         this.infoURL = "https://wikipedia.org/wiki/ROT13#Variants";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Amount",
+                name: "偏移数量",
                 type: "number",
                 value: 47
             },

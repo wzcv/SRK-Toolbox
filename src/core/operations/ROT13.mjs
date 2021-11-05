@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,28 +22,28 @@ class ROT13 extends Operation {
 
         this.name = "ROT13";
         this.module = "Default";
-        this.description = "A simple caesar substitution cipher which rotates alphabet characters by the specified amount (default 13).";
+        this.description = "一个简单的凯撒密码，默认情况下把字母偏移13个位置。";
         this.infoURL = "https://wikipedia.org/wiki/ROT13";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Rotate lower case chars",
+                name: "偏移小写字母",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Rotate upper case chars",
+                name: "偏移大写字母",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Rotate numbers",
+                name: "偏移数字",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Amount",
+                name: "偏移数量",
                 type: "number",
                 value: 13
             },

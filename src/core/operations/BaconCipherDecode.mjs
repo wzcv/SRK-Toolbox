@@ -2,6 +2,8 @@
  * @author Karsten Silkenbäumer [github.com/kassi]
  * @copyright Karsten Silkenbäumer 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,25 +23,25 @@ class BaconCipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Bacon Cipher Decode";
+        this.name = "培根密码解密";
         this.module = "Default";
-        this.description = "Bacon's cipher or the Baconian cipher is a method of steganography devised by Francis Bacon in 1605. A message is concealed in the presentation of text, rather than its content.";
+        this.description = "培根密码，又名倍康尼密码（英语：Bacon's cipher）是由弗朗西斯·培根发明的一种隐写术。密文用一段其它文字的形式表现，而不是使用它本身的内容。";
         this.infoURL = "https://wikipedia.org/wiki/Bacon%27s_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Alphabet",
+                "name": "用字符",
                 "type": "option",
                 "value": Object.keys(BACON_ALPHABETS)
             },
             {
-                "name": "Translation",
+                "name": "翻译方式",
                 "type": "option",
                 "value": BACON_TRANSLATIONS
             },
             {
-                "name": "Invert Translation",
+                "name": "反向翻译（0/A换成1/B，1/B换成0/A）",
                 "type": "boolean",
                 "value": false
             }
@@ -48,42 +50,42 @@ class BaconCipherDecode extends Operation {
             {
                 pattern:  "^\\s*([01]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Standard (I=J and U=V)", "0/1", false]
+                args:   ["标准 (I=J, U=V)", "0/1", false]
             },
             {
                 pattern:  "^\\s*([01]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Standard (I=J and U=V)", "0/1", true]
+                args:   ["标准 (I=J, U=V)", "0/1", true]
             },
             {
                 pattern:  "^\\s*([AB]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Standard (I=J and U=V)", "A/B", false]
+                args:   ["标准 (I=J, U=V)", "A/B", false]
             },
             {
                 pattern:  "^\\s*([AB]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Standard (I=J and U=V)", "A/B", true]
+                args:   ["标准 (I=J, U=V)", "A/B", true]
             },
             {
                 pattern:  "^\\s*([01]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Complete", "0/1", false]
+                args:   ["完全", "0/1", false]
             },
             {
                 pattern:  "^\\s*([01]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Complete", "0/1", true]
+                args:   ["完全", "0/1", true]
             },
             {
                 pattern:  "^\\s*([AB]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Complete", "A/B", false]
+                args:   ["完全", "A/B", false]
             },
             {
                 pattern:  "^\\s*([AB]{5}\\s?)+$",
                 flags:  "",
-                args:   ["Complete", "A/B", true]
+                args:   ["完全", "A/B", true]
             }
         ];
     }

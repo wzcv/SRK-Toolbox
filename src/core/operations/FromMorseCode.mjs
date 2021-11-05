@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,20 +21,20 @@ class FromMorseCode extends Operation {
     constructor() {
         super();
 
-        this.name = "From Morse Code";
+        this.name = "摩尔斯电码解码";
         this.module = "Default";
-        this.description = "Translates Morse Code into (upper case) alphanumeric characters.";
+        this.description = "把摩尔斯电码还原为大写字母。";
         this.infoURL = "https://wikipedia.org/wiki/Morse_code";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Letter delimiter",
+                "name": "字母分隔符",
                 "type": "option",
                 "value": LETTER_DELIM_OPTIONS
             },
             {
-                "name": "Word delimiter",
+                "name": "单词分隔符",
                 "type": "option",
                 "value": WORD_DELIM_OPTIONS
             }

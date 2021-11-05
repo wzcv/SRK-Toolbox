@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,25 +21,25 @@ class ToMorseCode extends Operation {
     constructor() {
         super();
 
-        this.name = "To Morse Code";
+        this.name = "摩尔斯电码编码";
         this.module = "Default";
-        this.description = "Translates alphanumeric characters into International Morse Code.<br><br>Ignores non-Morse characters.<br><br>e.g. <code>SOS</code> becomes <code>... --- ...</code>";
+        this.description = "把字母编码为国际摩尔斯电码。<br><br>忽略非摩尔斯码字符。<br><br>例： <code>SOS</code> 编码为 <code>... --- ...</code>";
         this.infoURL = "https://wikipedia.org/wiki/Morse_code";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Format options",
+                "name": "格式",
                 "type": "option",
                 "value": ["-/.", "_/.", "Dash/Dot", "DASH/DOT", "dash/dot"]
             },
             {
-                "name": "Letter delimiter",
+                "name": "字母分隔符",
                 "type": "option",
                 "value": LETTER_DELIM_OPTIONS
             },
             {
-                "name": "Word delimiter",
+                "name": "单词分隔符",
                 "type": "option",
                 "value": WORD_DELIM_OPTIONS
             }

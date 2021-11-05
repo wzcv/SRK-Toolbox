@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,7 +23,7 @@ class XOR extends Operation {
 
         this.name = "XOR";
         this.module = "Default";
-        this.description = "XOR the input with the given key.<br>e.g. <code>fe023da5</code><br><br><strong>Options</strong><br><u>Null preserving:</u> If the current byte is 0x00 or the same as the key, skip it.<br><br><u>Scheme:</u><ul><li>Standard - key is unchanged after each round</li><li>Input differential - key is set to the value of the previous unprocessed byte</li><li>Output differential - key is set to the value of the previous processed byte</li><li>Cascade - key is set to the input byte shifted by one</li></ul>";
+        this.description = "用给定的key对输入做异或（XOR）操作。<br>例： <code>fe023da5</code><br><br><strong>选项：</strong><br><u>保留Null：</u>如果当前字节是0x00或者和key相同，则跳过不进行XOR操作。<br><br><u>加密方式：</u><ul><li>标准 - key保持不变</li><li>输入差分 - key设置为上一个处理前的字节</li><li>输出差分 - key设置为上一个处理后的字节</li><li>级联 - key设置成输入当前处理位置后移1个字节的内容</li></ul>";
         this.infoURL = "https://wikipedia.org/wiki/XOR";
         this.inputType = "ArrayBuffer";
         this.outputType = "byteArray";
@@ -33,12 +35,12 @@ class XOR extends Operation {
                 "toggleValues": BITWISE_OP_DELIMS
             },
             {
-                "name": "Scheme",
+                "name": "加密方式",
                 "type": "option",
-                "value": ["Standard", "Input differential", "Output differential", "Cascade"]
+                "value": ["标准", "输入差分", "输出差分", "级联"]
             },
             {
-                "name": "Null preserving",
+                "name": "保留Null",
                 "type": "boolean",
                 "value": false
             }
