@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class AffineCipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Affine Cipher Decode";
+        this.name = "仿射密码解密";
         this.module = "Ciphers";
-        this.description = "The Affine cipher is a type of monoalphabetic substitution cipher. To decrypt, each letter in an alphabet is mapped to its numeric equivalent, decrypted by a mathematical function, and converted back to a letter.";
+        this.description = "仿射密码（Affine cipher）为单表加密的一种，字母系统中所有字母都藉一简单数学方程加密，对应至数值，或转回字母。";
         this.infoURL = "https://wikipedia.org/wiki/Affine_cipher";
         this.inputType = "string";
         this.outputType = "string";
@@ -53,11 +55,11 @@ class AffineCipherDecode extends Operation {
         let output = "";
 
         if (!/^\+?(0|[1-9]\d*)$/.test(a) || !/^\+?(0|[1-9]\d*)$/.test(b)) {
-            throw new OperationError("The values of a and b can only be integers.");
+            throw new OperationError("a和b必须为整数");
         }
 
         if (Utils.gcd(a, 26) !== 1) {
-            throw new OperationError("The value of `a` must be coprime to 26.");
+            throw new OperationError("`a`必须和26互质");
         }
 
         for (let i = 0; i < input.length; i++) {

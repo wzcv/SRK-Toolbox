@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class AffineCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Affine Cipher Encode";
+        this.name = "仿射密码加密";
         this.module = "Ciphers";
-        this.description = "The Affine cipher is a type of monoalphabetic substitution cipher, wherein each letter in an alphabet is mapped to its numeric equivalent, encrypted using simple mathematical function, <code>(ax + b) % 26</code>, and converted back to a letter.";
+        this.description = "仿射密码（Affine cipher）为单表加密的一种，字母系统中所有字母都藉一简单数学方程加密（<code>(ax + b) % 26</code>），对应至数值，或转回字母。";
         this.infoURL = "https://wikipedia.org/wiki/Affine_cipher";
         this.inputType = "string";
         this.outputType = "string";

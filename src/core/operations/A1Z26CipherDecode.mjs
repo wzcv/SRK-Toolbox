@@ -2,6 +2,8 @@
  * @author Jarmo van Lenthe [github.com/jarmovanlenthe]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class A1Z26CipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "A1Z26 Cipher Decode";
+        this.name = "A1Z26密码解密";
         this.module = "Ciphers";
-        this.description = "Converts alphabet order numbers into their corresponding  alphabet character.<br><br>e.g. <code>1</code> becomes <code>a</code> and <code>2</code> becomes <code>b</code>.";
+        this.description = "把字母表序数转换成对应的字母。<br><br>例： <code>1</code> 解密为 <code>a</code> ， <code>2</code> 解密为 <code>b</code>。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: DELIM_OPTIONS
             }
@@ -83,7 +85,7 @@ class A1Z26CipherDecode extends Operation {
         let latin1 = "";
         for (let i = 0; i < bites.length; i++) {
             if (bites[i] < 1 || bites[i] > 26) {
-                throw new OperationError("Error: all numbers must be between 1 and 26.");
+                throw new OperationError("错误：数字必须在1到26之间。");
             }
             latin1 += Utils.chr(parseInt(bites[i], 10) + 96);
         }

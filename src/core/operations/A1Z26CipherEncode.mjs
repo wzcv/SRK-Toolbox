@@ -2,6 +2,8 @@
  * @author Jarmo van Lenthe [github.com/jarmovanlenthe]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,15 +21,15 @@ class A1Z26CipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "A1Z26 Cipher Encode";
+        this.name = "A1Z26密码加密";
         this.module = "Ciphers";
-        this.description = "Converts alphabet characters into their corresponding alphabet order number.<br><br>e.g. <code>a</code> becomes <code>1</code> and <code>b</code> becomes <code>2</code>.<br><br>Non-alphabet characters are dropped.";
+        this.description = "把字母转换为在字母表中对应的位置序数。<br><br>例： <code>a</code> 加密为 <code>1</code> ， <code>b</code> 加密为 <code>2</code>。<br><br>不在26个字母中的其他字符会被忽略。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: DELIM_OPTIONS
             }

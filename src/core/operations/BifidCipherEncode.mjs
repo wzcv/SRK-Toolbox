@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,15 +21,15 @@ class BifidCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Bifid Cipher Encode";
+        this.name = "双密码加密";
         this.module = "Ciphers";
-        this.description = "The Bifid cipher is a cipher which uses a Polybius square in conjunction with transposition, which can be fairly difficult to decipher without knowing the alphabet keyword.";
+        this.description = "双密码（Bifid cipher）是使用了换位后的波利比奥斯方阵（Polybius square）的加密方式，在不知道加密关键词的情况下难以手工破解。";
         this.infoURL = "https://wikipedia.org/wiki/Bifid_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Keyword",
+                "name": "加密关键词",
                 "type": "string",
                 "value": ""
             }
@@ -54,7 +56,7 @@ class BifidCipherEncode extends Operation {
 
 
         if (!/^[A-Z]+$/.test(keywordStr) && keyword.length > 0)
-            throw new OperationError("The key must consist only of letters in the English alphabet");
+            throw new OperationError("Key只能包含英文字母");
 
         const polybius = genPolybiusSquare(keywordStr);
 
