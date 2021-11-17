@@ -2,6 +2,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class CipherSaber2Encrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "CipherSaber2 Encrypt";
+        this.name = "CipherSaber2加密";
         this.module = "Crypto";
-        this.description = "CipherSaber is a simple symmetric encryption protocol based on the RC4 stream cipher. It gives reasonably strong protection of message confidentiality, yet it's designed to be simple enough that even novice programmers can memorize the algorithm and implement it from scratch.";
+        this.description = "CipherSaber是基于RC4的简单对称加密协议。它提供了足够强的信息加密保护，同时算法设计足够简单，很容易使用编程语言完整实现。";
         this.infoURL = "https://wikipedia.org/wiki/CipherSaber";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -31,7 +33,7 @@ class CipherSaber2Encrypt extends Operation {
                 name: "Key",
                 type: "toggleString",
                 value: "",
-                toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
+                toggleValues: ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 name: "Rounds",

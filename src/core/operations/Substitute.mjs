@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,20 +20,20 @@ class Substitute extends Operation {
     constructor() {
         super();
 
-        this.name = "Substitute";
+        this.name = "替换密码";
         this.module = "Default";
-        this.description = "A substitution cipher allowing you to specify bytes to replace with other byte values. This can be used to create Caesar ciphers but is more powerful as any byte value can be substituted, not just letters, and the substitution values need not be in order.<br><br>Enter the bytes you want to replace in the Plaintext field and the bytes to replace them with in the Ciphertext field.<br><br>Non-printable bytes can be specified using string escape notation. For example, a line feed character can be written as either <code>\\n</code> or <code>\\x0a</code>.<br><br>Byte ranges can be specified using a hyphen. For example, the sequence <code>0123456789</code> can be written as <code>0-9</code>.<br><br>Note that blackslash characters are used to escape special characters, so will need to be escaped themselves if you want to use them on their own (e.g.<code>\\\\</code>).";
+        this.description = "替换密码允许你将明文中的任意字节替换成其它字节。可以用来生成凯撒密码，但同时提供了更多的加密手段。<br><br>输入想要替换的内容在明文框，然后替换成的内容在密文框。<br><br>无法显示的字节可以用转义形式。例如换行可以写成 <code>\\n</code> 或 <code>\\x0a</code>。<br><br>用连字符来指定字节范围。例如 <code>0123456789</code> 可以写成 <code>0-9</code>。<br><br>注意反斜杠是用来转义其它字符的，所以如果需要使用反斜杠，它自身也要被转义（例<code>\\\\</code>）。";
         this.infoURL = "https://wikipedia.org/wiki/Substitution_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Plaintext",
+                "name": "明文",
                 "type": "binaryString",
                 "value": "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
             },
             {
-                "name": "Ciphertext",
+                "name": "密文",
                 "type": "binaryString",
                 "value": "XYZABCDEFGHIJKLMNOPQRSTUVW"
             }
@@ -50,7 +52,7 @@ class Substitute extends Operation {
             index = -1;
 
         if (plaintext.length !== ciphertext.length) {
-            output = "Warning: Plaintext and Ciphertext lengths differ\n\n";
+            output = "警告：明文和密文长度不同\n\n";
         }
 
         for (let i = 0; i < input.length; i++) {

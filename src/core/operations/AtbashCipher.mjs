@@ -2,6 +2,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class AtbashCipher extends Operation {
     constructor() {
         super();
 
-        this.name = "Atbash Cipher";
+        this.name = "阿特巴希密码";
         this.module = "Ciphers";
-        this.description = "Atbash is a mono-alphabetic substitution cipher originally used to encode the Hebrew alphabet. It has been modified here for use with the Latin alphabet.";
+        this.description = "阿特巴希密码（Atbash Cipher）是一种开始由希伯来字母使用的简易替换密码。此处进行了修改用于拉丁字母。";
         this.infoURL = "https://wikipedia.org/wiki/Atbash";
         this.inputType = "string";
         this.outputType = "string";

@@ -2,6 +2,8 @@
  * @author Flavio Diez [flaviofdiez+cyberchef@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,20 +20,20 @@ class RailFenceCipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Rail Fence Cipher Decode";
+        this.name = "篱笆密码解密";
         this.module = "Ciphers";
-        this.description = "Decodes Strings that were created using the Rail fence Cipher provided a key and an offset";
+        this.description = "根据提供的篱笆数量和偏移量进行篱笆密码（Rail fence Cipher）解密。";
         this.infoURL = "https://wikipedia.org/wiki/Rail_fence_cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Key",
+                name: "篱笆数量",
                 type: "number",
                 value: 2
             },
             {
-                name: "Offset",
+                name: "偏移量",
                 type: "number",
                 value: 0
             }
@@ -49,13 +51,13 @@ class RailFenceCipherDecode extends Operation {
         const cipher = input;
 
         if (key < 2) {
-            throw new OperationError("Key has to be bigger than 2");
+            throw new OperationError("篱笆数量不少于2");
         } else if (key > cipher.length) {
-            throw new OperationError("Key should be smaller than the cipher's length");
+            throw new OperationError("篱笆数量不能超过明文长度");
         }
 
         if (offset < 0) {
-            throw new OperationError("Offset has to be a positive integer");
+            throw new OperationError("偏移量必须为正整数");
         }
 
         const cycle = (key - 1) * 2;
