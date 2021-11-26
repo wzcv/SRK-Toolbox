@@ -2,6 +2,8 @@
  * @author gchq77703 []
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import Operation from "../Operation.mjs";
 import jwt from "jsonwebtoken";
@@ -20,20 +22,20 @@ class JWTSign extends Operation {
     constructor() {
         super();
 
-        this.name = "JWT Sign";
+        this.name = "JWT签名";
         this.module = "Crypto";
-        this.description = "Signs a JSON object as a JSON Web Token using a provided secret / private key.<br><br>The key should be either the secret for HMAC algorithms or the PEM-encoded private key for RSA and ECDSA.";
+        this.description = "使用给定的secret/私钥把JSON对象签名为JSON Web Token。<br><br>Key必须是HMAC算法的secret或PEM编码的RSA/ECDSA密钥。";
         this.infoURL = "https://wikipedia.org/wiki/JSON_Web_Token";
         this.inputType = "JSON";
         this.outputType = "string";
         this.args = [
             {
-                name: "Private/Secret Key",
+                name: "私钥/Secret",
                 type: "text",
                 value: "secret"
             },
             {
-                name: "Signing algorithm",
+                name: "签名算法",
                 type: "option",
                 value: JWT_ALGORITHMS
             }
