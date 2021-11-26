@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,22 +23,22 @@ class PseudoRandomNumberGenerator extends Operation {
     constructor() {
         super();
 
-        this.name = "Pseudo-Random Number Generator";
+        this.name = "伪随机数生成器";
         this.module = "Ciphers";
-        this.description = "A cryptographically-secure pseudo-random number generator (PRNG).<br><br>This operation uses the browser's built-in <code>crypto.getRandomValues()</code> method if available. If this cannot be found, it falls back to a Fortuna-based PRNG algorithm.";
+        this.description = "密码学安全伪随机数生成器（CSPRNG）。<br><br>这个操作使用浏览器内置的 <code>crypto.getRandomValues()</code> 方法。如果不可用，则回退到基于Fortuna的随机数算法。";
         this.infoURL = "https://wikipedia.org/wiki/Pseudorandom_number_generator";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Number of bytes",
+                "name": "字节数",
                 "type": "number",
                 "value": 32
             },
             {
-                "name": "Output as",
+                "name": "输出",
                 "type": "option",
-                "value": ["Hex", "Integer", "Byte array", "Raw"]
+                "value": ["十六进制", "整数", "字节数组", "原始"]
             }
         ];
     }
@@ -62,16 +64,16 @@ class PseudoRandomNumberGenerator extends Operation {
             i;
 
         switch (outputAs) {
-            case "Hex":
+            case "十六进制":
                 return forge.util.bytesToHex(bytes);
-            case "Integer":
+            case "整数":
                 for (i = bytes.length - 1; i >= 0; i--) {
                     value = value.times(256).plus(bytes.charCodeAt(i));
                 }
                 return value.toFixed();
-            case "Byte array":
+            case "字节数组":
                 return JSON.stringify(Utils.strToCharcode(bytes));
-            case "Raw":
+            case "原始":
             default:
                 return bytes;
         }

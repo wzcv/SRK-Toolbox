@@ -2,6 +2,8 @@
  * @author bwhitn [brian.m.whitney@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class CitrixCTX1Encode extends Operation {
     constructor() {
         super();
 
-        this.name = "Citrix CTX1 Encode";
+        this.name = "Citrix CTX1编码";
         this.module = "Encodings";
-        this.description = "Encodes strings to Citrix CTX1 password format.";
+        this.description = "把字符串编码为Citrix CTX1密码格式。";
         this.infoURL = "https://www.reddit.com/r/AskNetsec/comments/1s3r6y/citrix_ctx1_hash_decoding/";
         this.inputType = "string";
         this.outputType = "byteArray";

@@ -35,26 +35,27 @@ class CNIDVerify extends Operation {
     run(input, args) {
         const coeff = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
 
-        if (input.length != 18) {
+        if (input.length !== 18) {
             throw new OperationError("身份证号码必须为18位");
         }
 
-        let first_17_digits = input.slice(0, 17);
+        const first17Digits = input.slice(0, 17);
 
-        if (!/^\d+$/.test(first_17_digits)) {
+        if (!/^\d+$/.test(first17Digits)) {
             throw new OperationError("身份证号码前17位必须为数字");
         }
 
         try {
-            let verify_digit = coeff.reduce(function(r, a, i){return r + a * first_17_digits[i] }, 0) % 11;
-            verify_digit = verify_digit === 10 ? "X" : verify_digit;
-            if (verify_digit == input[17]) {
-                return `${input}, ${verify_digit}, 正确`
+            let verifyDigit = coeff.reduce(function(r, a, i) {
+                return r + a * first17Digits[i];
+            }, 0) % 11;
+            verifyDigit = verifyDigit === 10 ? "X" : verifyDigit.toString();
+            if (verifyDigit === input[17]) {
+                return `${input}, ${verifyDigit}, 正确`;
             } else {
-                return `${input}, ${verify_digit}, 错误`
+                return `${input}, ${verifyDigit}, 错误`;
             }
-
-        } catch(err) {
+        } catch (err) {
             throw new OperationError(err);
         }
 

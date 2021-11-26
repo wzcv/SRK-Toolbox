@@ -2,6 +2,8 @@
  * @author bwhitn [brian.m.whitney@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class CitrixCTX1Decode extends Operation {
     constructor() {
         super();
 
-        this.name = "Citrix CTX1 Decode";
+        this.name = "Citrix CTX1解码";
         this.module = "Encodings";
-        this.description = "Decodes strings in a Citrix CTX1 password format to plaintext.";
+        this.description = "把Citrix CTX1密码格式解码为明文。";
         this.infoURL = "https://www.reddit.com/r/AskNetsec/comments/1s3r6y/citrix_ctx1_hash_decoding/";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -36,7 +38,7 @@ class CitrixCTX1Decode extends Operation {
     run(input, args) {
         input = new Uint8Array(input);
         if (input.length % 4 !== 0) {
-            throw new OperationError("Incorrect hash length");
+            throw new OperationError("哈希长度错误");
         }
         const revinput = input.reverse();
         const result = [];

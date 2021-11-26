@@ -55,7 +55,7 @@ class JWTSign extends Operation {
                 algorithm: algorithm === "None" ? "none" : algorithm
             });
         } catch (err) {
-            throw new OperationError(`Error: Have you entered the key correctly? The key should be either the secret for HMAC algorithms or the PEM-encoded private key for RSA and ECDSA.
+            throw new OperationError(`错误：Key必须是HMAC算法的secret或PEM编码的RSA/ECDSA密钥。
 
 ${err}`);
         }
