@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,34 +25,34 @@ class Scrypt extends Operation {
 
         this.name = "Scrypt";
         this.module = "Crypto";
-        this.description = "scrypt is a password-based key derivation function (PBKDF) created by Colin Percival. The algorithm was specifically designed to make it costly to perform large-scale custom hardware attacks by requiring large amounts of memory. In 2016, the scrypt algorithm was published by IETF as RFC 7914.<br><br>Enter the password in the input to generate its hash.";
+        this.description = "scrypt（念作“ess crypt”），是加拿大计算机科学家暨计算机安全研究人员科林·珀西瓦尔（Colin Percival）于2009年所发明的密钥派生函数，当初设计用在他所创立的Tarsnap服务上。设计时考虑到大规模的客制硬件攻击而刻意设计需要大量内存运算。2016年，scrypt算法发布在RFC 7914。<br><br>在输入区输入口令来生成对应的哈希值。";
         this.infoURL = "https://wikipedia.org/wiki/Scrypt";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Salt",
+                "name": "盐",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "Base64", "UTF8", "Latin1"]
+                "toggleValues": ["十六进制", "Base64", "UTF8", "Latin1"]
             },
             {
-                "name": "Iterations (N)",
+                "name": "迭代次数(N)",
                 "type": "number",
                 "value": 16384
             },
             {
-                "name": "Memory factor (r)",
+                "name": "内存因子(r)",
                 "type": "number",
                 "value": 8
             },
             {
-                "name": "Parallelization factor (p)",
+                "name": "并行因子(p)",
                 "type": "number",
                 "value": 1
             },
             {
-                "name": "Key length",
+                "name": "Key长度",
                 "type": "number",
                 "value": 64
             }
@@ -75,13 +77,13 @@ class Scrypt extends Operation {
                 p => {
                     // Progress callback
                     if (isWorkerEnvironment())
-                        self.sendStatusMessage(`Progress: ${p.percent.toFixed(0)}%`);
+                        self.sendStatusMessage(`进度: ${p.percent.toFixed(0)}%`);
                 }
             );
 
             return data.toString("hex");
         } catch (err) {
-            throw new OperationError("Error: " + err.toString());
+            throw new OperationError("错误: " + err.toString());
         }
     }
 

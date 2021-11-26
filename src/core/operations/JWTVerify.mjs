@@ -2,6 +2,8 @@
  * @author gchq77703 []
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import Operation from "../Operation.mjs";
 import jwt from "jsonwebtoken";
@@ -20,15 +22,15 @@ class JWTVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "JWT Verify";
+        this.name = "JWT验证";
         this.module = "Crypto";
-        this.description = "Verifies that a JSON Web Token is valid and has been signed with the provided secret / private key.<br><br>The key should be either the secret for HMAC algorithms or the PEM-encoded private key for RSA and ECDSA.";
+        this.description = "使用提供的secret或私钥验证JSON Web Token是否有效。<br><br>Key必须是HMAC算法的secret或PEM编码的RSA/ECDSA密钥。";
         this.infoURL = "https://wikipedia.org/wiki/JSON_Web_Token";
         this.inputType = "string";
         this.outputType = "JSON";
         this.args = [
             {
-                name: "Public/Secret Key",
+                name: "公钥/Secret",
                 type: "text",
                 value: "secret"
             },

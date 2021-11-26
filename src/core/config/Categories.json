@@ -103,8 +103,8 @@
             "CipherSaber2加密",
             "CipherSaber2解密",
             "替换密码",
-            "Derive PBKDF2 key",
-            "Derive EVP key",
+            "派生PBKDF2密钥",
+            "派生EVP密钥",
             "Bcrypt",
             "Scrypt",
             "JWT Sign",
@@ -460,7 +460,8 @@
             "HTML To Text",
             "Generate Lorem Ipsum",
             "Numberwang",
-            "XKCD Random Number"
+            "XKCD Random Number",
+            "身份证验证位校验"
         ]
     },
     {

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,39 +21,39 @@ class DerivePBKDF2Key extends Operation {
     constructor() {
         super();
 
-        this.name = "Derive PBKDF2 key";
+        this.name = "派生PBKDF2密钥";
         this.module = "Ciphers";
-        this.description = "PBKDF2 is a password-based key derivation function. It is part of RSA Laboratories' Public-Key Cryptography Standards (PKCS) series, specifically PKCS #5 v2.0, also published as Internet Engineering Task Force's RFC 2898.<br><br>In many applications of cryptography, user security is ultimately dependent on a password, and because a password usually can't be used directly as a cryptographic key, some processing is required.<br><br>A salt provides a large set of keys for any given password, and an iteration count increases the cost of producing keys from a password, thereby also increasing the difficulty of attack.<br><br>If you leave the salt argument empty, a random salt will be generated.";
+        this.description = "PBKDF2是基于口令的密钥派生算法。它是RSA Laboratories的公钥密码学标准（PKCS）中的一部分。包括PBKDF2在内的PKCS #5 v2.0版本已被IETF作为RFC 2898发布。<br><br>在许多加密场景中，用户的数据安全最终取决于密码，但密码通常不能被直接当作加密密钥使用，因此需要一些对应的处理方法来生成密钥。<br><br>对于给定的任意单一密码，通过加盐产生多个不同密钥，然后通过迭代次数提高计算密钥的成本，可以让攻击变得愈发困难。<br><br>如果盐留空，会随机产生一个字符串作为盐使用。";
         this.infoURL = "https://wikipedia.org/wiki/PBKDF2";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Passphrase",
+                "name": "口令",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["UTF8", "Latin1", "Hex", "Base64"]
+                "toggleValues": ["UTF8", "Latin1", "十六进制", "Base64"]
             },
             {
-                "name": "Key size",
+                "name": "Key大小",
                 "type": "number",
                 "value": 128
             },
             {
-                "name": "Iterations",
+                "name": "迭代次数",
                 "type": "number",
                 "value": 1
             },
             {
-                "name": "Hashing function",
+                "name": "哈希函数",
                 "type": "option",
                 "value": ["SHA1", "SHA256", "SHA384", "SHA512", "MD5"]
             },
             {
-                "name": "Salt",
+                "name": "盐",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             }
         ];
     }
