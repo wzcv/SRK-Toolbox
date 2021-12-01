@@ -124,16 +124,16 @@
     {
         "name": "公钥",
         "ops": [
-            "Parse X.509 certificate",
+            "解析X.509证书",
             "解析ASN.1十六进制字符串",
             "PEM转十六进制",
             "十六进制转PEM",
-            "Hex to Object Identifier",
-            "Object Identifier to Hex",
-            "Generate PGP Key Pair",
-            "PGP Encrypt",
-            "PGP Decrypt",
-            "PGP Verify",
+            "OID转十六进制",
+            "十六进制转OID",
+            "生成PGP公私钥对",
+            "PGP加密",
+            "PGP解密",
+            "PGP验证",
             "PGP Encrypt and Sign",
             "PGP Decrypt and Verify",
             "Generate RSA Key Pair",
@@ -261,7 +261,7 @@
             "Parse colour code",
             "Escape string",
             "Unescape string",
-            "Pseudo-Random Number Generator",
+            "伪随机数生成器",
             "Sleep"
         ]
     },
@@ -450,7 +450,7 @@
             "Index of Coincidence",
             "Chi Square",
             "Disassemble x86",
-            "Pseudo-Random Number Generator",
+            "伪随机数生成器",
             "Generate UUID",
             "Generate TOTP",
             "Generate HOTP",
@@ -461,7 +461,7 @@
             "Generate Lorem Ipsum",
             "Numberwang",
             "XKCD Random Number",
-            "身份证验证位校验"
+            "身份证校验位验证"
         ]
     },
     {

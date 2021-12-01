@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import r from "jsrsasign";
@@ -22,17 +24,17 @@ class ParseX509Certificate extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse X.509 certificate";
+        this.name = "解析X.509证书";
         this.module = "PublicKey";
-        this.description = "X.509 is an ITU-T standard for a public key infrastructure (PKI) and Privilege Management Infrastructure (PMI). It is commonly involved with SSL/TLS security.<br><br>This operation displays the contents of a certificate in a human readable format, similar to the openssl command line tool.<br><br>Tags: X509, server hello, handshake";
+        this.description = "X.509是密码学里公钥证书的格式标准。X.509证书已应用在包括TLS/SSL在内的众多网络协议里，同时它也用在很多非在线应用场景里，比如电子签名服务。<br><br>此操作把证书内容显示为人类可读的形式，和openssl命令行的效果类似。<br><br>标签： X509, server hello, handshake";
         this.infoURL = "https://wikipedia.org/wiki/X.509";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["PEM", "DER Hex", "Base64", "Raw"]
+                "value": ["PEM", "DER十六进制", "Base64", "原始"]
             }
         ];
         this.checks = [
@@ -51,14 +53,14 @@ class ParseX509Certificate extends Operation {
      */
     run(input, args) {
         if (!input.length) {
-            return "No input";
+            return "输入为空";
         }
 
         const cert = new r.X509(),
             inputFormat = args[0];
 
         switch (inputFormat) {
-            case "DER Hex":
+            case "DER十六进制":
                 input = input.replace(/\s/g, "");
                 cert.readCertHex(input);
                 break;
@@ -68,11 +70,11 @@ class ParseX509Certificate extends Operation {
             case "Base64":
                 cert.readCertHex(toHex(fromBase64(input, null, "byteArray"), ""));
                 break;
-            case "Raw":
+            case "原始":
                 cert.readCertHex(toHex(Utils.strToByteArray(input), ""));
                 break;
             default:
-                throw "Undefined input format";
+                throw "未指定输入格式";
         }
 
         const sn = cert.getSerialNumberHex(),
@@ -138,7 +140,7 @@ class ParseX509Certificate extends Operation {
         } else {
             pkFields.push({
                 key: "Error",
-                value: "Unknown Public Key type"
+                value: "未知的公钥类型"
             });
         }
 
@@ -162,7 +164,7 @@ class ParseX509Certificate extends Operation {
             sigStr = `  r:              ${formatByteStr(r.ASN1HEX.getV(sig, 4), 16, 18)}
   s:              ${formatByteStr(r.ASN1HEX.getV(sig, 48), 16, 18)}`;
         } else { // RSA or unknown
-            sigStr = `  Signature:      ${formatByteStr(sig, 16, 18)}`;
+            sigStr = `  签名:      ${formatByteStr(sig, 16, 18)}`;
         }
 
         // Extensions
@@ -175,23 +177,24 @@ class ParseX509Certificate extends Operation {
             naDate = formatDate(cert.getNotAfter()),
             subjectStr = formatDnStr(subject, 2);
 
-        return `Version:          ${cert.version} (0x${Utils.hex(cert.version - 1)})
-Serial number:    ${new r.BigInteger(sn, 16).toString()} (0x${sn})
-Algorithm ID:     ${cert.getSignatureAlgorithmField()}
-Validity
-  Not Before:     ${nbDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotBefore()})
-  Not After:      ${naDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotAfter()})
-Issuer
+        return `
+版本:              ${cert.version} (0x${Utils.hex(cert.version - 1)})
+序列号:            ${new r.BigInteger(sn, 16).toString()} (0x${sn})
+算法ID:            ${cert.getSignatureAlgorithmField()}
+有效期:
+  从:              ${nbDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotBefore()})
+  到:              ${naDate} (dd-mm-yyyy hh:mm:ss) (${cert.getNotAfter()})
+颁发者:
 ${issuerStr}
-Subject
+使用者:
 ${subjectStr}
-Public Key
+公钥:
 ${pkStr.slice(0, -1)}
-Certificate Signature
-  Algorithm:      ${cert.getSignatureAlgorithmName()}
+证书签名:
+  算法:            ${cert.getSignatureAlgorithmName()}
 ${sigStr}
 
-Extensions
+扩展:
 ${extensions}`;
     }
 

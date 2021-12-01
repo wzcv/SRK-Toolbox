@@ -38,7 +38,7 @@ class PseudoRandomNumberGenerator extends Operation {
             {
                 "name": "输出",
                 "type": "option",
-                "value": ["十六进制", "整数", "字节数组", "原始"]
+                "value": ["十六进制", "整型", "字节数组", "原始"]
             }
         ];
     }
@@ -66,7 +66,7 @@ class PseudoRandomNumberGenerator extends Operation {
         switch (outputAs) {
             case "十六进制":
                 return forge.util.bytesToHex(bytes);
-            case "整数":
+            case "整型":
                 for (i = bytes.length - 1; i >= 0; i--) {
                     value = value.times(256).plus(bytes.charCodeAt(i));
                 }

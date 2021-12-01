@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,23 +24,23 @@ class PGPEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Encrypt";
+        this.name = "PGP加密";
         this.module = "PGP";
         this.description = [
-            "Input: the message you want to encrypt.",
+            "输入：你想要加密的信息。",
             "<br><br>",
-            "Arguments: the ASCII-armoured PGP public key of the recipient.",
+            "参数：经过ASCII-armour处理的接收者PGP公钥。",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "PGP（英语：Pretty Good Privacy，直译：优良保密协议）是一套用于讯息加密、验证的应用程序。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此操作使用Keybase实现的PGP。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Public key of recipient",
+                "name": "接收者公钥",
                 "type": "text",
                 "value": ""
             }
@@ -57,7 +59,7 @@ class PGPEncrypt extends Operation {
             plainPubKey = args[0];
         let encryptedMessage;
 
-        if (!plainPubKey) throw new OperationError("Enter the public key of the recipient.");
+        if (!plainPubKey) throw new OperationError("请输入接收者的公钥");
 
         const key = await importPublicKey(plainPubKey);
 
@@ -68,7 +70,7 @@ class PGPEncrypt extends Operation {
                 "asp": ASP
             });
         } catch (err) {
-            throw new OperationError(`Couldn't encrypt message with provided public key: ${err}`);
+            throw new OperationError(`无法使用提供的公钥加密： ${err}`);
         }
 
         return encryptedMessage.toString();

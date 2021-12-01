@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -25,30 +27,30 @@ class GeneratePGPKeyPair extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate PGP Key Pair";
+        this.name = "生成PGP公私钥对";
         this.module = "PGP";
-        this.description = `Generates a new public/private PGP key pair. Supports RSA and Eliptic Curve (EC) keys.<br><br>${cryptNotice}`;
+        this.description = `生成PGP公钥/私钥对。支持RSA和椭圆曲线（Eliptic Curve，EC）密钥。<br><br>${cryptNotice}`;
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key type",
+                "name": "密钥类型",
                 "type": "option",
                 "value": ["RSA-1024", "RSA-2048", "RSA-4096", "ECC-256", "ECC-384", "ECC-521"]
             },
             {
-                "name": "Password (optional)",
+                "name": "口令（非必填）",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Name (optional)",
+                "name": "姓名（非必填）",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Email (optional)",
+                "name": "Email（非必填）",
                 "type": "string",
                 "value": ""
             }
@@ -112,7 +114,7 @@ class GeneratePGPKeyPair extends Operation {
                 const publicKey = await promisify(signedKey.export_pgp_public.bind(signedKey))({});
                 resolve(privateKey + "\n" + publicKey.trim());
             } catch (err) {
-                reject(`Error whilst generating key pair: ${err}`);
+                reject(`生成公私钥对出错： ${err}`);
             }
         });
     }

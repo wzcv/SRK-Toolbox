@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,29 +24,29 @@ class PGPDecrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Decrypt";
+        this.name = "PGP解密";
         this.module = "PGP";
         this.description = [
-            "Input: the ASCII-armoured PGP message you want to decrypt.",
+            "输入：你想要解密的经过ASCII-armour处理的PGP信息。",
             "<br><br>",
-            "Arguments: the ASCII-armoured PGP private key of the recipient, ",
-            "(and the private key password if necessary).",
+            "参数：经过ASCII-armour处理的接收者PGP私钥。",
+            "（如果有口令的话还需要填写口令）",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "PGP（英语：Pretty Good Privacy，直译：优良保密协议）是一套用于讯息加密、验证的应用程序。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此操作使用Keybase实现的PGP。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Private key of recipient",
+                "name": "接收者私钥",
                 "type": "text",
                 "value": ""
             },
             {
-                "name": "Private key passphrase",
+                "name": "私钥口令",
                 "type": "string",
                 "value": ""
             }
@@ -64,7 +66,7 @@ class PGPDecrypt extends Operation {
             keyring = new kbpgp.keyring.KeyRing();
         let plaintextMessage;
 
-        if (!privateKey) throw new OperationError("Enter the private key of the recipient.");
+        if (!privateKey) throw new OperationError("请输入接收者的私钥");
 
         const key = await importPrivateKey(privateKey, passphrase);
         keyring.add_key_manager(key);
@@ -76,7 +78,7 @@ class PGPDecrypt extends Operation {
                 asp: ASP
             });
         } catch (err) {
-            throw new OperationError(`Couldn't decrypt message with provided private key: ${err}`);
+            throw new OperationError(`无法使用提供的私钥解密： ${err}`);
         }
 
         return plaintextMessage.toString();

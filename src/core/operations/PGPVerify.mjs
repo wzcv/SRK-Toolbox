@@ -2,6 +2,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,25 +25,25 @@ class PGPVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Verify";
+        this.name = "PGP验证";
         this.module = "PGP";
         this.description = [
-            "Input: the ASCII-armoured encrypted PGP message you want to verify.",
+            "输入：你想要验证的经过ASCII-armour处理的PGP信息。",
             "<br><br>",
-            "Argument: the ASCII-armoured PGP public key of the signer",
+            "参数：经过ASCII-armour处理的签名者PGP公钥。",
             "<br><br>",
-            "This operation uses PGP to decrypt a clearsigned message.",
+            "此操作解密使用clearsign参数生成的PGP信息",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "PGP（英语：Pretty Good Privacy，直译：优良保密协议）是一套用于讯息加密、验证的应用程序。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此操作使用Keybase实现的PGP。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Public key of signer",
+                "name": "签名者公钥",
                 "type": "text",
                 "value": ""
             }
@@ -59,7 +61,7 @@ class PGPVerify extends Operation {
             keyring = new kbpgp.keyring.KeyRing();
         let unboxedLiterals;
 
-        if (!publicKey) throw new OperationError("Enter the public key of the signer.");
+        if (!publicKey) throw new OperationError("请输入签名者的公钥");
         const pubKey = await importPublicKey(publicKey);
         keyring.add_key_manager(pubKey);
 
@@ -74,7 +76,7 @@ class PGPVerify extends Operation {
                 const km = ds.get_key_manager();
                 if (km) {
                     const signer = km.get_userids_mark_primary()[0].components;
-                    let text = "Signed by ";
+                    let text = "签名：";
                     if (signer.email || signer.username || signer.comment) {
                         if (signer.username) {
                             text += `${signer.username} `;
@@ -89,8 +91,8 @@ class PGPVerify extends Operation {
                     }
                     text += [
                         `PGP key ID: ${km.get_pgp_short_key_id()}`,
-                        `PGP fingerprint: ${km.get_pgp_fingerprint().toString("hex")}`,
-                        `Signed on ${new Date(ds.sig.when_generated() * 1000).toUTCString()}`,
+                        `PGP指纹: ${km.get_pgp_fingerprint().toString("hex")}`,
+                        `签名日期: ${new Date(ds.sig.when_generated() * 1000).toUTCString()}`,
                         "----------------------------------\n"
                     ].join("\n");
                     text += unboxedLiterals.toString();
@@ -99,10 +101,10 @@ class PGPVerify extends Operation {
                     throw new OperationError("Could not identify a key manager.");
                 }
             } else {
-                throw new OperationError("The data does not appear to be signed.");
+                throw new OperationError("数据似乎未签名");
             }
         } catch (err) {
-            throw new OperationError(`Couldn't verify message: ${err}`);
+            throw new OperationError(`无法验证消息： ${err}`);
         }
     }
 

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import r from "jsrsasign";
@@ -18,9 +20,9 @@ class HexToObjectIdentifier extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex to Object Identifier";
+        this.name = "十六进制转OID";
         this.module = "PublicKey";
-        this.description = "Converts a hexadecimal string into an object identifier (OID).";
+        this.description = "把十六进制字符串转换成对应的对象标识符（object identifier，OID）。";
         this.infoURL = "https://wikipedia.org/wiki/Object_identifier";
         this.inputType = "string";
         this.outputType = "string";
