@@ -59,7 +59,7 @@ class App {
         this.populateOperationsList();
         this.manager.setup();
         this.manager.output.saveBombe();
-        this.resetLayout();
+        this.adjustComponentSizes();
         this.setCompileMessage();
 
         log.debug("App loaded");
@@ -297,9 +297,7 @@ class App {
             gutterSize: 4,
             expandToMin: true,
             onDrag: debounce(function() {
-                this.manager.recipe.adjustWidth();
-                this.manager.input.calcMaxTabs();
-                this.manager.output.calcMaxTabs();
+                this.adjustComponentSizes();
             }, 50, "dragSplitter", this, [])
         });
 
@@ -309,7 +307,7 @@ class App {
             minSize: minimise ? [0, 0] : [100, 100]
         });
 
-        this.resetLayout();
+        this.adjustComponentSizes();
     }
 
 
@@ -583,6 +581,13 @@ class App {
     resetLayout() {
         this.columnSplitter.setSizes([20, 30, 50]);
         this.ioSplitter.setSizes([50, 50]);
+        this.adjustComponentSizes();
+    }
+
+    /**
+     * Adjust components to fit their containers.
+     */
+    adjustComponentSizes() {
         this.manager.recipe.adjustWidth();
         this.manager.input.calcMaxTabs();
         this.manager.output.calcMaxTabs();

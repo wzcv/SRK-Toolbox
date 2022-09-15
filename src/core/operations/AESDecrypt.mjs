@@ -68,6 +68,14 @@ class AESDecrypt extends Operation {
                     {
                         name: "ECB",
                         off: [5, 6]
+                    },
+                    {
+                        name: "CBC/NoPadding",
+                        off: [5, 6]
+                    },
+                    {
+                        name: "ECB/NoPadding",
+                        off: [5, 6]
                     }
                 ]
             },
@@ -106,7 +114,8 @@ class AESDecrypt extends Operation {
     run(input, args) {
         const key = Utils.convertToByteString(args[0].string, args[0].option),
             iv = Utils.convertToByteString(args[1].string, args[1].option),
-            mode = args[2],
+            mode = args[2].substring(0, 3),
+            noPadding = args[2].endsWith("NoPadding"),
             inputType = args[3],
             outputType = args[4],
             gcmTag = Utils.convertToByteString(args[5].string, args[5].option),
@@ -124,6 +133,14 @@ class AESDecrypt extends Operation {
         input = Utils.convertToByteString(input, inputType);
 
         const decipher = forge.cipher.createDecipher("AES-" + mode, key);
+
+        /* Allow for a "no padding" mode */
+        if (noPadding) {
+            decipher.mode.unpad = function(output, options) {
+                return true;
+            };
+        }
+
         decipher.start({
             iv: iv.length === 0 ? "" : iv,
             tag: mode === "GCM" ? gcmTag : undefined,

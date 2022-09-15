@@ -20,6 +20,8 @@
             "八进制转字符",
             "Base32编码",
             "Base32解码",
+            "Base45编码",
+            "Base45解码",
             "Base58编码",
             "Base58解码",
             "Base62编码",
@@ -77,12 +79,19 @@
             "DES解密",
             "3DES加密",
             "3DES解密",
+            "LS47加密",
+            "LS47解密",
             "RC2加密",
             "RC2解密",
             "RC4",
             "RC4 Drop",
+            "SM4 Encrypt",
+            "SM4 Decrypt",
             "ROT13",
+            "ROT13 Brute Force",
             "ROT47",
+            "ROT47 Brute Force",
+            "ROT8000",
             "XOR",
             "XOR暴力破解",
             "维吉尼亚密码加密",
@@ -102,6 +111,8 @@
             "阿特巴希密码",
             "CipherSaber2加密",
             "CipherSaber2解密",
+            "Cetacean Cipher Encode",
+            "Cetacean Cipher Decode",
             "替换密码",
             "派生PBKDF2密钥",
             "派生EVP密钥",
@@ -118,7 +129,8 @@
             "Multiple Bombe",
             "Typex",
             "Lorenz",
-            "Colossus"
+            "Colossus",
+            "SIGABA"
         ]
     },
     {
@@ -171,7 +183,8 @@
             "Bit shift right",
             "Rotate left",
             "Rotate right",
-            "ROT13"
+            "ROT13",
+            "ROT8000"
         ]
     },
     {
@@ -185,6 +198,7 @@
             "Parse IP range",
             "Parse IPv6 address",
             "Parse IPv4 header",
+            "Parse TCP",
             "Parse UDP",
             "解析SSH主机密钥",
             "Parse URI",
@@ -230,6 +244,7 @@
             "From Case Insensitive Regex",
             "Add line numbers",
             "Remove line numbers",
+            "Get All Casings",
             "To Table",
             "Reverse",
             "Sort",
@@ -313,7 +328,9 @@
             "Bzip2 Decompress",
             "Bzip2 Compress",
             "Tar",
-            "Untar"
+            "Untar",
+            "LZString Compress",
+            "LZString Decompress"
         ]
     },
     {
@@ -406,7 +423,8 @@
             "Extract RGBA",
             "View Bit Plane",
             "Randomize Colour Palette",
-            "Extract LSB"
+            "Extract LSB",
+            "ELF Info"
         ]
     },
     {
@@ -449,6 +467,7 @@
             "Frequency distribution",
             "Index of Coincidence",
             "Chi Square",
+            "P-list Viewer",
             "Disassemble x86",
             "伪随机数生成器",
             "Generate UUID",

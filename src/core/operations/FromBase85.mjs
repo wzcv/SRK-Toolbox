@@ -34,6 +34,40 @@ class FromBase85 extends Operation {
                 type: "editableOption",
                 value: ALPHABET_OPTIONS
             },
+            {
+                name: "Remove non-alphabet chars",
+                type: "boolean",
+                value: true
+            },
+        ];
+        this.checks = [
+            {
+                pattern:
+                    "^\\s*(?:<~)?" + // Optional whitespace and starting marker
+                    "[\\s!-uz]*" +   // Any amount of base85 characters and whitespace
+                    "[!-uz]{15}" +   // At least 15 continoues base85 characters without whitespace
+                    "[\\s!-uz]*" +   // Any amount of base85 characters and whitespace
+                    "(?:~>)?\\s*$",  // Optional ending marker and whitespace
+                args: ["!-u"],
+            },
+            {
+                pattern:
+                    "^" +
+                    "[\\s0-9a-zA-Z.\\-:+=^!/*?&<>()[\\]{}@%$#]*" +
+                    "[0-9a-zA-Z.\\-:+=^!/*?&<>()[\\]{}@%$#]{15}" + // At least 15 continoues base85 characters without whitespace
+                    "[\\s0-9a-zA-Z.\\-:+=^!/*?&<>()[\\]{}@%$#]*" +
+                    "$",
+                args: ["0-9a-zA-Z.\\-:+=^!/*?&<>()[]{}@%$#"],
+            },
+            {
+                pattern:
+                    "^" +
+                    "[\\s0-9A-Za-z!#$%&()*+\\-;<=>?@^_`{|}~]*" +
+                    "[0-9A-Za-z!#$%&()*+\\-;<=>?@^_`{|}~]{15}" + // At least 15 continoues base85 characters without whitespace
+                    "[\\s0-9A-Za-z!#$%&()*+\\-;<=>?@^_`{|}~]*" +
+                    "$",
+                args: ["0-9A-Za-z!#$%&()*+\\-;<=>?@^_`{|}~"],
+            },
         ];
     }
 
@@ -45,6 +79,7 @@ class FromBase85 extends Operation {
     run(input, args) {
         const alphabet = Utils.expandAlphRange(args[0]).join(""),
             encoding = alphabetName(alphabet),
+            removeNonAlphChars = args[1],
             result = [];
 
         if (alphabet.length !== 85 ||
@@ -52,10 +87,17 @@ class FromBase85 extends Operation {
             throw new OperationError("错误：可用字符必须是85个");
         }
 
-        if (input.length === 0) return [];
-
-        const matches = input.match(/<~(.+?)~>/);
+        // Remove delimiters if present
+        const matches = input.match(/^<~(.+?)~>$/);
         if (matches !== null) input = matches[1];
+
+        // Remove non-alphabet characters
+        if (removeNonAlphChars) {
+            const re = new RegExp("[^" + alphabet.replace(/[[\]\\\-^$]/g, "\\$&") + "]", "g");
+            input = input.replace(re, "");
+        }
+
+        if (input.length === 0) return [];
 
         let i = 0;
         let block, blockBytes;
@@ -71,7 +113,7 @@ class FromBase85 extends Operation {
                     .map((chr, idx) => {
                         const digit = alphabet.indexOf(chr);
                         if (digit < 0 || digit > 84) {
-                            throw `非法字符：'${chr}'（位置：${idx}）`;
+                            throw `Invalid character '${chr}' at index ${i + idx}`;
                         }
                         return digit;
                     });

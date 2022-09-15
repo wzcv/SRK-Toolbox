@@ -44,7 +44,7 @@ class DESDecrypt extends Operation {
             {
                 "name": "模式",
                 "type": "option",
-                "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
+                "value": ["CBC", "CFB", "OFB", "CTR", "ECB", "CBC/NoPadding", "ECB/NoPadding"]
             },
             {
                 "name": "输入格式",
@@ -67,7 +67,9 @@ class DESDecrypt extends Operation {
     run(input, args) {
         const key = Utils.convertToByteString(args[0].string, args[0].option),
             iv = Utils.convertToByteArray(args[1].string, args[1].option),
-            [,, mode, inputType, outputType] = args;
+            mode = args[2].substring(0, 3),
+            noPadding = args[2].endsWith("NoPadding"),
+            [,,, inputType, outputType] = args;
 
         if (key.length !== 8) {
             throw new OperationError(`无效的key长度： ${key.length}字节
@@ -85,6 +87,14 @@ DES的IV长度为8字节（64位）。
         input = Utils.convertToByteString(input, inputType);
 
         const decipher = forge.cipher.createDecipher("DES-" + mode, key);
+
+        /* Allow for a "no padding" mode */
+        if (noPadding) {
+            decipher.mode.unpad = function(output, options) {
+                return true;
+            };
+        }
+
         decipher.start({iv: iv});
         decipher.update(forge.util.createBuffer(input));
         const result = decipher.finish();

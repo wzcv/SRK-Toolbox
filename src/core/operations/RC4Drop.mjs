@@ -43,9 +43,9 @@ class RC4Drop extends Operation {
                 "value": ["Latin1", "UTF8", "UTF16", "UTF16LE", "UTF16BE", "十六进制", "Base64"]
             },
             {
-                "name": "丢弃的字节数",
+                "name": "Number of dwords to drop",
                 "type": "number",
-                "value": 768
+                "value": 192
             }
         ];
     }

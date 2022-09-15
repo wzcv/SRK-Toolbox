@@ -46,8 +46,8 @@ class Substitute extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        const plaintext = Utils.expandAlphRange(args[0]).join(""),
-            ciphertext = Utils.expandAlphRange(args[1]).join("");
+        const plaintext = Utils.expandAlphRange([...args[0]]),
+            ciphertext = Utils.expandAlphRange([...args[1]]);
         let output = "",
             index = -1;
 
@@ -55,9 +55,9 @@ class Substitute extends Operation {
             output = "警告：明文和密文长度不同\n\n";
         }
 
-        for (let i = 0; i < input.length; i++) {
-            index = plaintext.indexOf(input[i]);
-            output += index > -1 && index < ciphertext.length ? ciphertext[index] : input[i];
+        for (const character of input) {
+            index = plaintext.indexOf(character);
+            output += index > -1 && index < ciphertext.length ? ciphertext[index] : character;
         }
 
         return output;
