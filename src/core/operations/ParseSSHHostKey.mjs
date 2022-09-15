@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,20 +23,20 @@ class ParseSSHHostKey extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse SSH Host Key";
+        this.name = "解析SSH主机密钥";
         this.module = "Default";
-        this.description = "Parses a SSH host key and extracts fields from it.<br>The key type can be:<ul><li>ssh-rsa</li><li>ssh-dss</li><li>ecdsa-sha2</li></ul>The key format can be either Hex or Base64.";
+        this.description = "解析SSH主机密钥（host key），提取其中字段。<br>支持的密钥类型：<ul><li>ssh-rsa</li><li>ssh-dss</li><li>ecdsa-sha2</li></ul>密钥可以为十六进制或Base64格式";
         this.infoURL = "https://wikipedia.org/wiki/Secure_Shell";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
                 value: [
-                    "Auto",
+                    "自动",
                     "Base64",
-                    "Hex"
+                    "十六进制"
                 ]
             }
         ];
@@ -42,7 +44,7 @@ class ParseSSHHostKey extends Operation {
             {
                 pattern:  "^\\s*([A-F\\d]{2}[,;:]){15,}[A-F\\d]{2}\\s*$",
                 flags:  "i",
-                args:   ["Hex"]
+                args:   ["十六进制"]
             }
         ];
     }
@@ -58,22 +60,22 @@ class ParseSSHHostKey extends Operation {
             fields = this.parseKey(inputKey),
             keyType = Utils.byteArrayToChars(fromHex(fields[0]), "");
 
-        let output = `Key type: ${keyType}`;
+        let output = `密钥类型： ${keyType}`;
 
         if (keyType === "ssh-rsa") {
-            output += `\nExponent: 0x${fields[1]}`;
-            output += `\nModulus: 0x${fields[2]}`;
+            output += `\n指数： 0x${fields[1]}`;
+            output += `\n模数： 0x${fields[2]}`;
         } else if (keyType === "ssh-dss") {
             output += `\np: 0x${fields[1]}`;
             output += `\nq: 0x${fields[2]}`;
             output += `\ng: 0x${fields[3]}`;
             output += `\ny: 0x${fields[4]}`;
         } else if (keyType.startsWith("ecdsa-sha2")) {
-            output += `\nCurve: ${Utils.byteArrayToChars(fromHex(fields[1]))}`;
-            output += `\nPoint: 0x${fields.slice(2)}`;
+            output += `\n曲线： ${Utils.byteArrayToChars(fromHex(fields[1]))}`;
+            output += `\n点： 0x${fields.slice(2)}`;
         } else {
-            output += "\nUnsupported key type.";
-            output += `\nParameters: ${fields.slice(1)}`;
+            output += "\n不支持的密钥类型";
+            output += `\n参数： ${fields.slice(1)}`;
         }
 
         return output;
@@ -94,15 +96,15 @@ class ParseSSHHostKey extends Operation {
             inputKey = keyMatch[1];
         }
 
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动") {
             inputFormat = this.detectKeyFormat(inputKey);
         }
-        if (inputFormat === "Hex") {
+        if (inputFormat === "十六进制") {
             return fromHex(inputKey);
         } else if (inputFormat === "Base64") {
             return fromBase64(inputKey, null, "byteArray");
         } else {
-            throw new OperationError("Invalid input format.");
+            throw new OperationError("无效的输入格式");
         }
     }
 
@@ -118,11 +120,11 @@ class ParseSSHHostKey extends Operation {
         const b64Pattern = new RegExp(/^\s*(?:[A-Za-z\d+/]{4})+(?:[A-Za-z\d+/]{2}==|[A-Za-z\d+/]{3}=)?\s*$/);
 
         if (hexPattern.test(inputKey)) {
-            return "Hex";
+            return "十六进制";
         } else if (b64Pattern.test(inputKey)) {
             return "Base64";
         } else {
-            throw new OperationError("Unable to detect input key format.");
+            throw new OperationError("无法检测密钥格式。");
         }
     }
 

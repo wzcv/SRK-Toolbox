@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,36 +24,36 @@ class PGPEncryptAndSign extends Operation {
     constructor() {
         super();
 
-        this.name = "PGP Encrypt and Sign";
+        this.name = "PGP加密并签名";
         this.module = "PGP";
         this.description = [
-            "Input: the cleartext you want to sign.",
+            "输入：你想要签名的明文内容。",
             "<br><br>",
-            "Arguments: the ASCII-armoured private key of the signer (plus the private key password if necessary)",
-            "and the ASCII-armoured PGP public key of the recipient.",
+            "参数：经过ASCII-armour处理的签名者私钥（以及口令，如果有）",
+            "经过ASCII-armour处理的接收者公钥。",
             "<br><br>",
-            "This operation uses PGP to produce an encrypted digital signature.",
+            "此操作用PGP产生加密的数字签名。",
             "<br><br>",
-            "Pretty Good Privacy is an encryption standard (OpenPGP) used for encrypting, decrypting, and signing messages.",
+            "PGP（英语：Pretty Good Privacy，直译：优良保密协议）是一套用于讯息加密、验证的应用程序。",
             "<br><br>",
-            "This function uses the Keybase implementation of PGP.",
+            "此操作使用Keybase实现的PGP。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Pretty_Good_Privacy";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Private key of signer",
+                "name": "签名者私钥",
                 "type": "text",
                 "value": ""
             },
             {
-                "name": "Private key passphrase",
+                "name": "私钥口令",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Public key of recipient",
+                "name": "接收者公钥",
                 "type": "text",
                 "value": ""
             }
@@ -70,8 +72,8 @@ class PGPEncryptAndSign extends Operation {
             [privateKey, passphrase, publicKey] = args;
         let signedMessage;
 
-        if (!privateKey) throw new OperationError("Enter the private key of the signer.");
-        if (!publicKey) throw new OperationError("Enter the public key of the recipient.");
+        if (!privateKey) throw new OperationError("请输入签名者私钥。");
+        if (!publicKey) throw new OperationError("请输入接收者公钥。");
         const privKey = await importPrivateKey(privateKey, passphrase);
         const pubKey = await importPublicKey(publicKey);
 
@@ -83,7 +85,7 @@ class PGPEncryptAndSign extends Operation {
                 "asp": ASP
             });
         } catch (err) {
-            throw new OperationError(`Couldn't sign message: ${err}`);
+            throw new OperationError(`无法给消息签名： ${err}`);
         }
 
         return signedMessage;
