@@ -2,6 +2,8 @@
  * @author dolphinOnKeys [robin@weird.io]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n with towel in hand
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class CetaceanCipherDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Cetacean Cipher Decode";
+        this.name = "鲸豚密码解密";
         this.module = "Ciphers";
-        this.description = "Decode Cetacean Cipher input. <br/><br/>e.g. <code>EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe</code> becomes <code>hi</code>";
+        this.description = "把输入使用鲸豚密码（Cetacean Cipher）解密。 <br/><br/>例如 <code>EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe</code> 解密为 <code>hi</code>";
         this.infoURL = "https://hitchhikers.fandom.com/wiki/Dolphins";
         this.inputType = "string";
         this.outputType = "string";

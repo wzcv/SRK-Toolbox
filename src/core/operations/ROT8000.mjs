@@ -3,6 +3,8 @@
  * @author Thomas Leplus [https://www.leplus.org]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,7 +21,7 @@ class ROT8000 extends Operation {
         super();
         this.name = "ROT8000";
         this.module = "Default";
-        this.description = "The simple Caesar-cypher encryption that replaces each Unicode character with the one 0x8000 places forward or back along the alphabet.";
+        this.description = "简单的凯撒密码，把Unicode字符替换成之前或之后的第0x8000个字符。";
         this.infoURL = "https://rot8000.com/info";
         this.inputType = "string";
         this.outputType = "string";

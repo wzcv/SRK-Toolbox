@@ -2,6 +2,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,25 +22,25 @@ class RSAVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "RSA Verify";
+        this.name = "RSA验证";
         this.module = "Ciphers";
-        this.description = "Verify a message against a signature and a public PEM encoded RSA key.";
+        this.description = "使用PEM编码的RSA公钥和签名验证文本消息。";
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Public Key (PEM)",
+                name: "RSA公钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN RSA PUBLIC KEY-----"
             },
             {
-                name: "Message",
+                name: "消息",
                 type: "text",
                 value: ""
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: Object.keys(MD_ALGORITHMS)
             }
@@ -53,7 +55,7 @@ class RSAVerify extends Operation {
     run(input, args) {
         const [pemKey, message, mdAlgo] = args;
         if (pemKey.replace("-----BEGIN RSA PUBLIC KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a public key.");
+            throw new OperationError("请输入公钥。");
         }
         try {
             // Load public key
@@ -63,10 +65,10 @@ class RSAVerify extends Operation {
             md.update(message, "utf8");
             // Compare signed message digest and generated message digest
             const result = pubKey.verify(md.digest().bytes(), input);
-            return result ? "Verified OK" : "Verification Failure";
+            return result ? "验证成功" : "验证失败";
         } catch (err) {
             if (err.message === "Encrypted message length is invalid.") {
-                throw new OperationError(`Signature length (${err.length}) does not match expected length based on key (${err.expected}).`);
+                throw new OperationError(`签名长度 (${err.length}) 与密钥长度 (${err.expected}) 的期待值不符。`);
             }
             throw new OperationError(err);
         }

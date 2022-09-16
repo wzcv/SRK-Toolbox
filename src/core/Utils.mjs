@@ -437,8 +437,8 @@ class Utils {
             if (isWorkerEnvironment()) {
                 try {
                     self.setOption("attemptHighlight", false);
-                } catch(err) {
-                    //pass
+                } catch (err) {
+                    // TODO: Have no idea why this is throwing errors
                 }
             } else if (isWebEnvironment()) {
                 window.app.options.attemptHighlight = false;

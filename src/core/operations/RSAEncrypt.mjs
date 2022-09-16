@@ -2,6 +2,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class RSAEncrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "RSA Encrypt";
+        this.name = "RSA加密";
         this.module = "Ciphers";
-        this.description = "Encrypt a message with a PEM encoded RSA public key.";
+        this.description = "使用PEM格式RSA公钥加密消息。";
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Public Key (PEM)",
+                name: "RSA公钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN RSA PUBLIC KEY-----"
             },
             {
-                name: "Encryption Scheme",
+                name: "加密方式",
                 type: "argSelector",
                 value: [
                     {
@@ -50,7 +52,7 @@ class RSAEncrypt extends Operation {
                     }]
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: Object.keys(MD_ALGORITHMS)
             }
@@ -66,7 +68,7 @@ class RSAEncrypt extends Operation {
         const [pemKey, scheme, md] = args;
 
         if (pemKey.replace("-----BEGIN RSA PUBLIC KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a public key.");
+            throw new OperationError("请输入公钥。");
         }
         try {
             // Load public key
@@ -78,7 +80,7 @@ class RSAEncrypt extends Operation {
             return eMsg;
         } catch (err) {
             if (err.message === "RSAES-OAEP input message length is too long.") {
-                throw new OperationError(`RSAES-OAEP input message length (${err.length}) is longer than the maximum allowed length (${err.maxLength}).`);
+                throw new OperationError(`RSAES-OAEP 输入消息长度 (${err.length}) 超过最大长度 (${err.maxLength})。`);
             }
             throw new OperationError(err);
         }

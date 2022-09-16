@@ -1,6 +1,8 @@
 /**
  * @author MikeCAT
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,30 +19,30 @@ class ROT47BruteForce extends Operation {
     constructor() {
         super();
 
-        this.name = "ROT47 Brute Force";
+        this.name = "ROT47暴力破解";
         this.module = "Default";
-        this.description = "Try all meaningful amounts for ROT47.<br><br>Optionally you can enter your known plaintext (crib) to filter the result.";
+        this.description = "尝试ROT47所有可能的偏移量。<br><br>你可以输入已知的明文部分（Crib）来筛选结果。";
         this.infoURL = "https://wikipedia.org/wiki/ROT13#Variants";
         this.inputType = "byteArray";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample length",
+                name: "取样长度",
                 type: "number",
                 value: 100
             },
             {
-                name: "Sample offset",
+                name: "取样偏移",
                 type: "number",
                 value: 0
             },
             {
-                name: "Print amount",
+                name: "输出偏移量",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Crib (known plaintext string)",
+                name: "Crib (已知明文)",
                 type: "string",
                 value: ""
             }
@@ -68,7 +70,7 @@ class ROT47BruteForce extends Operation {
             if (rotatedString.toLowerCase().indexOf(cribLower) >= 0) {
                 const rotatedStringPrintable = Utils.printable(rotatedString, false);
                 if (printAmount) {
-                    const amountStr = "Amount = " + (" " + amount).slice(-2) + ": ";
+                    const amountStr = "偏移量 = " + (" " + amount).slice(-2) + ": ";
                     result.push(amountStr + rotatedStringPrintable);
                 } else {
                     result.push(rotatedStringPrintable);

@@ -195,7 +195,7 @@ module.exports = {
             {
                 test: /\.m?js$/,
                 resolve: {
-                  fullySpecified: false, // disable the behaviour
+                    fullySpecified: false, // disable the behaviour
                 },
             },
         ]

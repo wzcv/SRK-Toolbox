@@ -2,6 +2,8 @@
  * @author dolphinOnKeys [robin@weird.io]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n with towel in hand
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class CetaceanCipherEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Cetacean Cipher Encode";
+        this.name = "鲸豚密码加密";
         this.module = "Ciphers";
-        this.description = "Converts any input into Cetacean Cipher. <br/><br/>e.g. <code>hi</code> becomes <code>EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe</code>";
+        this.description = "把输入使用鲸豚密码（Cetacean Cipher）加密。 <br/><br/>例如 <code>hi</code> 加密为 <code>EEEEEEEEEeeEeEEEEEEEEEEEEeeEeEEe</code>";
         this.infoURL = "https://hitchhikers.fandom.com/wiki/Dolphins";
         this.inputType = "string";
         this.outputType = "string";

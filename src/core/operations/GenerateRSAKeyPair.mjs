@@ -3,6 +3,8 @@
  * @author gchq77703 []
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class GenerateRSAKeyPair extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate RSA Key Pair";
+        this.name = "生成RSA密钥对";
         this.module = "Ciphers";
-        this.description = `Generate an RSA key pair with a given number of bits.<br><br>${cryptNotice}`;
+        this.description = `生成给定长度的RSA密钥对。<br><br>${cryptNotice}`;
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Key Length",
+                name: "RSA密钥长度",
                 type: "option",
                 value: [
                     "1024",
@@ -37,7 +39,7 @@ class GenerateRSAKeyPair extends Operation {
                 ]
             },
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "PEM",

@@ -2,6 +2,8 @@
  * @author swesven
  * @copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,9 +23,9 @@ class SM4Encrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "SM4 Encrypt";
+        this.name = "SM4加密";
         this.module = "Ciphers";
-        this.description = "SM4 is a 128-bit block cipher, currently established as a national standard (GB/T 32907-2016) of China. Multiple block cipher modes are supported. When using CBC or ECB mode, the PKCS#7 padding scheme is used.";
+        this.description = "SM4是128位的分组密码，2016年8月，成为中国国家密码标准（GB/T 32907-2016）。支持多种加密模式。当使用CBC或ECB模式时，使用PKCS#7填充。";
         this.infoURL = "https://wikipedia.org/wiki/SM4_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
@@ -32,28 +34,28 @@ class SM4Encrypt extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "IV",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始", "十六进制"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始"]
             }
         ];
     }
@@ -69,18 +71,18 @@ class SM4Encrypt extends Operation {
             [,, mode, inputType, outputType] = args;
 
         if (key.length !== 16)
-            throw new OperationError(`Invalid key length: ${key.length} bytes
+            throw new OperationError(`无效的key长度: ${key.length} 字节
 
-SM4 uses a key length of 16 bytes (128 bits).`);
+SM4使用16字节(128位)长度的key。`);
         if (iv.length !== 16 && !mode.startsWith("ECB"))
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes
+            throw new OperationError(`无效的IV长度: ${iv.length} 字节
 
-SM4 uses an IV length of 16 bytes (128 bits).
-Make sure you have specified the type correctly (e.g. Hex vs UTF8).`);
+SM4使用16字节(128位)长度的IV。
+请确认选择了正确的格式 (例如十六进制或UTF8)。`);
 
         input = Utils.convertToByteArray(input, inputType);
         const output = encryptSM4(input, key, iv, mode.substring(0, 3), mode.endsWith("NoPadding"));
-        return outputType === "Hex" ? toHex(output) : Utils.byteArrayToUtf8(output);
+        return outputType === "十六进制" ? toHex(output) : Utils.byteArrayToUtf8(output);
     }
 
 }

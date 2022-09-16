@@ -2,6 +2,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,25 +22,25 @@ class RSADecrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "RSA Decrypt";
+        this.name = "RSA解密";
         this.module = "Ciphers";
-        this.description = "Decrypt an RSA encrypted message with a PEM encoded private key.";
+        this.description = "使用PEM格式的RSA私钥解密消息。";
         this.infoURL = "https://wikipedia.org/wiki/RSA_(cryptosystem)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "RSA Private Key (PEM)",
+                name: "RSA私钥 (PEM)",
                 type: "text",
                 value: "-----BEGIN RSA PRIVATE KEY-----"
             },
             {
-                name: "Key Password",
+                name: "密码",
                 type: "text",
                 value: ""
             },
             {
-                name: "Encryption Scheme",
+                name: "加密方式",
                 type: "argSelector",
                 value: [
                     {
@@ -55,7 +57,7 @@ class RSADecrypt extends Operation {
                     }]
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: Object.keys(MD_ALGORITHMS)
             }
@@ -70,7 +72,7 @@ class RSADecrypt extends Operation {
     run(input, args) {
         const [pemKey, password, scheme, md] = args;
         if (pemKey.replace("-----BEGIN RSA PRIVATE KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a private key.");
+            throw new OperationError("请输入私钥。");
         }
         try {
             const privKey = forge.pki.decryptRsaPrivateKey(pemKey, password);
