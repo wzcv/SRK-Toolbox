@@ -2,6 +2,8 @@
  * @author Thomas Weißschuh [thomas@t-8ch.de]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import {ALPHABET, highlightToBase45, highlightFromBase45} from "../lib/Base45.mjs";
@@ -21,20 +23,20 @@ class FromBase45 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base45";
+        this.name = "Base45解码";
         this.module = "Default";
-        this.description = "Base45 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers. The high number base results in shorter strings than with the decimal or hexadecimal system. Base45 is optimized for usage with QR codes.";
+        this.description = "Base45是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取。越高的Base数目会生成越短的字符串。Base45是为二维码优化的编码方式。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Alphabet",
+                name: "可用字符",
                 type: "string",
                 value: ALPHABET
             },
             {
-                name: "Remove non-alphabet chars",
+                name: "移除输入中的非可用字符",
                 type: "boolean",
                 value: true
             },
@@ -68,14 +70,14 @@ class FromBase45 extends Operation {
             for (const c of triple) {
                 const idx = alphabet.indexOf(c);
                 if (idx === -1) {
-                    throw new OperationError(`Character not in alphabet: '${c}'`);
+                    throw new OperationError(`非可用字符: '${c}'`);
                 }
                 b *= 45;
                 b += idx;
             }
 
             if (b > 65535) {
-                throw new OperationError(`Triplet too large: '${triple.join("")}'`);
+                throw new OperationError(`超出编码范围: '${triple.join("")}'`);
             }
 
             if (triple.length > 2) {

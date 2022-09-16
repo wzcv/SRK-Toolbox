@@ -2,6 +2,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,20 +20,20 @@ class LS47Decrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "LS47 Decrypt";
+        this.name = "LS47解密";
         this.module = "Crypto";
-        this.description = "This is a slight improvement of the ElsieFour cipher as described by Alan Kaminsky. We use 7x7 characters instead of original (barely fitting) 6x6, to be able to encrypt some structured information. We also describe a simple key-expansion algorithm, because remembering passwords is popular. Similar security considerations as with ElsieFour hold.<br>The LS47 alphabet consists of following characters: <code>_abcdefghijklmnopqrstuvwxyz.0123456789,-+*/:?!'()</code><br>An LS47 key is a permutation of the alphabet that is then represented in a 7x7 grid used for the encryption or decryption.";
+        this.description = "LS47是对Alan Kaminsky的ElsieFour加密进行少量优化后的版本。为了编码更为详尽的信息，把原版的6x6网格（几乎不够用）扩充到了7x7。同时提供了一种简单的key扩充算法，因为没人喜欢记密码。和ElsieFour有着类似的安全性考虑。<br>LS47字母表包括以下字符: <code>_abcdefghijklmnopqrstuvwxyz.0123456789,-+*/:?!'()</code><br>LS47 key是字母表49个字符的排列，同时用于加解密。";
         this.infoURL = "https://github.com/exaexa/ls47";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Password",
+                name: "密码",
                 type: "string",
                 value: ""
             },
             {
-                name: "Padding",
+                name: "填充",
                 type: "number",
                 value: 10
             }

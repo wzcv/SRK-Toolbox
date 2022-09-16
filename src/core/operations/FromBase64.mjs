@@ -38,7 +38,7 @@ class FromBase64 extends Operation {
                 value: true
             },
             {
-                name: "Strict mode",
+                name: "严格模式",
                 type: "boolean",
                 value: false
             }

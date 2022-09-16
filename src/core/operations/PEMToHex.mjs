@@ -23,9 +23,9 @@ class PEMToHex extends Operation {
     constructor() {
         super();
 
-        this.name = "PEM to Hex";
+        this.name = "PEM转十六进制";
         this.module = "Default";
-        this.description = "Converts PEM (Privacy Enhanced Mail) format to a hexadecimal DER (Distinguished Encoding Rules) string.";
+        this.description = "把PEM(Privacy Enhanced Mail)格式转换成十六进制DER(Distinguished Encoding Rules)格式字符串。";
         this.infoURL = "https://wikipedia.org/wiki/Privacy-Enhanced_Mail#Format";
         this.inputType = "string";
         this.outputType = "string";
