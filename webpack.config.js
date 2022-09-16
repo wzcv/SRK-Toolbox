@@ -192,6 +192,12 @@ module.exports = {
                 exclude: /web\/static/,
                 type: "asset/inline",
             },
+            {
+                test: /\.m?js$/,
+                resolve: {
+                  fullySpecified: false, // disable the behaviour
+                },
+            },
         ]
     },
     stats: {

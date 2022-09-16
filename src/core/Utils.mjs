@@ -435,7 +435,11 @@ class Utils {
 
         if (str.length !== utf8Str.length) {
             if (isWorkerEnvironment()) {
-                self.setOption("attemptHighlight", false);
+                try {
+                    self.setOption("attemptHighlight", false);
+                } catch(err) {
+                    //pass
+                }
             } else if (isWebEnvironment()) {
                 window.app.options.attemptHighlight = false;
             }

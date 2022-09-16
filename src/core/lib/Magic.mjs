@@ -224,7 +224,7 @@ class Magic {
                 data: sample.map(b => b ^ i).buffer,
                 conf: {
                     op: "XOR",
-                    args: [{"option": "Hex", "string": i.toString(16)}, "Standard", false]
+                    args: [{"option": "十六进制", "string": i.toString(16)}, "标准", false]
                 }
             });
         }
@@ -241,7 +241,7 @@ class Magic {
         }
 
         // Character encodings
-        const encodings = OperationConfig["Encode text"].args[0].value;
+        const encodings = OperationConfig["文本编码"].args[0].value;
 
         /**
          * Test character encodings and add them if they change the data.
@@ -269,8 +269,8 @@ class Magic {
             }
         };
 
-        await testEnc("Encode text");
-        await testEnc("Decode text");
+        await testEnc("文本编码");
+        await testEnc("文本解码");
 
         return results;
     }

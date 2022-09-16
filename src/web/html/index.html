@@ -175,9 +175,9 @@
 
                 <div id="recipe" class="split split-horizontal no-select">
                     <div class="title no-select">
-                        Recipe
+                        操作流程
                         <span class="pane-controls hide-on-maximised-output">
-                            <button type="button" class="btn btn-primary bmd-btn-icon" id="save" data-toggle="tooltip" title="Save recipe">
+                            <button type="button" class="btn btn-primary bmd-btn-icon" id="save" data-toggle="tooltip" title="保存流程">
                                 <i class="material-icons">save</i>
                             </button>
                             <button type="button" class="btn btn-primary bmd-btn-icon" id="load" data-toggle="tooltip" title="载入流程">
@@ -197,7 +197,7 @@
                             </button>
 
                             <button type="button" class="mx-2 btn btn-lg btn-success btn-raised btn-block" id="bake">
-                                <img aria-hidden="true" src="<%- require('../static/images/multitool-32x32.png').default %>" alt="Run Icon"/>
+                                <img aria-hidden="true" src="<%- require('../static/images/multitool-32x32.png') %>" alt="Run Icon"/>
                                 <span>开整！</span>
                             </button>
 
@@ -216,12 +216,12 @@
                 <div class="split split-horizontal" id="IO">
                     <div id="input" class="split no-select">
                         <div class="title no-select">
-                            <label for="input-text">Input</label>
+                            <label for="input-text">输入</label>
                             <span class="pane-controls">
                                 <div class="io-info" id="input-files-info"></div>
                                 <div class="io-info" id="input-selection-info"></div>
                                 <div class="io-info" id="input-info"></div>
-                                <button type="button" class="btn btn-primary bmd-btn-icon" id="btn-new-tab" data-toggle="tooltip" title="Add a new input tab">
+                                <button type="button" class="btn btn-primary bmd-btn-icon" id="btn-new-tab" data-toggle="tooltip" title="新标签页">
                                     <i class="material-icons">add</i>
                                 </button>
                                 <button type="button" class="btn btn-primary bmd-btn-icon" id="btn-open-folder" data-toggle="tooltip" title="打开文件夹">
@@ -288,12 +288,12 @@
 
                     <div id="output" class="split">
                         <div class="title no-select">
-                            <label for="output-text">Output</label>
+                            <label for="output-text">输出</label>
                             <span class="pane-controls">
                                 <div class="io-info" id="bake-info"></div>
                                 <div class="io-info" id="output-selection-info"></div>
                                 <div class="io-info" id="output-info"></div>
-                                <button type="button" class="btn btn-primary bmd-btn-icon" id="save-all-to-file" data-toggle="tooltip" title="Save all outputs to a zip file" style="display: none">
+                                <button type="button" class="btn btn-primary bmd-btn-icon" id="save-all-to-file" data-toggle="tooltip" title="保存为压缩包" style="display: none">
                                         <i class="material-icons">archive</i>
                                     </button>
                                 <button type="button" class="btn btn-primary bmd-btn-icon" id="save-to-file" data-toggle="tooltip" title="保存到文件">
@@ -348,7 +348,7 @@
                                 <div id="output-highlighter" class="no-select"></div>
                                 <div id="output-html"></div>
                                 <textarea id="output-text" readonly="readonly" spellcheck="false"></textarea>
-                                <img id="show-file-overlay" aria-hidden="true" src="<%- require('../static/images/file-32x32.png').default %>" alt="Show file overlay" title="显示文件信息窗口"/>
+                                <img id="show-file-overlay" aria-hidden="true" src="<%- require('../static/images/file-32x32.png') %>" alt="Show file overlay" title="显示文件信息窗口"/>
                                 <div id="output-file">
                                     <div class="file-overlay"></div>
                                     <div style="position: relative; height: 100%;">
@@ -628,7 +628,7 @@
                         <h5 class="modal-title">SRK Toolbox<small> - Smiling RaKa Toolbox</small></h5>
                     </div>
                     <div class="modal-body">
-                        <img aria-hidden="true" class="about-img-left" src="<%- require('../static/images/srk-128x128.png').default %>" alt="SRK Toolbox Logo"/>
+                        <img aria-hidden="true" class="about-img-left" src="<%- require('../static/images/srk-128x128.png') %>" alt="SRK Toolbox Logo"/>
                         <p class="subtext">
                             基于CyberChef版本： <%=  htmlWebpackPlugin.options.version %><br>
                             编译时间： <%= htmlWebpackPlugin.options.compileTime %>
@@ -752,7 +752,7 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
                     </div>
                     <a href="https://github.com/Raka-loah/SRK-Toolbox">
-                        <img aria-hidden="true" style="position: absolute; top: 0; right: 0; border: 0;" src="<%- require('../static/images/fork_me.png').default %>" alt="Fork me on GitHub">
+                        <img aria-hidden="true" style="position: absolute; top: 0; right: 0; border: 0;" src="<%- require('../static/images/fork_me.png') %>" alt="Fork me on GitHub">
                     </a>
                 </div>
             </div>
