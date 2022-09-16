@@ -2,6 +2,8 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Utils from "../Utils.mjs";
@@ -19,20 +21,20 @@ class SymmetricDifference extends Operation {
     constructor() {
         super();
 
-        this.name = "Symmetric Difference";
+        this.name = "对称差";
         this.module = "Default";
-        this.description = "Calculates the symmetric difference of two sets.";
+        this.description = "计算两个集合的对称差。";
         this.infoURL = "https://wikipedia.org/wiki/Symmetric_difference";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample delimiter",
+                name: "集合分隔符",
                 type: "binaryString",
                 value: Utils.escapeHtml("\\n\\n")
             },
             {
-                name: "Item delimiter",
+                name: "元素分隔符",
                 type: "binaryString",
                 value: ","
             },
@@ -47,7 +49,7 @@ class SymmetricDifference extends Operation {
      */
     validateSampleNumbers(sets) {
         if (!sets || (sets.length !== 2)) {
-            throw new OperationError("Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?");
+            throw new OperationError("集合数量错误，你可能需要调整集合分隔符或者添加一些数据。");
         }
     }
 

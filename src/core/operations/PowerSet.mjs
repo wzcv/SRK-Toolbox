@@ -2,6 +2,8 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,15 +19,15 @@ class PowerSet extends Operation {
     constructor() {
         super();
 
-        this.name = "Power Set";
+        this.name = "幂集";
         this.module = "Default";
-        this.description = "Calculates all the subsets of a set.";
+        this.description = "计算集合的所有子集";
         this.infoURL = "https://wikipedia.org/wiki/Power_set";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Item delimiter",
+                name: "元素分隔符",
                 type: "binaryString",
                 value: ","
             },

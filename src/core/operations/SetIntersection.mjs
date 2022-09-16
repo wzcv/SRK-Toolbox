@@ -2,6 +2,8 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,20 +20,20 @@ class SetIntersection extends Operation {
     constructor() {
         super();
 
-        this.name = "Set Intersection";
+        this.name = "交集";
         this.module = "Default";
-        this.description = "Calculates the intersection of two sets.";
+        this.description = "计算两个集合的交集。";
         this.infoURL = "https://wikipedia.org/wiki/Intersection_(set_theory)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Sample delimiter",
+                name: "集合分隔符",
                 type: "binaryString",
                 value: "\\n\\n"
             },
             {
-                name: "Item delimiter",
+                name: "元素分隔符",
                 type: "binaryString",
                 value: ","
             },
@@ -46,7 +48,7 @@ class SetIntersection extends Operation {
      */
     validateSampleNumbers(sets) {
         if (!sets || (sets.length !== 2)) {
-            throw new OperationError("Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?");
+            throw new OperationError("集合数量错误，你可能需要调整集合分隔符或者添加一些数据。");
         }
     }
 

@@ -159,12 +159,12 @@
     {
         "name": "算术 / 逻辑",
         "ops": [
-            "Set Union",
-            "Set Intersection",
-            "Set Difference",
-            "Symmetric Difference",
-            "Cartesian Product",
-            "Power Set",
+            "并集",
+            "交集",
+            "补集",
+            "对称差",
+            "笛卡儿积",
+            "幂集",
             "XOR",
             "XOR暴力破解",
             "OR",
