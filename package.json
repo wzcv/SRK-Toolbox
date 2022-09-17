@@ -1,6 +1,6 @@
 {
   "name": "cyberchef",
-  "version": "9.46.5",
+  "version": "9.46.4",
   "description": "The Cyber Swiss Army Knife for encryption, encoding, compression and data analysis.",
   "author": "n1474335 <n1474335@gmail.com>",
   "homepage": "https://gchq.github.io/CyberChef",
@@ -154,7 +154,7 @@
     "split.js": "^1.6.5",
     "ssdeep.js": "0.0.3",
     "stream-browserify": "^3.0.0",
-    "tesseract.js": "3.0.2",
+    "tesseract.js": "2.1.5",
     "ua-parser-js": "^1.0.2",
     "unorm": "^1.6.0",
     "utf8": "^3.0.0",
@@ -167,7 +167,6 @@
   "scripts": {
     "start": "npx grunt dev",
     "build": "npx grunt prod",
-    "node": "npx grunt node",
     "repl": "node --experimental-modules --experimental-json-modules --experimental-specifier-resolution=node --no-warnings src/node/repl.mjs",
     "test": "npx grunt configTests && node --experimental-modules --experimental-json-modules --no-warnings --no-deprecation tests/node/index.mjs && node --experimental-modules --experimental-json-modules --no-warnings --no-deprecation tests/operations/index.mjs",
     "testnodeconsumer": "npx grunt testnodeconsumer",

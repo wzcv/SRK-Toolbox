@@ -12,8 +12,10 @@ import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
 
+import Tesseract from "tesseract.js";
+const { createWorker } = Tesseract;
+
 import process from "process";
-import { createWorker } from "tesseract.js";
 
 /**
  * Optical Character Recognition operation
@@ -53,7 +55,7 @@ class OpticalCharacterRecognition extends Operation {
 
         const type = isImage(input);
         if (!type) {
-            throw new OperationError("Unsupported file type (supported: jpg,png,pbm,bmp) or no file provided");
+            throw new OperationError("Invalid File Type");
         }
 
         const assetDir = isWorkerEnvironment() ? `${self.docURL}/assets/` : `${process.cwd()}/src/core/vendor/`;
@@ -72,7 +74,7 @@ class OpticalCharacterRecognition extends Operation {
                 }
             });
             await worker.load();
-            self.sendStatusMessage(`Loading English language pack...`);
+            self.sendStatusMessage("Loading English language...");
             await worker.loadLanguage("eng");
             self.sendStatusMessage("Intialising Tesseract API...");
             await worker.initialize("eng");
