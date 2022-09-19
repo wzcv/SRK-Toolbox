@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,32 +21,32 @@ class DefangURL extends Operation {
     constructor() {
         super();
 
-        this.name = "Defang URL";
+        this.name = "URL无效化";
         this.module = "Default";
-        this.description = "Takes a Universal Resource Locator (URL) and 'Defangs' it; meaning the URL becomes invalid, neutralising the risk of accidentally clicking on a malicious link.<br><br>This is often used when dealing with malicious links or IOCs.<br><br>Works well when combined with the 'Extract URLs' operation.";
+        this.description = "对给定URL进行“无效化（Defang）”操作；意味着URL从形式上被失效，防止误点击有害网址。<br><br>通常用于有害网址和IOC（Indicator of compromise）。<br><br>可与“提取URL”操作配合生成安全的URL列表。";
         this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the+things/22744/";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Escape dots",
+                name: "转义“点”",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Escape http",
+                name: "转义“http”",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Escape ://",
+                name: "转义“://”",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Process",
+                name: "处理类型",
                 type: "option",
-                value: ["Valid domains and full URLs", "Only full URLs", "Everything"]
+                value: ["有效的域名和完整URL", "仅无效化完整URL", "所有匹配内容"]
             }
         ];
     }
@@ -58,7 +60,7 @@ class DefangURL extends Operation {
         const [dots, http, slashes, process] = args;
 
         switch (process) {
-            case "Valid domains and full URLs":
+            case "有效的域名和完整URL":
                 input = input.replace(URL_REGEX, x => {
                     return defangURL(x, dots, http, slashes);
                 });
@@ -66,12 +68,12 @@ class DefangURL extends Operation {
                     return defangURL(x, dots, http, slashes);
                 });
                 break;
-            case "Only full URLs":
+            case "仅无效化完整URL":
                 input = input.replace(URL_REGEX, x => {
                     return defangURL(x, dots, http, slashes);
                 });
                 break;
-            case "Everything":
+            case "所有匹配内容":
                 input = defangURL(input, dots, http, slashes);
                 break;
         }

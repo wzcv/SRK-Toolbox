@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,16 +21,16 @@ class HTTPRequest extends Operation {
     constructor() {
         super();
 
-        this.name = "HTTP request";
+        this.name = "HTTP请求";
         this.module = "Default";
         this.description = [
-            "Makes an HTTP request and returns the response.",
+            "发起HTTP请求并接收响应内容。",
             "<br><br>",
-            "This operation supports different HTTP verbs like GET, POST, PUT, etc.",
+            "此操作支持不同的HTTP方法，例如GET、POST、PUT等等。",
             "<br><br>",
-            "You can add headers line by line in the format <code>Key: Value</code>",
+            "你可以用 <code>Key: Value</code> 的格式按行添加请求头（Header）。",
             "<br><br>",
-            "The status code of the response, along with a limited selection of exposed headers, can be viewed by checking the 'Show response metadata' option. Only a limited set of response headers are exposed by the browser for security reasons.",
+            "响应的状态码和一部分响应头可通过勾选“显示响应元数据”查看。由于浏览器安全设置，只能显示一部分响应头。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/List_of_HTTP_header_fields#Request_fields";
         this.inputType = "string";
@@ -36,7 +38,7 @@ class HTTPRequest extends Operation {
         this.manualBake = true;
         this.args = [
             {
-                "name": "Method",
+                "name": "方法",
                 "type": "option",
                 "value": [
                     "GET", "POST", "HEAD",
@@ -50,12 +52,12 @@ class HTTPRequest extends Operation {
                 "value": ""
             },
             {
-                "name": "Headers",
+                "name": "请求头（Header）",
                 "type": "text",
                 "value": ""
             },
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
                 "value": [
                     "Cross-Origin Resource Sharing",
@@ -63,7 +65,7 @@ class HTTPRequest extends Operation {
                 ]
             },
             {
-                "name": "Show response metadata",
+                "name": "显示响应元数据",
                 "type": "boolean",
                 "value": false
             }
@@ -87,7 +89,7 @@ class HTTPRequest extends Operation {
             if (line.length === 0) return;
 
             const split = line.split(":");
-            if (split.length !== 2) throw `Could not parse header in line: ${line}`;
+            if (split.length !== 2) throw `无法解析请求头，位于行: ${line}`;
 
             headers.set(split[0].trim(), split[1].trim());
         });
@@ -106,7 +108,7 @@ class HTTPRequest extends Operation {
         return fetch(url, config)
             .then(r => {
                 if (r.status === 0 && r.type === "opaque") {
-                    throw new OperationError("Error: Null response. Try setting the connection mode to CORS.");
+                    throw new OperationError("错误：响应为空。尝试把连接模式设置为CORS。");
                 }
 
                 if (showResponseMetadata) {
@@ -115,18 +117,18 @@ class HTTPRequest extends Operation {
                         headers += "    " + pair[0] + ": " + pair[1] + "\n";
                     }
                     return r.text().then(b => {
-                        return "####\n  Status: " + r.status + " " + r.statusText +
-                            "\n  Exposed headers:\n" + headers + "####\n\n" + b;
+                        return "####\n  状态: " + r.status + " " + r.statusText +
+                            "\n  响应头:\n" + headers + "####\n\n" + b;
                     });
                 }
                 return r.text();
             })
             .catch(e => {
                 throw new OperationError(e.toString() +
-                    "\n\nThis error could be caused by one of the following:\n" +
-                    " - An invalid URL\n" +
-                    " - Making a request to an insecure resource (HTTP) from a secure source (HTTPS)\n" +
-                    " - Making a cross-origin request to a server which does not support CORS\n");
+                    "\n\n此错误可能由以下原因产生：\n" +
+                    " - 无效的URL\n" +
+                    " - 从安全来源（HTTPS）发起到不安全来源（HTTP）的请求。\n" +
+                    " - 对不支持CORS的服务器发起了跨域请求。\n");
             });
     }
 

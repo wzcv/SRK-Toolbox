@@ -2,6 +2,8 @@
  * @author sevzero [sevzero@protonmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class DechunkHTTPResponse extends Operation {
     constructor() {
         super();
 
-        this.name = "Dechunk HTTP response";
+        this.name = "合并HTTP响应分块";
         this.module = "Default";
-        this.description = "Parses an HTTP response transferred using Transfer-Encoding: Chunked";
+        this.description = "对使用 Transfer-Encoding: Chunked 的HTTP响应内容进行合并。";
         this.infoURL = "https://wikipedia.org/wiki/Chunked_transfer_encoding";
         this.inputType = "string";
         this.outputType = "string";

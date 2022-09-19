@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,17 +24,17 @@ class ParseIPv4Header extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse IPv4 header";
+        this.name = "解析IPv4首部";
         this.module = "Default";
-        this.description = "Given an IPv4 header, this operations parses and displays each field in an easily readable format.";
+        this.description = "输入IPv4首部（Header）数据，此操作对其进行解析，用易于阅读的格式展示各字段信息。";
         this.infoURL = "https://wikipedia.org/wiki/IPv4#Header";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始"]
             }
         ];
     }
@@ -46,12 +48,12 @@ class ParseIPv4Header extends Operation {
         const format = args[0];
         let output;
 
-        if (format === "Hex") {
+        if (format === "十六进制") {
             input = fromHex(input);
-        } else if (format === "Raw") {
+        } else if (format === "原始") {
             input = Utils.strToByteArray(input);
         } else {
-            throw new OperationError("Unrecognised input format.");
+            throw new OperationError("未知的输入格式。");
         }
 
         let ihl = input[0] & 0x0f;
@@ -73,12 +75,12 @@ class ParseIPv4Header extends Operation {
 
         // Version
         if (version !== 4) {
-            version = version + " (Error: for IPv4 headers, this should always be set to 4)";
+            version = version + " (错误：对于IPv4首部，版本值应该为4）";
         }
 
         // IHL
         if (ihl < 5) {
-            ihl = ihl + " (Error: this should always be at least 5)";
+            ihl = ihl + " （错误：应至少为5）";
         } else if (ihl > 5) {
             // sort out options...
             const optionsLen = ihl * 4 - 20;
@@ -93,33 +95,33 @@ class ParseIPv4Header extends Operation {
             givenChecksum = Utils.hex(checksum);
         let checksumResult;
         if (correctChecksum === givenChecksum) {
-            checksumResult = givenChecksum + " (correct)";
+            checksumResult = givenChecksum + " （正确）";
         } else {
-            checksumResult = givenChecksum + " (incorrect, should be " + correctChecksum + ")";
+            checksumResult = givenChecksum + " （不正确，应为 " + correctChecksum + "）";
         }
 
-        output = `<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>Field</th><th>Value</th></tr>
-<tr><td>Version</td><td>${version}</td></tr>
-<tr><td>Internet Header Length (IHL)</td><td>${ihl} (${ihl * 4} bytes)</td></tr>
-<tr><td>Differentiated Services Code Point (DSCP)</td><td>${dscp}</td></tr>
-<tr><td>Explicit Congestion Notification (ECN)</td><td>${ecn}</td></tr>
-<tr><td>Total length</td><td>${length} bytes
-  IP header: ${ihl * 4} bytes
-  Data: ${length - ihl * 4} bytes</td></tr>
-<tr><td>Identification</td><td>0x${Utils.hex(identification)} (${identification})</td></tr>
-<tr><td>Flags</td><td>0x${Utils.hex(flags, 2)}
-  Reserved bit:${flags >> 2} (must be 0)
-  Don't fragment:${flags >> 1 & 1}
-  More fragments:${flags & 1}</td></tr>
-<tr><td>Fragment offset</td><td>${fragOffset}</td></tr>
-<tr><td>Time-To-Live</td><td>${ttl}</td></tr>
-<tr><td>Protocol</td><td>${protocol}, ${protocolInfo.protocol} (${protocolInfo.keyword})</td></tr>
-<tr><td>Header checksum</td><td>${checksumResult}</td></tr>
-<tr><td>Source IP address</td><td>${ipv4ToStr(srcIP)}</td></tr>
-<tr><td>Destination IP address</td><td>${ipv4ToStr(dstIP)}</td></tr>`;
+        output = `<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>字段</th><th>值</th></tr>
+<tr><td>版本</td><td>${version}</td></tr>
+<tr><td>首部长度（IHL）</td><td>${ihl} （${ihl * 4} 字节）</td></tr>
+<tr><td>区分服务码点（DSCP）</td><td>${dscp}</td></tr>
+<tr><td>显式拥塞通告（ECN）</td><td>${ecn}</td></tr>
+<tr><td>全长</td><td>${length} 字节
+  IP首部： ${ihl * 4} 字节
+  数据： ${length - ihl * 4} 字节</td></tr>
+<tr><td>标识符</td><td>0x${Utils.hex(identification)} （${identification}）</td></tr>
+<tr><td>标志位</td><td>0x${Utils.hex(flags, 2)}
+  保留位：${flags >> 2} （必须为0）
+  禁止分片：${flags >> 1 & 1}
+  更多分片：${flags & 1}</td></tr>
+<tr><td>分片偏移</td><td>${fragOffset}</td></tr>
+<tr><td>存活时间</td><td>${ttl}</td></tr>
+<tr><td>协议</td><td>${protocol}, ${protocolInfo.protocol} (${protocolInfo.keyword})</td></tr>
+<tr><td>首部检验和</td><td>${checksumResult}</td></tr>
+<tr><td>源地址</td><td>${ipv4ToStr(srcIP)}</td></tr>
+<tr><td>目的地址</td><td>${ipv4ToStr(dstIP)}</td></tr>`;
 
         if (ihl > 5) {
-            output += `<tr><td>Options</td><td>${toHex(options)}</td></tr>`;
+            output += `<tr><td>选项</td><td>${toHex(options)}</td></tr>`;
         }
 
         return output + "</table>";

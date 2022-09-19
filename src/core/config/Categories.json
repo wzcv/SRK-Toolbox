@@ -190,14 +190,14 @@
     {
         "name": "网络",
         "ops": [
-            "HTTP request",
+            "HTTP请求",
             "DNS over HTTPS",
-            "Strip HTTP headers",
-            "Dechunk HTTP response",
-            "Parse User Agent",
-            "Parse IP range",
-            "Parse IPv6 address",
-            "Parse IPv4 header",
+            "删除HTTP头部",
+            "合并HTTP响应分块",
+            "解析User Agent",
+            "解析IP范围",
+            "解析IPv6地址",
+            "解析IPv4首部",
             "Parse TCP",
             "Parse UDP",
             "解析SSH主机密钥",
@@ -217,7 +217,7 @@
             "Group IP addresses",
             "Encode NetBIOS Name",
             "Decode NetBIOS Name",
-            "Defang URL",
+            "URL无效化",
             "Defang IP Addresses"
         ]
     },

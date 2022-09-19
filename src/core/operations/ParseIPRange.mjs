@@ -3,6 +3,8 @@
  * @author Klaxon [klaxon@veyr.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,25 +22,25 @@ class ParseIPRange extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse IP range";
+        this.name = "解析IP范围";
         this.module = "Default";
-        this.description = "Given a CIDR range (e.g. <code>10.0.0.0/24</code>), hyphenated range (e.g. <code>10.0.0.0 - 10.0.1.0</code>), or a list of IPs and/or CIDR ranges (separated by a new line), this operation provides network information and enumerates all IP addresses in the range.<br><br>IPv6 is supported but will not be enumerated.";
+        this.description = "输入 CIDR 范围 （例： <code>10.0.0.0/24</code>） 、连字符表示的范围 （例： <code>10.0.0.0 - 10.0.1.0</code>）或一系列的IP和CIDR（回车分隔），此操作会解析输入IP范围的网络信息与列出所有可能的IP地址。<br><br>支持IPv6但不会列出详细地址。";
         this.infoURL = "https://wikipedia.org/wiki/Subnetwork";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Include network info",
+                "name": "包括网络信息",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Enumerate IP addresses",
+                "name": "列出所有IP地址",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Allow large queries",
+                "name": "允许大数据量查询",
                 "type": "boolean",
                 "value": false
             }
@@ -79,7 +81,7 @@ class ParseIPRange extends Operation {
         } else if ((match = ipv6ListRegex.exec(input))) {
             return ipv6ListedRange(match, includeNetworkInfo);
         } else {
-            throw new OperationError("Invalid input.\n\nEnter either a CIDR range (e.g. 10.0.0.0/24) or a hyphenated range (e.g. 10.0.0.0 - 10.0.1.0). IPv6 also supported.");
+            throw new OperationError("无效的输入。\n\n此操作支持CIDR范围（例：10.0.0.0/24）或连字符表示的范围（例：10.0.0.0 - 10.0.1.0）。同时支持IPv6。");
         }
     }
 

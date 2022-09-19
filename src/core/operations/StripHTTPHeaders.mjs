@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class StripHTTPHeaders extends Operation {
     constructor() {
         super();
 
-        this.name = "Strip HTTP headers";
+        this.name = "删除HTTP头部";
         this.module = "Default";
-        this.description = "Removes HTTP headers from a request or response by looking for the first instance of a double newline.";
+        this.description = "从HTTP请求或响应文本中删除请求头或响应头，使用首次出现的两个换行符作为定位。";
         this.infoURL = "https://wikipedia.org/wiki/Hypertext_Transfer_Protocol#Message_format";
         this.inputType = "string";
         this.outputType = "string";
