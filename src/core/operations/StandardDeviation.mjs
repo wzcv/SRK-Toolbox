@@ -3,6 +3,8 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import BigNumber from "bignumber.js";
@@ -22,15 +24,15 @@ class StandardDeviation extends Operation {
     constructor() {
         super();
 
-        this.name = "Standard Deviation";
+        this.name = "求标准差";
         this.module = "Default";
-        this.description = "Computes the standard deviation of a number list. If an item in the string is not a number it is excluded from the list.<br><br>e.g. <code>0x0a 8 .5</code> becomes <code>4.089281382128433</code>";
+        this.description = "对一组数字求标准差。非数字的值会被忽略。<br><br>例： <code>0x0a 8 .5</code> 计算出 <code>4.089281382128433</code>";
         this.infoURL = "https://wikipedia.org/wiki/Standard_deviation";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": ARITHMETIC_DELIM_OPTIONS,
             }

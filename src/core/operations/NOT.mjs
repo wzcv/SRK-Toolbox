@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,7 +22,7 @@ class NOT extends Operation {
 
         this.name = "NOT";
         this.module = "Default";
-        this.description = "Returns the inverse of each byte.";
+        this.description = "对每个字节取反。";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#NOT";
         this.inputType = "ArrayBuffer";
         this.outputType = "byteArray";

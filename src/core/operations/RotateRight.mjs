@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,20 +21,20 @@ class RotateRight extends Operation {
     constructor() {
         super();
 
-        this.name = "Rotate right";
+        this.name = "循环右移";
         this.module = "Default";
-        this.description = "Rotates each byte to the right by the number of bits specified, optionally carrying the excess bits over to the next byte. Currently only supports 8-bit values.";
+        this.description = "将每个字节按照给定的偏移量循环右移，可选择是否进位。当前只支持8位数值。";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bit_shifts";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Amount",
+                name: "偏移量",
                 type: "number",
                 value: 1
             },
             {
-                name: "Carry through",
+                name: "进位",
                 type: "boolean",
                 value: false
             }

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,15 +19,15 @@ class BitShiftLeft extends Operation {
     constructor() {
         super();
 
-        this.name = "Bit shift left";
+        this.name = "按位左移";
         this.module = "Default";
-        this.description = "Shifts the bits in each byte towards the left by the specified amount.";
+        this.description = "按照给定的偏移量对输入值进行按位左移操作。";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bit_shifts";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Amount",
+                "name": "偏移量",
                 "type": "number",
                 "value": 1
             }

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,7 +23,7 @@ class OR extends Operation {
 
         this.name = "OR";
         this.module = "Default";
-        this.description = "OR the input with the given key.<br>e.g. <code>fe023da5</code>";
+        this.description = "使用给定的Key对输入进行OR（按位或）运算<br>e.g. <code>fe023da5</code>";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#OR";
         this.inputType = "ArrayBuffer";
         this.outputType = "byteArray";

@@ -3,6 +3,8 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import BigNumber from "bignumber.js";
@@ -22,15 +24,15 @@ class Multiply extends Operation {
     constructor() {
         super();
 
-        this.name = "Multiply";
+        this.name = "求积";
         this.module = "Default";
-        this.description = "Multiplies a list of numbers. If an item in the string is not a number it is excluded from the list.<br><br>e.g. <code>0x0a 8 .5</code> becomes <code>40</code>";
+        this.description = "对一组数字求积（aka. 乘法）。非数字的值会被忽略。<br><br>例： <code>0x0a 8 .5</code> 计算为 <code>40</code>";
         this.infoURL = "https://wikipedia.org/wiki/Multiplication";
         this.inputType = "string";
         this.outputType = "BigNumber";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": ARITHMETIC_DELIM_OPTIONS,
             }

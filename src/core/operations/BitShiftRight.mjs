@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,22 +19,22 @@ class BitShiftRight extends Operation {
     constructor() {
         super();
 
-        this.name = "Bit shift right";
+        this.name = "按位右移";
         this.module = "Default";
-        this.description = "Shifts the bits in each byte towards the right by the specified amount.<br><br><i>Logical shifts</i> replace the leftmost bits with zeros.<br><i>Arithmetic shifts</i> preserve the most significant bit (MSB) of the original byte keeping the sign the same (positive or negative).";
+        this.description = "按照给定的偏移量对输入值进行按位右移操作。<br><br><i>逻辑移位：</i> 左侧最高位插入0 <br><i>算术移位：</i> 保留最高有效位，从而保证计算前后的数字符号一致（即正负一致）";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#Bit_shifts";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Amount",
+                "name": "偏移量",
                 "type": "number",
                 "value": 1
             },
             {
-                "name": "Type",
+                "name": "类型",
                 "type": "option",
-                "value": ["Logical shift", "Arithmetic shift"]
+                "value": ["逻辑移位", "算术移位"]
             }
         ];
     }
@@ -45,7 +47,7 @@ class BitShiftRight extends Operation {
     run(input, args) {
         const amount = args[0],
             type = args[1],
-            mask = type === "Logical shift" ? 0 : 0x80;
+            mask = type === "逻辑移位" ? 0 : 0x80;
         input = new Uint8Array(input);
 
         return input.map(b => {
