@@ -2,6 +2,8 @@
  * @author GCHQ Contributor [3]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,19 +21,19 @@ class ProtobufEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "Protobuf Encode";
+        this.name = "Protobuf编码";
         this.module = "Protobuf";
-        this.description = "Encodes a valid JSON object into a protobuf byte array using the input .proto schema.";
+        this.description = "使用.proto模式文件把有效的JSON object编码成protobuf字节数组。";
         this.infoURL = "https://developers.google.com/protocol-buffers/docs/encoding";
         this.inputType = "JSON";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Schema (.proto text)",
+                name: "模式文件（Schema，.proto文本）",
                 type: "text",
                 value: "",
                 rows: 8,
-                hint: "Drag and drop is enabled on this ingredient"
+                hint: "可以直接拖放文件到此位置"
             }
         ];
     }

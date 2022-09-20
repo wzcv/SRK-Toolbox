@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -24,18 +26,18 @@ class ParseTCP extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse TCP";
+        this.name = "解析TCP";
         this.module = "Default";
-        this.description = "Parses a TCP header and payload (if present).";
+        this.description = "解析TCP首部和载荷（如果有）。";
         this.infoURL = "https://wikipedia.org/wiki/Transmission_Control_Protocol";
         this.inputType = "string";
         this.outputType = "json";
         this.presentType = "html";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Hex", "Raw"]
+                value: ["十六进制", "原始"]
             }
         ];
     }
@@ -48,28 +50,28 @@ class ParseTCP extends Operation {
     run(input, args) {
         const format = args[0];
 
-        if (format === "Hex") {
+        if (format === "十六进制") {
             input = fromHex(input);
-        } else if (format === "Raw") {
+        } else if (format === "原始") {
             input = Utils.strToArrayBuffer(input);
         } else {
-            throw new OperationError("Unrecognised input format.");
+            throw new OperationError("未知的输入格式。");
         }
 
         const s = new Stream(new Uint8Array(input));
         if (s.length < 20) {
-            throw new OperationError("Need at least 20 bytes for a TCP Header");
+            throw new OperationError("TCP首部需要至少20字节。");
         }
 
         // Parse Header
         const TCPPacket = {
-            "Source port": s.readInt(2),
-            "Destination port": s.readInt(2),
-            "Sequence number": bytesToLargeNumber(s.getBytes(4)),
-            "Acknowledgement number": s.readInt(4),
-            "Data offset": s.readBits(4),
-            "Flags": {
-                "Reserved": toBinary(s.readBits(3), "", 3),
+            "来源连接端口": s.readInt(2),
+            "目的连接端口": s.readInt(2),
+            "序列号": bytesToLargeNumber(s.getBytes(4)),
+            "确认号": s.readInt(4),
+            "资料偏移": s.readBits(4),
+            "标志符": {
+                "保留": toBinary(s.readBits(3), "", 3),
                 "NS": s.readBits(1),
                 "CWR": s.readBits(1),
                 "ECE": s.readBits(1),
@@ -80,15 +82,15 @@ class ParseTCP extends Operation {
                 "SYN": s.readBits(1),
                 "FIN": s.readBits(1),
             },
-            "Window size": s.readInt(2),
-            "Checksum": "0x" + toHexFast(s.getBytes(2)),
-            "Urgent pointer": "0x" + toHexFast(s.getBytes(2))
+            "窗口大小": s.readInt(2),
+            "校验和": "0x" + toHexFast(s.getBytes(2)),
+            "紧急指针": "0x" + toHexFast(s.getBytes(2))
         };
 
         // Parse options if present
         let windowScaleShift = 0;
-        if (TCPPacket["Data offset"] > 5) {
-            let remainingLength = TCPPacket["Data offset"] * 4 - 20;
+        if (TCPPacket["资料偏移"] > 5) {
+            let remainingLength = TCPPacket["资料偏移"] * 4 - 20;
 
             const options = {};
             while (remainingLength > 0) {
@@ -116,7 +118,7 @@ class ParseTCP extends Operation {
 
                         // Store Window Scale shift for later
                         if (option.Kind === 3 && option.Value) {
-                            windowScaleShift = option.Value["Shift count"];
+                            windowScaleShift = option.Value["移位偏移量"];
                         }
                     }
                 }
@@ -133,9 +135,9 @@ class ParseTCP extends Operation {
         }
 
         // Improve values
-        TCPPacket["Data offset"] = `${TCPPacket["Data offset"]} (${TCPPacket["Data offset"] * 4} bytes)`;
-        const trueWndSize = BigNumber(TCPPacket["Window size"]).multipliedBy(BigNumber(2).pow(BigNumber(windowScaleShift)));
-        TCPPacket["Window size"] = `${TCPPacket["Window size"]} (Scaled: ${trueWndSize})`;
+        TCPPacket["资料偏移"] = `${TCPPacket["资料偏移"]} (${TCPPacket["资料偏移"] * 4} 字节)`;
+        const trueWndSize = BigNumber(TCPPacket["窗口大小"]).multipliedBy(BigNumber(2).pow(BigNumber(windowScaleShift)));
+        TCPPacket["窗口大小"] = `${TCPPacket["窗口大小"]} (扩大后: ${trueWndSize})`;
 
         return TCPPacket;
     }
@@ -217,14 +219,14 @@ function tcpTimestampParser(data) {
     const s = new Stream(data);
 
     if (s.length !== 8)
-        return `Error: Timestamp field should be 8 bytes long (received 0x${toHexFast(data)})`;
+        return `错误：时间戳字段必须为8个字节(接收到 0x${toHexFast(data)})`;
 
     const tsval = bytesToLargeNumber(s.getBytes(4)),
         tsecr = bytesToLargeNumber(s.getBytes(4));
 
     return {
-        "Current Timestamp": tsval,
-        "Echo Reply": tsecr
+        "当前时间戳": tsval,
+        "应答回复": tsecr
     };
 }
 
@@ -234,11 +236,11 @@ function tcpTimestampParser(data) {
  */
 function windowScaleParser(data) {
     if (data.length !== 1)
-        return `Error: Window Scale should be one byte long (received 0x${toHexFast(data)})`;
+        return `错误：窗口扩大值需要1个字节(接收到 0x${toHexFast(data)})`;
 
     return {
-        "Shift count": data[0],
-        "Multiplier": 1 << data[0]
+        "移位偏移量": data[0],
+        "乘数": 1 << data[0]
     };
 }
 

@@ -2,6 +2,8 @@
  * @author h345983745
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class DefangIPAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Defang IP Addresses";
+        this.name = "IP地址无效化";
         this.module = "Default";
-        this.description = "Takes a IPv4 or IPv6 address and 'Defangs' it, meaning the IP becomes invalid, removing the risk of accidentally utilising it as an IP address.";
+        this.description = "对输入的IPv4或IPv6地址进行无效化（“Defang”）操作，防止误使用或配置此IP。";
         this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the+things/22744/";
         this.inputType = "string";
         this.outputType = "string";

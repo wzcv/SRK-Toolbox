@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import BigNumber from "bignumber.js";
@@ -21,8 +23,8 @@ export function objToTable(obj, nested=false) {
         style='table-layout: fixed; ${nested ? "margin: -1px !important;" : ""}'>`;
     if (!nested)
         html += `<tr>
-            <th>Field</th>
-            <th>Value</th>
+            <th>字段</th>
+            <th>值</th>
         </tr>`;
 
     for (const key in obj) {

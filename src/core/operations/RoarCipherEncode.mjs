@@ -54,6 +54,10 @@ class RoarCipherEncode extends Operation {
             throw new OperationError("错误：字典长度必须为4个字符！");
         }
 
+        if (input.length === 0) {
+            return "";
+        }
+
         const alphaList = alphabet.split("");
         const hexInput = input.split("").map(character => character.charCodeAt(0).toString(16).padStart(4, "0")).join("");
         const roar = hexInput.split("").reduce(function (roarStr, hexStr, currentIndex) {

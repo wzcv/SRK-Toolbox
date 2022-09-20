@@ -77,7 +77,6 @@ class RoarCipherDecode extends Operation {
 
             const raw = rawHex.match(/.{4}/g).reduce((rawStr, hexChunk) => rawStr + String.fromCharCode(parseInt("0x" + hexChunk, 16)), "");
             return raw;
-
         } catch (err) {
             throw new OperationError("错误：无法解密密文，请确认密文正确！");
         }

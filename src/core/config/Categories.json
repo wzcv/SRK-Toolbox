@@ -198,14 +198,14 @@
             "解析IP范围",
             "解析IPv6地址",
             "解析IPv4首部",
-            "Parse TCP",
-            "Parse UDP",
+            "解析TCP",
+            "解析UDP",
             "解析SSH主机密钥",
-            "Parse URI",
+            "解析URI",
             "URL编码",
             "URL解码",
-            "Protobuf Decode",
-            "Protobuf Encode",
+            "Protobuf解码",
+            "Protobuf编码",
             "VarInt Encode",
             "VarInt Decode",
             "JA3 Fingerprint",
@@ -218,7 +218,7 @@
             "Encode NetBIOS Name",
             "Decode NetBIOS Name",
             "URL无效化",
-            "Defang IP Addresses"
+            "IP地址无效化"
         ]
     },
     {
