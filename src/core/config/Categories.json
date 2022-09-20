@@ -479,8 +479,7 @@
             "HTML To Text",
             "Generate Lorem Ipsum",
             "Numberwang",
-            "XKCD Random Number",
-            "身份证校验位验证"
+            "XKCD Random Number"
         ]
     },
     {
@@ -496,6 +495,14 @@
             "Conditional Jump",
             "Return",
             "Comment"
+        ]
+    },
+    {
+        "name": "SRK Toolbox专属",
+        "ops": [
+            "身份证校验位验证",
+            "兽音译者加密",
+            "兽音译者解密"
         ]
     }
 ]
