@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,14 +21,14 @@ class OffsetChecker extends Operation {
     constructor() {
         super();
 
-        this.name = "Offset checker";
+        this.name = "偏移检测";
         this.module = "Default";
-        this.description = "Compares multiple inputs (separated by the specified delimiter) and highlights matching characters which appear at the same position in all samples.";
+        this.description = "高亮显示在所有给定内容中位置相同的字符，多个输入由给定的分隔符分隔。";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Sample delimiter",
+                "name": "分隔符",
                 "type": "binaryString",
                 "value": "\\n\\n"
             }
@@ -49,7 +51,7 @@ class OffsetChecker extends Operation {
             chr;
 
         if (!samples || samples.length < 2) {
-            throw new OperationError("Not enough samples, perhaps you need to modify the sample delimiter or add more data?");
+            throw new OperationError("内容不足，至少需要两组文本，请添加更多内容或重新选择分隔符。");
         }
 
         // Initialise output strings

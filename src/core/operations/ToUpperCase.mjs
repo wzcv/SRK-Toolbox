@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,16 +20,16 @@ class ToUpperCase extends Operation {
     constructor() {
         super();
 
-        this.name = "To Upper case";
+        this.name = "转换为大写";
         this.module = "Default";
-        this.description = "Converts the input string to upper case, optionally limiting scope to only the first character in each word, sentence or paragraph.";
+        this.description = "将输入字符串转换成大写，可选限制为每个单词、句子或段落首字母大写。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Scope",
+                "name": "粒度",
                 "type": "option",
-                "value": ["All", "Word", "Sentence", "Paragraph"]
+                "value": ["所有字符", "单词", "句子", "段落"]
             }
         ];
     }
@@ -39,23 +41,23 @@ class ToUpperCase extends Operation {
      */
     run(input, args) {
         if (!args || args.length === 0) {
-            throw new OperationError("No capitalization scope was provided.");
+            throw new OperationError("未提供操作粒度信息。");
         }
 
         const scope = args[0];
 
-        if (scope === "All") {
+        if (scope === "所有字符") {
             return input.toUpperCase();
         }
 
         const scopeRegex = {
-            "Word": /(\b\w)/gi,
-            "Sentence": /(?:\.|^)\s*(\b\w)/gi,
-            "Paragraph": /(?:\n|^)\s*(\b\w)/gi
+            "单词": /(\b\w)/gi,
+            "句子": /(?:\.|^)\s*(\b\w)/gi,
+            "段落": /(?:\n|^)\s*(\b\w)/gi
         }[scope];
 
         if (scopeRegex === undefined) {
-            throw new OperationError("Unrecognized capitalization scope");
+            throw new OperationError("无效的操作粒度。");
         }
 
         // Use the regex to capitalize the input

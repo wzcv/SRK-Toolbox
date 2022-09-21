@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,24 +23,24 @@ class Filter extends Operation {
     constructor() {
         super();
 
-        this.name = "Filter";
+        this.name = "过滤";
         this.module = "Regex";
-        this.description = "Splits up the input using the specified delimiter and then filters each branch based on a regular expression.";
+        this.description = "将输入字符串使用给定的分隔符拆分，之后使用给定的正则表达式过滤。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": INPUT_DELIM_OPTIONS
             },
             {
-                "name": "Regex",
+                "name": "正则表达式",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Invert condition",
+                "name": "反向过滤",
                 "type": "boolean",
                 "value": false
             }
@@ -58,7 +60,7 @@ class Filter extends Operation {
         try {
             regex = new XRegExp(args[1]);
         } catch (err) {
-            throw new OperationError(`Invalid regex. Details: ${err.message}`);
+            throw new OperationError(`无效的正则表达式： ${err.message}`);
         }
 
         const regexFilter = function(value) {

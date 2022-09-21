@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class AddLineNumbers extends Operation {
     constructor() {
         super();
 
-        this.name = "Add line numbers";
+        this.name = "添加行号";
         this.module = "Default";
-        this.description = "Adds line numbers to the output.";
+        this.description = "在输出内容添加行号。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

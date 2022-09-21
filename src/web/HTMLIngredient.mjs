@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Utils from "../core/Utils.mjs";
@@ -151,9 +153,9 @@ class HTMLIngredient {
                         arg-name="${this.name}"
                         ${this.disabled ? "disabled" : ""}>`;
                 for (i = 0; i < this.value.length; i++) {
-                    if ((m = this.value[i].match(/\[([a-z0-9 -()^]+)\]/i))) {
+                    if ((m = this.value[i].match(/\[([a-z0-9 -()^\p{Script=Han}]+)\]/ui))) {
                         html += `<optgroup label="${m[1]}">`;
-                    } else if (this.value[i].match(/\[\/([a-z0-9 -()^]+)\]/i)) {
+                    } else if (this.value[i].match(/\[\/([a-z0-9 -()^\p{Script=Han}]+)\]/ui)) {
                         html += "</optgroup>";
                     } else {
                         html += `<option ${this.defaultIndex === i ? "selected" : ""}>${this.value[i]}</option>`;
@@ -175,9 +177,9 @@ class HTMLIngredient {
                         arg-name="${this.name}"
                         ${this.disabled ? "disabled" : ""}>`;
                 for (i = 0; i < this.value.length; i++) {
-                    if ((m = this.value[i].name.match(/\[([a-z0-9 -()^]+)\]/i))) {
+                    if ((m = this.value[i].name.match(/\[([a-z0-9 -()^\p{Script=Han}]+)\]/ui))) {
                         html += `<optgroup label="${m[1]}">`;
-                    } else if (this.value[i].name.match(/\[\/([a-z0-9 -()^]+)\]/i)) {
+                    } else if (this.value[i].name.match(/\[\/([a-z0-9 -()^\p{Script=Han}]+)\]/ui)) {
                         html += "</optgroup>";
                     } else {
                         const val = this.type === "populateMultiOption" ?

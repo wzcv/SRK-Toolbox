@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,18 +23,18 @@ class Tail extends Operation {
 
         this.name = "Tail";
         this.module = "Default";
-        this.description = "Like the UNIX tail utility.<br>Gets the last n lines.<br>Optionally you can select all lines after line n by entering a negative value for n.<br>The delimiter can be changed so that instead of lines, fields (i.e. commas) are selected instead.";
+        this.description = "和UNIX的tail工具类似。<br>输出后n行。<br>输入负数可以选取除最前n行之外的内容。<br>可以选择不同的分隔符来实现选取最后n个数据。";
         this.infoURL = "https://wikipedia.org/wiki/Tail_(Unix)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": INPUT_DELIM_OPTIONS
             },
             {
-                "name": "Number",
+                "name": "选取数量",
                 "type": "number",
                 "value": 10
             }

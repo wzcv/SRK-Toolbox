@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,24 +19,24 @@ class PadLines extends Operation {
     constructor() {
         super();
 
-        this.name = "Pad lines";
+        this.name = "填充行";
         this.module = "Default";
-        this.description = "Add the specified number of the specified character to the beginning or end of each line";
+        this.description = "在每一行之前或之后添加特定数量的特定字符。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Position",
+                "name": "位置",
                 "type": "option",
-                "value": ["Start", "End"]
+                "value": ["开头", "末尾"]
             },
             {
-                "name": "Length",
+                "name": "长度",
                 "type": "number",
                 "value": 5
             },
             {
-                "name": "Character",
+                "name": "字符",
                 "type": "binaryShortString",
                 "value": " "
             }
@@ -52,11 +54,11 @@ class PadLines extends Operation {
         let output = "",
             i = 0;
 
-        if (position === "Start") {
+        if (position === "开头") {
             for (i = 0; i < lines.length; i++) {
                 output += lines[i].padStart(lines[i].length+len, chr) + "\n";
             }
-        } else if (position === "End") {
+        } else if (position === "末尾") {
             for (i = 0; i < lines.length; i++) {
                 output += lines[i].padEnd(lines[i].length+len, chr) + "\n";
             }

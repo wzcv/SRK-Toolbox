@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class RemoveLineNumbers extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove line numbers";
+        this.name = "移除行号";
         this.module = "Default";
-        this.description = "Removes line numbers from the output if they can be trivially detected.";
+        this.description = "在输出内容中移除行号（仅限很容易被检测到的格式）。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

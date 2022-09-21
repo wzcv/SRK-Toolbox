@@ -2,6 +2,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class GetAllCasings extends Operation {
     constructor() {
         super();
 
-        this.name = "Get All Casings";
+        this.name = "大小写穷举";
         this.module = "Default";
-        this.description = "Outputs all possible casing variations of a string.";
+        this.description = "输出一个字符串所有的大小写形式。<br><br>警告：显而易见是指数递增，输入字符串过长后果自负。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";

@@ -3,6 +3,8 @@
  * @author n1073645
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class ToCaseInsensitiveRegex extends Operation {
     constructor() {
         super();
 
-        this.name = "To Case Insensitive Regex";
+        this.name = "转换为大小写不敏感正则";
         this.module = "Default";
-        this.description = "Converts a case-sensitive regex string into a case-insensitive regex string in case the i flag is unavailable to you.<br><br>e.g. <code>Mozilla/[0-9].[0-9] .*</code> becomes <code>[mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*</code>";
+        this.description = "把大小写敏感正则字符串转换为大小写不敏感形式，用于无法使用正则i选项的场合。<br><br>例如：<code>Mozilla/[0-9].[0-9] .*</code> 转换为 <code>[mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*</code>";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";
         this.inputType = "string";
         this.outputType = "string";
@@ -56,7 +58,7 @@ class ToCaseInsensitiveRegex extends Operation {
         try {
             RegExp(input);
         } catch (error) {
-            throw new OperationError("Invalid Regular Expression (Please note this version of node does not support look behinds).");
+            throw new OperationError("无效的正则表达式（请注意此版本的Node不支持正则的后行断言）。");
         }
 
         // Example: [test] -> [[tT][eE][sS][tT]]

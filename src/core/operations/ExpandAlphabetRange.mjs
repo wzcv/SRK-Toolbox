@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,14 +20,14 @@ class ExpandAlphabetRange extends Operation {
     constructor() {
         super();
 
-        this.name = "Expand alphabet range";
+        this.name = "扩写字母范围";
         this.module = "Default";
-        this.description = "Expand an alphabet range string into a list of the characters in that range.<br><br>e.g. <code>a-z</code> becomes <code>abcdefghijklmnopqrstuvwxyz</code>.";
+        this.description = "把字母范围扩写成在此范围内的所有字母。<br><br>例如：<code>a-z</code> 扩写成 <code>abcdefghijklmnopqrstuvwxyz</code>。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "binaryString",
                 "value": ""
             }

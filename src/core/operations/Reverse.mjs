@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,16 +19,16 @@ class Reverse extends Operation {
     constructor() {
         super();
 
-        this.name = "Reverse";
+        this.name = "反转";
         this.module = "Default";
-        this.description = "Reverses the input string.";
+        this.description = "反转字符串。";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "By",
+                "name": "粒度",
                 "type": "option",
-                "value": ["Character", "Line"]
+                "value": ["字符", "行"]
             }
         ];
     }
@@ -38,7 +40,7 @@ class Reverse extends Operation {
      */
     run(input, args) {
         let i;
-        if (args[0] === "Line") {
+        if (args[0] === "行") {
             const lines = [];
             let line = [],
                 result = [];

@@ -2,6 +2,8 @@
  * @author GCHQ Contributor [2]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,27 +22,27 @@ class HammingDistance extends Operation {
     constructor() {
         super();
 
-        this.name = "Hamming Distance";
+        this.name = "汉明距离";
         this.module = "Default";
-        this.description = "In information theory, the Hamming distance between two strings of equal length is the number of positions at which the corresponding symbols are different. In other words, it measures the minimum number of substitutions required to change one string into the other, or the minimum number of errors that could have transformed one string into the other. In a more general context, the Hamming distance is one of several string metrics for measuring the edit distance between two sequences.";
+        this.description = "在信息论中，两个等长字符串之间的汉明距离（英语：Hamming distance）是两个字符串对应位置的不同字符的个数。换句话说，它就是将一个字符串变换成另外一个字符串所需要替换的字符个数。";
         this.infoURL = "https://wikipedia.org/wiki/Hamming_distance";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "binaryShortString",
                 "value": "\\n\\n"
             },
             {
-                "name": "Unit",
+                "name": "单位",
                 "type": "option",
-                "value": ["Byte", "Bit"]
+                "value": ["字节", "位"]
             },
             {
-                "name": "Input type",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Raw string", "Hex"]
+                "value": ["原始字符串", "十六进制"]
             }
         ];
     }
@@ -52,19 +54,19 @@ class HammingDistance extends Operation {
      */
     run(input, args) {
         const delim = args[0],
-            byByte = args[1] === "Byte",
+            byByte = args[1] === "字节",
             inputType = args[2],
             samples = input.split(delim);
 
         if (samples.length !== 2) {
-            throw new OperationError("Error: You can only calculate the edit distance between 2 strings. Please ensure exactly two inputs are provided, separated by the specified delimiter.");
+            throw new OperationError("错误：计算汉明距离需要两个字符串，请确保输入按照给定分隔符的两个字符串。");
         }
 
         if (samples[0].length !== samples[1].length) {
-            throw new OperationError("Error: Both inputs must be of the same length.");
+            throw new OperationError("错误：两个字符串需要等长。");
         }
 
-        if (inputType === "Hex") {
+        if (inputType === "十六进制") {
             samples[0] = fromHex(samples[0]);
             samples[1] = fromHex(samples[1]);
         } else {

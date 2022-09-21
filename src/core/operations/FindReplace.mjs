@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,41 +21,41 @@ class FindReplace extends Operation {
     constructor() {
         super();
 
-        this.name = "Find / Replace";
+        this.name = "查找 / 替换";
         this.module = "Regex";
-        this.description = "Replaces all occurrences of the first string with the second.<br><br>Includes support for regular expressions (regex), simple strings and extended strings (which support \\n, \\r, \\t, \\b, \\f and escaped hex bytes using \\x notation, e.g. \\x00 for a null byte).";
+        this.description = "把第一个字符串用第二个字符串替换。<br><br>支持正则表达式（regex）、简单字符串和扩展字符串（即使用转义字符\\n, \\r, \\t, \\b, \\f和用\\x表示的十六进制字节，例如 \\x00 代表空字节）。";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Find",
+                "name": "查找内容",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Regex", "Extended (\\n, \\t, \\x...)", "Simple string"]
+                "toggleValues": ["正则表达式", "扩展 (\\n, \\t, \\x...)", "简单字符串"]
             },
             {
-                "name": "Replace",
+                "name": "替换",
                 "type": "binaryString",
                 "value": ""
             },
             {
-                "name": "Global match",
+                "name": "全局匹配（g）",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Case insensitive",
+                "name": "不区分大小写（i）",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Multiline matching",
+                "name": "匹配多行（m）",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Dot matches all",
+                "name": "点（.）匹配所有字符（s）",
                 "type": "boolean",
                 "value": false
             }
@@ -75,12 +77,12 @@ class FindReplace extends Operation {
         if (m) modifiers += "m";
         if (s) modifiers += "s";
 
-        if (type === "Regex") {
+        if (type === "正则表达式") {
             find = new XRegExp(find, modifiers);
             return input.replace(find, replace);
         }
 
-        if (type.indexOf("Extended") === 0) {
+        if (type.indexOf("扩展") === 0) {
             find = Utils.parseEscapedChars(find);
         }
 

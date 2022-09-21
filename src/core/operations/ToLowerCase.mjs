@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class ToLowerCase extends Operation {
     constructor() {
         super();
 
-        this.name = "To Lower case";
+        this.name = "转换为小写";
         this.module = "Default";
-        this.description = "Converts every character in the input to lower case.";
+        this.description = "将输入中的所有字符转换为小写。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

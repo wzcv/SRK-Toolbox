@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,26 +22,26 @@ class Sort extends Operation {
     constructor() {
         super();
 
-        this.name = "Sort";
+        this.name = "排序";
         this.module = "Default";
-        this.description = "Alphabetically sorts strings separated by the specified delimiter.<br><br>The IP address option supports IPv4 only.";
+        this.description = "按字母顺序对给定分隔符分隔的字符串进行排序。<br><br>IP地址排序仅限IPv4。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": INPUT_DELIM_OPTIONS
             },
             {
-                "name": "Reverse",
+                "name": "反向排序",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Order",
+                "name": "顺序",
                 "type": "option",
-                "value": ["Alphabetical (case sensitive)", "Alphabetical (case insensitive)", "IP address", "Numeric", "Numeric (hexadecimal)"]
+                "value": ["字母顺序（区分大小写）", "字母顺序（不区分大小写）", "IP地址", "数字", "数字（十六进制）"]
             }
         ];
     }
@@ -55,15 +57,15 @@ class Sort extends Operation {
             order = args[2];
         let sorted = input.split(delim);
 
-        if (order === "Alphabetical (case sensitive)") {
+        if (order === "字母顺序（区分大小写）") {
             sorted = sorted.sort();
-        } else if (order === "Alphabetical (case insensitive)") {
+        } else if (order === "字母顺序（不区分大小写）") {
             sorted = sorted.sort(caseInsensitiveSort);
-        } else if (order === "IP address") {
+        } else if (order === "IP地址") {
             sorted = sorted.sort(ipSort);
-        } else if (order === "Numeric") {
+        } else if (order === "数字") {
             sorted = sorted.sort(numericSort);
-        } else if (order === "Numeric (hexadecimal)") {
+        } else if (order === "数字（十六进制）") {
             sorted = sorted.sort(hexadecimalSort);
         }
 

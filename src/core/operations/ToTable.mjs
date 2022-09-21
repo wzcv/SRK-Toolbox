@@ -2,6 +2,8 @@
  * @author Mark Jones [github.com/justanothermark]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,30 +20,30 @@ class ToTable extends Operation {
     constructor() {
         super();
 
-        this.name = "To Table";
+        this.name = "转换为表格";
         this.module = "Default";
-        this.description = "Data can be split on different characters and rendered as an HTML or ASCII table with an optional header row.<br><br>Supports the CSV (Comma Separated Values) file format by default. Change the cell delimiter argument to <code>\\t</code> to support TSV (Tab Separated Values) or <code>|</code> for PSV (Pipe Separated Values).<br><br>You can enter as many delimiters as you like. Each character will be treat as a separate possible delimiter.";
+        this.description = "用给定的分隔符分隔数据后渲染成HTML或ASCII表格，可以额外添加表头。<br><br>默认支持CSV（逗号分隔）格式。将单元格分隔符修改为 <code>\\t</code> 用于支持TSV（Tab分隔），修改为 <code>|</code> 用于支持PSV（管道符分隔）。<br><br>你可以输入任意个数的分隔符，每个字符都会用作单独的分隔符。";
         this.infoURL = "https://wikipedia.org/wiki/Comma-separated_values";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Cell delimiters",
+                "name": "单元格分隔符",
                 "type": "binaryShortString",
                 "value": ","
             },
             {
-                "name": "Row delimiters",
+                "name": "行分隔符",
                 "type": "binaryShortString",
                 "value": "\\r\\n"
             },
             {
-                "name": "Make first row header",
+                "name": "第一行作为表头",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Format",
+                "name": "格式",
                 "type": "option",
                 "value": ["ASCII", "HTML"]
             }

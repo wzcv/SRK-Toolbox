@@ -2,6 +2,8 @@
  * @author masq [github.cyberchef@masq.cc]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class FromCaseInsensitiveRegex extends Operation {
     constructor() {
         super();
 
-        this.name = "From Case Insensitive Regex";
+        this.name = "从大小写不敏感正则恢复";
         this.module = "Default";
-        this.description = "Converts a case-insensitive regex string to a case sensitive regex string (no guarantee on it being the proper original casing) in case the i flag wasn't available at the time but now is, or you need it to be case-sensitive again.<br><br>e.g. <code>[mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*</code> becomes <code>Mozilla/[0-9].[0-9] .*</code>";
+        this.description = "将大小写不敏感正则字符串恢复为大小写敏感形式（无法保证转换后的大小写形式正确），用于之前正则i选项不能用但现在能用了，所以你想转换回来的场合。<br><br>例如：<code>[mM][oO][zZ][iI][lL][lL][aA]/[0-9].[0-9] .*</code> 转换为 <code>Mozilla/[0-9].[0-9] .*</code>";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";
         this.inputType = "string";
         this.outputType = "string";

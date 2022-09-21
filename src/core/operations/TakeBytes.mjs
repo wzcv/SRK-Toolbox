@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,24 +19,24 @@ class TakeBytes extends Operation {
     constructor() {
         super();
 
-        this.name = "Take bytes";
+        this.name = "提取字节";
         this.module = "Default";
-        this.description = "Takes a slice of the specified number of bytes from the data. Negative values are allowed.";
+        this.description = "从数据中提取特定数量的字节。允许使用负数值。";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                "name": "Start",
+                "name": "起始位置",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Length",
+                "name": "长度",
                 "type": "number",
                 "value": 5
             },
             {
-                "name": "Apply to each line",
+                "name": "对每一行单独进行提取",
                 "type": "boolean",
                 "value": false
             }

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,19 +21,19 @@ class Unique extends Operation {
     constructor() {
         super();
 
-        this.name = "Unique";
+        this.name = "去重";
         this.module = "Default";
-        this.description = "Removes duplicate strings from the input.";
+        this.description = "从输入移除重复的字符串。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: INPUT_DELIM_OPTIONS
             },
             {
-                name: "Display count",
+                name: "显示个数",
                 type: "boolean",
                 value: false
             }

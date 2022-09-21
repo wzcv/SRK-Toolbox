@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class Split extends Operation {
     constructor() {
         super();
 
-        this.name = "Split";
+        this.name = "拆分";
         this.module = "Default";
-        this.description = "Splits a string into sections around a given delimiter.";
+        this.description = "使用给定的分隔符拆分字符串。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [

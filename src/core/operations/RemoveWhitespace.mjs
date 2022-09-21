@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,39 +19,39 @@ class RemoveWhitespace extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove whitespace";
+        this.name = "移除空白字符";
         this.module = "Default";
-        this.description = "Optionally removes all spaces, carriage returns, line feeds, tabs and form feeds from the input data.<br><br>This operation also supports the removal of full stops which are sometimes used to represent non-printable bytes in ASCII output.";
+        this.description = "从输入文本中移除空格、回车（CR）、换行（LF）、制表符（Tab）和换页（FF）。<br><br>此操作也支持移除英文句点（.），因为有时句点用于表示ASCII中无法显示的字符。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Spaces",
+                "name": "空格",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Carriage returns (\\r)",
+                "name": "回车（CR，\\r）",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Line feeds (\\n)",
+                "name": "换行（LF，\\n）",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Tabs",
+                "name": "制表符（Tab，\\t）",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Form feeds (\\f)",
+                "name": "换页符(FF，\\f)",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Full stops",
+                "name": "英文句点（.）",
                 "type": "boolean",
                 "value": false
             }
