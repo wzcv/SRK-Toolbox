@@ -2,6 +2,8 @@
  * @author GCHQ Contributor [3]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class VarIntEncode extends Operation {
     constructor() {
         super();
 
-        this.name = "VarInt Encode";
+        this.name = "VarInt编码";
         this.module = "Default";
-        this.description = "Encodes a Vn integer as a VarInt. VarInt is an efficient way of encoding variable length integers and is commonly used with Protobuf.";
+        this.description = "把整数编码成VarInt。VarInt是效率较高的编码变长整数的方式，通常用于Protobuf。";
         this.infoURL = "https://developers.google.com/protocol-buffers/docs/encoding#varints";
         this.inputType = "number";
         this.outputType = "byteArray";

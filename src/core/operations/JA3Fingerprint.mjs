@@ -9,6 +9,8 @@
  *   Josh Atkins
  *
  * Algorithm released under the BSD-3-clause licence
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -28,22 +30,22 @@ class JA3Fingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "JA3 Fingerprint";
+        this.name = "JA3指纹";
         this.module = "Crypto";
-        this.description = "Generates a JA3 fingerprint to help identify TLS clients based on hashing together values from the Client Hello.<br><br>Input: A hex stream of the TLS Client Hello packet application layer.";
+        this.description = "使用客户端发起的Client Hello值进行哈希后生成JA3指纹，用于辨识TLS客户端。<br><br>输入：TLS Client Hello应用层数据包十六进制流。";
         this.infoURL = "https://engineering.salesforce.com/tls-fingerprinting-with-ja3-and-ja3s-247362855967";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Hex", "Base64", "Raw"]
+                value: ["十六进制", "Base64", "原始"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["Hash digest", "JA3 string", "Full details"]
+                value: ["哈希摘要", "JA3字符串", "详细信息"]
             }
         ];
     }
@@ -61,7 +63,7 @@ class JA3Fingerprint extends Operation {
 
         const handshake = s.readInt(1);
         if (handshake !== 0x16)
-            throw new OperationError("Not handshake data.");
+            throw new OperationError("没有握手数据。");
 
         // Version
         s.moveForwardsBy(2);
@@ -69,17 +71,17 @@ class JA3Fingerprint extends Operation {
         // Length
         const length = s.readInt(2);
         if (s.length !== length + 5)
-            throw new OperationError("Incorrect handshake length.");
+            throw new OperationError("错误的握手长度。");
 
         // Handshake type
         const handshakeType = s.readInt(1);
         if (handshakeType !== 1)
-            throw new OperationError("Not a Client Hello.");
+            throw new OperationError("不是Client Hello。");
 
         // Handshake length
         const handshakeLength = s.readInt(3);
         if (s.length !== handshakeLength + 9)
-            throw new OperationError("Not enough data in Client Hello.");
+            throw new OperationError("Client Hello包含的数据太少。");
 
         // Hello version
         const helloVersion = s.readInt(2);
@@ -140,26 +142,26 @@ class JA3Fingerprint extends Operation {
         const ja3Hash = runHash("md5", Utils.strToArrayBuffer(ja3Str));
 
         switch (outputFormat) {
-            case "JA3 string":
+            case "JA3字符串":
                 return ja3Str;
-            case "Full details":
-                return `Hash digest:
+            case "详细信息":
+                return `哈希摘要：
 ${ja3Hash}
 
-Full JA3 string:
+完整JA3字符串：
 ${ja3Str}
 
-TLS Version:
+TLS版本：
 ${helloVersion.toString()}
-Cipher Suites:
+加密套件：
 ${cipherSegment}
-Extensions:
+扩展：
 ${exts.join("-")}
-Elliptic Curves:
+椭圆曲线：
 ${ellipticCurves}
-Elliptic Curve Point Formats:
+椭圆曲线点格式：
 ${ellipticCurvePointFormats}`;
-            case "Hash digest":
+            case "哈希摘要":
             default:
                 return ja3Hash;
         }

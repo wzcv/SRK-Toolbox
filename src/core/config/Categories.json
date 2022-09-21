@@ -4,7 +4,11 @@
         "ops": []
     },
     {
-        "name": "数据格式转换",
+        "name": "括号内为汉化进度（正式版移除）",
+        "ops": []
+    },
+    {
+        "name": "数据格式转换（60/60）",
         "ops": [
             "转换到Hexdump",
             "从Hexdump提取",
@@ -69,7 +73,7 @@
         ]
     },
     {
-        "name": "加密算法",
+        "name": "加密算法（53/53）",
         "ops": [
             "AES加密",
             "AES解密",
@@ -134,7 +138,7 @@
         ]
     },
     {
-        "name": "公钥",
+        "name": "公钥（18/18）",
         "ops": [
             "解析X.509证书",
             "解析ASN.1十六进制字符串",
@@ -157,7 +161,7 @@
         ]
     },
     {
-        "name": "算术 / 逻辑",
+        "name": "算术 / 逻辑（26/26）",
         "ops": [
             "并集",
             "交集",
@@ -188,7 +192,7 @@
         ]
     },
     {
-        "name": "网络",
+        "name": "网络（29/29）",
         "ops": [
             "HTTP请求",
             "DNS over HTTPS",
@@ -204,36 +208,36 @@
             "解析URI",
             "URL编码",
             "URL解码",
-            "Protobuf解码",
             "Protobuf编码",
-            "VarInt Encode",
-            "VarInt Decode",
-            "JA3 Fingerprint",
-            "JA3S Fingerprint",
-            "HASSH Client Fingerprint",
-            "HASSH Server Fingerprint",
-            "Format MAC addresses",
+            "Protobuf解码",
+            "VarInt编码",
+            "VarInt解码",
+            "JA3指纹",
+            "JA3S指纹",
+            "HASSH客户端指纹",
+            "HASSH服务器指纹",
+            "MAC地址格式化",
             "IP地址格式转换",
-            "Group IP addresses",
-            "Encode NetBIOS Name",
-            "Decode NetBIOS Name",
+            "IP地址分组",
+            "NetBIOS名称编码",
+            "NetBIOS名称解码",
             "URL无效化",
             "IP地址无效化"
         ]
     },
     {
-        "name": "语言",
+        "name": "语言（6/6）",
         "ops": [
             "文本编码",
             "文本解码",
-            "Unicode Text Format",
-            "Remove Diacritics",
+            "Unicode文本格式",
+            "移除变音符号",
             "Unicode转义恢复",
-            "Convert to NATO alphabet"
+            "转换为北约音标字母"
         ]
     },
     {
-        "name": "工具",
+        "name": "工具（3/43）",
         "ops": [
             "Diff",
             "Remove whitespace",
@@ -281,7 +285,7 @@
         ]
     },
     {
-        "name": "日期 / 时间",
+        "name": "日期 / 时间（0/9）",
         "ops": [
             "Parse DateTime",
             "Translate DateTime Format",
@@ -295,7 +299,7 @@
         ]
     },
     {
-        "name": "提取器",
+        "name": "提取器（1/15）",
         "ops": [
             "Strings",
             "Extract IP addresses",
@@ -315,7 +319,7 @@
         ]
     },
     {
-        "name": "压缩算法",
+        "name": "压缩算法（0/14）",
         "ops": [
             "Raw Deflate",
             "Raw Inflate",
@@ -334,7 +338,7 @@
         ]
     },
     {
-        "name": "哈希",
+        "name": "哈希（0/40）",
         "ops": [
             "Analyse hash",
             "Generate all hashes",
@@ -379,7 +383,7 @@
         ]
     },
     {
-        "name": "代码清理",
+        "name": "代码清理（2/28）",
         "ops": [
             "Syntax highlighter",
             "Generic Code Beautify",
@@ -412,7 +416,7 @@
         ]
     },
     {
-        "name": "鉴定",
+        "name": "鉴定（0/11）",
         "ops": [
             "Detect File Type",
             "Scan for Embedded Files",
@@ -428,7 +432,7 @@
         ]
     },
     {
-        "name": "多媒体",
+        "name": "多媒体（0/28）",
         "ops": [
             "Render Image",
             "Play Media",
@@ -461,7 +465,7 @@
         ]
     },
     {
-        "name": "其他",
+        "name": "其他（2/17）",
         "ops": [
             "熵",
             "Frequency distribution",
@@ -483,7 +487,7 @@
         ]
     },
     {
-        "name": "流程控制",
+        "name": "流程控制（0/10）",
         "ops": [
             "Magic",
             "Fork",
@@ -498,7 +502,7 @@
         ]
     },
     {
-        "name": "SRK Toolbox专属",
+        "name": "SRK Toolbox 专属",
         "ops": [
             "身份证校验位验证",
             "兽音译者加密",

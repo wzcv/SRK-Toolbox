@@ -2,6 +2,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,20 +20,20 @@ class UnicodeTextFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Unicode Text Format";
+        this.name = "Unicode文本格式";
         this.module = "Default";
-        this.description = "Adds Unicode combining characters to change formatting of plaintext.";
+        this.description = "使用Unicode组合字符为纯文本添加格式。";
         this.infoURL = "https://wikipedia.org/wiki/Combining_character";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                name: "Underline",
+                name: "下划线",
                 type: "boolean",
                 value: "false"
             },
             {
-                name: "Strikethrough",
+                name: "删除线",
                 type: "boolean",
                 value: "false"
             }

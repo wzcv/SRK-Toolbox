@@ -54,32 +54,33 @@ class RoarCipherDecode extends Operation {
             throw new OperationError("错误：字典长度必须为4个字符！");
         }
 
-        if (input.length <= 4) {
-            throw new OperationError("错误：密文长度必须大于4个字符！");
+        if (input.length <= 5) {
+            throw new OperationError("错误：密文长度必须大于5个字符！");
         }
 
         const alphaList = alphabet.split("");
         const roarChunks = input.substring(3, input.length - 1).match(/.{2}/g);
-        try {
-            const rawHex = roarChunks.reduce(function (rawStr, roarChunk, currentIndex) {
-                const roarValue1 = alphaList.indexOf(roarChunk[0]);
-                const roarValue2 = alphaList.indexOf(roarChunk[1]);
 
-                let temp = roarValue1 * 4 + roarValue2 - currentIndex % 0x10;
-                if (temp < 0) {
-                    temp += 0x10;
-                }
+        const rawHex = roarChunks.reduce(function (rawStr, roarChunk, currentIndex) {
+            const roarValue1 = alphaList.indexOf(roarChunk[0]);
+            const roarValue2 = alphaList.indexOf(roarChunk[1]);
 
-                rawStr += temp.toString(16);
+            if (roarValue1 === -1 || roarValue2 === -1) {
+                throw new OperationError("错误：密文中包含不在字典中的字符！");
+            }
 
-                return rawStr;
-            }, "");
+            let temp = roarValue1 * 4 + roarValue2 - currentIndex % 0x10;
+            if (temp < 0) {
+                temp += 0x10;
+            }
 
-            const raw = rawHex.match(/.{4}/g).reduce((rawStr, hexChunk) => rawStr + String.fromCharCode(parseInt("0x" + hexChunk, 16)), "");
-            return raw;
-        } catch (err) {
-            throw new OperationError("错误：无法解密密文，请确认密文正确！");
-        }
+            rawStr += temp.toString(16);
+
+            return rawStr;
+        }, "");
+
+        const raw = rawHex.match(/.{4}/g).reduce((rawStr, hexChunk) => rawStr + String.fromCharCode(parseInt("0x" + hexChunk, 16)), "");
+        return raw;
     }
 }
 

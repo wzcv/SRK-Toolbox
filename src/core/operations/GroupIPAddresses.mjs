@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,25 +23,25 @@ class GroupIPAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Group IP addresses";
+        this.name = "IP地址分组";
         this.module = "Default";
-        this.description = "Groups a list of IP addresses into subnets. Supports both IPv4 and IPv6 addresses.";
+        this.description = "把IP地址分组汇总列出到对应的子网范围下。支持IPv4和IPv6。";
         this.infoURL = "https://wikipedia.org/wiki/Subnetwork";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": IP_DELIM_OPTIONS
             },
             {
-                "name": "Subnet (CIDR)",
+                "name": "子网 (CIDR)",
                 "type": "number",
                 "value": 24
             },
             {
-                "name": "Only show the subnets",
+                "name": "只显示子网",
                 "type": "boolean",
                 "value": false,
             }
@@ -68,7 +70,7 @@ class GroupIPAddresses extends Operation {
             i;
 
         if (cidr < 0 || cidr > 127) {
-            throw new OperationError("CIDR must be less than 32 for IPv4 or 128 for IPv6");
+            throw new OperationError("CIDR必须小于32（IPv4）或者128（IPv6）");
         }
 
         // Parse all IPs and add to network dictionary

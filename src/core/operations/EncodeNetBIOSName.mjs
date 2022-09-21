@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,15 +19,15 @@ class EncodeNetBIOSName extends Operation {
     constructor() {
         super();
 
-        this.name = "Encode NetBIOS Name";
+        this.name = "NetBIOS名称编码";
         this.module = "Default";
-        this.description = "NetBIOS names as seen across the client interface to NetBIOS are exactly 16 bytes long. Within the NetBIOS-over-TCP protocols, a longer representation is used.<br><br>There are two levels of encoding. The first level maps a NetBIOS name into a domain system name.  The second level maps the domain system name into the 'compressed' representation required for interaction with the domain name system.<br><br>This operation carries out the first level of encoding. See RFC 1001 for full details.";
+        this.description = "在客户端NetBIOS界面看到的NetBIOS名称长度固定为16字节。在NetBIOS-over-TCP协议中，使用一种更长的表示形式。<br><br>编码分为两层。第一层编码把NetBIOS名称映射到域名。第二层编码把域名编码为一种“压缩后”的形式，用于和DNS沟通。<br><br>此操作进行第一层编码。详细信息请参考RFC 1001。";
         this.infoURL = "https://wikipedia.org/wiki/NetBIOS";
         this.inputType = "byteArray";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Offset",
+                "name": "偏移量",
                 "type": "number",
                 "value": 65
             }

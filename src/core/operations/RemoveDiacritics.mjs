@@ -2,6 +2,8 @@
  * @author Klaxon [klaxon@veyr.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class RemoveDiacritics extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove Diacritics";
+        this.name = "移除变音符号";
         this.module = "Default";
-        this.description = "Replaces accented characters with their latin character equivalent. Accented characters are made up of Unicode combining characters, so unicode text formatting such as strikethroughs and underlines will also be removed.";
+        this.description = "将带有变音符号的字符转换为对应不带变音符号的拉丁字母。带有变音符号的字符原理上是使用了Unicode结合字符，所以相同原理的下划线和删除线也会一并被移除。";
         this.infoURL = "https://wikipedia.org/wiki/Diacritic";
         this.inputType = "string";
         this.outputType = "string";

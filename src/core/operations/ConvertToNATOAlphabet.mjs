@@ -2,6 +2,8 @@
  * @author MarvinJWendt [git@marvinjwendt.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -16,9 +18,9 @@ class ConvertToNATOAlphabet extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert to NATO alphabet";
+        this.name = "转换为北约音标字母";
         this.module = "Default";
-        this.description = "Converts characters to their representation in the NATO phonetic alphabet.";
+        this.description = "将字母转换为对应的北约音标字母代码。";
         this.infoURL = "https://wikipedia.org/wiki/NATO_phonetic_alphabet";
         this.inputType = "string";
         this.outputType = "string";

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,40 +19,40 @@ class FormatMACAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Format MAC addresses";
+        this.name = "MAC地址格式化";
         this.module = "Default";
-        this.description = "Displays given MAC addresses in multiple different formats.<br><br>Expects addresses in a list separated by newlines, spaces or commas.<br><br>WARNING: There are no validity checks.";
+        this.description = "将给定的MAC地址用多种不同格式显示。<br><br>列表需要用回车、空格或逗号分隔。<br><br>警告：无法验证MAC地址的有效性。";
         this.infoURL = "https://wikipedia.org/wiki/MAC_address#Notational_conventions";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Output case",
+                "name": "输出大小写",
                 "type": "option",
-                "value": ["Both", "Upper only", "Lower only"]
+                "value": ["大小写", "仅大写", "仅小写"]
             },
             {
-                "name": "No delimiter",
+                "name": "无分隔",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Dash delimiter",
+                "name": "横杠分隔",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Colon delimiter",
+                "name": "冒号分隔",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Cisco style",
+                "name": "思科Style",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "IPv6 interface ID",
+                "name": "IPv6接口ID",
                 "type": "boolean",
                 "value": false
             }
@@ -88,13 +90,13 @@ class FormatMACAddresses extends Operation {
             bite = bite.toString(16).padStart(2, "0");
             macIPv6 = bite + macIPv6.slice(2);
 
-            if (outputCase === "Lower only") {
+            if (outputCase === "仅小写") {
                 if (noDelim) outputList.push(cleanMac);
                 if (dashDelim) outputList.push(macHyphen);
                 if (colonDelim) outputList.push(macColon);
                 if (ciscoStyle) outputList.push(macCisco);
                 if (ipv6IntID) outputList.push(macIPv6);
-            } else if (outputCase === "Upper only") {
+            } else if (outputCase === "仅大写") {
                 if (noDelim) outputList.push(cleanMac.toUpperCase());
                 if (dashDelim) outputList.push(macHyphen.toUpperCase());
                 if (colonDelim) outputList.push(macColon.toUpperCase());

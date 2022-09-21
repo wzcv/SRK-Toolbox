@@ -12,6 +12,8 @@
  *     Josh Atkins
  *
  * Algorithm released under the BSD-3-clause licence
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
 */
 
 import Operation from "../Operation.mjs";
@@ -31,22 +33,22 @@ class HASSHServerFingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "HASSH Server Fingerprint";
+        this.name = "HASSH服务器指纹";
         this.module = "Crypto";
-        this.description = "Generates a HASSH fingerprint to help identify SSH servers based on hashing together values from the Server Key Exchange Init message.<br><br>Input: A hex stream of the SSH_MSG_KEXINIT packet application layer from Server to Client.";
+        this.description = "使用SSH的Server Key Exchange Init消息内容进行哈希生成HASSH指纹，用于辨识SSH服务器端。<br><br>输入：由服务器端发送至客户端的应用层SSH_MSG_KEXINIT包十六进制流。";
         this.infoURL = "https://engineering.salesforce.com/open-sourcing-hassh-abed3ae5044c";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Hex", "Base64", "Raw"]
+                value: ["十六进制", "Base64", "原始"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["Hash digest", "HASSH algorithms string", "Full details"]
+                value: ["哈希摘要", "HASSH算法字符串", "详细信息"]
             }
         ];
     }
@@ -65,7 +67,7 @@ class HASSHServerFingerprint extends Operation {
         // Length
         const length = s.readInt(4);
         if (s.length !== length + 4)
-            throw new OperationError("Incorrect packet length.");
+            throw new OperationError("错误的包长度。");
 
         // Padding length
         const paddingLength = s.readInt(1);
@@ -73,7 +75,7 @@ class HASSHServerFingerprint extends Operation {
         // Message code
         const messageCode = s.readInt(1);
         if (messageCode !== 20)
-            throw new OperationError("Not a Key Exchange Init.");
+            throw new OperationError("不是Key Exchange Init。");
 
         // Cookie
         s.moveForwardsBy(16);
@@ -138,24 +140,24 @@ class HASSHServerFingerprint extends Operation {
         const hasshHash = runHash("md5", Utils.strToArrayBuffer(hasshStr));
 
         switch (outputFormat) {
-            case "HASSH algorithms string":
+            case "HASSH算法字符串":
                 return hasshStr;
-            case "Full details":
-                return `Hash digest:
+            case "详细信息":
+                return `哈希摘要：
 ${hasshHash}
 
-Full HASSH algorithms string:
+完整HASSH算法字符串：
 ${hasshStr}
 
-Key Exchange Algorithms:
+密钥交换算法：
 ${kexAlgos}
-Encryption Algorithms Server to Client:
+服务器端到客户端加密算法：
 ${encAlgosS2C}
-MAC Algorithms Server to Client:
+服务器端到客户端MAC算法：
 ${macAlgosS2C}
-Compression Algorithms Server to Client:
+服务器端到客户端压缩算法：
 ${compAlgosS2C}`;
-            case "Hash digest":
+            case "哈希摘要":
             default:
                 return hasshHash;
         }
