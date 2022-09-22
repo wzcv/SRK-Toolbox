@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,58 +20,58 @@ class ConvertCoordinateFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert co-ordinate format";
+        this.name = "坐标格式转换";
         this.module = "Hashing";
-        this.description = "Converts geographical coordinates between different formats.<br><br>Supported formats:<ul><li>Degrees Minutes Seconds (DMS)</li><li>Degrees Decimal Minutes (DDM)</li><li>Decimal Degrees (DD)</li><li>Geohash</li><li>Military Grid Reference System (MGRS)</li><li>Ordnance Survey National Grid (OSNG)</li><li>Universal Transverse Mercator (UTM)</li></ul><br>The operation can try to detect the input co-ordinate format and delimiter automatically, but this may not always work correctly.";
+        this.description = "转换地理坐标格式。<br><br>支持的格式：<ul><li>度分秒 (DMS)</li><li>度分 (DDM)</li><li>度数 (DD)</li><li>Geohash</li><li>军事格网参考系统 (MGRS)</li><li>地形测量局国家格网参考系统 (OSNG)</li><li>通用横轴墨卡托投影 (UTM)</li></ul><br>此操作会尝试检测输入的坐标格式，但不保证正确。";
         this.infoURL = "https://wikipedia.org/wiki/Geographic_coordinate_conversion";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input Format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Auto"].concat(FORMATS)
+                "value": ["自动"].concat(FORMATS)
             },
             {
-                "name": "Input Delimiter",
+                "name": "输入分隔符",
                 "type": "option",
                 "value": [
-                    "Auto",
-                    "Direction Preceding",
-                    "Direction Following",
+                    "自动",
+                    "方向在前",
+                    "方向在后",
                     "\\n",
-                    "Comma",
-                    "Semi-colon",
-                    "Colon"
+                    "逗号",
+                    "分号",
+                    "冒号"
                 ]
             },
             {
-                "name": "Output Format",
+                "name": "输出格式",
                 "type": "option",
                 "value": FORMATS
             },
             {
-                "name": "Output Delimiter",
+                "name": "输出分隔符",
                 "type": "option",
                 "value": [
-                    "Space",
+                    "空格",
                     "\\n",
-                    "Comma",
-                    "Semi-colon",
-                    "Colon"
+                    "逗号",
+                    "分号",
+                    "冒号"
                 ]
             },
             {
-                "name": "Include Compass Directions",
+                "name": "包括罗盘方向",
                 "type": "option",
                 "value": [
-                    "None",
-                    "Before",
-                    "After"
+                    "无",
+                    "在前",
+                    "在后"
                 ]
             },
             {
-                "name": "Precision",
+                "name": "精度",
                 "type": "number",
                 "value": 3
             }

@@ -4,6 +4,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import OperationError from "../errors/OperationError.mjs";
@@ -27,13 +29,13 @@ const LatLonEllipsoidal = geodesy.LatLonEllipsoidal,
  * Co-ordinate formats
  */
 export const FORMATS = [
-    "Degrees Minutes Seconds",
-    "Degrees Decimal Minutes",
-    "Decimal Degrees",
+    "度分秒",
+    "度分",
+    "度数",
     "Geohash",
-    "Military Grid Reference System",
-    "Ordnance Survey National Grid",
-    "Universal Transverse Mercator"
+    "军事格网参考系统",
+    "地形测量局国家格网参考系统",
+    "通用横轴墨卡托投影"
 ];
 
 /**
@@ -41,9 +43,9 @@ export const FORMATS = [
  */
 const NO_CHANGE = [
     "Geohash",
-    "Military Grid Reference System",
-    "Ordnance Survey National Grid",
-    "Universal Transverse Mercator",
+    "军事格网参考系统",
+    "地形测量局国家格网参考系统",
+    "通用横轴墨卡托投影",
 ];
 
 /**
@@ -79,22 +81,22 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
         precision = 0;
     }
 
-    if (inDelim === "Auto") {
+    if (inDelim === "自动") {
         // Try to detect a delimiter in the input.
         inDelim = findDelim(input);
         if (inDelim === null) {
-            throw new OperationError("Unable to detect the input delimiter automatically.");
+            throw new OperationError("无法自动检测分隔符。");
         }
-    } else if (!inDelim.includes("Direction")) {
+    } else if (!inDelim.includes("方向")) {
         // Convert the delimiter argument value to the actual character
         inDelim = realDelim(inDelim);
     }
 
-    if (inFormat === "Auto") {
+    if (inFormat === "自动") {
         // Try to detect the format of the input data
         inFormat = findFormat(input, inDelim);
         if (inFormat === null) {
-            throw new OperationError("Unable to detect the input format automatically.");
+            throw new OperationError("无法自动检测输入格式。");
         }
     }
 
@@ -102,7 +104,7 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
     outDelim = realDelim(outDelim);
 
     if (!NO_CHANGE.includes(inFormat)) {
-        if (inDelim.includes("Direction")) {
+        if (inDelim.includes("方向")) {
             // Split on directions
             split = input.split(/[NnEeSsWw]/g);
             if (split[0] === "") {
@@ -131,15 +133,15 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
             hash = geohash.decode(input.replace(/[^A-Za-z0-9]/g, ""));
             latlon = new LatLonEllipsoidal(hash.latitude, hash.longitude);
             break;
-        case "Military Grid Reference System":
+        case "军事格网参考系统":
             utm = Mgrs.parse(input.replace(/[^A-Za-z0-9]/g, "")).toUtm();
             latlon = utm.toLatLonE();
             break;
-        case "Ordnance Survey National Grid":
+        case "地形测量局国家格网参考系统":
             osng = OsGridRef.parse(input.replace(/[^A-Za-z0-9]/g, ""));
             latlon = OsGridRef.osGridToLatLon(osng);
             break;
-        case "Universal Transverse Mercator":
+        case "通用横轴墨卡托投影":
             // Geodesy needs a space between the first 2 digits and the next letter
             if (/^[\d]{2}[A-Za-z]/.test(input)) {
                 input = input.slice(0, 2) + " " + input.slice(2);
@@ -147,7 +149,7 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
             utm = Utm.parse(input);
             latlon = utm.toLatLonE();
             break;
-        case "Degrees Minutes Seconds":
+        case "度分秒":
             if (isPair) {
                 // Split up the lat/long into degrees / minutes / seconds values
                 splitLat = splitInput(split[0]);
@@ -158,7 +160,7 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
                     lon = convDMSToDD(splitLong[0], splitLong[1], splitLong[2], 10);
                     latlon = new LatLonEllipsoidal(lat.degrees, lon.degrees);
                 } else {
-                    throw new OperationError("Invalid co-ordinate format for Degrees Minutes Seconds");
+                    throw new OperationError("无效的度分秒格式");
                 }
             } else {
                 // Not a pair, so only try to convert one set of co-ordinates
@@ -167,16 +169,16 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
                     lat = convDMSToDD(splitLat[0], splitLat[1], splitLat[2]);
                     latlon = new LatLonEllipsoidal(lat.degrees, lat.degrees);
                 } else {
-                    throw new OperationError("Invalid co-ordinate format for Degrees Minutes Seconds");
+                    throw new OperationError("无效的度分秒格式");
                 }
             }
             break;
-        case "Degrees Decimal Minutes":
+        case "度分":
             if (isPair) {
                 splitLat = splitInput(split[0]);
                 splitLong = splitInput(split[1]);
                 if (splitLat.length !== 2 || splitLong.length !== 2) {
-                    throw new OperationError("Invalid co-ordinate format for Degrees Decimal Minutes.");
+                    throw new OperationError("无效的度分格式");
                 }
                 // Convert to decimal degrees, and then convert to a geodesy object
                 lat = convDDMToDD(splitLat[0], splitLat[1], 10);
@@ -186,36 +188,36 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
                 // Not a pair, so only try to convert one set of co-ordinates
                 splitLat = splitInput(input);
                 if (splitLat.length !== 2) {
-                    throw new OperationError("Invalid co-ordinate format for Degrees Decimal Minutes.");
+                    throw new OperationError("无效的度分格式");
                 }
                 lat = convDDMToDD(splitLat[0], splitLat[1], 10);
                 latlon = new LatLonEllipsoidal(lat.degrees, lat.degrees);
             }
             break;
-        case "Decimal Degrees":
+        case "度数":
             if (isPair) {
                 splitLat =  splitInput(split[0]);
                 splitLong = splitInput(split[1]);
                 if (splitLat.length !== 1 || splitLong.length !== 1) {
-                    throw new OperationError("Invalid co-ordinate format for Decimal Degrees.");
+                    throw new OperationError("无效的度数格式");
                 }
                 latlon = new LatLonEllipsoidal(splitLat[0], splitLong[0]);
             } else {
                 // Not a pair, so only try to convert one set of co-ordinates
                 splitLat = splitInput(split[0]);
                 if (splitLat.length !== 1) {
-                    throw new OperationError("Invalid co-ordinate format for Decimal Degrees.");
+                    throw new OperationError("无效的度数格式");
                 }
                 latlon = new LatLonEllipsoidal(splitLat[0], splitLat[0]);
             }
             break;
         default:
-            throw new OperationError(`Unknown input format '${inFormat}'`);
+            throw new OperationError(`未知输入格式 '${inFormat}'`);
     }
 
     // Everything is now a geodesy latlon object
     // These store the latitude and longitude as decimal
-    if (inFormat.includes("Degrees")) {
+    if (inFormat.includes("度")) {
         // If the input string contains directions, we need to check if they're S or W.
         // If either of the directions are, we should make the decimal value negative
         const dirs = input.toUpperCase().match(/[NESW]/g);
@@ -237,7 +239,7 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
 
     // Output conversions for each output format
     switch (outFormat) {
-        case "Decimal Degrees":
+        case "度数":
             // We could use the built in latlon.toString(),
             // but this makes adjusting the output harder
             lat = convDDToDD(latlon.lat, precision);
@@ -245,13 +247,13 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
             convLat = lat.string;
             convLon = lon.string;
             break;
-        case "Degrees Decimal Minutes":
+        case "度分":
             lat = convDDToDDM(latlon.lat, precision);
             lon = convDDToDDM(latlon.lon, precision);
             convLat = lat.string;
             convLon = lon.string;
             break;
-        case "Degrees Minutes Seconds":
+        case "度分秒":
             lat = convDDToDMS(latlon.lat, precision);
             lon = convDDToDMS(latlon.lon, precision);
             convLat = lat.string;
@@ -260,7 +262,7 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
         case "Geohash":
             convLat = geohash.encode(latlon.lat, latlon.lon, precision);
             break;
-        case "Military Grid Reference System":
+        case "军事格网参考系统":
             utm = latlon.toUtm();
             mgrs = utm.toMgrs();
             // MGRS wants a precision that's an even number between 2 and 10
@@ -272,10 +274,10 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
             }
             convLat = mgrs.toString(precision);
             break;
-        case "Ordnance Survey National Grid":
+        case "地形测量局国家格网参考系统":
             osng = OsGridRef.latLonToOsGrid(latlon);
             if (osng.toString() === "") {
-                throw new OperationError("Could not convert co-ordinates to OS National Grid. Are the co-ordinates in range?");
+                throw new OperationError("无法转换到国家格网。输入值是否超出范围？");
             }
             // OSNG wants a precision that's an even number between 2 and 10
             if (precision % 2 !== 0) {
@@ -286,42 +288,42 @@ export function convertCoordinates (input, inFormat, inDelim, outFormat, outDeli
             }
             convLat = osng.toString(precision);
             break;
-        case "Universal Transverse Mercator":
+        case "通用横轴墨卡托投影":
             utm = latlon.toUtm();
             convLat = utm.toString(precision);
             break;
     }
 
     if (convLat === undefined) {
-        throw new OperationError("Error converting co-ordinates.");
+        throw new OperationError("坐标转换错误。");
     }
 
-    if (outFormat.includes("Degrees")) {
+    if (outFormat.includes("度")) {
         // Format DD/DDM/DMS for output
         // If we're outputting a compass direction, remove the negative sign
-        if (latDir === "S" && includeDir !== "None") {
+        if (latDir === "S" && includeDir !== "无") {
             convLat = convLat.replace("-", "");
         }
-        if (longDir === "W" && includeDir !== "None") {
+        if (longDir === "W" && includeDir !== "无") {
             convLon = convLon.replace("-", "");
         }
 
         let outConv = "";
-        if (includeDir === "Before") {
+        if (includeDir === "在前") {
             outConv += latDir + " ";
         }
 
         outConv += convLat;
-        if (includeDir === "After") {
+        if (includeDir === "在后") {
             outConv += " " + latDir;
         }
         outConv += outDelim;
         if (isPair) {
-            if (includeDir === "Before") {
+            if (includeDir === "在前") {
                 outConv += longDir + " ";
             }
             outConv += convLon;
-            if (includeDir === "After") {
+            if (includeDir === "在后") {
                 outConv += " " + longDir;
             }
             outConv += outDelim;
@@ -490,7 +492,7 @@ export function findDirs(input, delim) {
         long,
         latDir = "",
         longDir = "";
-    if (!delim.includes("Direction")) {
+    if (!delim.includes("方向")) {
         if (upperInput.includes(delim)) {
             const split = upperInput.split(delim);
             if (split.length >= 1) {
@@ -542,7 +544,7 @@ export function findFormat (input, delim) {
 
     input = input.trim();
 
-    if (delim !== null && delim.includes("Direction")) {
+    if (delim !== null && delim.includes("方向")) {
         const split = input.split(/[NnEeSsWw]/);
         if (split.length > 1) {
             testData = split[0] === "" ? split[1] : split[0];
@@ -563,13 +565,13 @@ export function findFormat (input, delim) {
         const filteredInput = input.toUpperCase().replace(delim, "");
 
         if (utmPattern.test(filteredInput)) {
-            return "Universal Transverse Mercator";
+            return "通用横轴墨卡托投影";
         }
         if (mgrsPattern.test(filteredInput)) {
-            return "Military Grid Reference System";
+            return "军事格网参考系统";
         }
         if (osngPattern.test(filteredInput)) {
-            return "Ordnance Survey National Grid";
+            return "地形测量局国家格网参考系统";
         }
         if (geohashPattern.test(filteredInput)) {
             return "Geohash";
@@ -581,11 +583,11 @@ export function findFormat (input, delim) {
         const split = splitInput(testData);
         switch (split.length) {
             case 3:
-                return "Degrees Minutes Seconds";
+                return "度分秒";
             case 2:
-                return "Degrees Decimal Minutes";
+                return "度分";
             case 1:
-                return "Decimal Degrees";
+                return "度数";
         }
     }
     return null;
@@ -607,9 +609,9 @@ export function findDelim (input) {
         if (splitInput.length <= 3 && splitInput.length > 0) {
             // If there's 3 splits (one should be empty), then assume we have directions
             if (splitInput[0] === "") {
-                return "Direction Preceding";
+                return "方向在前";
             } else if (splitInput[splitInput.length - 1] === "") {
-                return "Direction Following";
+                return "方向在后";
             }
         }
     }
@@ -636,12 +638,12 @@ export function findDelim (input) {
  */
 export function realDelim (delim) {
     return {
-        "Auto":         "Auto",
-        "Space":        " ",
+        "自动":         "自动",
+        "空格":        " ",
         "\\n":          "\n",
-        "Comma":        ",",
-        "Semi-colon":   ";",
-        "Colon":        ":"
+        "逗号":        ",",
+        "分号":   ";",
+        "冒号":        ":"
     }[delim];
 }
 

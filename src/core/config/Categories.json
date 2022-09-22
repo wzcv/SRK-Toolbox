@@ -237,7 +237,7 @@
         ]
     },
     {
-        "name": "工具（29/43）",
+        "name": "工具（37/43）",
         "ops": [
             "Diff",
             "移除空白字符",
@@ -268,12 +268,12 @@
             "偏移检测",
             "汉明距离",
             "单位转换：距离",
-            "Convert area",
-            "Convert mass",
-            "Convert speed",
-            "Convert data units",
-            "Convert co-ordinate format",
-            "Show on map",
+            "单位转换：面积",
+            "单位转换：质量",
+            "单位转换：速度",
+            "单位转换：数据",
+            "坐标格式转换",
+            "在地图上显示",
             "Parse UNIX file permissions",
             "Parse ObjectID timestamp",
             "端序转换",

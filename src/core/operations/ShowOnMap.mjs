@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,35 +21,35 @@ class ShowOnMap extends Operation {
     constructor() {
         super();
 
-        this.name = "Show on map";
+        this.name = "在地图上显示";
         this.module = "Hashing";
-        this.description = "Displays co-ordinates on a slippy map.<br><br>Co-ordinates will be converted to decimal degrees before being shown on the map.<br><br>Supported formats:<ul><li>Degrees Minutes Seconds (DMS)</li><li>Degrees Decimal Minutes (DDM)</li><li>Decimal Degrees (DD)</li><li>Geohash</li><li>Military Grid Reference System (MGRS)</li><li>Ordnance Survey National Grid (OSNG)</li><li>Universal Transverse Mercator (UTM)</li></ul><br>This operation will not work offline.";
+        this.description = "在网页地图上展示坐标位置<br><br>坐标会被转换成度数格式后在地图上显示。<br><br>支持的格式：<ul><li>度分秒 (DMS)</li><li>度分 (DDM)</li><li>度数 (DD)</li><li>Geohash</li><li>军事格网参考系统 (MGRS)</li><li>地形测量局国家格网参考系统 (OSNG)</li><li>通用横轴墨卡托投影 (UTM)</li></ul><br>此操作无法离线使用。";
         this.infoURL = "https://foundation.wikimedia.org/wiki/Maps_Terms_of_Use";
         this.inputType = "string";
         this.outputType = "string";
         this.presentType = "html";
         this.args = [
             {
-                name: "Zoom Level",
+                name: "缩放级别",
                 type: "number",
                 value: 13
             },
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
-                value: ["Auto"].concat(FORMATS)
+                value: ["自动"].concat(FORMATS)
             },
             {
-                name: "Input Delimiter",
+                name: "输入分隔符",
                 type: "option",
                 value: [
-                    "Auto",
-                    "Direction Preceding",
-                    "Direction Following",
+                    "自动",
+                    "方向在前",
+                    "方向在后",
                     "\\n",
-                    "Comma",
-                    "Semi-colon",
-                    "Colon"
+                    "逗号",
+                    "分号",
+                    "冒号"
                 ]
             }
         ];
@@ -64,7 +66,7 @@ class ShowOnMap extends Operation {
                 inDelim = args[2];
             let latLong;
             try {
-                latLong = convertCoordinates(input, inFormat, inDelim, "Decimal Degrees", "Comma", "None", 5);
+                latLong = convertCoordinates(input, inFormat, inDelim, "度数", "逗号", "无", 5);
             } catch (error) {
                 throw new OperationError(error);
             }
