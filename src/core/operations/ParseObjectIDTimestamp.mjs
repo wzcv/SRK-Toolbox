@@ -2,6 +2,8 @@
  * @author dmfj [dominic@dmfj.io]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class ParseObjectIDTimestamp extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse ObjectID timestamp";
+        this.name = "解析ObjectID时间戳";
         this.module = "Serialise";
-        this.description = "Parse timestamp from MongoDB/BSON ObjectID hex string.";
+        this.description = "解析MongoDB/BSON ObjectID十六进制时间戳。";
         this.infoURL = "https://docs.mongodb.com/manual/reference/method/ObjectId.getTimestamp/";
         this.inputType = "string";
         this.outputType = "string";

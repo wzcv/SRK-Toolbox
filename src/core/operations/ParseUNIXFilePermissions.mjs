@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class ParseUNIXFilePermissions extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse UNIX file permissions";
+        this.name = "解析UNIX文件权限";
         this.module = "Default";
-        this.description = "Given a UNIX/Linux file permission string in octal or textual format, this operation explains which permissions are granted to which user groups.<br><br>Input should be in either octal (e.g. <code>755</code>) or textual (e.g. <code>drwxr-xr-x</code>) format.";
+        this.description = "根据UNIX/Linux文件权限字符串（八进制或文本形式），解释具体什么权限赋给了谁。<br><br>输入必须为八进制（例如 <code>755</code>）或文本（例如 <code>drwxr-xr-x</code>）格式。";
         this.infoURL = "https://wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions";
         this.inputType = "string";
         this.outputType = "string";
@@ -178,41 +180,41 @@ class ParseUNIXFilePermissions extends Operation {
                 }
             }
         } else {
-            throw new OperationError("Invalid input format.\nPlease enter the permissions in either octal (e.g. 755) or textual (e.g. drwxr-xr-x) format.");
+            throw new OperationError("无效的输入格式。\n请输入八进制形式（例如：755）或文本形式（例如：drwxr-xr-x）。");
         }
 
-        output += "Textual representation: " + permsToStr(perms);
-        output += "\nOctal representation:   " + permsToOctal(perms);
+        output += "文本形式： " + permsToStr(perms);
+        output += "\n八进制形式： " + permsToOctal(perms);
 
         // File type
         if (textual) {
-            output += "\nFile type: " + ftFromPerms(perms);
+            output += "\n文件类型： " + ftFromPerms(perms);
         }
 
         // setuid, setgid
         if (perms.su) {
-            output += "\nThe setuid flag is set";
+            output += "\n设置了SUID（setuid）权限";
         }
         if (perms.sg) {
-            output += "\nThe setgid flag is set";
+            output += "\n设置了SGID（setgid）权限";
         }
 
         // sticky bit
         if (perms.sb) {
-            output += "\nThe sticky bit is set";
+            output += "\n设置了SBIT（sticky bit）权限";
         }
 
         // Permission matrix
         output += `
 
  +---------+-------+-------+-------+
- |         | User  | Group | Other |
+ |         |  用户  |  组   |  其它  |
  +---------+-------+-------+-------+
- |    Read |   ${perms.ru ? "X" : " "}   |   ${perms.rg ? "X" : " "}   |   ${perms.ro ? "X" : " "}   |
+ |    读   |   ${perms.ru ? "X" : " "}   |   ${perms.rg ? "X" : " "}   |   ${perms.ro ? "X" : " "}   |
  +---------+-------+-------+-------+
- |   Write |   ${perms.wu ? "X" : " "}   |   ${perms.wg ? "X" : " "}   |   ${perms.wo ? "X" : " "}   |
+ |    写   |   ${perms.wu ? "X" : " "}   |   ${perms.wg ? "X" : " "}   |   ${perms.wo ? "X" : " "}   |
  +---------+-------+-------+-------+
- | Execute |   ${perms.eu ? "X" : " "}   |   ${perms.eg ? "X" : " "}   |   ${perms.eo ? "X" : " "}   |
+ |   执行  |   ${perms.eu ? "X" : " "}   |   ${perms.eg ? "X" : " "}   |   ${perms.eo ? "X" : " "}   |
  +---------+-------+-------+-------+`;
 
         return output;
@@ -319,14 +321,14 @@ function permsToOctal(perms) {
  * @returns {string}
  */
 function ftFromPerms(perms) {
-    if (perms.d) return "Directory";
-    if (perms.sl) return "Symbolic link";
-    if (perms.np) return "Named pipe";
-    if (perms.s) return "Socket";
-    if (perms.cd) return "Character device";
-    if (perms.bd) return "Block device";
+    if (perms.d) return "目录";
+    if (perms.sl) return "符号链接";
+    if (perms.np) return "管道";
+    if (perms.s) return "套接字";
+    if (perms.cd) return "字符设备";
+    if (perms.bd) return "块设备";
     if (perms.dr) return "Door";
-    return "Regular file";
+    return "普通文件";
 }
 
 export default ParseUNIXFilePermissions;

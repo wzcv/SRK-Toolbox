@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class ParseColourCode extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse colour code";
+        this.name = "解析颜色代码";
         this.module = "Default";
-        this.description = "Converts a colour code in a standard format to other standard formats and displays the colour itself.<br><br><strong>Example inputs</strong><ul><li><code>#d9edf7</code></li><li><code>rgba(217,237,247,1)</code></li><li><code>hsla(200,65%,91%,1)</code></li><li><code>cmyk(0.12, 0.04, 0.00, 0.03)</code></li></ul>";
+        this.description = "将标准格式的颜色代码转换成其它标准格式并展示这个颜色。<br><br><strong>示例输入</strong><ul><li><code>#d9edf7</code></li><li><code>rgba(217,237,247,1)</code></li><li><code>hsla(200,65%,91%,1)</code></li><li><code>cmyk(0.12, 0.04, 0.00, 0.03)</code></li></ul>";
         this.infoURL = "https://wikipedia.org/wiki/Web_colors";
         this.inputType = "string";
         this.outputType = "html";

@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,35 +21,35 @@ class EscapeString extends Operation {
     constructor() {
         super();
 
-        this.name = "Escape string";
+        this.name = "转义字符串";
         this.module = "Default";
-        this.description = "Escapes special characters in a string so that they do not cause conflicts. For example, <code>Don't stop me now</code> becomes <code>Don\\'t stop me now</code>.<br><br>Supports the following escape sequences:<ul><li><code>\\n</code> (Line feed/newline)</li><li><code>\\r</code> (Carriage return)</li><li><code>\\t</code> (Horizontal tab)</li><li><code>\\b</code> (Backspace)</li><li><code>\\f</code> (Form feed)</li><li><code>\\xnn</code> (Hex, where n is 0-f)</li><li><code>\\\\</code> (Backslash)</li><li><code>\\'</code> (Single quote)</li><li><code>\\&quot;</code> (Double quote)</li><li><code>\\unnnn</code> (Unicode character)</li><li><code>\\u{nnnnnn}</code> (Unicode code point)</li></ul>";
+        this.description = "将字符串中的特殊字符转义，防止和代码发生冲突。例如，<code>Don't stop me now</code> 转义成 <code>Don\\'t stop me now</code>。<br><br>支持以下的字符转义：<ul><li><code>\\n</code> （换行，LF）</li><li><code>\\r</code> （回车，CR）</li><li><code>\\t</code> （制表符）</li><li><code>\\b</code> （退格）</li><li><code>\\f</code> （换页，FF）</li><li><code>\\xnn</code> （十六进制，n是0到f）</li><li><code>\\\\</code> （反斜杠）</li><li><code>\\'</code> （单引号）</li><li><code>\\&quot;</code> （双引号）</li><li><code>\\unnnn</code> （Unicode字符）</li><li><code>\\u{nnnnnn}</code> （Unicode码点）</li></ul>";
         this.infoURL = "https://wikipedia.org/wiki/Escape_sequence";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Escape level",
+                "name": "转义等级",
                 "type": "option",
-                "value": ["Special chars", "Everything", "Minimal"]
+                "value": ["特殊字符", "所有", "最少"]
             },
             {
-                "name": "Escape quote",
+                "name": "转义引号",
                 "type": "option",
-                "value": ["Single", "Double", "Backtick"]
+                "value": ["单引号", "双引号", "反勾号"]
             },
             {
-                "name": "JSON compatible",
+                "name": "JSON兼容",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "ES6 compatible",
+                "name": "ES6兼容",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Uppercase hex",
+                "name": "十六进制大写",
                 "type": "boolean",
                 "value": false
             }
@@ -73,11 +75,17 @@ class EscapeString extends Operation {
             es6Compat = args[3],
             lowercaseHex = !args[4];
 
+        const quotesDict = {
+            "单引号": "single",
+            "双引号": "double",
+            "反勾号": "backtick"
+        };
+
         return jsesc(input, {
-            quotes: quotes.toLowerCase(),
+            quotes: quotesDict[quotes],
             es6: es6Compat,
-            escapeEverything: level === "Everything",
-            minimal: level === "Minimal",
+            escapeEverything: level === "所有",
+            minimal: level === "最少",
             json: jsonCompat,
             lowercaseHex: lowercaseHex,
         });
