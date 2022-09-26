@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,22 +21,22 @@ class UNIXTimestampToWindowsFiletime extends Operation {
     constructor() {
         super();
 
-        this.name = "UNIX Timestamp to Windows Filetime";
+        this.name = "UNIX时间戳转Windows Filetime";
         this.module = "Default";
-        this.description = "Converts a UNIX timestamp to a Windows Filetime value.<br><br>A Windows Filetime is a 64-bit value representing the number of 100-nanosecond intervals since January 1, 1601 UTC.<br><br>A UNIX timestamp is a 32-bit value representing the number of seconds since January 1, 1970 UTC (the UNIX epoch).<br><br>This operation also supports UNIX timestamps in milliseconds, microseconds and nanoseconds.";
+        this.description = "将UNIX时间戳转换为Windows Filetime数值。br><br>Windows Filetime是对应从1601年1月1日（UTC）开始的以100纳秒为单位的64位数值。<br><br>UNIX 时间戳是对应从1970年1月1日（UTC）开始的以秒为单位的32位数值。<br><br>此操作也支持不同的UNIX时间单位如毫秒、微秒和纳秒。";
         this.infoURL = "https://msdn.microsoft.com/en-us/library/windows/desktop/ms724284(v=vs.85).aspx";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input units",
+                "name": "输入单位",
                 "type": "option",
-                "value": ["Seconds (s)", "Milliseconds (ms)", "Microseconds (μs)", "Nanoseconds (ns)"]
+                "value": ["秒 (s)", "毫秒 (ms)", "微秒 (μs)", "纳秒 (ns)"]
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Decimal", "Hex (big endian)", "Hex (little endian)"]
+                "value": ["十进制", "十六进制 (大端序)", "十六进制 (小端序)"]
             }
         ];
     }
@@ -51,28 +53,28 @@ class UNIXTimestampToWindowsFiletime extends Operation {
 
         input = new BigNumber(input);
 
-        if (units === "Seconds (s)") {
+        if (units === "秒 (s)") {
             input = input.multipliedBy(new BigNumber("10000000"));
-        } else if (units === "Milliseconds (ms)") {
+        } else if (units === "毫秒 (ms)") {
             input = input.multipliedBy(new BigNumber("10000"));
-        } else if (units === "Microseconds (μs)") {
+        } else if (units === "微秒 (μs)") {
             input = input.multipliedBy(new BigNumber("10"));
-        } else if (units === "Nanoseconds (ns)") {
+        } else if (units === "纳秒 (ns)") {
             input = input.dividedBy(new BigNumber("100"));
         } else {
-            throw new OperationError("Unrecognised unit");
+            throw new OperationError("无效单位");
         }
 
         input = input.plus(new BigNumber("116444736000000000"));
 
         let result;
-        if (format.startsWith("Hex")) {
+        if (format.startsWith("十六进制")) {
             result = input.toString(16);
         } else {
             result = input.toFixed();
         }
 
-        if (format === "Hex (little endian)") {
+        if (format === "十六进制 (小端序)") {
             // Swap endianness
             let flipped = "";
             for (let i = result.length - 2; i >= 0; i -= 2) {

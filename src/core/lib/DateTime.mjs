@@ -9,38 +9,38 @@
 /**
  * DateTime units.
  */
-export const UNITS = ["Seconds (s)", "Milliseconds (ms)", "Microseconds (μs)", "Nanoseconds (ns)"];
+export const UNITS = ["秒 (s)", "毫秒 (ms)", "微秒 (μs)", "纳秒 (ns)"];
 
 /**
  * DateTime formats.
  */
 export const DATETIME_FORMATS = [
     {
-        name: "Standard date and time",
+        name: "标准日期时间格式",
         value: "DD/MM/YYYY HH:mm:ss"
     },
     {
-        name: "American-style date and time",
+        name: "美式日期时间格式",
         value: "MM/DD/YYYY HH:mm:ss"
     },
     {
-        name: "International date and time",
+        name: "国际日期时间格式",
         value: "YYYY-MM-DD HH:mm:ss"
     },
     {
-        name: "Verbose date and time",
+        name: "详尽日期时间格式",
         value: "dddd Do MMMM YYYY HH:mm:ss Z z"
     },
     {
-        name: "UNIX timestamp (seconds)",
+        name: "UNIX时间戳 (秒)",
         value: "X"
     },
     {
-        name: "UNIX timestamp offset (milliseconds)",
+        name: "UNIX时间戳 (毫秒)",
         value: "x"
     },
     {
-        name: "Automatic",
+        name: "自动",
         value: ""
     },
 ];
@@ -48,18 +48,18 @@ export const DATETIME_FORMATS = [
 /**
  * MomentJS DateTime formatting examples.
  */
-export const FORMAT_EXAMPLES = `Format string tokens:
+export const FORMAT_EXAMPLES = `格式字符串代码：
 <table class="table table-striped table-hover table-sm table-bordered" style="font-family: sans-serif">
   <thead class="thead-dark">
     <tr>
-      <th>Category</th>
-      <th>Token</th>
-      <th>Output</th>
+      <th>类别</th>
+      <th>代码</th>
+      <th>输出</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><b>Month</b></td>
+      <td><b>月份</b></td>
       <td>M</td>
       <td>1 2 ... 11 12</td>
     </tr>
@@ -84,12 +84,12 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>January February ... November December</td>
     </tr>
     <tr>
-      <td><b>Quarter</b></td>
+      <td><b>季度</b></td>
       <td>Q</td>
       <td>1 2 3 4</td>
     </tr>
     <tr>
-      <td><b>Day of Month</b></td>
+      <td><b>当月的第几天</b></td>
       <td>D</td>
       <td>1 2 ... 30 31</td>
     </tr>
@@ -104,7 +104,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>01 02 ... 30 31</td>
     </tr>
     <tr>
-      <td><b>Day of Year</b></td>
+      <td><b>当年的第几天</b></td>
       <td>DDD</td>
       <td>1 2 ... 364 365</td>
     </tr>
@@ -119,7 +119,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>001 002 ... 364 365</td>
     </tr>
     <tr>
-      <td><b>Day of Week</b></td>
+      <td><b>星期</b></td>
       <td>d</td>
       <td>0 1 ... 5 6</td>
     </tr>
@@ -144,17 +144,17 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>Sunday Monday ... Friday Saturday</td>
     </tr>
     <tr>
-      <td><b>Day of Week (Locale)</b></td>
+      <td><b>星期 (Locale)</b></td>
       <td>e</td>
       <td>0 1 ... 5 6</td>
     </tr>
     <tr>
-      <td><b>Day of Week (ISO)</b></td>
+      <td><b>星期 (ISO)</b></td>
       <td>E</td>
       <td>1 2 ... 6 7</td>
     </tr>
     <tr>
-      <td><b>Week of Year</b></td>
+      <td><b>当年第几周</b></td>
       <td>w</td>
       <td>1 2 ... 52 53</td>
     </tr>
@@ -169,7 +169,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>01 02 ... 52 53</td>
     </tr>
     <tr>
-      <td><b>Week of Year (ISO)</b></td>
+      <td><b>当年第几周 (ISO)</b></td>
       <td>W</td>
       <td>1 2 ... 52 53</td>
     </tr>
@@ -184,7 +184,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>01 02 ... 52 53</td>
     </tr>
     <tr>
-      <td><b>Year</b></td>
+      <td><b>年份</b></td>
       <td>YY</td>
       <td>70 71 ... 29 30</td>
     </tr>
@@ -194,7 +194,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
-      <td><b>Week Year</b></td>
+      <td><b>周日历</b></td>
       <td>gg</td>
       <td>70 71 ... 29 30</td>
     </tr>
@@ -204,7 +204,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
-      <td><b>Week Year (ISO)</b></td>
+      <td><b>周日历 (ISO)</b></td>
       <td>GG</td>
       <td>70 71 ... 29 30</td>
     </tr>
@@ -214,7 +214,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>1970 1971 ... 2029 2030</td>
     </tr>
     <tr>
-      <td><b>AM/PM</b></td>
+      <td><b>上下午</b></td>
       <td>A</td>
       <td>AM PM</td>
     </tr>
@@ -224,7 +224,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>am pm</td>
     </tr>
     <tr>
-      <td><b>Hour</b></td>
+      <td><b>小时</b></td>
       <td>H</td>
       <td>0 1 ... 22 23</td>
     </tr>
@@ -244,7 +244,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>01 02 ... 11 12</td>
     </tr>
     <tr>
-      <td><b>Minute</b></td>
+      <td><b>分钟</b></td>
       <td>m</td>
       <td>0 1 ... 58 59</td>
     </tr>
@@ -254,7 +254,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>00 01 ... 58 59</td>
     </tr>
     <tr>
-      <td><b>Second</b></td>
+      <td><b>秒</b></td>
       <td>s</td>
       <td>0 1 ... 58 59</td>
     </tr>
@@ -264,7 +264,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>00 01 ... 58 59</td>
     </tr>
     <tr>
-      <td><b>Fractional Second</b></td>
+      <td><b>秒小数部分</b></td>
       <td>S</td>
       <td>0 1 ... 8 9</td>
     </tr>
@@ -284,7 +284,7 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>000[0..] 001[0..] ... 998[0..] 999[0..]</td>
     </tr>
     <tr>
-      <td><b>Timezone</b></td>
+      <td><b>时区</b></td>
       <td>z or zz</td>
       <td>EST CST ... MST PST</td>
     </tr>
@@ -299,12 +299,12 @@ export const FORMAT_EXAMPLES = `Format string tokens:
       <td>-0700 -0600 ... +0600 +0700</td>
     </tr>
     <tr>
-      <td><b>Unix Timestamp</b></td>
+      <td><b>Unix时间戳</b></td>
       <td>X</td>
       <td>1360013296</td>
     </tr>
     <tr>
-      <td><b>Unix Millisecond Timestamp</b></td>
+      <td><b>Unix毫秒时间戳</b></td>
       <td>x</td>
       <td>1360013296123</td>
     </tr>

@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class GetTime extends Operation {
     constructor() {
         super();
 
-        this.name = "Get Time";
+        this.name = "获取当前时间";
         this.module = "Default";
-        this.description = "Generates a timestamp showing the amount of time since the UNIX epoch (1970-01-01 00:00:00 UTC). Uses the W3C High Resolution Time API.";
+        this.description = "获取当前时间的UNIX时间戳 (从1970-01-01 00:00:00 UTC开始的秒数)。使用W3C High Resolution Time API。";
         this.infoURL = "https://wikipedia.org/wiki/Unix_time";
         this.inputType = "string";
         this.outputType = "number";
         this.args = [
             {
-                name: "Granularity",
+                name: "粒度",
                 type: "option",
                 value: UNITS
             }
@@ -45,16 +47,16 @@ class GetTime extends Operation {
             granularity = args[0];
 
         switch (granularity) {
-            case "Nanoseconds (ns)":
+            case "纳秒 (ns)":
                 return Math.round(nowMs * 1000 * 1000);
-            case "Microseconds (μs)":
+            case "微秒 (μs)":
                 return Math.round(nowMs * 1000);
-            case "Milliseconds (ms)":
+            case "毫秒 (ms)":
                 return Math.round(nowMs);
-            case "Seconds (s)":
+            case "秒 (s)":
                 return Math.round(nowMs / 1000);
             default:
-                throw new OperationError("Unknown granularity value: " + granularity);
+                throw new OperationError("无效的单位： " + granularity);
         }
     }
 

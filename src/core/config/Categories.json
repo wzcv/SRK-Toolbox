@@ -285,16 +285,16 @@
         ]
     },
     {
-        "name": "日期 / 时间（0/9）",
+        "name": "日期 / 时间（9/9）",
         "ops": [
-            "Parse DateTime",
-            "Translate DateTime Format",
-            "From UNIX Timestamp",
-            "To UNIX Timestamp",
-            "Windows Filetime to UNIX Timestamp",
-            "UNIX Timestamp to Windows Filetime",
-            "Extract dates",
-            "Get Time",
+            "解析DateTime",
+            "转换DateTime格式",
+            "从UNIX时间戳提取",
+            "转换到UNIX时间戳",
+            "Windows Filetime转UNIX时间戳",
+            "UNIX时间戳转Windows Filetime",
+            "提取日期",
+            "获取当前时间",
             "Sleep"
         ]
     },
