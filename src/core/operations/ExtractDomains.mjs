@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,24 +21,24 @@ class ExtractDomains extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract domains";
+        this.name = "提取域名";
         this.module = "Regex";
-        this.description = "Extracts fully qualified domain names.<br>Note that this will not include paths. Use <strong>Extract URLs</strong> to find entire URLs.";
+        this.description = "提取完整域名。<br>注意不包括域名路径。用<strong>提取URL</strong>操作提取完整URL。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -60,7 +62,7 @@ class ExtractDomains extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总计： ${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

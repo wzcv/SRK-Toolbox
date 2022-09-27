@@ -3,6 +3,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class ExtractID3 extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract ID3";
+        this.name = "提取ID3";
         this.module = "Default";
-        this.description = "This operation extracts ID3 metadata from an MP3 file.<br><br>ID3 is a metadata container most often used in conjunction with the MP3 audio file format. It allows information such as the title, artist, album, track number, and other information about the file to be stored in the file itself.";
+        this.description = "此操作从MP3文件中提取ID3元数据。<br><br>ID3是一种元数据容器，多应用于MP3格式的音频文件中。它可以将相关的曲名、演唱者、专辑、音轨数等信息存储在MP3文件中，又称作“ID3Tags”。";
         this.infoURL = "https://wikipedia.org/wiki/ID3";
         this.inputType = "ArrayBuffer";
         this.outputType = "JSON";
@@ -43,7 +45,7 @@ class ExtractID3 extends Operation {
          */
         function extractHeader() {
             if (!Array.from(input.slice(0, 3)).equals([0x49, 0x44, 0x33]))
-                throw new OperationError("No valid ID3 header.");
+                throw new OperationError("未找到有效的ID3头部。");
 
             const header = {
                 "Type": "ID3",
@@ -129,7 +131,7 @@ class ExtractID3 extends Operation {
             } else if (id === "\x00\x00\x00") { // end of header
                 break;
             } else {
-                throw new OperationError("Unknown Frame Identifier: " + id);
+                throw new OperationError("未知的Frame Identifier： " + id);
             }
         }
 
@@ -148,7 +150,7 @@ class ExtractID3 extends Operation {
             return JSON.stringify(data, null, 4);
 
         let output = `<table class="table table-hover table-sm table-bordered table-nonfluid">
-            <tr><th>Tag</th><th>Description</th><th>Data</th></tr>`;
+            <tr><th>标签</th><th>描述</th><th>Data</th></tr>`;
 
         for (const tagID in data.Tags) {
             const description = data.Tags[tagID].Description,

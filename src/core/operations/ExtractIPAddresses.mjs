@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class ExtractIPAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract IP addresses";
+        this.name = "提取IP地址";
         this.module = "Regex";
-        this.description = "Extracts all IPv4 and IPv6 addresses.<br><br>Warning: Given a string <code>710.65.0.456</code>, this will match <code>10.65.0.45</code> so always check the original input!";
+        this.description = "提取所有的IPv4和IPv6地址。<br><br>警告：类似 <code>710.65.0.456</code> 这样的非有效IP地址输入也会匹配出 <code>10.65.0.45</code>，务必确认输入文本正确！";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
@@ -36,22 +38,22 @@ class ExtractIPAddresses extends Operation {
                 value: false
             },
             {
-                name: "Remove local IPv4 addresses",
+                name: "移除内网IPv4地址",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -97,7 +99,7 @@ class ExtractIPAddresses extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总计： ${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

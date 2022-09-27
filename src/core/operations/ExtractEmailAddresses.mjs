@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,24 +21,24 @@ class ExtractEmailAddresses extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract email addresses";
+        this.name = "提取Email地址";
         this.module = "Regex";
-        this.description = "Extracts all email addresses from the input.";
+        this.description = "从输入中提取所有的Email地址。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -62,7 +64,7 @@ class ExtractEmailAddresses extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总计： ${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

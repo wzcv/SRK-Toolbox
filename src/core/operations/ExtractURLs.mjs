@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,24 +21,24 @@ class ExtractURLs extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract URLs";
+        this.name = "提取URL";
         this.module = "Regex";
-        this.description = "Extracts Uniform Resource Locators (URLs) from the input. The protocol (http, ftp etc.) is required otherwise there will be far too many false positives.";
+        this.description = "从输入中提取Uniform Resource Locator (URL)。必须要带协议名称 (如http, ftp 等)，否则会有过多误判。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Display total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Sort",
+                name: "排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Unique",
+                name: "去重",
                 type: "boolean",
                 value: false
             }
@@ -59,7 +61,7 @@ class ExtractURLs extends Operation {
         );
 
         if (displayTotal) {
-            return `Total found: ${results.length}\n\n${results.join("\n")}`;
+            return `总计： ${results.length}\n\n${results.join("\n")}`;
         } else {
             return results.join("\n");
         }

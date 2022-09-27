@@ -2,6 +2,8 @@
  * @author Mikescher (https://github.com/Mikescher | https://mikescher.com)
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class XPathExpression extends Operation {
     constructor() {
         super();
 
-        this.name = "XPath expression";
+        this.name = "XPath表达式";
         this.module = "Code";
-        this.description = "Extract information from an XML document with an XPath query";
+        this.description = "从XML文档中使用给定的XPath表达式进行查询并提取内容。";
         this.infoURL = "https://wikipedia.org/wiki/XPath";
         this.inputType = "string";
         this.outputType = "string";
@@ -33,7 +35,7 @@ class XPathExpression extends Operation {
                 "value": ""
             },
             {
-                "name": "Result delimiter",
+                "name": "查询结果分隔符",
                 "type": "binaryShortString",
                 "value": "\\n"
             }
@@ -64,14 +66,14 @@ class XPathExpression extends Operation {
                 }
             }).parseFromString(input, "application/xml");
         } catch (err) {
-            throw new OperationError("Invalid input XML.");
+            throw new OperationError("无效的XML。");
         }
 
         let nodes;
         try {
             nodes = xpath.parse(query).select({ node: doc, allowAnyNamespaceForNoPrefix: true });
         } catch (err) {
-            throw new OperationError(`Invalid XPath. Details:\n${err.message}.`);
+            throw new OperationError(`无效的XPath。错误信息：\n${err.message}.`);
         }
 
         const nodeToString = function(node) {

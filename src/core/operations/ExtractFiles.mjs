@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -31,14 +33,14 @@ class ExtractFiles extends Operation {
         // Flatten categories and remove duplicates
         supportedExts = [].concat(...supportedExts).unique();
 
-        this.name = "Extract Files";
+        this.name = "提取文件";
         this.module = "Default";
-        this.description = `Performs file carving to attempt to extract files from the input.<br><br>This operation is currently capable of carving out the following formats:
+        this.description = `从输入内容中进行文件雕复来尝试提取文件。<br><br>此操作目前可提取以下格式：
             <ul>
                 <li>
                 ${supportedExts.join("</li><li>")}
                 </li>
-            </ul>Minimum File Size can be used to prune small false positives.`;
+            </ul>可以指定最小文件尺寸来防止误判。`;
         this.infoURL = "https://forensicswiki.xyz/wiki/index.php?title=File_Carving";
         this.inputType = "ArrayBuffer";
         this.outputType = "List<File>";
@@ -47,16 +49,16 @@ class ExtractFiles extends Operation {
             return {
                 name: cat,
                 type: "boolean",
-                value: cat === "Miscellaneous" ? false : true
+                value: cat === "其它" ? false : true
             };
         }).concat([
             {
-                name: "Ignore failed extractions",
+                name: "忽略失败提取",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Minimum File Size",
+                name: "最小文件尺寸",
                 type: "number",
                 value: 100
             }

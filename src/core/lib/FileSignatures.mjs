@@ -5,6 +5,7 @@
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
  *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import Stream from "./Stream.mjs";
 
@@ -13,7 +14,7 @@ import Stream from "./Stream.mjs";
  * to extract them where possible.
  */
 export const FILE_SIGNATURES = {
-    "Images": [
+    "图片": [
         {
             name: "Joint Photographic Experts Group image",
             extension: "jpg,jpeg,jpe,thm,mpo",
@@ -497,7 +498,7 @@ export const FILE_SIGNATURES = {
             extractor: extractTARGA
         }
     ],
-    "Video": [
+    "视频": [
         { // Place before webm
             name: "Matroska Multimedia Container",
             extension: "mkv",
@@ -748,7 +749,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         },
     ],
-    "Audio": [
+    "音频": [
         {
             name: "Waveform Audio",
             extension: "wav",
@@ -954,7 +955,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         }
     ],
-    "Documents": [
+    "文档": [
         {
             name: "Portable Document Format",
             extension: "pdf",
@@ -1277,7 +1278,7 @@ export const FILE_SIGNATURES = {
             extractor: extractZIP
         },
     ],
-    "Applications": [
+    "应用": [
         {
             name: "Windows Portable Executable",
             extension: "exe,dll,drv,vxd,sys,ocx,vbx,com,fon,scr",
@@ -1821,7 +1822,7 @@ export const FILE_SIGNATURES = {
             extractor: null
         }
     ],
-    "Miscellaneous": [
+    "其它": [
         {
             name: "UTF-8 text",
             extension: "txt",

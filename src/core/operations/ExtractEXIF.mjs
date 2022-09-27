@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import ExifParser from "exif-parser";
@@ -19,14 +21,14 @@ class ExtractEXIF extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract EXIF";
+        this.name = "提取EXIF";
         this.module = "Image";
         this.description = [
-            "Extracts EXIF data from an image.",
+            "从图像中提取EXIF数据。",
             "<br><br>",
-            "EXIF data is metadata embedded in images (JPEG, JPG, TIFF) and audio files.",
+            "EXIF数据是嵌入在图片(JPEG, JPG, TIFF)和音频文件中的元数据。",
             "<br><br>",
-            "EXIF data from photos usually contains information about the image file itself as well as the device used to create it.",
+            "照片的EXIF数据通常包括图像本身以及拍摄设备的信息。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Exif";
         this.inputType = "ArrayBuffer";
@@ -51,10 +53,10 @@ class ExtractEXIF extends Operation {
             }
 
             const numTags = lines.length;
-            lines.unshift(`Found ${numTags} tags.\n`);
+            lines.unshift(`找到 ${numTags} 个标签。\n`);
             return lines.join("\n");
         } catch (err) {
-            throw new OperationError(`Could not extract EXIF data from image: ${err}`);
+            throw new OperationError(`无法从图片中提取EXIF数据： ${err}`);
         }
     }
 

@@ -299,23 +299,23 @@
         ]
     },
     {
-        "name": "提取器（1/15）",
+        "name": "提取器（15/15）",
         "ops": [
             "Strings",
-            "Extract IP addresses",
-            "Extract email addresses",
-            "Extract MAC addresses",
-            "Extract URLs",
-            "Extract domains",
-            "Extract file paths",
-            "Extract dates",
+            "提取IP地址",
+            "提取Email地址",
+            "提取MAC地址",
+            "提取URL",
+            "提取域名",
+            "提取文件路径",
+            "提取日期",
             "正则表达式",
-            "XPath expression",
-            "JPath expression",
-            "CSS selector",
-            "Extract EXIF",
-            "Extract ID3",
-            "Extract Files"
+            "XPath表达式",
+            "JPath表达式",
+            "CSS选择器",
+            "提取EXIF",
+            "提取ID3",
+            "提取文件"
         ]
     },
     {
@@ -383,7 +383,7 @@
         ]
     },
     {
-        "name": "代码清理（2/28）",
+        "name": "代码清理（5/28）",
         "ops": [
             "Syntax highlighter",
             "Generic Code Beautify",
@@ -398,9 +398,9 @@
             "SQL Minify",
             "CSS Beautify",
             "CSS Minify",
-            "XPath expression",
-            "JPath expression",
-            "CSS selector",
+            "XPath表达式",
+            "JPath表达式",
+            "CSS选择器",
             "PHP Deserialize",
             "Microsoft Script Decoder",
             "Strip HTML tags",
@@ -416,14 +416,14 @@
         ]
     },
     {
-        "name": "鉴定（0/11）",
+        "name": "鉴定（2/11）",
         "ops": [
             "Detect File Type",
             "Scan for Embedded Files",
-            "Extract Files",
+            "提取文件",
             "YARA Rules",
             "Remove EXIF",
-            "Extract EXIF",
+            "提取EXIF",
             "Extract RGBA",
             "View Bit Plane",
             "Randomize Colour Palette",
@@ -432,14 +432,14 @@
         ]
     },
     {
-        "name": "多媒体（0/28）",
+        "name": "多媒体（1/28）",
         "ops": [
             "Render Image",
             "Play Media",
             "Generate Image",
             "Optical Character Recognition",
             "Remove EXIF",
-            "Extract EXIF",
+            "提取EXIF",
             "Split Colour Channels",
             "Rotate Image",
             "Resize Image",

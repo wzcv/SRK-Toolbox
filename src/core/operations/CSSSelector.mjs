@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,20 +22,20 @@ class CSSSelector extends Operation {
     constructor() {
         super();
 
-        this.name = "CSS selector";
+        this.name = "CSS选择器";
         this.module = "Code";
-        this.description = "Extract information from an HTML document with a CSS selector";
+        this.description = "从HTML文档中使用CSS选择器提取内容。";
         this.infoURL = "https://wikipedia.org/wiki/Cascading_Style_Sheets#Selector";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "CSS selector",
+                "name": "CSS选择器",
                 "type": "string",
                 "value": ""
             },
             {
-                "name": "Delimiter",
+                "name": "提取内容分隔符",
                 "type": "binaryShortString",
                 "value": "\\n"
             }
@@ -58,14 +60,14 @@ class CSSSelector extends Operation {
         try {
             dom = parser.parseFromString(input);
         } catch (err) {
-            throw new OperationError("Invalid input HTML.");
+            throw new OperationError("无效的HTML。");
         }
 
         try {
             const matcher = nwmatcher({document: dom});
             result = matcher.select(query, dom);
         } catch (err) {
-            throw new OperationError("Invalid CSS Selector. Details:\n" + err.message);
+            throw new OperationError("无效的CSS选择器。报错信息：\n" + err.message);
         }
 
         const nodeToString = function(node) {
