@@ -46,9 +46,9 @@ class CNIDVerify extends Operation {
         }
 
         try {
-            let verifyDigit = coeff.reduce(function(r, a, i) {
+            let verifyDigit = (12 - coeff.reduce(function(r, a, i) {
                 return r + a * first17Digits[i];
-            }, 0) % 11;
+            }, 0) % 11) % 11;
             verifyDigit = verifyDigit === 10 ? "X" : verifyDigit.toString();
             if (verifyDigit === input[17]) {
                 return `${input}, ${verifyDigit}, 正确`;

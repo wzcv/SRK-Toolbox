@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -12,8 +14,8 @@ import OperationError from "../errors/OperationError.mjs";
 const Zlib = rawinflate.Zlib;
 
 const RAW_BUFFER_TYPE_LOOKUP = {
-    "Adaptive": Zlib.RawInflate.BufferType.ADAPTIVE,
-    "Block":    Zlib.RawInflate.BufferType.BLOCK,
+    "自适应": Zlib.RawInflate.BufferType.ADAPTIVE,
+    "块":    Zlib.RawInflate.BufferType.BLOCK,
 };
 
 /**
@@ -29,33 +31,33 @@ class RawInflate extends Operation {
 
         this.name = "Raw Inflate";
         this.module = "Compression";
-        this.description = "Decompresses data which has been compressed using the deflate algorithm with no headers.";
+        this.description = "解压缩使用无头部deflate算法压缩的数据。";
         this.infoURL = "https://wikipedia.org/wiki/DEFLATE";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Start index",
+                name: "起始索引",
                 type: "number",
                 value: 0
             },
             {
-                name: "Initial output buffer size",
+                name: "起始输出缓冲区尺寸",
                 type: "number",
                 value: 0
             },
             {
-                name: "Buffer expansion type",
+                name: "缓冲区扩展类型",
                 type: "option",
                 value: INFLATE_BUFFER_TYPE
             },
             {
-                name: "Resize buffer after decompression",
+                name: "解压缩后重置缓冲区尺寸",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Verify result",
+                name: "验证结果",
                 type: "boolean",
                 value: false
             }
@@ -98,7 +100,7 @@ class RawInflate extends Operation {
             }
 
             if (!valid) {
-                throw new OperationError("Error: Unable to inflate data");
+                throw new OperationError("错误：无法解压数据");
             }
         }
         // This seems to be the easiest way...

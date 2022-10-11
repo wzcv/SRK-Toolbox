@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,7 +23,7 @@ class Untar extends Operation {
 
         this.name = "Untar";
         this.module = "Compression";
-        this.description = "Unpacks a tarball and displays it per file.";
+        this.description = "解包 tarball 并按文件展示内容。";
         this.infoURL = "https://wikipedia.org/wiki/Tar_(computing)";
         this.inputType = "ArrayBuffer";
         this.outputType = "List<File>";

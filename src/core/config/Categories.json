@@ -319,7 +319,7 @@
         ]
     },
     {
-        "name": "压缩算法（0/14）",
+        "name": "压缩算法（14/14）",
         "ops": [
             "Raw Deflate",
             "Raw Inflate",
@@ -329,12 +329,12 @@
             "Gunzip",
             "Zip",
             "Unzip",
-            "Bzip2 Decompress",
-            "Bzip2 Compress",
+            "Bzip2压缩",
+            "Bzip2解压",
             "Tar",
             "Untar",
-            "LZString Compress",
-            "LZString Decompress"
+            "LZString压缩",
+            "LZString解压"
         ]
     },
     {
@@ -416,9 +416,9 @@
         ]
     },
     {
-        "name": "鉴定（2/11）",
+        "name": "鉴定（3/11）",
         "ops": [
-            "Detect File Type",
+            "检测文件类型",
             "Scan for Embedded Files",
             "提取文件",
             "YARA Rules",
@@ -487,7 +487,7 @@
         ]
     },
     {
-        "name": "流程控制（1/10）",
+        "name": "流程控制（1/11）",
         "ops": [
             "Magic",
             "Fork",
@@ -498,7 +498,8 @@
             "Jump",
             "Conditional Jump",
             "Return",
-            "Comment"
+            "Comment",
+            "Sleep"
         ]
     },
     {

@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,13 +22,13 @@ class Tar extends Operation {
 
         this.name = "Tar";
         this.module = "Compression";
-        this.description = "Packs the input into a tarball.<br><br>No support for multiple files at this time.";
+        this.description = "把输入打包成tarball。<br><br>目前不支持多个文件。";
         this.infoURL = "https://wikipedia.org/wiki/Tar_(computing)";
         this.inputType = "ArrayBuffer";
         this.outputType = "File";
         this.args = [
             {
-                "name": "Filename",
+                "name": "文件名",
                 "type": "string",
                 "value": "file.txt"
             }

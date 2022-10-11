@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import HTMLOperation from "../HTMLOperation.mjs";
@@ -379,7 +381,7 @@ class RecipeWaiter {
         // Disable auto-bake if this is a manual op
         if (op.manualBake && this.app.autoBake_) {
             this.manager.controls.setAutoBake(false);
-            this.app.alert("Auto-Bake is disabled by default when using this operation.", 5000);
+            this.app.alert("使用此操作时默认不进行自动执行。", 5000);
         }
     }
 

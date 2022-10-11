@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,19 +25,19 @@ class Unzip extends Operation {
 
         this.name = "Unzip";
         this.module = "Compression";
-        this.description = "Decompresses data using the PKZIP algorithm and displays it per file, with support for passwords.";
+        this.description = "使用PKZIP算法解压缩并按文件显示内容，支持密码。";
         this.infoURL = "https://wikipedia.org/wiki/Zip_(file_format)";
         this.inputType = "ArrayBuffer";
         this.outputType = "List<File>";
         this.presentType = "html";
         this.args = [
             {
-                name: "Password",
+                name: "密码",
                 type: "binaryString",
                 value: ""
             },
             {
-                name: "Verify result",
+                name: "验证结果",
                 type: "boolean",
                 value: false
             }

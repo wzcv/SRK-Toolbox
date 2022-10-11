@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 :root {
@@ -22,6 +24,7 @@
     color: var(--title-colour);
     background-color: var(--title-background-colour);
     line-height: calc(var(--title-height) - 14px);
+    overflow: hidden;
 }
 
 .pane-controls {

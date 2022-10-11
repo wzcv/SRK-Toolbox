@@ -2,6 +2,8 @@
  * @author crespyl [peter@crespyl.net]
  * @copyright Peter Jacobs 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class LZStringDecompress extends Operation {
     constructor() {
         super();
 
-        this.name = "LZString Decompress";
+        this.name = "LZString解压";
         this.module = "Compression";
-        this.description = "Decompresses data that was compressed with lz-string.";
+        this.description = "解压使用 lz-string 算法压缩的数据。";
         this.infoURL = "https://pieroxy.net/blog/pages/lz-string/index.html";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Compression Format",
+                name: "压缩格式",
                 type: "option",
                 defaultIndex: 0,
                 value: COMPRESSION_OUTPUT_FORMATS
@@ -46,7 +48,7 @@ class LZStringDecompress extends Operation {
         if (decompress) {
             return decompress(input);
         } else {
-            throw new OperationError("Unable to find decompression function");
+            throw new OperationError("压缩功能不可用");
         }
     }
 

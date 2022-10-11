@@ -374,8 +374,8 @@ class App {
             if (favourites[i] in this.operations) {
                 validFavs.push(favourites[i]);
             } else {
-                this.alert(`The operation "${Utils.escapeHtml(favourites[i])}" is no longer available. ` +
-                    "It has been removed from your favourites.");
+                this.alert(`未找到操作 "${Utils.escapeHtml(favourites[i])}" 。 ` +
+                    "已将其从收藏列表中移除。");
             }
         }
         return validFavs;
@@ -390,7 +390,7 @@ class App {
     saveFavourites(favourites) {
         if (!this.isLocalStorageAvailable()) {
             this.alert(
-                "Your security settings do not allow access to local storage so your favourites cannot be saved.",
+                "未授予本地存储权限，无法保存收藏列表。",
                 5000
             );
             return false;
@@ -421,7 +421,7 @@ class App {
         const favourites = JSON.parse(localStorage.favourites);
 
         if (favourites.indexOf(name) >= 0) {
-            this.alert(`'${name}' is already in your favourites`, 3000);
+            this.alert(`'${name}' 已经存在于收藏列表中`, 3000);
             return;
         }
 

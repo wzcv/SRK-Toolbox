@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -26,9 +28,9 @@ class DetectFileType extends Operation {
     constructor() {
         super();
 
-        this.name = "Detect File Type";
+        this.name = "检测文件类型";
         this.module = "Default";
-        this.description = "Attempts to guess the MIME (Multipurpose Internet Mail Extensions) type of the data based on 'magic bytes'.<br><br>Currently supports the following file types: " +
+        this.description = "尝试根据文件的“魔术字节（Magic Bytes）”猜测数据的 MIME (Multipurpose Internet Mail Extensions) 类型。<br><br>目前支持以下文件类型：" +
             exts + ".";
         this.infoURL = "https://wikipedia.org/wiki/List_of_file_signatures";
         this.inputType = "ArrayBuffer";
@@ -58,15 +60,15 @@ class DetectFileType extends Operation {
         const types = detectFileType(data, categories);
 
         if (!types.length) {
-            return "Unknown file type. Have you tried checking the entropy of this data to determine whether it might be encrypted or compressed?";
+            return "未知的文件类型。尝试检测文件信息熵来判断是否已经被加密或压缩。";
         } else {
             const results = types.map(type => {
-                let output = `File type:   ${type.name}
-Extension:   ${type.extension}
-MIME type:   ${type.mime}\n`;
+                let output = `文件类型：   ${type.name}
+扩展名：   ${type.extension}
+MIME类型：   ${type.mime}\n`;
 
                 if (type.description && type.description.length) {
-                    output += `Description: ${type.description}\n`;
+                    output += `描述： ${type.description}\n`;
                 }
 
                 return output;

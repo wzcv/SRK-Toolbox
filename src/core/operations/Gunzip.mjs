@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,7 +24,7 @@ class Gunzip extends Operation {
 
         this.name = "Gunzip";
         this.module = "Compression";
-        this.description = "Decompresses data which has been compressed using the deflate algorithm with gzip headers.";
+        this.description = "解压使用带有Gzip头部的deflate算法压缩的数据。";
         this.infoURL = "https://wikipedia.org/wiki/Gzip";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";

@@ -2,6 +2,8 @@
  * @author crespyl [peter@crespyl.net]
  * @copyright Peter Jacobs 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class LZStringCompress extends Operation {
     constructor() {
         super();
 
-        this.name = "LZString Compress";
+        this.name = "LZString压缩";
         this.module = "Compression";
-        this.description = "Compress the input with lz-string.";
+        this.description = "使用 lz-string 算法压缩输入内容。";
         this.infoURL = "https://pieroxy.net/blog/pages/lz-string/index.html";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Compression Format",
+                name: "压缩格式",
                 type: "option",
                 defaultIndex: 0,
                 value: COMPRESSION_OUTPUT_FORMATS
@@ -46,7 +48,7 @@ class LZStringCompress extends Operation {
         if (compress) {
             return compress(input);
         } else {
-            throw new OperationError("Unable to find compression function");
+            throw new OperationError("压缩功能不可用");
         }
     }
 

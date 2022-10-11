@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -13,7 +15,7 @@ const Zlib = zip.Zlib;
 
 const ZIP_COMPRESSION_METHOD_LOOKUP = {
     "Deflate":      Zlib.Zip.CompressionMethod.DEFLATE,
-    "None (Store)": Zlib.Zip.CompressionMethod.STORE
+    "无压缩 (Store)": Zlib.Zip.CompressionMethod.STORE
 };
 
 const ZIP_OS_LOOKUP = {
@@ -35,38 +37,38 @@ class Zip extends Operation {
 
         this.name = "Zip";
         this.module = "Compression";
-        this.description = "Compresses data using the PKZIP algorithm with the given filename.<br><br>No support for multiple files at this time.";
+        this.description = "将输入数据使用给定的文件名用PKZIP算法进行压缩。<br><br>当前不支持多个文件。";
         this.infoURL = "https://wikipedia.org/wiki/Zip_(file_format)";
         this.inputType = "ArrayBuffer";
         this.outputType = "File";
         this.args = [
             {
-                name: "Filename",
+                name: "文件名",
                 type: "string",
                 value: "file.txt"
             },
             {
-                name: "Comment",
+                name: "注释",
                 type: "string",
                 value: ""
             },
             {
-                name: "Password",
+                name: "密码",
                 type: "binaryString",
                 value: ""
             },
             {
-                name: "Compression method",
+                name: "压缩方式",
                 type: "option",
-                value: ["Deflate", "None (Store)"]
+                value: ["Deflate", "无压缩 (Store)"]
             },
             {
-                name: "Operating system",
+                name: "操作系统",
                 type: "option",
                 value: ["MSDOS", "Unix", "Macintosh"]
             },
             {
-                name: "Compression type",
+                name: "压缩类型",
                 type: "option",
                 value: COMPRESSION_TYPE
             }

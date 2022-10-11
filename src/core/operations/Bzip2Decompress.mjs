@@ -2,6 +2,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class Bzip2Decompress extends Operation {
     constructor() {
         super();
 
-        this.name = "Bzip2 Decompress";
+        this.name = "Bzip2解压";
         this.module = "Compression";
-        this.description = "Decompresses data using the Bzip2 algorithm.";
+        this.description = "解压使用 Bzip2 算法压缩的数据。";
         this.infoURL = "https://wikipedia.org/wiki/Bzip2";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.args = [
             {
-                name: "Use low-memory, slower decompression algorithm",
+                name: "使用低内存占用但更慢的解压算法",
                 type: "boolean",
                 value: false
             }
@@ -50,12 +52,12 @@ class Bzip2Decompress extends Operation {
     async run(input, args) {
         const [small] = args;
         if (input.byteLength <= 0) {
-            throw new OperationError("Please provide an input.");
+            throw new OperationError("输入不能为空。");
         }
-        if (isWorkerEnvironment()) self.sendStatusMessage("Loading Bzip2...");
+        if (isWorkerEnvironment()) self.sendStatusMessage("正在载入 Bzip2...");
         return new Promise((resolve, reject) => {
             Bzip2().then(bzip2 => {
-                if (isWorkerEnvironment()) self.sendStatusMessage("Decompressing data...");
+                if (isWorkerEnvironment()) self.sendStatusMessage("解压数据...");
                 const inpArray = new Uint8Array(input);
                 const bzip2cc = bzip2.decompressBZ2(inpArray, small ? 1 : 0);
                 if (bzip2cc.error !== 0) {
