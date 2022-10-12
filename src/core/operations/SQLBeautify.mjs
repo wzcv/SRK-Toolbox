@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import vkbeautify from "vkbeautify";
@@ -18,14 +20,14 @@ class SQLBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "SQL Beautify";
+        this.name = "SQL美化";
         this.module = "Code";
-        this.description = "Indents and prettifies Structured Query Language (SQL) code.";
+        this.description = "为Structured Query Language (SQL)代码添加缩进与美化。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Indent string",
+                "name": "缩进",
                 "type": "binaryShortString",
                 "value": "\\t"
             }

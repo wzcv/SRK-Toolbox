@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,35 +20,35 @@ class JavaScriptParser extends Operation {
     constructor() {
         super();
 
-        this.name = "JavaScript Parser";
+        this.name = "JavaScript解析";
         this.module = "Code";
-        this.description = "Returns an Abstract Syntax Tree for valid JavaScript code.";
+        this.description = "返回合法Javascript代码的抽象语法树（Abstract Syntax Tree, AST）。";
         this.infoURL = "https://wikipedia.org/wiki/Abstract_syntax_tree";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Location info",
+                "name": "位置信息",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Range info",
+                "name": "范围信息",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Include tokens array",
+                "name": "包括token数组",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Include comments array",
+                "name": "包括注释数组",
                 "type": "boolean",
                 "value": false
             },
             {
-                "name": "Report errors and try to continue",
+                "name": "报告错误并尝试继续",
                 "type": "boolean",
                 "value": false
             }

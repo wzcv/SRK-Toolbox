@@ -2,6 +2,8 @@
  * @author Ge0rg3 [georgeomnet+cyberchef@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,21 +25,21 @@ class ViewBitPlane extends Operation {
     constructor() {
         super();
 
-        this.name = "View Bit Plane";
+        this.name = "查看位平面";
         this.module = "Image";
-        this.description = "Extracts and displays a bit plane of any given image. These show only a single bit from each pixel, and can be used to hide messages in Steganography.";
+        this.description = "提取并显示任何给定图像的位平面。每张图像显示原图像当中每个像素字节数据的给定一个位，通常用于图像隐写术。";
         this.infoURL = "https://wikipedia.org/wiki/Bit_plane";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Colour",
+                name: "颜色",
                 type: "option",
                 value: COLOUR_OPTIONS
             },
             {
-                name: "Bit",
+                name: "位",
                 type: "number",
                 value: 0
             }
@@ -50,7 +52,7 @@ class ViewBitPlane extends Operation {
      * @returns {ArrayBuffer}
      */
     async run(input, args) {
-        if (!isImage(input)) throw new OperationError("Please enter a valid image file.");
+        if (!isImage(input)) throw new OperationError("请输入合法的图像文件。");
 
         const [colour, bit] = args,
             parsedImage = await jimp.read(input),
@@ -60,7 +62,7 @@ class ViewBitPlane extends Operation {
             bitIndex = 7-bit;
 
         if (bit < 0 || bit > 7) {
-            throw new OperationError("Error: Bit argument must be between 0 and 7");
+            throw new OperationError("错误：位参数只能是 0 到 7");
         }
 
         let pixel, bin, newPixelValue;

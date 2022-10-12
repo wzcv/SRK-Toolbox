@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,19 +20,19 @@ class StripHTMLTags extends Operation {
     constructor() {
         super();
 
-        this.name = "Strip HTML tags";
+        this.name = "移除HTML标签";
         this.module = "Default";
-        this.description = "Removes all HTML tags from the input.";
+        this.description = "从输入中移除所有的HTML标签。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Remove indentation",
+                "name": "移除缩进",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Remove excess line breaks",
+                "name": "移除多余换行",
                 "type": "boolean",
                 "value": true
             }

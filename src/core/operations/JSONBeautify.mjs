@@ -3,6 +3,8 @@
  * @author Phillip Nordwall [phillip.nordwall@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import JSON5 from "json5";
@@ -21,25 +23,25 @@ class JSONBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "JSON Beautify";
+        this.name = "JSON美化";
         this.module = "Code";
-        this.description = "Indents and pretty prints JavaScript Object Notation (JSON) code.<br><br>Tags: json viewer, prettify, syntax highlighting";
+        this.description = "为JavaScript Object Notation (JSON)代码添加缩进与美化。<br><br>标签： json viewer, prettify, syntax highlighting";
         this.inputType = "string";
         this.outputType = "string";
         this.presentType = "html";
         this.args = [
             {
-                name: "Indent string",
+                name: "缩进",
                 type: "binaryShortString",
                 value: "    "
             },
             {
-                name: "Sort Object Keys",
+                name: "按键值排序",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Formatted",
+                name: "格式化",
                 type: "boolean",
                 value: true
             }
@@ -60,7 +62,7 @@ class JSONBeautify extends Operation {
         try {
             json = JSON5.parse(input);
         } catch (err) {
-            throw new OperationError("Unable to parse input as JSON.\n" + err);
+            throw new OperationError("无法解析JSON。\n" + err);
         }
 
         if (sortBool) json = sortKeys(json);

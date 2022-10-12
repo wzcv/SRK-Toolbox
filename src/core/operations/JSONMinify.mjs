@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import vkbeautify from "vkbeautify";
@@ -18,9 +20,9 @@ class JSONMinify extends Operation {
     constructor() {
         super();
 
-        this.name = "JSON Minify";
+        this.name = "JSON压缩";
         this.module = "Code";
-        this.description = "Compresses JavaScript Object Notation (JSON) code.";
+        this.description = "压缩JavaScript Object Notation (JSON)代码（Minify/Uglify）。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

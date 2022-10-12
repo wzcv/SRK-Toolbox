@@ -22,7 +22,7 @@ class SyntaxHighlighter extends Operation {
 
         this.name = "语法高亮";
         this.module = "Code";
-        this.description = "为多种编程语言添加语法高亮。注意：此操作不会对代码进行缩进，需配合使用对应的“美化”操作。";
+        this.description = "为多种编程语言添加语法高亮。注意：此操作不会对代码进行缩进，需配合使用对应的“美化（Beautify）”操作。";
         this.infoURL = "https://wikipedia.org/wiki/Syntax_highlighting";
         this.inputType = "string";
         this.outputType = "html";

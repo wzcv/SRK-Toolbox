@@ -2,6 +2,8 @@
  * @author Ge0rg3 [georgeomnet+cyberchef@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -24,16 +26,16 @@ class RandomizeColourPalette extends Operation {
     constructor() {
         super();
 
-        this.name = "Randomize Colour Palette";
+        this.name = "色板随机化";
         this.module = "Image";
-        this.description = "Randomizes each colour in an image's colour palette. This can often reveal text or symbols that were previously a very similar colour to their surroundings, a technique sometimes used in Steganography.";
+        this.description = "将给定图片中的每种颜色单独进行随机化处理。通常用于显示使用非常相近颜色隐写的文字或符号。";
         this.infoURL = "https://wikipedia.org/wiki/Indexed_color";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Seed",
+                name: "随机数种子",
                 type: "string",
                 value: ""
             }
@@ -46,7 +48,7 @@ class RandomizeColourPalette extends Operation {
      * @returns {ArrayBuffer}
      */
     async run(input, args) {
-        if (!isImage(input)) throw new OperationError("Please enter a valid image file.");
+        if (!isImage(input)) throw new OperationError("请输入合法的图像文件。");
 
         const seed = args[0] || (Math.random().toString().substr(2)),
             parsedImage = await jimp.read(input),

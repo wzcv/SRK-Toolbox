@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class ScanForEmbeddedFiles extends Operation {
     constructor() {
         super();
 
-        this.name = "Scan for Embedded Files";
+        this.name = "扫描嵌入文件";
         this.module = "Default";
-        this.description = "Scans the data for potential embedded files by looking for magic bytes at all offsets. This operation is prone to false positives.<br><br>WARNING: Files over about 100KB in size will take a VERY long time to process.";
+        this.description = "在输入内容中检测魔术字节（Magic bytes）来扫描潜在的嵌入文件。此操作容易误报。<br><br>警告：超过100KB的文件可能会需要<strong>非常长</strong>的时间处理。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_file_signatures";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -41,7 +43,7 @@ class ScanForEmbeddedFiles extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        let output = "Scanning data for 'magic bytes' which may indicate embedded files. The following results may be false positives and should not be treated as reliable. Any sufficiently long file is likely to contain these magic bytes coincidentally.\n",
+        let output = "在输入内容中检测魔术字节（Magic bytes）来扫描潜在的嵌入文件。以下内容可能为误报，因为足够长的数据通常都会碰巧具有这些魔术字节。\n",
             numFound = 0;
         const categories = [],
             data = new Uint8Array(input);
@@ -55,19 +57,19 @@ class ScanForEmbeddedFiles extends Operation {
         if (types.length) {
             types.forEach(type => {
                 numFound++;
-                output += `\nOffset ${type.offset} (0x${Utils.hex(type.offset)}):
-  File type:   ${type.fileDetails.name}
-  Extension:   ${type.fileDetails.extension}
-  MIME type:   ${type.fileDetails.mime}\n`;
+                output += `\n偏移量 ${type.offset} (0x${Utils.hex(type.offset)})：
+  文件类型：  ${type.fileDetails.name}
+  扩展名：   ${type.fileDetails.extension}
+  MIME类型： ${type.fileDetails.mime}\n`;
 
                 if (type.fileDetails.description && type.fileDetails.description.length) {
-                    output += `  Description: ${type.fileDetails.description}\n`;
+                    output += `  描述： ${type.fileDetails.description}\n`;
                 }
             });
         }
 
         if (numFound === 0) {
-            output += "\nNo embedded files were found.";
+            output += "\n未找到嵌入的文件。";
         }
 
         return output;

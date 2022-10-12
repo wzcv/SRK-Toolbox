@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import kebabCase from "lodash/kebabCase.js";
@@ -19,15 +21,15 @@ class ToKebabCase extends Operation {
     constructor() {
         super();
 
-        this.name = "To Kebab case";
+        this.name = "转换为Kebab case";
         this.module = "Code";
-        this.description = "Converts the input string to kebab case.\n<br><br>\nKebab case is all lower case with dashes as word boundaries.\n<br><br>\ne.g. this-is-kebab-case\n<br><br>\n'Attempt to be context aware' will make the operation attempt to nicely transform variable and function names.";
+        this.description = "将输入字符串转换为kebab case。\n<br><br>\nKebab case是全小写使用连字符作为单词边界的格式。\n<br><br>\n例如： this-is-kebab-case\n<br><br>\n勾选“尝试识别上下文”后此操作将尝试只转换函数和变量名。";
         this.infoURL = "https://wikipedia.org/wiki/Kebab_case";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Attempt to be context aware",
+                "name": "尝试识别上下文",
                 "type": "boolean",
                 "value": false
             }

@@ -2,6 +2,8 @@
  * @author bmwhitn [brian.m.whitney@outlook.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class MicrosoftScriptDecoder extends Operation {
     constructor() {
         super();
 
-        this.name = "Microsoft Script Decoder";
+        this.name = "Microsoft Script解码";
         this.module = "Default";
-        this.description = "Decodes Microsoft Encoded Script files that have been encoded with Microsoft's custom encoding. These are often VBS (Visual Basic Script) files that are encoded and renamed with a '.vbe' extention or JS (JScript) files renamed with a '.jse' extention.<br><br><b>Sample</b><br><br>Encoded:<br><code>#@~^RQAAAA==-mD~sX|:/TP{~J:+dYbxL~@!F@*@!+@*@!&amp;@*eEI@#@&amp;@#@&amp;.jm.raY 214Wv:zms/obI0xEAAA==^#~@</code><br><br>Decoded:<br><code>var my_msg = &#34;Testing <1><2><3>!&#34;;\n\nVScript.Echo(my_msg);</code>";
+        this.description = "解码Microsoft Encoded Script文件。这些文件通常是VBS (Visual Basic Script)或JS (JScript)文件经过微软的特殊方式编码，带有“.vbe”或“.jse”扩展名。<br><br><b>例如：</b><br><br>编码后：<br><code>#@~^RQAAAA==-mD~sX|:/TP{~J:+dYbxL~@!F@*@!+@*@!&amp;@*eEI@#@&amp;@#@&amp;.jm.raY 214Wv:zms/obI0xEAAA==^#~@</code><br><br>解码为：<br><code>var my_msg = &#34;Testing <1><2><3>!&#34;;\n\nVScript.Echo(my_msg);</code>";
         this.infoURL = "https://wikipedia.org/wiki/JScript.Encode";
         this.inputType = "string";
         this.outputType = "string";

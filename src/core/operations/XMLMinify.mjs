@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import vkbeautify from "vkbeautify";
@@ -18,14 +20,14 @@ class XMLMinify extends Operation {
     constructor() {
         super();
 
-        this.name = "XML Minify";
+        this.name = "XML压缩";
         this.module = "Code";
-        this.description = "Compresses eXtensible Markup Language (XML) code.";
+        this.description = "压缩eXtensible Markup Language (XML)代码（Minify/Uglify）。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Preserve comments",
+                "name": "保留注释",
                 "type": "boolean",
                 "value": false
             }

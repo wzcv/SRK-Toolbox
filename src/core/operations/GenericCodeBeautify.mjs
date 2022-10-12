@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class GenericCodeBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "Generic Code Beautify";
+        this.name = "通用代码美化";
         this.module = "Code";
-        this.description = "Attempts to pretty print C-style languages such as C, C++, C#, Java, PHP, JavaScript etc.<br><br>This will not do a perfect job, and the resulting code may not work any more. This operation is designed purely to make obfuscated or minified code more easy to read and understand.<br><br>Things which will not work properly:<ul><li>For loop formatting</li><li>Do-While loop formatting</li><li>Switch/Case indentation</li><li>Certain bit shift operators</li></ul>";
+        this.description = "尝试美化C风格语言，例如C, C++, C#, Java, PHP, JavaScript等等。<br><br>此操作并不保证美化后的代码一定可用，只是为了提高混淆或丑化后的代码可读性。<br><br>无法正常美化的内容：<ul><li>For循环格式化</li><li>Do-While循环格式化</li><li>Switch/Case缩进</li><li>特定的位移运算符</li></ul>";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [];

@@ -2,6 +2,8 @@
  * @author Ge0rg3 [georgeomnet+cyberchef@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,20 +25,20 @@ class ExtractRGBA extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract RGBA";
+        this.name = "提取RGBA";
         this.module = "Image";
-        this.description = "Extracts each pixel's RGBA value in an image. These are sometimes used in Steganography to hide text or data.";
+        this.description = "提取图像中每个像素的RGBA值。此数据有时用于隐写术，可隐藏文字和数据。";
         this.infoURL = "https://wikipedia.org/wiki/RGBA_color_space";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "editableOption",
                 value: RGBA_DELIM_OPTIONS
             },
             {
-                name: "Include Alpha",
+                name: "包括Alpha",
                 type: "boolean",
                 value: true
             }
@@ -49,7 +51,7 @@ class ExtractRGBA extends Operation {
      * @returns {string}
      */
     async run(input, args) {
-        if (!isImage(input)) throw new OperationError("Please enter a valid image file.");
+        if (!isImage(input)) throw new OperationError("请输入合法的图像文件。");
 
         const delimiter = args[0],
             includeAlpha = args[1],

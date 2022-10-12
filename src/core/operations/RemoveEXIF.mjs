@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import { removeEXIF } from "../vendor/remove-exif.mjs";
@@ -19,12 +21,12 @@ class RemoveEXIF extends Operation {
     constructor() {
         super();
 
-        this.name = "Remove EXIF";
+        this.name = "移除EXIF";
         this.module = "Image";
         this.description = [
-            "Removes EXIF data from a JPEG image.",
+            "从JPEG图片移除EXIF数据。",
             "<br><br>",
-            "EXIF data embedded in photos usually contains information about the image file itself as well as the device used to create it.",
+            "照片的EXIF数据通常包括图像本身以及拍摄设备的信息。",
         ].join("\n");
         this.infoURL = "https://wikipedia.org/wiki/Exif";
         this.inputType = "ArrayBuffer";
@@ -47,7 +49,7 @@ class RemoveEXIF extends Operation {
         } catch (err) {
             // Simply return input if no EXIF data is found
             if (err === "Exif not found.") return input;
-            throw new OperationError(`Could not remove EXIF data from image: ${err}`);
+            throw new OperationError(`无法从图像中移除EXIF数据： ${err}`);
         }
     }
 

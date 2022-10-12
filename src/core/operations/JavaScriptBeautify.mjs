@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,29 +22,29 @@ class JavaScriptBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "JavaScript Beautify";
+        this.name = "JavaScript美化";
         this.module = "Code";
-        this.description = "Parses and pretty prints valid JavaScript code. Also works with JavaScript Object Notation (JSON).";
+        this.description = "对合法JavaScript代码进行美化（Beautify）操作。也适用于JSON。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Indent string",
+                "name": "缩进",
                 "type": "binaryShortString",
                 "value": "\\t"
             },
             {
-                "name": "Quotes",
+                "name": "引号",
                 "type": "option",
                 "value": ["Auto", "Single", "Double"]
             },
             {
-                "name": "Semicolons before closing braces",
+                "name": "右花括号前的分号",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Include comments",
+                "name": "包含注释",
                 "type": "boolean",
                 "value": true
             }
@@ -85,7 +87,7 @@ class JavaScriptBeautify extends Operation {
             result = escodegen.generate(AST, options);
         } catch (e) {
             // Leave original error so the user can see the detail
-            throw new OperationError("Unable to parse JavaScript.<br>" + e.message);
+            throw new OperationError("无法解析JavaScript。<br>" + e.message);
         }
         return result;
     }

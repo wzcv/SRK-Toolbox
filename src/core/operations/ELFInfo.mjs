@@ -2,6 +2,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class ELFInfo extends Operation {
     constructor() {
         super();
 
-        this.name = "ELF Info";
+        this.name = "ELF信息";
         this.module = "Default";
-        this.description = "Implements readelf-like functionality. This operation will extract the ELF Header, Program Headers, Section Headers and Symbol Table for an ELF file.";
+        this.description = "类似于readelf，此操作可提取ELF文件的ELF Header、Program Header、Section Header和Symbol Table。";
         this.infoURL = "https://www.wikipedia.org/wiki/Executable_and_Linkable_Format";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -114,17 +116,17 @@ class ELFInfo extends Operation {
 
             const magic = stream.getBytes(4);
             if (magic.join("") !== [0x7f, 0x45, 0x4c, 0x46].join(""))
-                throw new OperationError("Invalid ELF");
+                throw new OperationError("无效的ELF");
 
-            ehResult.push("Magic:".padEnd(align) + `${Utils.byteArrayToChars(magic)}`);
+            ehResult.push("魔数：".padEnd(align) + `${Utils.byteArrayToChars(magic)}`);
 
             format = stream.readInt(1);
-            ehResult.push("Format:".padEnd(align) + `${format === 1 ? "32-bit" : "64-bit"}`);
+            ehResult.push("格式：".padEnd(align) + `${format === 1 ? "32位" : "64位"}`);
 
             endianness = stream.readInt(1) === 1 ? "le" : "be";
-            ehResult.push("Endianness:".padEnd(align) + `${endianness === "le" ? "Little" : "Big"}`);
+            ehResult.push("端序：".padEnd(align) + `${endianness === "le" ? "小端序" : "大端序"}`);
 
-            ehResult.push("Version:".padEnd(align) + `${stream.readInt(1).toString()}`);
+            ehResult.push("版本：".padEnd(align) + `${stream.readInt(1).toString()}`);
 
             let ABI = "";
             switch (stream.readInt(1)) {
@@ -185,12 +187,12 @@ class ELFInfo extends Operation {
                 default:
                     break;
             }
-            ehResult.push("ABI:".padEnd(align) + ABI);
+            ehResult.push("ABI：".padEnd(align) + ABI);
 
             // Linux Kernel does not use ABI Version.
             const abiVersion = stream.readInt(1).toString();
             if (ABI !== "Linux")
-                ehResult.push("ABI Version:".padEnd(align) + abiVersion);
+                ehResult.push("ABI版本：".padEnd(align) + abiVersion);
 
             stream.moveForwardsBy(7);
 
@@ -226,7 +228,7 @@ class ELFInfo extends Operation {
                 default:
                     break;
             }
-            ehResult.push("Type:".padEnd(align) + eType);
+            ehResult.push("类型：".padEnd(align) + eType);
 
             let ISA = "";
             switch (stream.readInt(2, endianness)) {
@@ -522,20 +524,20 @@ class ELFInfo extends Operation {
                     ISA = "Unimplemented";
                     break;
             }
-            ehResult.push("Instruction Set Architecture:".padEnd(align) + ISA);
+            ehResult.push("指令集架构：".padEnd(align) + ISA);
 
-            ehResult.push("ELF Version:".padEnd(align) + `${stream.readInt(4, endianness)}`);
+            ehResult.push("ELF版本：".padEnd(align) + `${stream.readInt(4, endianness)}`);
 
             const readSize = format === 1 ? 4 : 8;
             entry = stream.readInt(readSize, endianness);
             phoff = stream.readInt(readSize, endianness);
             shoff = stream.readInt(readSize, endianness);
-            ehResult.push("Entry Point:".padEnd(align) + `0x${Utils.hex(entry)}`);
-            ehResult.push("Entry PHOFF:".padEnd(align) + `0x${Utils.hex(phoff)}`);
-            ehResult.push("Entry SHOFF:".padEnd(align) + `0x${Utils.hex(shoff)}`);
+            ehResult.push("Entry Point：".padEnd(align) + `0x${Utils.hex(entry)}`);
+            ehResult.push("Entry PHOFF：".padEnd(align) + `0x${Utils.hex(phoff)}`);
+            ehResult.push("Entry SHOFF：".padEnd(align) + `0x${Utils.hex(shoff)}`);
 
             const flags = stream.readInt(4, endianness);
-            ehResult.push("Flags:".padEnd(align) + `${Utils.bin(flags)}`);
+            ehResult.push("标志：".padEnd(align) + `${Utils.bin(flags)}`);
 
             ehResult.push("ELF Header Size:".padEnd(align) + `${stream.readInt(2, endianness)} bytes`);
             ehResult.push("Program Header Size:".padEnd(align) + `${stream.readInt(2, endianness)} bytes`);
@@ -643,7 +645,7 @@ class ELFInfo extends Operation {
             phResult.push("Program Header Type:".padEnd(align) + pType);
 
             if (format === 2)
-                phResult.push("Flags:".padEnd(align) + readFlags(stream.readInt(4, endianness)));
+                phResult.push("标志：".padEnd(align) + readFlags(stream.readInt(4, endianness)));
 
             const readSize = format === 1? 4 : 8;
             phResult.push("Offset Of Segment:".padEnd(align) + `${stream.readInt(readSize, endianness)}`);
@@ -653,7 +655,7 @@ class ELFInfo extends Operation {
             phResult.push("Size of Segment in Memory:".padEnd(align) + `${stream.readInt(readSize, endianness)} bytes`);
 
             if (format === 1)
-                phResult.push("Flags:".padEnd(align) + readFlags(stream.readInt(4, endianness)));
+                phResult.push("标志：".padEnd(align) + readFlags(stream.readInt(4, endianness)));
 
             stream.moveForwardsBy(readSize);
 
@@ -764,7 +766,7 @@ class ELFInfo extends Operation {
                     break;
             }
 
-            shResult.push("Type:".padEnd(align) + type);
+            shResult.push("类型：".padEnd(align) + type);
 
             let nameResult = "";
             if (type !== "Unused") {
@@ -796,7 +798,7 @@ class ELFInfo extends Operation {
                 if (flags & elem[0])
                     shFlags.push(elem[1]);
             });
-            shResult.push("Flags:".padEnd(align) + shFlags);
+            shResult.push("标志：".padEnd(align) + shFlags);
 
             const vaddr = stream.readInt(readSize, endianness);
             shResult.push("Section Vaddr in memory:".padEnd(align) + vaddr);

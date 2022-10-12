@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,20 +21,20 @@ class RenderMarkdown extends Operation {
     constructor() {
         super();
 
-        this.name = "Render Markdown";
+        this.name = "渲染Markdown";
         this.module = "Code";
-        this.description = "Renders input Markdown as HTML. HTML rendering is disabled to avoid XSS.";
+        this.description = "将输入的Markdown渲染为HTML。HTML不会直接被渲染，防止XSS攻击。";
         this.infoURL = "https://wikipedia.org/wiki/Markdown";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Autoconvert URLs to links",
+                name: "自动将URL转换为链接",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Enable syntax highlighting",
+                name: "开启语法高亮",
                 type: "boolean",
                 value: true
             }

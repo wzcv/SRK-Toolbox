@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import vkbeautify from "vkbeautify";
@@ -18,14 +20,14 @@ class CSSBeautify extends Operation {
     constructor() {
         super();
 
-        this.name = "CSS Beautify";
+        this.name = "CSS美化";
         this.module = "Code";
-        this.description = "Indents and prettifies Cascading Style Sheets (CSS) code.";
+        this.description = "为Cascading Style Sheets (CSS)代码添加缩进与美化。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Indent string",
+                "name": "缩进",
                 "type": "binaryShortString",
                 "value": "\\t"
             }
