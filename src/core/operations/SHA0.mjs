@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,13 +22,13 @@ class SHA0 extends Operation {
 
         this.name = "SHA0";
         this.module = "Crypto";
-        this.description = "SHA-0 is a retronym applied to the original version of the 160-bit hash function published in 1993 under the name 'SHA'. It was withdrawn shortly after publication due to an undisclosed 'significant flaw' and replaced by the slightly revised version SHA-1. The message digest algorithm consists, by default, of 80 rounds.";
+        this.description = "SHA最初载明的算法于1993年发布，称做安全散列标准（Secure Hash Standard），FIPS PUB 180。这个版本现在常被称为SHA-0。它在发布之后很快就被NSA撤回，并且由1995年发布的修订版本FIPS PUB 180-1（通常称为SHA-1）取代。此算法默认进行80轮运算。";
         this.infoURL = "https://wikipedia.org/wiki/SHA-1#SHA-0";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Rounds",
+                name: "轮数",
                 type: "number",
                 value: 80,
                 min: 16

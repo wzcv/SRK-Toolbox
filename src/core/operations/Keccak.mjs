@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,13 +23,13 @@ class Keccak extends Operation {
 
         this.name = "Keccak";
         this.module = "Crypto";
-        this.description = "The Keccak hash algorithm was designed by Guido Bertoni, Joan Daemen, Micha\xebl Peeters, and Gilles Van Assche, building upon RadioGat\xfan. It was selected as the winner of the SHA-3 design competition.<br><br>This version of the algorithm is Keccak[c=2d] and differs from the SHA-3 specification.";
+        this.description = "Keccak是一个加密散列算法，由 Guido Bertoni，Joan Daemen，Michaël Peeters，以及Gilles Van Assche在RadioGatún上设计。2012年10月2日，Keccak被选为NIST散列函数竞赛的胜利者。<br><br>此版本算法为Keccak[c=2d]，和SHA-3略有不同。";
         this.infoURL = "https://wikipedia.org/wiki/SHA-3";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Size",
+                "name": "长度",
                 "type": "option",
                 "value": ["512", "384", "256", "224"]
             }
@@ -57,7 +59,7 @@ class Keccak extends Operation {
                 algo = JSSHA3.keccak512;
                 break;
             default:
-                throw new OperationError("Invalid size");
+                throw new OperationError("无效长度");
         }
 
         return algo(input);

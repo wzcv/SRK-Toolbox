@@ -2,6 +2,8 @@
  * @author mshwed [m@ttshwed.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,13 +24,13 @@ class Streebog extends Operation {
 
         this.name = "Streebog";
         this.module = "Hashing";
-        this.description = "Streebog is a cryptographic hash function defined in the Russian national standard GOST R 34.11-2012 <i>Information Technology \u2013 Cryptographic Information Security \u2013 Hash Function</i>. It was created to replace an obsolete GOST hash function defined in the old standard GOST R 34.11-94, and as an asymmetric reply to SHA-3 competition by the US National Institute of Standards and Technology.";
+        this.description = "Streebog是俄罗斯国家标准GOST R 34.11-2012 <i>Information Technology \u2013 Cryptographic Information Security \u2013 Hash Function</i>定义的哈希算法。此算法设计的初衷为替换旧GOST哈希算法GOST R 34.11-94，同时也是为了对标由美国国安局发起的SHA-3。";
         this.infoURL = "https://wikipedia.org/wiki/Streebog";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Size",
+                "name": "长度",
                 "type": "option",
                 "value": ["256", "512"]
             }

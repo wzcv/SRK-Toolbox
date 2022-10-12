@@ -336,6 +336,8 @@ class Utils {
                 return fromHex(str);
             case "decimal":
                 return fromDecimal(str);
+            case "十进制":
+                return fromDecimal(str);
             case "base64":
                 return fromBase64(str, null, "byteArray");
             case "utf8":

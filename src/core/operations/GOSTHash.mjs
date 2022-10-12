@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,9 +22,9 @@ class GOSTHash extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST hash";
+        this.name = "GOST哈希";
         this.module = "Hashing";
-        this.description = "The GOST hash function, defined in the standards GOST R 34.11-94 and GOST 34.311-95 is a 256-bit cryptographic hash function. It was initially defined in the Russian national standard GOST R 34.11-94 <i>Information Technology – Cryptographic Information Security – Hash Function</i>. The equivalent standard used by other member-states of the CIS is GOST 34.311-95.<br><br>This function must not be confused with a different Streebog hash function, which is defined in the new revision of the standard GOST R 34.11-2012.<br><br>The GOST hash function is based on the GOST block cipher.";
+        this.description = "GOST哈希算法，由标准GOST R 34.11-94和GOST 34.311-95定义，是一种256位哈希算法。最初为俄罗斯国家标准GOST R 34.11-94 <i>Information Technology – Cryptographic Information Security – Hash Function</i>。由其它独联体国家使用的等效标准是GOST 34.311-95。<br><br>此算法不是新标准GOST R 34.11-2012当中定义的Streebog哈希算法。<br><br>GOST哈希算法基于GOST块加密算法。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(hash_function)";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

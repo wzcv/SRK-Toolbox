@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,7 +22,7 @@ class MD4 extends Operation {
 
         this.name = "MD4";
         this.module = "Crypto";
-        this.description = "The MD4 (Message-Digest 4) algorithm is a cryptographic hash function developed by Ronald Rivest in 1990. The digest length is 128 bits. The algorithm has influenced later designs, such as the MD5, SHA-1 and RIPEMD algorithms.<br><br>The security of MD4 has been severely compromised.";
+        this.description = "MD4是麻省理工学院教授Ronald Rivest于1990年设计的一种信息摘要算法。它是一种用来测试信息完整性的密码散列函数的实行。其摘要长度为128位。这个算法影响了后来的算法如MD5、SHA家族和RIPEMD等。<br><br>MD4算法具有严重的安全漏洞，目前已被淘汰。";
         this.infoURL = "https://wikipedia.org/wiki/MD4";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -45,9 +47,9 @@ class GenerateAllHashes extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate all hashes";
+        this.name = "哈希生成";
         this.module = "Crypto";
-        this.description = "Generates all available hashes and checksums for the input.";
+        this.description = "对给定输入数据计算目前支持的所有哈希值和校验和。";
         this.infoURL = "https://wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -91,20 +93,20 @@ class GenerateAllHashes extends Operation {
                 "\nWhirlpool-0:  " + (new Whirlpool()).run(arrayBuffer, ["Whirlpool-0"]) +
                 "\nWhirlpool-T:  " + (new Whirlpool()).run(arrayBuffer, ["Whirlpool-T"]) +
                 "\nWhirlpool:    " + (new Whirlpool()).run(arrayBuffer, ["Whirlpool"]) +
-                "\nBLAKE2b-128:  " + (new BLAKE2b).run(arrayBuffer, ["128", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2b-160:  " + (new BLAKE2b).run(arrayBuffer, ["160", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2b-256:  " + (new BLAKE2b).run(arrayBuffer, ["256", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2b-384:  " + (new BLAKE2b).run(arrayBuffer, ["384", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2b-512:  " + (new BLAKE2b).run(arrayBuffer, ["512", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2s-128:  " + (new BLAKE2s).run(arrayBuffer, ["128", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2s-160:  " + (new BLAKE2s).run(arrayBuffer, ["160", "Hex", {string: "", option: "UTF8"}]) +
-                "\nBLAKE2s-256:  " + (new BLAKE2s).run(arrayBuffer, ["256", "Hex", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2b-128:  " + (new BLAKE2b).run(arrayBuffer, ["128", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2b-160:  " + (new BLAKE2b).run(arrayBuffer, ["160", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2b-256:  " + (new BLAKE2b).run(arrayBuffer, ["256", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2b-384:  " + (new BLAKE2b).run(arrayBuffer, ["384", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2b-512:  " + (new BLAKE2b).run(arrayBuffer, ["512", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2s-128:  " + (new BLAKE2s).run(arrayBuffer, ["128", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2s-160:  " + (new BLAKE2s).run(arrayBuffer, ["160", "十六进制", {string: "", option: "UTF8"}]) +
+                "\nBLAKE2s-256:  " + (new BLAKE2s).run(arrayBuffer, ["256", "十六进制", {string: "", option: "UTF8"}]) +
                 "\nStreebog-256: " + (new Streebog).run(arrayBuffer, ["256"]) +
                 "\nStreebog-512: " + (new Streebog).run(arrayBuffer, ["512"]) +
                 "\nGOST:         " + (new GOSTHash).run(arrayBuffer, ["D-A"]) +
                 "\nSSDEEP:       " + (new SSDEEP()).run(str) +
                 "\nCTPH:         " + (new CTPH()).run(str) +
-                "\n\nChecksums:" +
+                "\n\n校验和：" +
                 "\nFletcher-8:   " + (new Fletcher8Checksum).run(byteArray, []) +
                 "\nFletcher-16:  " + (new Fletcher16Checksum).run(byteArray, []) +
                 "\nFletcher-32:  " + (new Fletcher32Checksum).run(byteArray, []) +

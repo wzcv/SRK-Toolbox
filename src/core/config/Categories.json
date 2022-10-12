@@ -338,10 +338,10 @@
         ]
     },
     {
-        "name": "哈希（0/40）",
+        "name": "哈希（22/40）",
         "ops": [
-            "Analyse hash",
-            "Generate all hashes",
+            "哈希分析",
+            "哈希生成",
             "MD2",
             "MD4",
             "MD5",
@@ -359,7 +359,7 @@
             "Snefru",
             "BLAKE2b",
             "BLAKE2s",
-            "GOST hash",
+            "GOST哈希",
             "Streebog",
             "SSDEEP",
             "CTPH",

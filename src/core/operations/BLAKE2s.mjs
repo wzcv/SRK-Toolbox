@@ -2,6 +2,8 @@
  * @author h345983745
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,27 +25,27 @@ class BLAKE2s extends Operation {
 
         this.name = "BLAKE2s";
         this.module = "Hashing";
-        this.description = `Performs BLAKE2s hashing on the input.  
-        <br><br>BLAKE2s is a flavour of the BLAKE cryptographic hash function that is optimized for 8- to 32-bit platforms and produces digests of any size between 1 and 32 bytes.
-        <br><br>Supports the use of an optional key.`;
+        this.description = `计算输入内容的BLAKE2s哈希值。
+        <br><br>BLAKE2s是BLAKE哈希算法的一种，为8到32位平台优化，产生1到32字节长度的哈希。
+        <br><br>支持可选的Key。`;
         this.infoURL = "https://wikipedia.org/wiki/BLAKE_(hash_function)#BLAKE2";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Size",
+                "name": "长度",
                 "type": "option",
                 "value": ["256", "160", "128"]
             }, {
-                "name": "Output Encoding",
+                "name": "输出编码",
                 "type": "option",
-                "value": ["Hex", "Base64", "Raw"]
+                "value": ["十六进制", "Base64", "原始"]
             },
             {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["UTF8", "Decimal", "Base64", "Hex", "Latin1"]
+                "toggleValues": ["UTF8", "十进制", "Base64", "十六进制", "Latin1"]
             }
         ];
     }
@@ -59,19 +61,19 @@ class BLAKE2s extends Operation {
         if (key.length === 0) {
             key = null;
         } else if (key.length > 32) {
-            throw new OperationError(["Key cannot be greater than 32 bytes", "It is currently " + key.length + " bytes."].join("\n"));
+            throw new OperationError(["Key不能超过32字节。", "当前为" + key.length + " 字节。"].join("\n"));
         }
 
         input = new Uint8Array(input);
         switch (outFormat) {
-            case "Hex":
+            case "十六进制":
                 return blakejs.blake2sHex(input, key, outSize / 8);
             case "Base64":
                 return toBase64(blakejs.blake2s(input, key, outSize / 8));
-            case "Raw":
+            case "原始":
                 return Utils.arrayBufferToStr(blakejs.blake2s(input, key, outSize / 8).buffer);
             default:
-                return new OperationError("Unsupported Output Type");
+                return new OperationError("不支持的输出类型");
         }
     }
 

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,13 +22,13 @@ class SHA2 extends Operation {
 
         this.name = "SHA2";
         this.module = "Crypto";
-        this.description = "The SHA-2 (Secure Hash Algorithm 2) hash functions were designed by the NSA. SHA-2 includes significant changes from its predecessor, SHA-1. The SHA-2 family consists of hash functions with digests (hash values) that are 224, 256, 384 or 512 bits: SHA224, SHA256, SHA384, SHA512.<br><br><ul><li>SHA-512 operates on 64-bit words.</li><li>SHA-256 operates on 32-bit words.</li><li>SHA-384 is largely identical to SHA-512 but is truncated to 384 bytes.</li><li>SHA-224 is largely identical to SHA-256 but is truncated to 224 bytes.</li><li>SHA-512/224 and SHA-512/256 are truncated versions of SHA-512, but the initial values are generated using the method described in Federal Information Processing Standards (FIPS) PUB 180-4.</li></ul> The message digest algorithm for SHA256 variants consists, by default, of 64 rounds, and for SHA512 variants, it is, by default, 160.";
+        this.description = "SHA-2，名称来自于安全散列算法2（英语：Secure Hash Algorithm 2）的缩写，一种密码散列函数算法标准，由美国国家安全局研发[3]，由美国国家标准与技术研究院（NIST）在2001年发布。属于SHA算法之一，是SHA-1的后继者。其下又可再分为六个不同的算法标准，包括了：SHA-224、SHA-256、SHA-384、SHA-512、SHA-512/224、SHA-512/256。<br><br><ul><li>SHA-512操作于64位字长。</li><li>SHA-256操作于32位字长。</li><li>SHA-384和SHA-512基本相同，但截断到了384字节。</li><li>SHA-224和SHA-256基本相同，但截断到了224字节。</li><li>SHA-512/224和SHA-512/256是SHA-512的截断版本，但初始值使用记载于Federal Information Processing Standards (FIPS)的PUB 180-4文档中的方法计算。</li></ul>此算法对于SHA256系列默认进行64轮运算，对SHA512系列默认160轮。";
         this.infoURL = "https://wikipedia.org/wiki/SHA-2";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                name: "Size",
+                name: "长度",
                 type: "argSelector",
                 value: [
                     {
@@ -62,13 +64,13 @@ class SHA2 extends Operation {
                 ]
             },
             {
-                name: "Rounds", // For SHA256 variants
+                name: "轮数", // For SHA256 variants
                 type: "number",
                 value: 64,
                 min: 16
             },
             {
-                name: "Rounds", // For SHA512 variants
+                name: "轮数", // For SHA512 variants
                 type: "number",
                 value: 160,
                 min: 32

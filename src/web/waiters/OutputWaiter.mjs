@@ -294,7 +294,7 @@ class OutputWaiter {
                 }
                 outputHtml.innerHTML = "";
             } else if (output.status === "baked" || output.status === "inactive") {
-                document.querySelector("#output-loader .loading-msg").textContent = `Loading output ${inputNum}`;
+                document.querySelector("#output-loader .loading-msg").textContent = `输出 ${inputNum} 加载中……`;
                 this.closeFile();
                 let scriptElements, lines, length;
 
