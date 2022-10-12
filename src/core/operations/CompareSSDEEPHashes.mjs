@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,15 +23,15 @@ class CompareSSDEEPHashes extends Operation {
     constructor() {
         super();
 
-        this.name = "Compare SSDEEP hashes";
+        this.name = "比较SSDEEP哈希值";
         this.module = "Crypto";
-        this.description = "Compares two SSDEEP fuzzy hashes to determine the similarity between them on a scale of 0 to 100.";
+        this.description = "比较两个SSDEEP模糊哈希值，并按相似度从0到100打分。";
         this.infoURL = "https://forensicswiki.xyz/wiki/index.php?title=Ssdeep";
         this.inputType = "string";
         this.outputType = "Number";
         this.args = [
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": HASH_DELIM_OPTIONS
             }
@@ -43,7 +45,7 @@ class CompareSSDEEPHashes extends Operation {
      */
     run(input, args) {
         const samples = input.split(Utils.charRep(args[0]));
-        if (samples.length !== 2) throw new OperationError("Incorrect number of samples.");
+        if (samples.length !== 2) throw new OperationError("样本数量错误。");
         return ssdeepjs.similarity(samples[0], samples[1]);
     }
 

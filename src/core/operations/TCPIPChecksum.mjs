@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,7 +22,7 @@ class TCPIPChecksum extends Operation {
 
         this.name = "TCP/IP Checksum";
         this.module = "Crypto";
-        this.description = "Calculates the checksum for a TCP (Transport Control Protocol) or IP (Internet Protocol) header from an input of raw bytes.";
+        this.description = "从输入的原始字节内容计算TCP (Transport Control Protocol)或IP (Internet Protocol)首部的校验和。";
         this.infoURL = "https://wikipedia.org/wiki/IPv4_header_checksum";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";

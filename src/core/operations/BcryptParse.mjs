@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class BcryptParse extends Operation {
     constructor() {
         super();
 
-        this.name = "Bcrypt parse";
+        this.name = "Bcrypt解析";
         this.module = "Crypto";
-        this.description = "Parses a bcrypt hash to determine the number of rounds used, the salt, and the password hash.";
+        this.description = "解析bcrypt哈希值，计算轮数、盐和密码哈希。";
         this.infoURL = "https://wikipedia.org/wiki/Bcrypt";
         this.inputType = "string";
         this.outputType = "string";
@@ -35,12 +37,12 @@ class BcryptParse extends Operation {
      */
     async run(input, args) {
         try {
-            return `Rounds: ${bcrypt.getRounds(input)}
-Salt: ${bcrypt.getSalt(input)}
-Password hash: ${input.split(bcrypt.getSalt(input))[1]}
-Full hash: ${input}`;
+            return `轮数： ${bcrypt.getRounds(input)}
+盐： ${bcrypt.getSalt(input)}
+密码哈希： ${input.split(bcrypt.getSalt(input))[1]}
+完整哈希： ${input}`;
         } catch (err) {
-            throw new OperationError("Error: " + err.toString());
+            throw new OperationError("错误： " + err.toString());
         }
     }
 

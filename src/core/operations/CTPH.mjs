@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,7 +22,7 @@ class CTPH extends Operation {
 
         this.name = "CTPH";
         this.module = "Crypto";
-        this.description = "Context Triggered Piecewise Hashing, also called Fuzzy Hashing, can match inputs that have homologies. Such inputs have sequences of identical bytes in the same order, although bytes in between these sequences may be different in both content and length.<br><br>CTPH was originally based on the work of Dr. Andrew Tridgell and a spam email detector called SpamSum. This method was adapted by Jesse Kornblum and published at the DFRWS conference in 2006 in a paper 'Identifying Almost Identical Files Using Context Triggered Piecewise Hashing'.";
+        this.description = "CTPH也被叫做模糊哈希，可以用来检测数据同源性。例如几段具有相同内容片段的数据，相同片段间的其它内容和长度不同，但CTPH的计算结果相近。<br><br>CTPH源于Dr. Andrew Tridgell的理论研究以及一款称作SpamSum的垃圾邮件检测程序。此算法最终由Jesse Kornblum改进并发表在2006年的DFRWS论文“Identifying Almost Identical Files Using Context Triggered Piecewise Hashing”上。";
         this.infoURL = "https://forensicswiki.xyz/wiki/index.php?title=Context_Triggered_Piecewise_Hashing";
         this.inputType = "string";
         this.outputType = "string";

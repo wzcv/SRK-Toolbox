@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,7 +23,7 @@ class HMAC extends Operation {
 
         this.name = "HMAC";
         this.module = "Crypto";
-        this.description = "Keyed-Hash Message Authentication Codes (HMAC) are a mechanism for message authentication using cryptographic hash functions.";
+        this.description = "HMAC (有时扩展为 英语：keyed-hash message authentication code, 密钥散列消息认证码, 或 英语：hash-based message authentication code，散列消息认证码），是一种通过特别计算方式之后产生的消息认证码（MAC），使用密码散列函数，同时结合一个加密密钥。它可以用来保证资料的完整性，同时可以用来作某个消息的身份验证。";
         this.infoURL = "https://wikipedia.org/wiki/HMAC";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -30,10 +32,10 @@ class HMAC extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "Decimal", "Base64", "UTF8", "Latin1"]
+                "toggleValues": ["十六进制", "十进制", "Base64", "UTF8", "Latin1"]
             },
             {
-                "name": "Hashing function",
+                "name": "哈希算法",
                 "type": "option",
                 "value": [
                     "MD2",

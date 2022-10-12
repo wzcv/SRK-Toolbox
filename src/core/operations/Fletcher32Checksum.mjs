@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,7 +22,7 @@ class Fletcher32Checksum extends Operation {
 
         this.name = "Fletcher-32 Checksum";
         this.module = "Crypto";
-        this.description = "The Fletcher checksum is an algorithm for computing a position-dependent checksum devised by John Gould Fletcher at Lawrence Livermore Labs in the late 1970s.<br><br>The objective of the Fletcher checksum was to provide error-detection properties approaching those of a cyclic redundancy check but with the lower computational effort associated with summation techniques.";
+        this.description = "Fletcher校验和是用于计算位置相关校验和的算法，由Lawrence Livermore Labs的John Gould Fletcher在20世纪70年代末期设计。<br><br>Fletcher校验和可以提供接近循环冗余校验（Cyclic redundancy check, CRC）的错误检测功能，但所需的计算更少。";
         this.infoURL = "https://wikipedia.org/wiki/Fletcher%27s_checksum#Fletcher-32";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
