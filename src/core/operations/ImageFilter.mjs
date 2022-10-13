@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,20 +25,20 @@ class ImageFilter extends Operation {
     constructor() {
         super();
 
-        this.name = "Image Filter";
+        this.name = "图像滤镜";
         this.module = "Image";
-        this.description = "Applies a greyscale or sepia filter to an image.";
+        this.description = "为图像添加灰度或深褐（Sepia）滤镜。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Filter type",
+                name: "滤镜类型",
                 type: "option",
                 value: [
-                    "Greyscale",
-                    "Sepia"
+                    "灰度",
+                    "深褐（Sepia）"
                 ]
             }
         ];
@@ -50,19 +52,19 @@ class ImageFilter extends Operation {
     async run(input, args) {
         const [filterType] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Applying " + filterType.toLowerCase() + " filter to image...");
-            if (filterType === "Greyscale") {
+                self.sendStatusMessage("应用 " + filterType.toLowerCase() + " 滤镜……");
+            if (filterType === "灰度") {
                 image.greyscale();
             } else {
                 image.sepia();
@@ -76,7 +78,7 @@ class ImageFilter extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error applying filter to image. (${err})`);
+            throw new OperationError(`应用滤镜出错：(${err})`);
         }
     }
 
@@ -91,7 +93,7 @@ class ImageFilter extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

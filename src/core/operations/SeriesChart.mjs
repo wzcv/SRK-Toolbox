@@ -3,6 +3,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import * as d3temp from "d3";
@@ -26,34 +28,34 @@ class SeriesChart extends Operation {
     constructor() {
         super();
 
-        this.name = "Series chart";
+        this.name = "折线图";
         this.module = "Charts";
-        this.description = "A time series graph is a line graph of repeated measurements taken over regular time intervals.";
+        this.description = "时分系列图（Time series graph）是折线图的一种，用于表示在给定时间范围内的不同测量值。";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Record delimiter",
+                name: "记录分隔符",
                 type: "option",
                 value: RECORD_DELIMITER_OPTIONS,
             },
             {
-                name: "Field delimiter",
+                name: "字段分隔符",
                 type: "option",
                 value: FIELD_DELIMITER_OPTIONS,
             },
             {
-                name: "X label",
+                name: "X轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Point radius",
+                name: "点半径",
                 type: "number",
                 value: 1,
             },
             {
-                name: "Series colours",
+                name: "数据系列颜色",
                 type: "string",
                 value: "mediumseagreen, dodgerblue, tomato",
             },

@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,18 +25,18 @@ class FlipImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Flip Image";
+        this.name = "图像翻转";
         this.module = "Image";
-        this.description = "Flips an image along its X or Y axis.";
+        this.description = "将图像按X轴或Y轴翻转。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Axis",
+                name: "翻转轴",
                 type: "option",
-                value: ["Horizontal", "Vertical"]
+                value: ["水平", "垂直"]
             }
         ];
     }
@@ -47,23 +49,23 @@ class FlipImage extends Operation {
     async run(input, args) {
         const [flipAxis] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid input file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Flipping image...");
+                self.sendStatusMessage("翻转图像……");
             switch (flipAxis) {
-                case "Horizontal":
+                case "水平":
                     image.flip(true, false);
                     break;
-                case "Vertical":
+                case "垂直":
                     image.flip(false, true);
                     break;
             }
@@ -76,7 +78,7 @@ class FlipImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error flipping image. (${err})`);
+            throw new OperationError(`翻转图像错误：(${err})`);
         }
     }
 
@@ -91,7 +93,7 @@ class FlipImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -3,6 +3,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import * as d3temp from "d3";
@@ -26,50 +28,50 @@ class ScatterChart extends Operation {
     constructor() {
         super();
 
-        this.name = "Scatter chart";
+        this.name = "散点图";
         this.module = "Charts";
-        this.description = "Plots two-variable data as single points on a graph.";
+        this.description = "将横纵坐标数据绘制为图表上的点。";
         this.infoURL = "https://wikipedia.org/wiki/Scatter_plot";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Record delimiter",
+                name: "记录分隔符",
                 type: "option",
                 value: RECORD_DELIMITER_OPTIONS,
             },
             {
-                name: "Field delimiter",
+                name: "字段分隔符",
                 type: "option",
                 value: FIELD_DELIMITER_OPTIONS,
             },
             {
-                name: "Use column headers as labels",
+                name: "使用表头作为标签",
                 type: "boolean",
                 value: true,
             },
             {
-                name: "X label",
+                name: "X轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Y label",
+                name: "Y轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Colour",
+                name: "颜色",
                 type: "string",
                 value: COLOURS.max,
             },
             {
-                name: "Point radius",
+                name: "点半径",
                 type: "number",
                 value: 10,
             },
             {
-                name: "Use colour from third column",
+                name: "使用第三列的颜色",
                 type: "boolean",
                 value: false,
             }

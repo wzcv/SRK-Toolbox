@@ -3,6 +3,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import * as d3temp from "d3";
@@ -29,64 +31,64 @@ class HexDensityChart extends Operation {
     constructor() {
         super();
 
-        this.name = "Hex Density chart";
+        this.name = "六边形密度图";
         this.module = "Charts";
-        this.description = "Hex density charts are used in a similar way to scatter charts, however rather than rendering tens of thousands of points, it groups the points into a few hundred hexagons to show the distribution.";
+        this.description = "六边形密度图（Hex density chart）和散点图的使用方法类似，但与其显示上万散点，六边形密度图将相近位置的数据合并，用较少的六边形和色彩来展示密度。";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Record delimiter",
+                name: "记录分隔符",
                 type: "option",
                 value: RECORD_DELIMITER_OPTIONS,
             },
             {
-                name: "Field delimiter",
+                name: "字段分隔符",
                 type: "option",
                 value: FIELD_DELIMITER_OPTIONS,
             },
             {
-                name: "Pack radius",
+                name: "分组半径",
                 type: "number",
                 value: 25,
             },
             {
-                name: "Draw radius",
+                name: "绘制半径",
                 type: "number",
                 value: 15,
             },
             {
-                name: "Use column headers as labels",
+                name: "使用表头作为标签",
                 type: "boolean",
                 value: true,
             },
             {
-                name: "X label",
+                name: "X轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Y label",
+                name: "Y轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Draw hexagon edges",
+                name: "绘制六边形边缘",
                 type: "boolean",
                 value: false,
             },
             {
-                name: "Min colour value",
+                name: "最小值色彩",
                 type: "string",
                 value: COLOURS.min,
             },
             {
-                name: "Max colour value",
+                name: "最大值色彩",
                 type: "string",
                 value: COLOURS.max,
             },
             {
-                name: "Draw empty hexagons within data boundaries",
+                name: "绘制数据范围内的空六边形",
                 type: "boolean",
                 value: false,
             }
@@ -192,9 +194,9 @@ class HexDensityChart extends Operation {
                 .text(d => {
                     const count = 0,
                         perc = 0,
-                        tooltip = `Count: ${count}\n
-                                Percentage: ${perc.toFixed(2)}%\n
-                                Center: ${d.x.toFixed(2)}, ${d.y.toFixed(2)}\n
+                        tooltip = `计数： ${count}\n
+                                占比： ${perc.toFixed(2)}%\n
+                                中心： ${d.x.toFixed(2)}, ${d.y.toFixed(2)}\n
                         `.replace(/\s{2,}/g, "\n");
                     return tooltip;
                 });
@@ -223,13 +225,13 @@ class HexDensityChart extends Operation {
                     xMax = Math.max(...d.map(d => d[0])),
                     yMin = Math.min(...d.map(d => d[1])),
                     yMax = Math.max(...d.map(d => d[1])),
-                    tooltip = `Count: ${count}\n
-                               Percentage: ${perc.toFixed(2)}%\n
-                               Center: ${CX.toFixed(2)}, ${CY.toFixed(2)}\n
-                               Min X: ${xMin.toFixed(2)}\n
-                               Max X: ${xMax.toFixed(2)}\n
-                               Min Y: ${yMin.toFixed(2)}\n
-                               Max Y: ${yMax.toFixed(2)}
+                    tooltip = `计数： ${count}\n
+                               占比： ${perc.toFixed(2)}%\n
+                               中心： ${CX.toFixed(2)}, ${CY.toFixed(2)}\n
+                               X最小： ${xMin.toFixed(2)}\n
+                               X最大： ${xMax.toFixed(2)}\n
+                               Y最小： ${yMin.toFixed(2)}\n
+                               Y最大： ${yMax.toFixed(2)}
                     `.replace(/\s{2,}/g, "\n");
                 return tooltip;
             });

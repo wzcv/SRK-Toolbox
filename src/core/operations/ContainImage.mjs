@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,60 +25,60 @@ class ContainImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Contain Image";
+        this.name = "容纳图像";
         this.module = "Image";
-        this.description = "Scales an image to the specified width and height, maintaining the aspect ratio. The image may be letterboxed.";
+        this.description = "将图像维持纵横比缩放并完整放置在指定宽高的图像区域中。图像可能会出现黑边。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Width",
+                name: "宽",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Horizontal align",
+                name: "水平对齐",
                 type: "option",
                 value: [
-                    "Left",
-                    "Center",
-                    "Right"
+                    "左对齐",
+                    "居中",
+                    "右对齐"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Vertical align",
+                name: "垂直对齐",
                 type: "option",
                 value: [
-                    "Top",
-                    "Middle",
-                    "Bottom"
+                    "顶端",
+                    "中间",
+                    "底端"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Resizing algorithm",
+                name: "缩放插值算法",
                 type: "option",
                 value: [
-                    "Nearest Neighbour",
-                    "Bilinear",
-                    "Bicubic",
+                    "临近",
+                    "双线性",
+                    "双三次",
                     "Hermite",
                     "Bezier"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Opaque background",
+                name: "不透明背景",
                 type: "boolean",
                 value: true
             }
@@ -92,35 +94,35 @@ class ContainImage extends Operation {
         const [width, height, hAlign, vAlign, alg, opaqueBg] = args;
 
         const resizeMap = {
-            "Nearest Neighbour": jimp.RESIZE_NEAREST_NEIGHBOR,
-            "Bilinear": jimp.RESIZE_BILINEAR,
-            "Bicubic": jimp.RESIZE_BICUBIC,
+            "临近": jimp.RESIZE_NEAREST_NEIGHBOR,
+            "双线性": jimp.RESIZE_BILINEAR,
+            "双三次": jimp.RESIZE_BICUBIC,
             "Hermite": jimp.RESIZE_HERMITE,
             "Bezier": jimp.RESIZE_BEZIER
         };
 
         const alignMap = {
-            "Left": jimp.HORIZONTAL_ALIGN_LEFT,
-            "Center": jimp.HORIZONTAL_ALIGN_CENTER,
-            "Right": jimp.HORIZONTAL_ALIGN_RIGHT,
-            "Top": jimp.VERTICAL_ALIGN_TOP,
-            "Middle": jimp.VERTICAL_ALIGN_MIDDLE,
-            "Bottom": jimp.VERTICAL_ALIGN_BOTTOM
+            "左对齐": jimp.HORIZONTAL_ALIGN_LEFT,
+            "居中": jimp.HORIZONTAL_ALIGN_CENTER,
+            "右对齐": jimp.HORIZONTAL_ALIGN_RIGHT,
+            "顶端": jimp.VERTICAL_ALIGN_TOP,
+            "中间": jimp.VERTICAL_ALIGN_MIDDLE,
+            "底端": jimp.VERTICAL_ALIGN_BOTTOM
         };
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Containing image...");
+                self.sendStatusMessage("容纳图像……");
             image.contain(width, height, alignMap[hAlign] | alignMap[vAlign], resizeMap[alg]);
 
             if (opaqueBg) {
@@ -137,7 +139,7 @@ class ContainImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error containing image. (${err})`);
+            throw new OperationError(`容纳图像出错：(${err})`);
         }
     }
 
@@ -152,7 +154,7 @@ class ContainImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

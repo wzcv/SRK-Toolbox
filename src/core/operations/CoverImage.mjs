@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,53 +25,53 @@ class CoverImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Cover Image";
+        this.name = "覆盖图像";
         this.module = "Image";
-        this.description = "Scales the image to the given width and height, keeping the aspect ratio. The image may be clipped.";
+        this.description = "将图像维持纵横比缩放到完整覆盖给定的宽高范围。图像可能会被裁剪。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Width",
+                name: "宽",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Horizontal align",
+                name: "水平对齐",
                 type: "option",
                 value: [
-                    "Left",
-                    "Center",
-                    "Right"
+                    "左对齐",
+                    "居中",
+                    "右对齐"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Vertical align",
+                name: "垂直对齐",
                 type: "option",
                 value: [
-                    "Top",
-                    "Middle",
-                    "Bottom"
+                    "顶端",
+                    "中间",
+                    "底端"
                 ],
                 defaultIndex: 1
             },
             {
-                name: "Resizing algorithm",
+                name: "缩放插值算法",
                 type: "option",
                 value: [
-                    "Nearest Neighbour",
-                    "Bilinear",
-                    "Bicubic",
+                    "临近",
+                    "双线性",
+                    "双三次",
                     "Hermite",
                     "Bezier"
                 ],
@@ -87,35 +89,35 @@ class CoverImage extends Operation {
         const [width, height, hAlign, vAlign, alg] = args;
 
         const resizeMap = {
-            "Nearest Neighbour": jimp.RESIZE_NEAREST_NEIGHBOR,
-            "Bilinear": jimp.RESIZE_BILINEAR,
-            "Bicubic": jimp.RESIZE_BICUBIC,
+            "临近": jimp.RESIZE_NEAREST_NEIGHBOR,
+            "双线性": jimp.RESIZE_BILINEAR,
+            "双三次": jimp.RESIZE_BICUBIC,
             "Hermite": jimp.RESIZE_HERMITE,
             "Bezier": jimp.RESIZE_BEZIER
         };
 
         const alignMap = {
-            "Left": jimp.HORIZONTAL_ALIGN_LEFT,
-            "Center": jimp.HORIZONTAL_ALIGN_CENTER,
-            "Right": jimp.HORIZONTAL_ALIGN_RIGHT,
-            "Top": jimp.VERTICAL_ALIGN_TOP,
-            "Middle": jimp.VERTICAL_ALIGN_MIDDLE,
-            "Bottom": jimp.VERTICAL_ALIGN_BOTTOM
+            "左对齐": jimp.HORIZONTAL_ALIGN_LEFT,
+            "居中": jimp.HORIZONTAL_ALIGN_CENTER,
+            "右对齐": jimp.HORIZONTAL_ALIGN_RIGHT,
+            "顶端": jimp.VERTICAL_ALIGN_TOP,
+            "中间": jimp.VERTICAL_ALIGN_MIDDLE,
+            "底端": jimp.VERTICAL_ALIGN_BOTTOM
         };
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Covering image...");
+                self.sendStatusMessage("覆盖图像……");
             image.cover(width, height, alignMap[hAlign] | alignMap[vAlign], resizeMap[alg]);
             let imageBuffer;
             if (image.getMIME() === "image/gif") {
@@ -125,7 +127,7 @@ class CoverImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error covering image. (${err})`);
+            throw new OperationError(`覆盖图像出错：(${err})`);
         }
     }
 
@@ -140,7 +142,7 @@ class CoverImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

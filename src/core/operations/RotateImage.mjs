@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,16 +25,16 @@ class RotateImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Rotate Image";
+        this.name = "旋转图像";
         this.module = "Image";
-        this.description = "Rotates an image by the specified number of degrees.";
+        this.description = "按给定的角度旋转图像。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Rotation amount (degrees)",
+                name: "旋转角度",
                 type: "number",
                 value: 90
             }
@@ -48,18 +50,18 @@ class RotateImage extends Operation {
         const [degrees] = args;
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Rotating image...");
+                self.sendStatusMessage("旋转图像……");
             image.rotate(degrees);
 
             let imageBuffer;
@@ -70,7 +72,7 @@ class RotateImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error rotating image. (${err})`);
+            throw new OperationError(`旋转图像出错：(${err})`);
         }
     }
 
@@ -85,7 +87,7 @@ class RotateImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

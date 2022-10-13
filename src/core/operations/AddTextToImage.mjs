@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,47 +25,47 @@ class AddTextToImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Add Text To Image";
+        this.name = "图像加字";
         this.module = "Image";
-        this.description = "Adds text onto an image.<br><br>Text can be horizontally or vertically aligned, or the position can be manually specified.<br>Variants of the Roboto font face are available in any size or colour.";
+        this.description = "往图像上添加文字。<br><br>文字可以水平或纵向排列，也可以自定义位置。<br>仅限使用Roboto字体家族，字体大小和颜色不限。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Text",
+                name: "文字",
                 type: "string",
                 value: ""
             },
             {
-                name: "Horizontal align",
+                name: "水平对齐",
                 type: "option",
-                value: ["None", "Left", "Center", "Right"]
+                value: ["无", "左对齐", "居中", "右对齐"]
             },
             {
-                name: "Vertical align",
+                name: "垂直对齐",
                 type: "option",
-                value: ["None", "Top", "Middle", "Bottom"]
+                value: ["无", "顶端", "中部", "底端"]
             },
             {
-                name: "X position",
+                name: "X坐标",
                 type: "number",
                 value: 0
             },
             {
-                name: "Y position",
+                name: "Y坐标",
                 type: "number",
                 value: 0
             },
             {
-                name: "Size",
+                name: "大小",
                 type: "number",
                 value: 32,
                 min: 8
             },
             {
-                name: "Font face",
+                name: "字体",
                 type: "option",
                 value: [
                     "Roboto",
@@ -73,21 +75,21 @@ class AddTextToImage extends Operation {
                 ]
             },
             {
-                name: "Red",
+                name: "红",
                 type: "number",
                 value: 255,
                 min: 0,
                 max: 255
             },
             {
-                name: "Green",
+                name: "绿",
                 type: "number",
                 value: 255,
                 min: 0,
                 max: 255
             },
             {
-                name: "Blue",
+                name: "蓝",
                 type: "number",
                 value: 255,
                 min: 0,
@@ -123,18 +125,18 @@ class AddTextToImage extends Operation {
             yPos = args[4];
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Adding text to image...");
+                self.sendStatusMessage("图像加字……");
 
             const fontsMap = {};
             const fonts = [
@@ -207,25 +209,25 @@ class AddTextToImage extends Operation {
 
             // If using the alignment options, calculate the pixel values AFTER the image has been scaled
             switch (hAlign) {
-                case "Left":
+                case "左对齐":
                     xPos = 0;
                     break;
-                case "Center":
+                case "居中":
                     xPos = (image.getWidth() / 2) - (textImage.getWidth() / 2);
                     break;
-                case "Right":
+                case "右对齐":
                     xPos = image.getWidth() - textImage.getWidth();
                     break;
             }
 
             switch (vAlign) {
-                case "Top":
+                case "顶端":
                     yPos = 0;
                     break;
-                case "Middle":
+                case "中部":
                     yPos = (image.getHeight() / 2) - (textImage.getHeight() / 2);
                     break;
-                case "Bottom":
+                case "底端":
                     yPos = image.getHeight() - textImage.getHeight();
                     break;
             }
@@ -241,7 +243,7 @@ class AddTextToImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error adding text to image. (${err})`);
+            throw new OperationError(`图像加字出错：(${err})`);
         }
     }
 
@@ -257,7 +259,7 @@ class AddTextToImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,16 +24,16 @@ class ConvertImageFormat extends Operation {
     constructor() {
         super();
 
-        this.name = "Convert Image Format";
+        this.name = "图像格式转换";
         this.module = "Image";
-        this.description = "Converts an image between different formats. Supported formats:<br><ul><li>Joint Photographic Experts Group (JPEG)</li><li>Portable Network Graphics (PNG)</li><li>Bitmap (BMP)</li><li>Tagged Image File Format (TIFF)</li></ul><br>Note: GIF files are supported for input, but cannot be outputted.";
+        this.description = "转换图像格式。支持的格式：<br><ul><li>Joint Photographic Experts Group (JPEG)</li><li>Portable Network Graphics (PNG)</li><li>Bitmap (BMP)</li><li>Tagged Image File Format (TIFF)</li></ul><br>注意：支持将GIF文件转换成其它格式，不支持转换成GIF。";
         this.infoURL = "https://wikipedia.org/wiki/Image_file_formats";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "JPEG",
@@ -41,14 +43,14 @@ class ConvertImageFormat extends Operation {
                 ]
             },
             {
-                name: "JPEG Quality",
+                name: "JPEG质量",
                 type: "number",
                 value: 80,
                 min: 1,
                 max: 100
             },
             {
-                name: "PNG Filter Type",
+                name: "PNG过滤类型",
                 type: "option",
                 value: [
                     "Auto",
@@ -60,7 +62,7 @@ class ConvertImageFormat extends Operation {
                 ]
             },
             {
-                name: "PNG Deflate Level",
+                name: "PNG Deflate等级",
                 type: "number",
                 value: 9,
                 min: 0,
@@ -95,13 +97,13 @@ class ConvertImageFormat extends Operation {
         const mime = formatMap[format];
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file format.");
+            throw new OperationError("无效的文件格式。");
         }
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error opening image file. (${err})`);
+            throw new OperationError(`打开图像文件出错：(${err})`);
         }
         try {
             switch (format) {
@@ -117,7 +119,7 @@ class ConvertImageFormat extends Operation {
             const imageBuffer = await image.getBufferAsync(mime);
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error converting image format. (${err})`);
+            throw new OperationError(`转换图像格式出错：(${err})`);
         }
     }
 
@@ -133,7 +135,7 @@ class ConvertImageFormat extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

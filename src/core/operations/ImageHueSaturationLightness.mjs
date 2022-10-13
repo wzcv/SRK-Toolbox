@@ -23,30 +23,30 @@ class ImageHueSaturationLightness extends Operation {
     constructor() {
         super();
 
-        this.name = "Image Hue/Saturation/Lightness";
+        this.name = "图像色调/饱和度/明度";
         this.module = "Image";
-        this.description = "Adjusts the hue / saturation / lightness (HSL) values of an image.";
+        this.description = "调整图像的色调/饱和度/明度值（HSL）。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Hue",
+                name: "色调",
                 type: "number",
                 value: 0,
                 min: -360,
                 max: 360
             },
             {
-                name: "Saturation",
+                name: "饱和度",
                 type: "number",
                 value: 0,
                 min: -100,
                 max: 100
             },
             {
-                name: "Lightness",
+                name: "明度",
                 type: "number",
                 value: 0,
                 min: -100,
@@ -64,19 +64,19 @@ class ImageHueSaturationLightness extends Operation {
         const [hue, saturation, lightness] = args;
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (hue !== 0) {
                 if (isWorkerEnvironment())
-                    self.sendStatusMessage("Changing image hue...");
+                    self.sendStatusMessage("调整图像色调……");
                 image.colour([
                     {
                         apply: "hue",
@@ -86,7 +86,7 @@ class ImageHueSaturationLightness extends Operation {
             }
             if (saturation !== 0) {
                 if (isWorkerEnvironment())
-                    self.sendStatusMessage("Changing image saturation...");
+                    self.sendStatusMessage("调整图像饱和度……");
                 image.colour([
                     {
                         apply: "saturate",
@@ -96,7 +96,7 @@ class ImageHueSaturationLightness extends Operation {
             }
             if (lightness !== 0) {
                 if (isWorkerEnvironment())
-                    self.sendStatusMessage("Changing image lightness...");
+                    self.sendStatusMessage("调整图像明度……");
                 image.colour([
                     {
                         apply: "lighten",
@@ -113,7 +113,7 @@ class ImageHueSaturationLightness extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error adjusting image hue / saturation / lightness. (${err})`);
+            throw new OperationError(`调整图像色调/饱和度/明度报错：(${err})`);
         }
     }
 
@@ -128,7 +128,7 @@ class ImageHueSaturationLightness extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -80,7 +80,7 @@ class GenerateQRCode extends Operation {
         if (format === "PNG") {
             const type = isImage(dataArray);
             if (!type) {
-                throw new OperationError("Invalid file type.");
+                throw new OperationError("无效的文件类型。");
             }
 
             return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

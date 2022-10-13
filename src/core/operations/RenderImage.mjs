@@ -2,6 +2,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import { fromBase64, toBase64 } from "../lib/Base64.mjs";
@@ -22,24 +24,24 @@ class RenderImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Render Image";
+        this.name = "渲染图像";
         this.module = "Image";
-        this.description = "Displays the input as an image. Supports the following formats:<br><br><ul><li>jpg/jpeg</li><li>png</li><li>gif</li><li>webp</li><li>bmp</li><li>ico</li></ul>";
+        this.description = "将输入内容显示成图像。支持以下格式：<br><br><ul><li>jpg/jpeg</li><li>png</li><li>gif</li><li>webp</li><li>bmp</li><li>ico</li></ul>";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
-                "value": ["Raw", "Base64", "Hex"]
+                "value": ["原始", "Base64", "十六进制"]
             }
         ];
         this.checks = [
             {
                 pattern: "^(?:\\xff\\xd8\\xff|\\x89\\x50\\x4e\\x47|\\x47\\x49\\x46|.{8}\\x57\\x45\\x42\\x50|\\x42\\x4d)",
                 flags: "",
-                args: ["Raw"],
+                args: ["原始"],
                 useful: true,
                 output: {
                     mime: "image"
@@ -60,7 +62,7 @@ class RenderImage extends Operation {
 
         // Convert input to raw bytes
         switch (inputFormat) {
-            case "Hex":
+            case "十六进制":
                 input = fromHex(input);
                 break;
             case "Base64":
@@ -68,7 +70,7 @@ class RenderImage extends Operation {
                 // Unwrap it first, then re-encode later.
                 input = fromBase64(input, undefined, "byteArray");
                 break;
-            case "Raw":
+            case "原始":
             default:
                 input = Utils.strToByteArray(input);
                 break;
@@ -76,7 +78,7 @@ class RenderImage extends Operation {
 
         // Determine file type
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type");
+            throw new OperationError("无效的文件类型");
         }
 
         return input;
@@ -98,7 +100,7 @@ class RenderImage extends Operation {
         if (mime) {
             dataURI += mime + ";";
         } else {
-            throw new OperationError("Invalid file type");
+            throw new OperationError("无效的文件类型");
         }
 
         // Add image data to URI

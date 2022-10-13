@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,45 +25,45 @@ class CropImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Crop Image";
+        this.name = "裁剪图像";
         this.module = "Image";
-        this.description = "Crops an image to the specified region, or automatically crops edges.<br><br><b><u>Autocrop</u></b><br>Automatically crops same-colour borders from the image.<br><br><u>Autocrop tolerance</u><br>A percentage value for the tolerance of colour difference between pixels.<br><br><u>Only autocrop frames</u><br>Only crop real frames (all sides must have the same border)<br><br><u>Symmetric autocrop</u><br>Force autocrop to be symmetric (top/bottom and left/right are cropped by the same amount)<br><br><u>Autocrop keep border</u><br>The number of pixels of border to leave around the image.";
+        this.description = "将图像裁剪到给定区域，或自动裁剪到边缘。<br><br><b><u>自动裁剪</u></b><br>自动按照图片中同一颜色的边框裁剪。<br><br><u>自动裁剪容错</u><br>指边框像素之间色差允许的最大百分比值。<br><br><u>仅自动裁剪完整边框</u><br>仅裁剪完整边框（四边边框相同）。<br><br><u>对称自动裁剪</u><br>强制进行对称的自动裁剪（上下和左右裁剪相同长度）。<br><br><u>自动裁剪保留边框</u><br>裁剪边框外保留的像素数。";
         this.infoURL = "https://wikipedia.org/wiki/Cropping_(image)";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "X Position",
+                name: "X坐标",
                 type: "number",
                 value: 0,
                 min: 0
             },
             {
-                name: "Y Position",
+                name: "Y坐标",
                 type: "number",
                 value: 0,
                 min: 0
             },
             {
-                name: "Width",
+                name: "宽度",
                 type: "number",
                 value: 10,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高度",
                 type: "number",
                 value: 10,
                 min: 1
             },
             {
-                name: "Autocrop",
+                name: "自动裁剪",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Autocrop tolerance (%)",
+                name: "自动裁剪容错 (%)",
                 type: "number",
                 value: 0.02,
                 min: 0,
@@ -69,17 +71,17 @@ class CropImage extends Operation {
                 step: 0.01
             },
             {
-                name: "Only autocrop frames",
+                name: "仅自动裁剪完整边框",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Symmetric autocrop",
+                name: "对称自动裁剪",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Autocrop keep border (px)",
+                name: "自动裁剪保留边框 (px)",
                 type: "number",
                 value: 0,
                 min: 0
@@ -95,18 +97,18 @@ class CropImage extends Operation {
     async run(input, args) {
         const [xPos, yPos, width, height, autocrop, autoTolerance, autoFrames, autoSymmetric, autoBorder] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Cropping image...");
+                self.sendStatusMessage("裁剪图像……");
             if (autocrop) {
                 image.autocrop({
                     tolerance: (autoTolerance / 100),
@@ -126,7 +128,7 @@ class CropImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error cropping image. (${err})`);
+            throw new OperationError(`裁剪图像出错：(${err})`);
         }
     }
 
@@ -141,7 +143,7 @@ class CropImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,16 +25,16 @@ class ImageOpacity extends Operation {
     constructor() {
         super();
 
-        this.name = "Image Opacity";
+        this.name = "图像透明度";
         this.module = "Image";
-        this.description = "Adjust the opacity of an image.";
+        this.description = "调整图像透明度。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Opacity (%)",
+                name: "透明度 (%)",
                 type: "number",
                 value: 100,
                 min: 0,
@@ -49,18 +51,18 @@ class ImageOpacity extends Operation {
     async run(input, args) {
         const [opacity] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Changing image opacity...");
+                self.sendStatusMessage("调整图像透明度……");
             image.opacity(opacity / 100);
 
             let imageBuffer;
@@ -71,7 +73,7 @@ class ImageOpacity extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error changing image opacity. (${err})`);
+            throw new OperationError(`调整图像透明度出错：(${err})`);
         }
     }
 
@@ -86,7 +88,7 @@ class ImageOpacity extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

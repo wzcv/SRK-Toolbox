@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -24,29 +26,29 @@ class SharpenImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Sharpen Image";
+        this.name = "锐化图像";
         this.module = "Image";
-        this.description = "Sharpens an image (Unsharp mask)";
+        this.description = "锐化图像（钝化蒙版，USM）。";
         this.infoURL = "https://wikipedia.org/wiki/Unsharp_masking";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Radius",
+                name: "半径",
                 type: "number",
                 value: 2,
                 min: 1
             },
             {
-                name: "Amount",
+                name: "强度",
                 type: "number",
                 value: 1,
                 min: 0,
                 step: 0.1
             },
             {
-                name: "Threshold",
+                name: "阈值",
                 type: "number",
                 value: 10,
                 min: 0,
@@ -64,28 +66,28 @@ class SharpenImage extends Operation {
         const [radius, amount, threshold] = args;
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图像出错：(${err})`);
         }
 
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Sharpening image... (Cloning image)");
+                self.sendStatusMessage("锐化图像……（复制图像）");
             const blurMask = image.clone();
 
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Sharpening image... (Blurring cloned image)");
+                self.sendStatusMessage("锐化图像……（模糊图像）");
             const blurImage = gaussianBlur(image.clone(), radius);
 
 
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Sharpening image... (Creating unsharp mask)");
+                self.sendStatusMessage("锐化图像……（生成钝化蒙版）");
             blurMask.scan(0, 0, blurMask.bitmap.width, blurMask.bitmap.height, function(x, y, idx) {
                 const blurRed = blurImage.bitmap.data[idx];
                 const blurGreen = blurImage.bitmap.data[idx + 1];
@@ -102,7 +104,7 @@ class SharpenImage extends Operation {
             });
 
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Sharpening image... (Merging with unsharp mask)");
+                self.sendStatusMessage("锐化图像……（蒙版合并）");
             image.scan(0, 0, image.bitmap.width, image.bitmap.height, function(x, y, idx) {
                 let maskRed = blurMask.bitmap.data[idx];
                 let maskGreen = blurMask.bitmap.data[idx + 1];
@@ -144,7 +146,7 @@ class SharpenImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error sharpening image. (${err})`);
+            throw new OperationError(`锐化图像出错：(${err})`);
         }
     }
 
@@ -159,7 +161,7 @@ class SharpenImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

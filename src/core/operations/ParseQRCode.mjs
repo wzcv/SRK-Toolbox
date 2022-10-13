@@ -52,7 +52,7 @@ class ParseQRCode extends Operation {
         const [normalise] = args;
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
         return await parseQrCode(input, normalise);
     }

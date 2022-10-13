@@ -2,6 +2,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,15 +19,15 @@ class CaesarBoxCipher extends Operation {
     constructor() {
         super();
 
-        this.name = "Caesar Box Cipher";
+        this.name = "恺撒箱密码";
         this.module = "Ciphers";
-        this.description = "Caesar Box is a transposition cipher used in the Roman Empire, in which letters of the message are written in rows in a square (or a rectangle) and then, read by column.";
+        this.description = "恺撒箱密码（Caesar Box Cipher）是古罗马帝国使用的一种换位密码。密文按行写成正方或长方形后，按列读取。";
         this.infoURL = "https://www.dcode.fr/caesar-box-cipher";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Box Height",
+                name: "箱高度",
                 type: "number",
                 value: 1
             }

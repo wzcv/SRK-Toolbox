@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,43 +25,43 @@ class ResizeImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Resize Image";
+        this.name = "图像尺寸修改";
         this.module = "Image";
-        this.description = "Resizes an image to the specified width and height values.";
+        this.description = "将图像尺寸变更为给定的高和宽。";
         this.infoURL = "https://wikipedia.org/wiki/Image_scaling";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Width",
+                name: "宽度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Height",
+                name: "高度",
                 type: "number",
                 value: 100,
                 min: 1
             },
             {
-                name: "Unit type",
+                name: "单位",
                 type: "option",
-                value: ["Pixels", "Percent"]
+                value: ["像素", "百分比"]
             },
             {
-                name: "Maintain aspect ratio",
+                name: "保持长宽比",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Resizing algorithm",
+                name: "缩放插值算法",
                 type: "option",
                 value: [
-                    "Nearest Neighbour",
-                    "Bilinear",
-                    "Bicubic",
+                    "临近",
+                    "双线性",
+                    "双三次",
                     "Hermite",
                     "Bezier"
                 ],
@@ -81,31 +83,31 @@ class ResizeImage extends Operation {
             resizeAlg = args[4];
 
         const resizeMap = {
-            "Nearest Neighbour": jimp.RESIZE_NEAREST_NEIGHBOR,
-            "Bilinear": jimp.RESIZE_BILINEAR,
-            "Bicubic": jimp.RESIZE_BICUBIC,
+            "临近": jimp.RESIZE_NEAREST_NEIGHBOR,
+            "双线性": jimp.RESIZE_BILINEAR,
+            "双三次": jimp.RESIZE_BICUBIC,
             "Hermite": jimp.RESIZE_HERMITE,
             "Bezier": jimp.RESIZE_BEZIER
         };
 
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`载入图片错误：(${err})`);
         }
         try {
-            if (unit === "Percent") {
+            if (unit === "百分比") {
                 width = image.getWidth() * (width / 100);
                 height = image.getHeight() * (height / 100);
             }
 
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Resizing image...");
+                self.sendStatusMessage("缩放图像……");
             if (aspect) {
                 image.scaleToFit(width, height, resizeMap[resizeAlg]);
             } else {
@@ -120,7 +122,7 @@ class ResizeImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error resizing image. (${err})`);
+            throw new OperationError(`缩放图像出错：(${err})`);
         }
     }
 
@@ -135,7 +137,7 @@ class ResizeImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -3,6 +3,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import OperationError from "../errors/OperationError.mjs";
@@ -12,14 +14,14 @@ import Utils from "../Utils.mjs";
  * @constant
  * @default
  */
-export const RECORD_DELIMITER_OPTIONS = ["Line feed", "CRLF"];
+export const RECORD_DELIMITER_OPTIONS = ["换行", "CRLF"];
 
 
 /**
  * @constant
  * @default
  */
-export const FIELD_DELIMITER_OPTIONS = ["Space", "Comma", "Semi-colon", "Colon", "Tab"];
+export const FIELD_DELIMITER_OPTIONS = ["空格", "逗号", "分号", "冒号", "Tab"];
 
 
 /**
@@ -52,7 +54,7 @@ export function getValues(input, recordDelimiter, fieldDelimiter, columnHeadings
         .split(recordDelimiter)
         .forEach((row, rowIndex) => {
             const split = row.split(fieldDelimiter);
-            if (split.length !== length) throw new OperationError(`Each row must have length ${length}.`);
+            if (split.length !== length) throw new OperationError(`每行必须包含 ${length} 个元素。`);
 
             if (columnHeadingsAreIncluded && rowIndex === 0) {
                 headings = split;
@@ -90,8 +92,8 @@ export function getScatterValues(input, recordDelimiter, fieldDelimiter, columnH
         const x = parseFloat(row[0]),
             y = parseFloat(row[1]);
 
-        if (Number.isNaN(x)) throw new OperationError("Values must be numbers in base 10.");
-        if (Number.isNaN(y)) throw new OperationError("Values must be numbers in base 10.");
+        if (Number.isNaN(x)) throw new OperationError("数值必须为十进制。");
+        if (Number.isNaN(y)) throw new OperationError("数值必须为十进制。");
 
         return [x, y];
     });
@@ -126,8 +128,8 @@ export function getScatterValuesWithColour(input, recordDelimiter, fieldDelimite
             y = parseFloat(row[1]),
             colour = row[2];
 
-        if (Number.isNaN(x)) throw new OperationError("Values must be numbers in base 10.");
-        if (Number.isNaN(y)) throw new OperationError("Values must be numbers in base 10.");
+        if (Number.isNaN(x)) throw new OperationError("数值必须为十进制。");
+        if (Number.isNaN(y)) throw new OperationError("数值必须为十进制。");
 
         return [x, y, Utils.escapeHtml(colour)];
     });
@@ -160,7 +162,7 @@ export function getSeriesValues(input, recordDelimiter, fieldDelimiter, columnHe
             xVal = row[1],
             val = parseFloat(row[2]);
 
-        if (Number.isNaN(val)) throw new OperationError("Values must be numbers in base 10.");
+        if (Number.isNaN(val)) throw new OperationError("数值必须为十进制。");
 
         xValues.add(xVal);
         if (typeof series[serie] === "undefined") series[serie] = {};

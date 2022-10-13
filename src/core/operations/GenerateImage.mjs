@@ -2,6 +2,8 @@
  * @author pointhi [thomas.pointhuber@gmx.at]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -24,26 +26,26 @@ class GenerateImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate Image";
+        this.name = "生成图像";
         this.module = "Image";
-        this.description = "Generates an image using the input as pixel values.";
+        this.description = "使用输入作为像素值生成图像。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Mode",
+                "name": "模式",
                 "type": "option",
-                "value": ["Greyscale", "RG", "RGB", "RGBA", "Bits"]
+                "value": ["灰度", "RG", "RGB", "RGBA", "位"]
             },
             {
-                "name": "Pixel Scale Factor",
+                "name": "像素缩放倍率",
                 "type": "number",
                 "value": 8,
             },
             {
-                "name": "Pixels per row",
+                "name": "每行像素数",
                 "type": "number",
                 "value": 64,
             }
@@ -60,11 +62,11 @@ class GenerateImage extends Operation {
         input = new Uint8Array(input);
 
         if (scale <= 0) {
-            throw new OperationError("Pixel Scale Factor needs to be > 0");
+            throw new OperationError("像素缩放倍率必须大于0");
         }
 
         if (width <= 0) {
-            throw new OperationError("Pixels per Row needs to be > 0");
+            throw new OperationError("每行像素数必须大于0");
         }
 
         const bytePerPixelMap = {
@@ -78,16 +80,16 @@ class GenerateImage extends Operation {
         const bytesPerPixel = bytePerPixelMap[mode];
 
         if (bytesPerPixel > 0 && input.length % bytesPerPixel  !== 0) {
-            throw new OperationError(`Number of bytes is not a divisor of ${bytesPerPixel}`);
+            throw new OperationError(`字节数不是 ${bytesPerPixel} 的倍数`);
         }
 
         const height = Math.ceil(input.length / bytesPerPixel / width);
         const image = await new jimp(width, height, (err, image) => {});
 
         if (isWorkerEnvironment())
-            self.sendStatusMessage("Generating image from data...");
+            self.sendStatusMessage("从给定数据生成图像……");
 
-        if (mode === "Bits") {
+        if (mode === "位") {
             let index = 0;
             for (let j = 0; j < input.length; j++) {
                 const curByte = Utils.bin(input[j]);
@@ -113,7 +115,7 @@ class GenerateImage extends Operation {
                 let alpha = 0xFF;
 
                 switch (mode) {
-                    case "Greyscale":
+                    case "灰度":
                         red = green = blue = input[i++];
                         break;
 
@@ -136,21 +138,21 @@ class GenerateImage extends Operation {
                         break;
 
                     default:
-                        throw new OperationError(`Unsupported Mode: (${mode})`);
+                        throw new OperationError(`不支持的模式：(${mode})`);
                 }
 
                 try {
                     const pixel = jimp.rgbaToInt(red, green, blue, alpha);
                     image.setPixelColor(pixel, x, y);
                 } catch (err) {
-                    throw new OperationError(`Error while generating image from pixel values. (${err})`);
+                    throw new OperationError(`生成图像时报错：(${err})`);
                 }
             }
         }
 
         if (scale !== 1) {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("Scaling image...");
+                self.sendStatusMessage("缩放图像……");
 
             image.scaleToFit(width*scale, height*scale, jimp.RESIZE_NEAREST_NEIGHBOR);
         }
@@ -159,7 +161,7 @@ class GenerateImage extends Operation {
             const imageBuffer = await image.getBufferAsync(jimp.MIME_PNG);
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error generating image. (${err})`);
+            throw new OperationError(`生成图像时报错：(${err})`);
         }
     }
 
@@ -174,7 +176,7 @@ class GenerateImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,9 +24,9 @@ class NormaliseImage extends Operation {
     constructor() {
         super();
 
-        this.name = "Normalise Image";
+        this.name = "图像归一化";
         this.module = "Image";
-        this.description = "Normalise the image colours.";
+        this.description = "图像色彩归一化（Normalize）。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -39,14 +41,14 @@ class NormaliseImage extends Operation {
      */
     async run(input, args) {
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error opening image file. (${err})`);
+            throw new OperationError(`打开图像文件出错：(${err})`);
         }
 
         try {
@@ -60,7 +62,7 @@ class NormaliseImage extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error normalising image. (${err})`);
+            throw new OperationError(`归一化图像出错：(${err})`);
         }
     }
 
@@ -75,7 +77,7 @@ class NormaliseImage extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;

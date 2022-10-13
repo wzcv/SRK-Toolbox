@@ -3,6 +3,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import * as d3temp from "d3";
@@ -27,60 +29,60 @@ class HeatmapChart extends Operation {
     constructor() {
         super();
 
-        this.name = "Heatmap chart";
+        this.name = "热图";
         this.module = "Charts";
-        this.description = "A heatmap is a graphical representation of data where the individual values contained in a matrix are represented as colors.";
+        this.description = "热图（英语：heat map）是在二维空间中以颜色的形式显示一个现象的绝对量一种数据可视化技术。";
         this.infoURL = "https://wikipedia.org/wiki/Heat_map";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                name: "Record delimiter",
+                name: "记录分隔符",
                 type: "option",
                 value: RECORD_DELIMITER_OPTIONS,
             },
             {
-                name: "Field delimiter",
+                name: "字段分隔符",
                 type: "option",
                 value: FIELD_DELIMITER_OPTIONS,
             },
             {
-                name: "Number of vertical bins",
+                name: "垂直色块数",
                 type: "number",
                 value: 25,
             },
             {
-                name: "Number of horizontal bins",
+                name: "水平色块数",
                 type: "number",
                 value: 25,
             },
             {
-                name: "Use column headers as labels",
+                name: "使用表头作为标签",
                 type: "boolean",
                 value: true,
             },
             {
-                name: "X label",
+                name: "X轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Y label",
+                name: "Y轴标签",
                 type: "string",
                 value: "",
             },
             {
-                name: "Draw bin edges",
+                name: "绘制色块边缘",
                 type: "boolean",
                 value: false,
             },
             {
-                name: "Min colour value",
+                name: "最小值色彩",
                 type: "string",
                 value: COLOURS.min,
             },
             {
-                name: "Max colour value",
+                name: "最大值色彩",
                 type: "string",
                 value: COLOURS.max,
             },
@@ -104,8 +106,8 @@ class HeatmapChart extends Operation {
             minColour = args[8],
             maxColour = args[9],
             dimension = 500;
-        if (vBins <= 0) throw new OperationError("Number of vertical bins must be greater than 0");
-        if (hBins <= 0) throw new OperationError("Number of horizontal bins must be greater than 0");
+        if (vBins <= 0) throw new OperationError("水平色块数必须大于0");
+        if (hBins <= 0) throw new OperationError("垂直色块数必须大于0");
 
         let xLabel = args[5],
             yLabel = args[6];
@@ -188,8 +190,8 @@ class HeatmapChart extends Operation {
             .text(d => {
                 const count = d.length,
                     perc = 100.0 * d.length / values.length,
-                    tooltip = `Count: ${count}\n
-                               Percentage: ${perc.toFixed(2)}%\n
+                    tooltip = `计数： ${count}\n
+                               占比： ${perc.toFixed(2)}%\n
                     `.replace(/\s{2,}/g, "\n");
                 return tooltip;
             });
@@ -233,8 +235,8 @@ class HeatmapChart extends Operation {
             yBounds = d3.extent(values, d => d[1]),
             bins = [];
 
-        if (xBounds[0] === xBounds[1]) throw "Cannot pack points. There is no difference between the minimum and maximum X coordinate.";
-        if (yBounds[0] === yBounds[1]) throw "Cannot pack points. There is no difference between the minimum and maximum Y coordinate.";
+        if (xBounds[0] === xBounds[1]) throw "无法对数据点分组。X坐标最大值和最小值之间没有差异。";
+        if (yBounds[0] === yBounds[1]) throw "无法对数据点分组。Y坐标最大值和最小值之间没有差异。";
 
         for (let y = 0; y < vBins; y++) {
             bins.push([]);

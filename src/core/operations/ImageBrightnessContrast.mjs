@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,23 +25,23 @@ class ImageBrightnessContrast extends Operation {
     constructor() {
         super();
 
-        this.name = "Image Brightness / Contrast";
+        this.name = "图像亮度/对比度";
         this.module = "Image";
-        this.description = "Adjust the brightness or contrast of an image.";
+        this.description = "调整图像的亮度或对比度。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                name: "Brightness",
+                name: "亮度",
                 type: "number",
                 value: 0,
                 min: -100,
                 max: 100
             },
             {
-                name: "Contrast",
+                name: "对比度",
                 type: "number",
                 value: 0,
                 min: -100,
@@ -56,24 +58,24 @@ class ImageBrightnessContrast extends Operation {
     async run(input, args) {
         const [brightness, contrast] = args;
         if (!isImage(input)) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         let image;
         try {
             image = await jimp.read(input);
         } catch (err) {
-            throw new OperationError(`Error loading image. (${err})`);
+            throw new OperationError(`图像加载出错：(${err})`);
         }
         try {
             if (brightness !== 0) {
                 if (isWorkerEnvironment())
-                    self.sendStatusMessage("Changing image brightness...");
+                    self.sendStatusMessage("图像亮度调整……");
                 image.brightness(brightness / 100);
             }
             if (contrast !== 0) {
                 if (isWorkerEnvironment())
-                    self.sendStatusMessage("Changing image contrast...");
+                    self.sendStatusMessage("图像对比度调整……");
                 image.contrast(contrast / 100);
             }
 
@@ -85,7 +87,7 @@ class ImageBrightnessContrast extends Operation {
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`Error adjusting image brightness or contrast. (${err})`);
+            throw new OperationError(`调整图像亮度/对比度出错：(${err})`);
         }
     }
 
@@ -100,7 +102,7 @@ class ImageBrightnessContrast extends Operation {
 
         const type = isImage(dataArray);
         if (!type) {
-            throw new OperationError("Invalid file type.");
+            throw new OperationError("无效的文件类型。");
         }
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;
