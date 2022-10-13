@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,33 +24,33 @@ class GenerateQRCode extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate QR Code";
+        this.name = "生成二维码";
         this.module = "Image";
-        this.description = "Generates a Quick Response (QR) code from the input text.<br><br>A QR code is a type of matrix barcode (or two-dimensional barcode) first designed in 1994 for the automotive industry in Japan. A barcode is a machine-readable optical label that contains information about the item to which it is attached.";
+        this.description = "从输入生成一个Quick Response (QR)二维码。<br><br>QR码/图码（英语：Quick Response Code；全称为快速响应矩阵图码）是二维码的一种，于1994年由日本汽车零组件大厂电装公司的原昌宏所发明。条形码或称条码（英语：barcode），是将宽度不等的多个黑条和空白，按照一定的编码规则排列，用以表达一组信息的图形标识符。";
         this.infoURL = "https://wikipedia.org/wiki/QR_code";
         this.inputType = "string";
         this.outputType = "ArrayBuffer";
         this.presentType = "html";
         this.args = [
             {
-                "name": "Image Format",
+                "name": "图像格式",
                 "type": "option",
                 "value": ["PNG", "SVG", "EPS", "PDF"]
             },
             {
-                "name": "Module size (px)",
+                "name": "码点大小 (px)",
                 "type": "number",
                 "value": 5,
                 "min": 1
             },
             {
-                "name": "Margin (num modules)",
+                "name": "留白 (码点数)",
                 "type": "number",
                 "value": 2,
                 "min": 0
             },
             {
-                "name": "Error correction",
+                "name": "错误检测",
                 "type": "option",
                 "value": ["Low", "Medium", "Quartile", "High"],
                 "defaultIndex": 1

@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class ChiSquare extends Operation {
     constructor() {
         super();
 
-        this.name = "Chi Square";
+        this.name = "卡方分布";
         this.module = "Default";
-        this.description = "Calculates the Chi Square distribution of values.";
+        this.description = "计算给定数值的卡方分布。";
         this.infoURL = "https://wikipedia.org/wiki/Chi-squared_distribution";
         this.inputType = "ArrayBuffer";
         this.outputType = "number";

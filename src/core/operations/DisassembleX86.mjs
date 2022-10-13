@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,20 +21,20 @@ class DisassembleX86 extends Operation {
     constructor() {
         super();
 
-        this.name = "Disassemble x86";
+        this.name = "x86反汇编";
         this.module = "Shellcode";
-        this.description = "Disassembly is the process of translating machine language into assembly language.<br><br>This operation supports 64-bit, 32-bit and 16-bit code written for Intel or AMD x86 processors. It is particularly useful for reverse engineering shellcode.<br><br>Input should be in hexadecimal.";
+        this.description = "反汇编是把机器语言翻译回汇编语言的过程。<br><br>此操作支持Intel和AMD x86处理器的64位、32位和16位代码。在反向工程shellcode的时候特别有用。<br><br>输入必须为十六进制。";
         this.infoURL = "https://wikipedia.org/wiki/X86";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Bit mode",
+                "name": "位模式",
                 "type": "option",
                 "value": ["64", "32", "16"]
             },
             {
-                "name": "Compatibility",
+                "name": "兼容性",
                 "type": "option",
                 "value": [
                     "Full x86 architecture",
@@ -55,12 +57,12 @@ class DisassembleX86 extends Operation {
                 "value": 0
             },
             {
-                "name": "Show instruction hex",
+                "name": "显示指令十六进制",
                 "type": "boolean",
                 "value": true
             },
             {
-                "name": "Show instruction position",
+                "name": "显示指令位置",
                 "type": "boolean",
                 "value": true
             }
@@ -95,7 +97,7 @@ class DisassembleX86 extends Operation {
                 disassemble.setBitMode(0);
                 break;
             default:
-                throw new OperationError("Invalid mode value");
+                throw new OperationError("无效的位模式");
         }
 
         switch (compatibility) {

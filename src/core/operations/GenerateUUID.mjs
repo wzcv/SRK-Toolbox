@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class GenerateUUID extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate UUID";
+        this.name = "生成UUID";
         this.module = "Crypto";
-        this.description = "Generates an RFC 4122 version 4 compliant Universally Unique Identifier (UUID), also known as a Globally Unique Identifier (GUID).<br><br>A version 4 UUID relies on random numbers, in this case generated using <code>window.crypto</code> if available and falling back to <code>Math.random</code> if not.";
+        this.description = "生成一个RFC 4122版本4兼容的Universally Unique Identifier (UUID)。通常也被称作Globally Unique Identifier (GUID)。<br><br>版本4 UUID依赖于随机数，此操作使用 <code>window.crypto</code> 生成随机数，如果不可用则转为使用 <code>Math.random</code> 。";
         this.infoURL = "https://wikipedia.org/wiki/Universally_unique_identifier";
         this.inputType = "string";
         this.outputType = "string";

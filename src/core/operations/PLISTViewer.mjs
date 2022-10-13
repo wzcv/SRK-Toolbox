@@ -2,6 +2,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class PlistViewer extends Operation {
     constructor() {
         super();
 
-        this.name = "P-list Viewer";
+        this.name = "P-list查看器";
         this.module = "Default";
-        this.description = "In the macOS, iOS, NeXTSTEP, and GNUstep programming frameworks, property list files are files that store serialized objects. Property list files use the filename extension .plist, and thus are often referred to as p-list files.<br><br>This operation displays plist files in a human readable format.";
+        this.description = "在macOS、iOS、NeXTSTEP和GNUstep编程框架中，属性列表文件（Property list file）用于存储序列化对象。属性列表文件使用扩展名.plist，因此通常被称作p-list文件。<br><br>此操作将plist文件展示为人力可读格式。";
         this.infoURL = "https://wikipedia.org/wiki/Property_list";
         this.inputType = "string";
         this.outputType = "string";

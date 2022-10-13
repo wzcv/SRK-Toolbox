@@ -2,6 +2,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,15 +22,15 @@ class ParseQRCode extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse QR Code";
+        this.name = "解析二维码";
         this.module = "Image";
-        this.description = "Reads an image file and attempts to detect and read a Quick Response (QR) code from the image.<br><br><u>Normalise Image</u><br>Attempts to normalise the image before parsing it to improve detection of a QR code.";
+        this.description = "读取图像文件并尝试检测并读取其中Quick Response (QR)二维码的内容。<br><br><u>标准化图像</u><br>在尝试读取前先对图像进行标准化处理。";
         this.infoURL = "https://wikipedia.org/wiki/QR_code";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Normalise image",
+                "name": "标准化图像",
                 "type": "boolean",
                 "value": false
             }

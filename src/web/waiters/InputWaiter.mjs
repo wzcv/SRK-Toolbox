@@ -733,7 +733,7 @@ class InputWaiter {
          * @param {string} pastedData
          */
         function triggerOverlay(pastedData) {
-            const file = new File([pastedData], "PastedData", {
+            const file = new File([pastedData], "粘贴的数据", {
                 type: "text/plain",
                 lastModified: Date.now()
             });
@@ -857,9 +857,9 @@ class InputWaiter {
     async preserveCarriageReturns(input) {
         if (input.indexOf("\r") < 0) return false;
 
-        const optionsStr = "This behaviour can be changed in the <a href='#' onclick='document.getElementById(\"options\").click()'>Options pane</a>";
-        const preserveStr = `A carriage return (\\r, 0x0d) was detected in your input. To preserve it, editing has been disabled.<br>${optionsStr}`;
-        const dontPreserveStr = `A carriage return (\\r, 0x0d) was detected in your input. It has not been preserved.<br>${optionsStr}`;
+        const optionsStr = "此行为可在设置中进行调整：<a href='#' onclick='document.getElementById(\"options\").click()'>打开设置</a>";
+        const preserveStr = `在输入中检测到回车符（\\r, 0x0d）。为保留这些字符，已禁用输入框的编辑功能。<br>${optionsStr}`;
+        const dontPreserveStr = `在输入中检测到回车符（\\r, 0x0d）。未保留这些字符。<br>${optionsStr}`;
 
         switch (this.app.options.preserveCR) {
             case "always":

@@ -2,6 +2,8 @@
  * @author George O [georgeomnet+cyberchef@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class IndexOfCoincidence extends Operation {
     constructor() {
         super();
 
-        this.name = "Index of Coincidence";
+        this.name = "重合因子";
         this.module = "Default";
-        this.description = "Index of Coincidence (IC) is the probability of two randomly selected characters being the same. This can be used to determine whether text is readable or random, with English text having an IC of around 0.066. IC can therefore be a sound method to automate frequency analysis.";
+        this.description = "重合因子（Index of Coincidence, IC）指任意拿出两个字母，两个字母相同的概率。由于英语文本的IC通常大约为0.066，所以IC可以用来推测文本是否为可读文本。IC作为良好的判定条件被用来进行自动化文本频率分析。";
         this.infoURL = "https://wikipedia.org/wiki/Index_of_coincidence";
         this.inputType = "string";
         this.outputType = "number";
@@ -67,14 +69,14 @@ class IndexOfCoincidence extends Operation {
      * @returns {html}
      */
     present(ic) {
-        return `Index of Coincidence: ${ic}
-Normalized: ${ic * 26}
+        return `重合因子： ${ic}
+标准化： ${ic * 26}
 <br><canvas id='chart-area'></canvas><br>
-- 0 represents complete randomness (all characters are unique), whereas 1 represents no randomness (all characters are identical).
-- English text generally has an IC of between 0.67 to 0.78.
-- 'Random' text is determined by the probability that each letter occurs the same number of times as another.
+- 0表示完全随机（所有字符不重复），1代表完全不随机（所有字符相同）。
+- 英语文本的IC通常位于0.067至0.078。
+- 文本的随机度由每个字母和其它字母出现次数相同的概率决定。
 
-The graph shows the IC of the input data. A low IC generally means that the text is random, compressed or encrypted.
+以下图标显示输入数据的IC。较低的IC值通常表示文本是随机生成的，或被压缩/加密过。
 
 <script type='application/javascript'>
   var canvas = document.getElementById("chart-area"),
