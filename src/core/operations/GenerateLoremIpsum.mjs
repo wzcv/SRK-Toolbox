@@ -2,6 +2,8 @@
  * @author klaxon [klaxon@veyr.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,22 +21,22 @@ class GenerateLoremIpsum extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate Lorem Ipsum";
+        this.name = "生成Lorem Ipsum";
         this.module = "Default";
-        this.description = "Generate varying length lorem ipsum placeholder text.";
+        this.description = "生成给定长度的lorem ipsum占位文本。";
         this.infoURL = "https://wikipedia.org/wiki/Lorem_ipsum";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Length",
+                "name": "长度",
                 "type": "number",
                 "value": "3"
             },
             {
-                "name": "Length in",
+                "name": "长度单位",
                 "type": "option",
-                "value": ["Paragraphs", "Sentences", "Words", "Bytes"]
+                "value": ["段落", "句子", "单词", "字节"]
             }
 
         ];
@@ -48,19 +50,19 @@ class GenerateLoremIpsum extends Operation {
     run(input, args) {
         const [length, lengthType] = args;
         if (length < 1) {
-            throw new OperationError("Length must be greater than 0");
+            throw new OperationError("长度必须大于0");
         }
         switch (lengthType) {
-            case "Paragraphs":
+            case "段落":
                 return GenerateParagraphs(length);
-            case "Sentences":
+            case "句子":
                 return GenerateSentences(length);
-            case "Words":
+            case "单词":
                 return GenerateWords(length);
-            case "Bytes":
+            case "字节":
                 return GenerateBytes(length);
             default:
-                throw new OperationError("Invalid length type");
+                throw new OperationError("无效的长度类型");
 
         }
     }

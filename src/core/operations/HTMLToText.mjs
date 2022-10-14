@@ -3,6 +3,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class HTMLToText extends Operation {
     constructor() {
         super();
 
-        this.name = "HTML To Text";
+        this.name = "HTML转文本";
         this.module = "Default";
-        this.description = "Converts an HTML output from an operation to a readable string instead of being rendered in the DOM.";
+        this.description = "将某个操作输出的HTML转换为纯文本形式，不在输出框进行渲染。";
         this.infoURL = "";
         this.inputType = "html";
         this.outputType = "string";

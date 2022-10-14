@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,7 +23,7 @@ class AND extends Operation {
 
         this.name = "AND";
         this.module = "Default";
-        this.description = "AND the input with the given key.<br>e.g. <code>fe023da5</code>";
+        this.description = "使用给定的key对输入进行按位与（AND）操作。<br>例如： <code>fe023da5</code>";
         this.infoURL = "https://wikipedia.org/wiki/Bitwise_operation#AND";
         this.inputType = "byteArray";
         this.outputType = "byteArray";

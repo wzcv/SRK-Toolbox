@@ -462,7 +462,7 @@
         ]
     },
     {
-        "name": "其他（12/17）",
+        "name": "其他",
         "ops": [
             "熵",
             "频率分布",
@@ -476,9 +476,9 @@
             "生成HOTP",
             "生成二维码",
             "解析二维码",
-            "Haversine distance",
-            "HTML To Text",
-            "Generate Lorem Ipsum",
+            "半正矢距离",
+            "HTML转文本",
+            "生成Lorem Ipsum",
             "Numberwang",
             "XKCD Random Number"
         ]

@@ -2,6 +2,8 @@
  * @author Dachande663 [dachande663@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class HaversineDistance extends Operation {
     constructor() {
         super();
 
-        this.name = "Haversine distance";
+        this.name = "半正矢距离";
         this.module = "Default";
-        this.description = "Returns the distance between two pairs of GPS latitude and longitude co-ordinates in metres.<br><br>e.g. <code>51.487263,-0.124323, 38.9517,-77.1467</code>";
+        this.description = "计算两对GPS经纬度坐标之间的距离，单位米。<br><br>例如：<code>51.487263,-0.124323, 38.9517,-77.1467</code>";
         this.infoURL = "https://wikipedia.org/wiki/Haversine_formula";
         this.inputType = "string";
         this.outputType = "number";
@@ -36,7 +38,7 @@ class HaversineDistance extends Operation {
 
         const values = input.match(/^(-?\d+(\.\d+)?), ?(-?\d+(\.\d+)?), ?(-?\d+(\.\d+)?), ?(-?\d+(\.\d+)?)$/);
         if (!values) {
-            throw new OperationError("Input must in the format lat1, lng1, lat2, lng2");
+            throw new OperationError("输入格式必须是：纬度1, 经度1, 纬度2, 经度2");
         }
 
         const lat1 = parseFloat(values[1]);
