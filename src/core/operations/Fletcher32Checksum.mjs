@@ -20,7 +20,7 @@ class Fletcher32Checksum extends Operation {
     constructor() {
         super();
 
-        this.name = "Fletcher-32 Checksum";
+        this.name = "Fletcher-32校验和";
         this.module = "Crypto";
         this.description = "Fletcher校验和是用于计算位置相关校验和的算法，由Lawrence Livermore Labs的John Gould Fletcher在20世纪70年代末期设计。<br><br>Fletcher校验和可以提供接近循环冗余校验（Cyclic redundancy check, CRC）的错误检测功能，但所需的计算更少。";
         this.infoURL = "https://wikipedia.org/wiki/Fletcher%27s_checksum#Fletcher-32";

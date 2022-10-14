@@ -21,7 +21,7 @@ class FindReplace extends Operation {
     constructor() {
         super();
 
-        this.name = "查找 / 替换";
+        this.name = "查找/替换";
         this.module = "Regex";
         this.description = "把第一个字符串用第二个字符串替换。<br><br>支持正则表达式（regex）、简单字符串和扩展字符串（即使用转义字符\\n, \\r, \\t, \\b, \\f和用\\x表示的十六进制字节，例如 \\x00 代表空字节）。";
         this.infoURL = "https://wikipedia.org/wiki/Regular_expression";

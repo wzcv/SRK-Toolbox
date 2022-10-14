@@ -30,7 +30,7 @@ class FromUNIXTimestamp extends Operation {
         this.outputType = "string";
         this.args = [
             {
-                "name": "Units",
+                "name": "单位",
                 "type": "option",
                 "value": UNITS
             }
