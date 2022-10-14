@@ -2,11 +2,19 @@
 
 CyberChef汉化版，因为是Apache 2.0 License，所以我可以给整个项目改名字 :)
 
-目前缓慢汉化中，汉化进度可参考issues。
+已基本汉化完成，后续仅有小修复和版本更新。
 
-[汉化预览版在这里](https://btsrk.me) - have fun!
+[汉化版在这里](https://btsrk.me) - have fun!
 
-以下是CyberChef的原版README：
+如果因为缓存没有显示最新版，记得Ctrl+F5。
+
+## 构建备注
+
+由于原版CyberChef引用的[SnackbarJS](https://github.com/FezVrasta/snackbarjs)已经好几年不更新现在已经崩掉了，原作者更新了代码但没有把包推送到npm，所以需要手工把`node_modules`里的SnackbarJS手工替换成上面链接的版本，否则构建后消息弹框无法使用。
+
+## 以下是CyberChef的原版README：
+
+----
 
 # CyberChef
 

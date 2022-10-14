@@ -242,7 +242,8 @@ module.exports = function (grunt) {
                     "!build/prod/index.html",
                     "!build/prod/BundleAnalyzerReport.html",
                 ],
-                dest: `build/prod/SRK_Toolbox_v${pkg.version}.zip`
+                dest: `build/prod/SRK_Toolbox_v${pkg.version}.zip`,
+                compression: "DEFLATE"
             }
         },
         connect: {
@@ -286,8 +287,8 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         if (srcpath.indexOf("index.html") >= 0) {
                             // Replace download link with version number
-                            content = content.replace(/<a [^>]+>Download CyberChef.+?<\/a>/,
-                                `<span>Version ${pkg.version}</span>`);
+                            content = content.replace(/<a [^>]+>下载离线版.+?<\/a>/,
+                                `<span>版本 ${pkg.version}</span>`);
 
                             return grunt.template.process(content, srcpath);
                         } else {
