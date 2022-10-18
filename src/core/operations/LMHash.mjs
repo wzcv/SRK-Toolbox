@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class LMHash extends Operation {
     constructor() {
         super();
 
-        this.name = "LM Hash";
+        this.name = "LM哈希";
         this.module = "Crypto";
-        this.description = "An LM Hash, or LAN Manager Hash, is a deprecated way of storing passwords on old Microsoft operating systems. It is particularly weak and can be cracked in seconds on modern hardware using rainbow tables.";
+        this.description = "LM哈希，又叫LAN Manager哈希，是较旧的微软操作系统使用的存储密码方式，目前已被废弃。其安全性非常弱，使用现代硬件设备并利用彩虹表能在几秒之内完成破解。";
         this.infoURL = "https://wikipedia.org/wiki/LAN_Manager#Password_hashing_algorithm";
         this.inputType = "string";
         this.outputType = "string";

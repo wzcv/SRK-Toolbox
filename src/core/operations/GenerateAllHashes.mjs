@@ -59,14 +59,14 @@ class GenerateAllHashes extends Operation {
         this.outputType = "string";
         this.args = [
             {
-                name: "Length (bits)",
+                name: "长度（位）",
                 type: "option",
                 value: [
-                    "All", "128", "160", "224", "256", "320", "384", "512"
+                    "所有", "128", "160", "224", "256", "320", "384", "512"
                 ]
             },
             {
-                name: "Include names",
+                name: "包括算法名称",
                 type: "boolean",
                 value: true
             },
@@ -100,14 +100,14 @@ class GenerateAllHashes extends Operation {
             {name: "Whirlpool-0", algo: (new Whirlpool()), inputType: "arrayBuffer", params: ["Whirlpool-0"]},
             {name: "Whirlpool-T", algo: (new Whirlpool()), inputType: "arrayBuffer", params: ["Whirlpool-T"]},
             {name: "Whirlpool", algo: (new Whirlpool()), inputType: "arrayBuffer", params: ["Whirlpool"]},
-            {name: "BLAKE2b-128", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["128", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2b-160", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["160", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2b-256", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["256", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2b-384", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["384", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2b-512", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["512", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2s-128", algo: (new BLAKE2s), inputType: "arrayBuffer", params: ["128", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2s-160", algo: (new BLAKE2s), inputType: "arrayBuffer", params: ["160", "Hex", {string: "", option: "UTF8"}]},
-            {name: "BLAKE2s-256", algo: (new BLAKE2s), inputType: "arrayBuffer", params: ["256", "Hex", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2b-128", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["128", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2b-160", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["160", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2b-256", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["256", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2b-384", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["384", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2b-512", algo: (new BLAKE2b), inputType: "arrayBuffer", params: ["512", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2s-128", algo: (new BLAKE2s), inputType: "arrayBuffer", params: ["128", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2s-160", algo: (new BLAKE2s), inputType: "arrayBuffer", params: ["160", "十六进制", {string: "", option: "UTF8"}]},
+            {name: "BLAKE2s-256", algo: (new BLAKE2s), inputType: "arrayBuffer", params: ["256", "十六进制", {string: "", option: "UTF8"}]},
             {name: "Streebog-256", algo: (new Streebog), inputType: "arrayBuffer", params: ["256"]},
             {name: "Streebog-512", algo: (new Streebog), inputType: "arrayBuffer", params: ["512"]},
             {name: "GOST", algo: (new GOSTHash), inputType: "arrayBuffer", params: ["D-A"]},
@@ -178,7 +178,7 @@ class GenerateAllHashes extends Operation {
                 digest = algo.run(this.inputByteArray, params);
                 break;
             default:
-                throw new OperationError("Unknown hash input type: " + inputType);
+                throw new OperationError("未知哈希类型： " + inputType);
         }
 
         return digest;
@@ -193,7 +193,7 @@ class GenerateAllHashes extends Operation {
      * @returns {string}
      */
     formatDigest(digest, length, includeNames, name) {
-        if (length !== "All" && (digest.length * 4) !== parseInt(length, 10))
+        if (length !== "所有" && (digest.length * 4) !== parseInt(length, 10))
             return "";
 
         if (!includeNames)

@@ -25,7 +25,7 @@ class ParseSSHHostKey extends Operation {
 
         this.name = "解析SSH主机密钥";
         this.module = "Default";
-        this.description = "解析SSH主机密钥（host key），提取其中字段。<br>支持的密钥类型：<ul><li>ssh-rsa</li><li>ssh-dss</li><li>ecdsa-sha2</li></ul>密钥可以为十六进制或Base64格式";
+        this.description = "解析SSH主机密钥（host key），提取其中字段。<br>支持的密钥类型：<ul><li>ssh-rsa</li><li>ssh-dss</li><li>ecdsa-sha2</li><li>ssh-ed25519</li></ul>密钥可以为十六进制或Base64格式";
         this.infoURL = "https://wikipedia.org/wiki/Secure_Shell";
         this.inputType = "string";
         this.outputType = "string";
@@ -71,8 +71,8 @@ class ParseSSHHostKey extends Operation {
             output += `\ng: 0x${fields[3]}`;
             output += `\ny: 0x${fields[4]}`;
         } else if (keyType.startsWith("ecdsa-sha2")) {
-            output += `\nCurve: ${Utils.byteArrayToChars(fromHex(fields[1]))}`;
-            output += `\nPoint: 0x${fields.slice(2)}`;
+            output += `\n曲线： ${Utils.byteArrayToChars(fromHex(fields[1]))}`;
+            output += `\n点位： 0x${fields.slice(2)}`;
         } else if (keyType === "ssh-ed25519") {
             output += `\nx: 0x${fields[1]}`;
         } else {

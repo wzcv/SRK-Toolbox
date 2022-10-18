@@ -56,12 +56,12 @@ class YARARules extends Operation {
                 value: true
             },
             {
-                name: "Show rule warnings",
+                name: "显示规则警告",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Show console module messages",
+                name: "显示控制台模块消息",
                 type: "boolean",
                 value: true
             },
@@ -75,7 +75,7 @@ class YARARules extends Operation {
      */
     async run(input, args) {
         if (isWorkerEnvironment())
-            self.sendStatusMessage("Instantiating YARA...");
+            self.sendStatusMessage("YARA载入中……");
         const [rules, showStrings, showLengths, showMeta, showCounts, showRuleWarns, showConsole] = args;
         return new Promise((resolve, reject) => {
             Yara().then(yara => {
@@ -94,9 +94,9 @@ class YARARules extends Operation {
                     for (let i = 0; i < resp.compileErrors.size(); i++) {
                         const compileError = resp.compileErrors.get(i);
                         if (!compileError.warning) {
-                            reject(new OperationError(`Error on line ${compileError.lineNumber}: ${compileError.message}`));
+                            reject(new OperationError(`行 ${compileError.lineNumber} 报错： ${compileError.message}`));
                         } else if (showRuleWarns) {
-                            matchString += `Warning on line ${compileError.lineNumber}: ${compileError.message}\n`;
+                            matchString += `行 ${compileError.lineNumber} 警告： ${compileError.message}\n`;
                         }
                     }
                 }
@@ -120,11 +120,11 @@ class YARARules extends Operation {
                         }
                         meta = meta.slice(0, -2) + "]";
                     }
-                    const countString = matches.size() === 0 ? "" : (showCounts ? ` (${matches.size()} time${matches.size() > 1 ? "s" : ""})` : "");
+                    const countString = matches.size() === 0 ? "" : (showCounts ? ` (${matches.size()} 次)` : "");
                     if (matches.size() === 0 || !(showStrings || showLengths)) {
                         matchString += `输入匹配规则 "${rule.ruleName}"${meta}${countString.length > 0 ? ` ${countString}`: ""}.\n`;
                     } else {
-                        matchString += `Rule "${rule.ruleName}"${meta} matches${countString}:\n`;
+                        matchString += `规则 "${rule.ruleName}"${meta} 匹配${countString}:\n`;
                         for (let j = 0; j < matches.size(); j++) {
                             const match = matches.get(j);
                             if (showStrings || showLengths) {

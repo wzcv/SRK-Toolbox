@@ -48,7 +48,7 @@ class AnalyseHash extends Operation {
 
         output += "哈希长度： " + input.length + "\n" +
             "字节数：   " + byteLength + "\n" +
-            "位长度:   " + bitLength + "\n\n" +
+            "位长度：   " + bitLength + "\n\n" +
             "根据长度，此哈希值可能由以下哈希算法生成：\n";
 
         switch (bitLength) {
