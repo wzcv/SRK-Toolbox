@@ -71,8 +71,10 @@ class ParseSSHHostKey extends Operation {
             output += `\ng: 0x${fields[3]}`;
             output += `\ny: 0x${fields[4]}`;
         } else if (keyType.startsWith("ecdsa-sha2")) {
-            output += `\n曲线： ${Utils.byteArrayToChars(fromHex(fields[1]))}`;
-            output += `\n点： 0x${fields.slice(2)}`;
+            output += `\nCurve: ${Utils.byteArrayToChars(fromHex(fields[1]))}`;
+            output += `\nPoint: 0x${fields.slice(2)}`;
+        } else if (keyType === "ssh-ed25519") {
+            output += `\nx: 0x${fields[1]}`;
         } else {
             output += "\n不支持的密钥类型";
             output += `\n参数： ${fields.slice(1)}`;

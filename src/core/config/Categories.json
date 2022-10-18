@@ -330,8 +330,10 @@
             "Bzip2解压",
             "Tar",
             "Untar",
-            "LZString压缩",
-            "LZString解压"
+            "LZString Compress",
+            "LZString Decompress",
+            "LZMA Decompress",
+            "LZMA Compress"
         ]
     },
     {
@@ -367,16 +369,16 @@
             "Bcrypt比较",
             "Bcrypt解析",
             "Scrypt",
-            "Fletcher-8校验和",
-            "Fletcher-16校验和",
-            "Fletcher-32校验和",
-            "Fletcher-64校验和",
-            "Adler-32校验和",
-            "Luhn校验和",
-            "CRC-8校验和",
-            "CRC-16校验和",
-            "CRC-32校验和",
-            "TCP/IP校验和"
+            "Fletcher-8 Checksum",
+            "Fletcher-16 Checksum",
+            "Fletcher-32 Checksum",
+            "Fletcher-64 Checksum",
+            "Adler-32 Checksum",
+            "Luhn Checksum",
+            "CRC-8 Checksum",
+            "CRC-16 Checksum",
+            "CRC-32 Checksum",
+            "TCP/IP Checksum"
         ]
     },
     {
