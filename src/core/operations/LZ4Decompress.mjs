@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,9 +20,9 @@ class LZ4Decompress extends Operation {
     constructor() {
         super();
 
-        this.name = "LZ4 Decompress";
+        this.name = "LZ4解压";
         this.module = "Compression";
-        this.description = "LZ4 is a lossless data compression algorithm that is focused on compression and decompression speed. It belongs to the LZ77 family of byte-oriented compression schemes.";
+        this.description = "LZ4是一种无损数据压缩算法，着重于压缩和解压缩速度。它属于面向字节的LZ77压缩方案家族。";
         this.infoURL = "https://wikipedia.org/wiki/LZ4_(compression_algorithm)";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
