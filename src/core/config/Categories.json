@@ -333,7 +333,9 @@
             "LZString压缩",
             "LZString解压",
             "LZMA压缩",
-            "LZMA解压"
+            "LZMA Compress",
+            "LZ4 Decompress",
+            "LZ4解压"
         ]
     },
     {
