@@ -25,10 +25,10 @@ jobs:
     - name: Lint
       run: npx grunt lint
 
-    - name: Unit Tests
-      run: |
-        npm test
-        npm run testnodeconsumer
+#     - name: Unit Tests
+#       run: |
+#         npm test
+#         npm run testnodeconsumer
 
     - name: Production Build
       if: success()
@@ -48,10 +48,10 @@ jobs:
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
-        body: "See the [CHANGELOG](https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md) and [commit messages](https://github.com/gchq/CyberChef/commits/master) for details."
+        body: "详情请参考CyberChef原版[CHANGELOG](https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md)和[commit messages](https://github.com/gchq/CyberChef/commits/master)。"
 
-    - name: Publish to NPM
-      if: success()
-      uses: JS-DevTools/npm-publish@v1
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
+#     - name: Publish to NPM
+#       if: success()
+#       uses: JS-DevTools/npm-publish@v1
+#       with:
+#         token: ${{ secrets.NPM_TOKEN }}
