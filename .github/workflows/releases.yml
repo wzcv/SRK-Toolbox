@@ -64,9 +64,11 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
     - name: Docker Setup Buildx
+      if: success()
       uses: docker/setup-buildx-action@v2.2.1
       
     - name: Build and push Docker images
+      if: success()
       uses: docker/build-push-action@v3.2.0
       with:
         context: .
