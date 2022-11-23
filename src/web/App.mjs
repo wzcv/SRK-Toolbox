@@ -13,7 +13,7 @@ import HTMLCategory from "./HTMLCategory.mjs";
 import HTMLOperation from "./HTMLOperation.mjs";
 import Split from "split.js";
 import moment from "moment-timezone";
-import toastr from 'toastr';
+import toastr from "toastr";
 import "../../node_modules/toastr/build/toastr.min.css";
 
 /**
@@ -123,7 +123,7 @@ class App {
             "showMethod": "fadeIn",
             "hideMethod": "fadeOut",
             "escapeHtml": true
-        }
+        };
     }
 
 
@@ -684,7 +684,7 @@ class App {
         log.info("[" + time.toLocaleString() + "] " + str);
         if (silent) return;
 
-        toastr.options.timeOut = timeout
+        toastr.options.timeOut = timeout;
         toastr.info(str);
 
         // this.currentSnackbar = $.snackbar({
