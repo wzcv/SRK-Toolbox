@@ -1,6 +1,6 @@
 {
   "name": "cyberchef",
-  "version": "9.49.0",
+  "version": "9.49.1",
   "description": "The Cyber Swiss Army Knife for encryption, encoding, compression and data analysis.",
   "author": "n1474335 <n1474335@gmail.com>",
   "homepage": "https://gchq.github.io/CyberChef",
@@ -158,6 +158,7 @@
     "ssdeep.js": "0.0.3",
     "stream-browserify": "^3.0.0",
     "tesseract.js": "3.0.2",
+    "toastr": "^2.1.4",
     "ua-parser-js": "^1.0.2",
     "unorm": "^1.6.0",
     "utf8": "^3.0.0",
