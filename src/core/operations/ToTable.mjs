@@ -45,7 +45,7 @@ class ToTable extends Operation {
             {
                 "name": "格式",
                 "type": "option",
-                "value": ["ASCII", "HTML"]
+                "value": ["ASCII", "HTML", "Markdown"]
             }
         ];
     }
@@ -68,6 +68,9 @@ class ToTable extends Operation {
             case "ASCII":
                 return asciiOutput(tableData);
             case "HTML":
+                return htmlOutput(tableData);
+            case "Markdown":
+                return markdownOutput(tableData);
             default:
                 return htmlOutput(tableData);
         }
@@ -185,6 +188,59 @@ class ToTable extends Operation {
                 return output;
             }
         }
+
+        /**
+         * Outputs an array of data as a Markdown table.
+         *
+         * @param {string[][]} tableData
+         * @returns {string}
+         */
+        function markdownOutput(tableData) {
+            const headerDivider = "-";
+            const verticalBorder = "|";
+
+            let output = "";
+            const longestCells = [];
+
+            // Find longestCells value per column to pad cells equally.
+            tableData.forEach(function(row, index) {
+                row.forEach(function(cell, cellIndex) {
+                    if (longestCells[cellIndex] === undefined || cell.length > longestCells[cellIndex]) {
+                        longestCells[cellIndex] = cell.length;
+                    }
+                });
+            });
+
+            // Ignoring the checkbox, as current Mardown renderer in CF doesn't handle table without headers
+            const row = tableData.shift();
+            output += outputRow(row, longestCells);
+            let rowOutput = verticalBorder;
+            row.forEach(function(cell, index) {
+                rowOutput += " " +  headerDivider + " " + verticalBorder;
+            });
+            output += rowOutput += "\n";
+
+            // Add the rest of the table rows.
+            tableData.forEach(function(row, index) {
+                output += outputRow(row, longestCells);
+            });
+
+            return output;
+
+            /**
+             * Outputs a row of correctly padded cells.
+             */
+            function outputRow(row, longestCells) {
+                let rowOutput = verticalBorder;
+                row.forEach(function(cell, index) {
+                    rowOutput += " " + cell + " ".repeat(longestCells[index] - cell.length) + " " + verticalBorder;
+                });
+                rowOutput += "\n";
+                return rowOutput;
+            }
+
+        }
+
     }
 
 }

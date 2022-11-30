@@ -107,13 +107,17 @@ export function fromHex(data, delim="自动", byteLen=2) {
         throw new OperationError("字节长度必须为正整数");
 
     if (delim !== "无") {
-        const delimRegex = delim === "自动" ? /[^a-f\d]|(0x)/gi : Utils.regexRep(delim);
-        data = data.replace(delimRegex, "");
+        const delimRegex = delim === "自动" ? /[^a-f\d]|0x/gi : Utils.regexRep(delim);
+        data = data.split(delimRegex);
+    } else {
+        data = [data];
     }
 
     const output = [];
-    for (let i = 0; i < data.length; i += byteLen) {
-        output.push(parseInt(data.substr(i, byteLen), 16));
+    for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < data[i].length; j += byteLen) {
+            output.push(parseInt(data[i].substr(j, byteLen), 16));
+        }
     }
     return output;
 }

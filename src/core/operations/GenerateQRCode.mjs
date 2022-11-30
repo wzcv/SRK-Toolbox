@@ -46,7 +46,7 @@ class GenerateQRCode extends Operation {
             {
                 "name": "留白 (码点数)",
                 "type": "number",
-                "value": 2,
+                "value": 4,
                 "min": 0
             },
             {

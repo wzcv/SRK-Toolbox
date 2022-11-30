@@ -9,7 +9,7 @@
 import Operation from "../Operation.mjs";
 import OperationError from "../errors/OperationError.mjs";
 import Utils from "../Utils.mjs";
-import {alphabetName, ALPHABET_OPTIONS} from "../lib/Base85.mjs";
+import {ALPHABET_OPTIONS} from "../lib/Base85.mjs";
 
 /**
  * From Base85 operation
@@ -39,6 +39,12 @@ class FromBase85 extends Operation {
                 type: "boolean",
                 value: true
             },
+            {
+                name: "All-zero group char",
+                type: "binaryShortString",
+                value: "z",
+                maxLength: 1
+            }
         ];
         this.checks = [
             {
@@ -78,13 +84,17 @@ class FromBase85 extends Operation {
      */
     run(input, args) {
         const alphabet = Utils.expandAlphRange(args[0]).join(""),
-            encoding = alphabetName(alphabet),
             removeNonAlphChars = args[1],
+            allZeroGroupChar = typeof args[2] === "string" ? args[2].slice(0, 1) : "",
             result = [];
 
         if (alphabet.length !== 85 ||
             [].unique.call(alphabet).length !== 85) {
-            throw new OperationError("错误：可用字符必须是85个");
+            throw new OperationError("Alphabet must be of length 85");
+        }
+
+        if (allZeroGroupChar && alphabet.includes(allZeroGroupChar)) {
+            throw new OperationError("The all-zero group char cannot appear in the alphabet");
         }
 
         // Remove delimiters if present
@@ -93,8 +103,11 @@ class FromBase85 extends Operation {
 
         // Remove non-alphabet characters
         if (removeNonAlphChars) {
-            const re = new RegExp("[^" + alphabet.replace(/[[\]\\\-^$]/g, "\\$&") + "]", "g");
+            const re = new RegExp("[^~" + allZeroGroupChar +alphabet.replace(/[[\]\\\-^$]/g, "\\$&") + "]", "g");
             input = input.replace(re, "");
+            // Remove delimiters again if present (incase of non-alphabet characters in front/behind delimiters)
+            const matches = input.match(/^<~(.+?)~>$/);
+            if (matches !== null) input = matches[1];
         }
 
         if (input.length === 0) return [];
@@ -102,7 +115,7 @@ class FromBase85 extends Operation {
         let i = 0;
         let block, blockBytes;
         while (i < input.length) {
-            if (encoding === "标准" && input[i] === "z") {
+            if (input[i] === allZeroGroupChar) {
                 result.push(0, 0, 0, 0);
                 i++;
             } else {
@@ -112,7 +125,7 @@ class FromBase85 extends Operation {
                     .split("")
                     .map((chr, idx) => {
                         const digit = alphabet.indexOf(chr);
-                        if (digit < 0 || digit > 84) {
+                        if ((digit < 0 || digit > 84) && chr !== allZeroGroupChar) {
                             throw `Invalid character '${chr}' at index ${i + idx}`;
                         }
                         return digit;

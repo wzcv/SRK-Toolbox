@@ -71,7 +71,7 @@ class TripleDESEncrypt extends Operation {
             inputType = args[3],
             outputType = args[4];
 
-        if (key.length !== 24) {
+        if (key.length !== 24 && key.length !== 16) {
             throw new OperationError(`无效的key长度： ${key.length}字节
 
 三重DES的key长度为24字节（192位）。
@@ -86,7 +86,8 @@ DES的key长度为8字节（64位）。`);
 
         input = Utils.convertToByteString(input, inputType);
 
-        const cipher = forge.cipher.createCipher("3DES-" + mode, key);
+        const cipher = forge.cipher.createCipher("3DES-" + mode,
+            key.length === 16 ? key + key.substring(0, 8) : key);
         cipher.start({iv: iv});
         cipher.update(forge.util.createBuffer(input));
         cipher.finish();

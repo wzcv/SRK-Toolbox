@@ -9,7 +9,7 @@
 import Operation from "../Operation.mjs";
 import Utils from "../Utils.mjs";
 import {INPUT_DELIM_OPTIONS} from "../lib/Delim.mjs";
-import {caseInsensitiveSort, ipSort, numericSort, hexadecimalSort} from "../lib/Sort.mjs";
+import {caseInsensitiveSort, ipSort, numericSort, hexadecimalSort, lengthSort} from "../lib/Sort.mjs";
 
 /**
  * Sort operation
@@ -41,7 +41,7 @@ class Sort extends Operation {
             {
                 "name": "顺序",
                 "type": "option",
-                "value": ["字母顺序（区分大小写）", "字母顺序（不区分大小写）", "IP地址", "数字", "数字（十六进制）"]
+                "value": ["字母顺序（区分大小写）", "字母顺序（不区分大小写）", "IP地址", "数字", "数字（十六进制）", "Length"]
             }
         ];
     }
@@ -67,6 +67,8 @@ class Sort extends Operation {
             sorted = sorted.sort(numericSort);
         } else if (order === "数字（十六进制）") {
             sorted = sorted.sort(hexadecimalSort);
+        } else if (order === "Length") {
+            sorted = sorted.sort(lengthSort);
         }
 
         if (sortReverse) sorted.reverse();
