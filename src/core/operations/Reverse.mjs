@@ -29,7 +29,7 @@ class Reverse extends Operation {
             {
                 "name": "粒度",
                 "type": "option",
-                "value": ["Byte", "字符", "行"],
+                "value": ["字节", "字符", "行"],
                 "defaultIndex": 1
             }
         ];
@@ -61,7 +61,7 @@ class Reverse extends Operation {
                 result.push(0x0a);
             }
             return result.slice(0, input.length);
-        } else if (args[0] === "Character") {
+        } else if (args[0] === "字符") {
             const inputString = Utils.byteArrayToUtf8(input);
             let result = "";
             for (let i = inputString.length - 1; i >= 0; i--) {

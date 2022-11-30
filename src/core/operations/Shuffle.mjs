@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,15 +21,15 @@ class Shuffle extends Operation {
     constructor() {
         super();
 
-        this.name = "Shuffle";
+        this.name = "乱序";
         this.module = "Default";
-        this.description = "Randomly reorders input elements.";
+        this.description = "对输入元素随机重排。.";
         this.infoURL = "https://wikipedia.org/wiki/Shuffling";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Delimiter",
+                name: "分隔符",
                 type: "option",
                 value: INPUT_DELIM_OPTIONS
             }

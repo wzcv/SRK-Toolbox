@@ -62,7 +62,7 @@ class ParseX509Certificate extends Operation {
         let undefinedInputFormat = false;
         try {
             switch (inputFormat) {
-                case "DER Hex":
+                case "DER十六进制":
                     input = input.replace(/\s/g, "").toLowerCase();
                     cert.readCertHex(input);
                     break;
@@ -72,16 +72,16 @@ class ParseX509Certificate extends Operation {
                 case "Base64":
                     cert.readCertHex(toHex(fromBase64(input, null, "byteArray"), ""));
                     break;
-                case "Raw":
+                case "原始":
                     cert.readCertHex(toHex(Utils.strToByteArray(input), ""));
                     break;
                 default:
                     undefinedInputFormat = true;
             }
         } catch (e) {
-            throw "Certificate load error (non-certificate input?)";
+            throw "证书读取错误（输入内容有误？）";
         }
-        if (undefinedInputFormat) throw "Undefined input format";
+        if (undefinedInputFormat) throw "无效输入格式";
 
         const sn = cert.getSerialNumberHex(),
             issuer = cert.getIssuer(),

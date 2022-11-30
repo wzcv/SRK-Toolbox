@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,7 +24,7 @@ class Rabbit extends Operation {
 
         this.name = "Rabbit";
         this.module = "Ciphers";
-        this.description = "Rabbit is a high-speed stream cipher introduced in 2003 and defined in RFC 4503.<br><br>The cipher uses a 128-bit key and an optional 64-bit initialization vector (IV).<br><br>big-endian: based on RFC4503 and RFC3447<br>little-endian: compatible with Crypto++";
+        this.description = "Rabbit算法是高速的流密码算法，于2003年发布并在RFC 4503中定义。<br><br>加密算法使用128位长度的key和可选的64位初始化向量（IV）.<br><br>大端序：根据RFC4503和RFC3447的定义<br>小端序：和Crypto++兼容";
         this.infoURL = "https://wikipedia.org/wiki/Rabbit_(cipher)";
         this.inputType = "string";
         this.outputType = "string";
@@ -31,28 +33,28 @@ class Rabbit extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "IV",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Endianness",
+                "name": "端序",
                 "type": "option",
-                "value": ["Big", "Little"]
+                "value": ["大端序", "小端序"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始", "十六进制"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始", "十六进制"]
             }
         ];
     }
@@ -69,13 +71,13 @@ class Rabbit extends Operation {
             inputType = args[3],
             outputType = args[4];
 
-        const littleEndian = endianness === "Little";
+        const littleEndian = endianness === "小端序";
 
         if (key.length !== 16) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes (expected: 16)`);
+            throw new OperationError(`无效的key长度：${key.length} 字节（正确值：16）`);
         }
         if (iv.length !== 0 && iv.length !== 8) {
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes (expected: 0 or 8)`);
+            throw new OperationError(`无效的IV长度：${iv.length} 字节（正确值：0或8）`);
         }
 
         // Inner State
@@ -236,7 +238,7 @@ class Rabbit extends Operation {
                 }
             }
         }
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             return toHexFast(result);
         }
         return Utils.byteArrayToChars(result);

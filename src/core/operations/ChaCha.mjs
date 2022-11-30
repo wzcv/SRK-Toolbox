@@ -2,6 +2,8 @@
  * @author joostrijneveld [joost@joostrijneveld.nl]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -101,7 +103,7 @@ class ChaCha extends Operation {
 
         this.name = "ChaCha";
         this.module = "Default";
-        this.description = "ChaCha is a stream cipher designed by Daniel J. Bernstein. It is a variant of the Salsa stream cipher. Several parameterizations exist; 'ChaCha' may refer to the original construction, or to the variant as described in RFC-8439. ChaCha is often used with Poly1305, in the ChaCha20-Poly1305 AEAD construction.<br><br><b>Key:</b> ChaCha uses a key of 16 or 32 bytes (128 or 256 bits).<br><br><b>Nonce:</b> ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).<br><br><b>Counter:</b> ChaCha uses a counter of 4 or 8 bytes (32 or 64 bits); together, the nonce and counter must add up to 16 bytes. The counter starts at zero at the start of the keystream, and is incremented at every 64 bytes.";
+        this.description = "ChaCha是由Daniel J. Bernstein设计的流密码算法。它是Salsa流密码算法的一个变种。存在多个参数化种类；“ChaCha”可以指原版算法，或在RFC-8439中定义的算法。ChaCha通常和Poly1305配合使用，称作ChaCha20-Poly1305 AEAD算法。<br><br><b>Key：</b>ChaCha使用16或32字节的key（128或256位）。<br><br><b>Nonce：</b>ChaCha使用8或12字节长度的nonce（64或96位）。<br><br><b>Counter：</b>ChaCha使用4或8字节的counter（32或64位）；Nonce和counter必须合计16字节。Counter从0开始，每64字节的密文流后自增。";
         this.infoURL = "https://wikipedia.org/wiki/Salsa20#ChaCha_variant";
         this.inputType = "string";
         this.outputType = "string";
@@ -110,13 +112,13 @@ class ChaCha extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "Nonce",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64", "Integer"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64", "Integer"]
             },
             {
                 "name": "Counter",
@@ -125,19 +127,19 @@ class ChaCha extends Operation {
                 "min": 0
             },
             {
-                "name": "Rounds",
+                "name": "轮数",
                 "type": "option",
                 "value": ["20", "12", "8"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始", "十六进制"]
             }
         ];
     }
@@ -155,9 +157,9 @@ class ChaCha extends Operation {
             outputType = args[5];
 
         if (key.length !== 16 && key.length !== 32) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes.
+            throw new OperationError(`无效的key长度： ${key.length} 字节。
 
-ChaCha uses a key of 16 or 32 bytes (128 or 256 bits).`);
+ChaCha使用16或32字节的key（128或256位）。`);
         }
 
         let counter, nonce, counterLength;
@@ -167,9 +169,9 @@ ChaCha uses a key of 16 or 32 bytes (128 or 256 bits).`);
         } else {
             nonce = Utils.convertToByteArray(args[1].string, args[1].option);
             if (!(nonce.length === 12 || nonce.length === 8)) {
-                throw new OperationError(`Invalid nonce length: ${nonce.length} bytes.
+                throw new OperationError(`无效的nonce长度： ${nonce.length} 字节。
 
-ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`);
+ChaCha使用8或12字节长度的nonce（64或96位）。`);
             }
             counterLength = 16 - nonce.length;
         }
@@ -188,7 +190,7 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`);
             counterAsInt++;
         }
 
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             return toHex(output);
         } else {
             return Utils.arrayBufferToStr(output);
@@ -207,7 +209,7 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`);
     highlight(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始" && outputType === "原始") {
             return pos;
         }
     }
@@ -224,7 +226,7 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`);
     highlightReverse(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始" && outputType === "原始") {
             return pos;
         }
     }

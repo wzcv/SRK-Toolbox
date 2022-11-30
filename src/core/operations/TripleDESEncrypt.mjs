@@ -47,12 +47,12 @@ class TripleDESEncrypt extends Operation {
                 "value": ["CBC", "CFB", "OFB", "CTR", "ECB"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
                 "value": ["原始内容", "十六进制"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
                 "value": ["十六进制", "原始内容"]
             }

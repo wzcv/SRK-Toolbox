@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,9 +23,9 @@ class AESKeyUnwrap extends Operation {
     constructor() {
         super();
 
-        this.name = "AES Key Unwrap";
+        this.name = "AES密钥解包装";
         this.module = "Ciphers";
-        this.description = "Decryptor for a key wrapping algorithm defined in RFC3394, which is used to protect keys in untrusted storage or communications, using AES.<br><br>This algorithm uses an AES key (KEK: key-encryption key) and a 64-bit IV to decrypt 64-bit blocks.";
+        this.description = "解密使用AES密钥包装算法（由RFC3394定义）的密文。AES密钥包装算法用于在非可信存储和通信环境中保护密钥。<br><br>此算法使用AES key（KEK: key-encryption key）和64位长度的IV来解密64位长度的块。";
         this.infoURL = "https://wikipedia.org/wiki/Key_wrap";
         this.inputType = "string";
         this.outputType = "string";
@@ -32,23 +34,23 @@ class AESKeyUnwrap extends Operation {
                 "name": "Key (KEK)",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "IV",
                 "type": "toggleString",
                 "value": "a6a6a6a6a6a6a6a6",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "Raw"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "Raw"]
             },
         ];
     }
@@ -65,14 +67,14 @@ class AESKeyUnwrap extends Operation {
             outputType = args[3];
 
         if (kek.length !== 16 && kek.length !== 24 && kek.length !== 32) {
-            throw new OperationError("KEK must be either 16, 24, or 32 bytes (currently " + kek.length + " bytes)");
+            throw new OperationError("KEK必须为16、24或32字节长度（当前 " + kek.length + " 字节）");
         }
         if (iv.length !== 8) {
-            throw new OperationError("IV must be 8 bytes (currently " + iv.length + " bytes)");
+            throw new OperationError("IV必须为8字节长度（当前 " + iv.length + " 字节）");
         }
         const inputData = Utils.convertToByteString(input, inputType);
         if (inputData.length % 8 !== 0 || inputData.length < 24) {
-            throw new OperationError("input must be 8n (n>=3) bytes (currently " + inputData.length + " bytes)");
+            throw new OperationError("输入必须为8n (n>=3)字节长度（当前 " + inputData.length + " 字节）");
         }
 
         const cipher = forge.cipher.createCipher("AES-ECB", kek);
@@ -113,11 +115,11 @@ class AESKeyUnwrap extends Operation {
             }
         }
         if (A !== iv) {
-            throw new OperationError("IV mismatch");
+            throw new OperationError("IV不相符");
         }
         const P = R.join("");
 
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             return toHexFast(Utils.strToArrayBuffer(P));
         }
         return P;

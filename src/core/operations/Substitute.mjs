@@ -38,7 +38,7 @@ class Substitute extends Operation {
                 "value": "XYZABCDEFGHIJKLMNOPQRSTUVW"
             },
             {
-                "name": "Ignore case",
+                "name": "忽略大小写",
                 "type": "boolean",
                 "value": false
             }

@@ -35,12 +35,12 @@ class FromBase85 extends Operation {
                 value: ALPHABET_OPTIONS
             },
             {
-                name: "Remove non-alphabet chars",
+                name: "移除不可用字符",
                 type: "boolean",
                 value: true
             },
             {
-                name: "All-zero group char",
+                name: "全零分组字符",
                 type: "binaryShortString",
                 value: "z",
                 maxLength: 1
@@ -90,11 +90,11 @@ class FromBase85 extends Operation {
 
         if (alphabet.length !== 85 ||
             [].unique.call(alphabet).length !== 85) {
-            throw new OperationError("Alphabet must be of length 85");
+            throw new OperationError("可用字符必须为85个");
         }
 
         if (allZeroGroupChar && alphabet.includes(allZeroGroupChar)) {
-            throw new OperationError("The all-zero group char cannot appear in the alphabet");
+            throw new OperationError("全零分组字符不能出现在可用字符中");
         }
 
         // Remove delimiters if present
@@ -126,7 +126,7 @@ class FromBase85 extends Operation {
                     .map((chr, idx) => {
                         const digit = alphabet.indexOf(chr);
                         if ((digit < 0 || digit > 84) && chr !== allZeroGroupChar) {
-                            throw `Invalid character '${chr}' at index ${i + idx}`;
+                            throw `无效的字符 '${chr}' ，位置： ${i + idx}`;
                         }
                         return digit;
                     });

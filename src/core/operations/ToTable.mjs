@@ -22,7 +22,7 @@ class ToTable extends Operation {
 
         this.name = "转换为表格";
         this.module = "Default";
-        this.description = "用给定的分隔符分隔数据后渲染成HTML或ASCII表格，可以额外添加表头。<br><br>默认支持CSV（逗号分隔）格式。将单元格分隔符修改为 <code>\\t</code> 用于支持TSV（Tab分隔），修改为 <code>|</code> 用于支持PSV（管道符分隔）。<br><br>你可以输入任意个数的分隔符，每个字符都会用作单独的分隔符。";
+        this.description = "用给定的分隔符分隔数据后渲染成HTML、ASCII或Markdown表格，可以额外添加表头。<br><br>默认支持CSV（逗号分隔）格式。将单元格分隔符修改为 <code>\\t</code> 用于支持TSV（Tab分隔），修改为 <code>|</code> 用于支持PSV（管道符分隔）。<br><br>你可以输入任意个数的分隔符，每个字符都会用作单独的分隔符。";
         this.infoURL = "https://wikipedia.org/wiki/Comma-separated_values";
         this.inputType = "string";
         this.outputType = "html";

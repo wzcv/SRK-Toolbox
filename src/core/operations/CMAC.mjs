@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,7 +25,7 @@ class CMAC extends Operation {
 
         this.name = "CMAC";
         this.module = "Crypto";
-        this.description = "CMAC is a block-cipher based message authentication code algorithm.<br><br>RFC4493 defines AES-CMAC that uses AES encryption with a 128-bit key.<br>NIST SP 800-38B suggests usages of AES with other key lengths and Triple DES.";
+        this.description = "CMAC是基于块加密算法的消息验证码算法。<br><br>RFC4493定义AES-CMAC，使用128位key的AES加密算法。<br>NIST SP 800-38B建议使用其它key长度的AES算法或3DES。";
         this.infoURL = "https://wikipedia.org/wiki/CMAC";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
@@ -32,12 +34,12 @@ class CMAC extends Operation {
                 "name": "Key",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                "name": "Encryption algorithm",
+                "name": "加密算法",
                 "type": "option",
-                "value": ["AES", "Triple DES"]
+                "value": ["AES", "3DES"]
             }
         ];
     }
@@ -55,7 +57,7 @@ class CMAC extends Operation {
             switch (algo) {
                 case "AES":
                     if (key.length !== 16 && key.length !== 24 && key.length !== 32) {
-                        throw new OperationError("The key for AES must be either 16, 24, or 32 bytes (currently " + key.length + " bytes)");
+                        throw new OperationError("AES key必须为16、24或32字节长度（当前 " + key.length + " 字节）");
                     }
                     return {
                         "algorithm": "AES-ECB",
@@ -63,9 +65,9 @@ class CMAC extends Operation {
                         "blockSize": 16,
                         "Rb": new Uint8Array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x87]),
                     };
-                case "Triple DES":
+                case "3DES":
                     if (key.length !== 16 && key.length !== 24) {
-                        throw new OperationError("The key for Triple DES must be 16 or 24 bytes (currently " + key.length + " bytes)");
+                        throw new OperationError("3DES key必须为16或24字节长度（当前 " + key.length + " 字节）");
                     }
                     return {
                         "algorithm": "3DES-ECB",
@@ -74,7 +76,7 @@ class CMAC extends Operation {
                         "Rb": new Uint8Array([0, 0, 0, 0, 0, 0, 0, 0x1b]),
                     };
                 default:
-                    throw new OperationError("Undefined encryption algorithm");
+                    throw new OperationError("未知加密算法");
             }
         })();
 

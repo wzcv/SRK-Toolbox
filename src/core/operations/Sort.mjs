@@ -41,7 +41,7 @@ class Sort extends Operation {
             {
                 "name": "顺序",
                 "type": "option",
-                "value": ["字母顺序（区分大小写）", "字母顺序（不区分大小写）", "IP地址", "数字", "数字（十六进制）", "Length"]
+                "value": ["字母顺序（区分大小写）", "字母顺序（不区分大小写）", "IP地址", "数字", "数字（十六进制）", "长度"]
             }
         ];
     }
@@ -67,7 +67,7 @@ class Sort extends Operation {
             sorted = sorted.sort(numericSort);
         } else if (order === "数字（十六进制）") {
             sorted = sorted.sort(hexadecimalSort);
-        } else if (order === "Length") {
+        } else if (order === "长度") {
             sorted = sorted.sort(lengthSort);
         }
 
