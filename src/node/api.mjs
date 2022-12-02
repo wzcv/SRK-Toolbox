@@ -238,7 +238,10 @@ export function _wrap(OpClass) {
     }
 
     // used in chef.help
-    wrapped.opName = OpClass.name;
+    // Raka-loah: Operation class names are no longer the same with operation names after i18n
+    //            so switch to operation instance names.
+    // wrapped.opName = OpClass.name;
+    wrapped.opName = opInstance.name;
     wrapped.args = createArgInfo(opInstance);
     // Used in NodeRecipe to check for flowControl ops
     wrapped.flowControl = isFlowControl;

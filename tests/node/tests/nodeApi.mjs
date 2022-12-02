@@ -8,6 +8,8 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github to fit SRK-Toolbox
  */
 
 import assert from "assert";
@@ -60,8 +62,8 @@ TestRegister.addApiTests([
 
     it("should accept arguments in object format for operations", () => {
         const result = chef.setUnion("1 2 3 4:3 4 5 6", {
-            itemDelimiter: " ",
-            sampleDelimiter: ":"
+            元素分隔符: " ",
+            集合分隔符: ":"
         });
 
         assert.equal(result.value, "1 2 3 4 5 6");
@@ -69,7 +71,7 @@ TestRegister.addApiTests([
 
     it("should accept just some of the optional arguments being overriden", () => {
         const result = chef.setIntersection("1 2 3 4 5\\n\\n3 4 5", {
-            itemDelimiter: " ",
+            元素分隔符: " ",
         });
 
         assert.equal(result.value, "3 4 5");
@@ -114,12 +116,12 @@ TestRegister.addApiTests([
     }),
 
     it("chef.help: should describe a operation", () => {
-        const result = chef.help("tripleDESDecrypt");
-        assert.strictEqual(result[0].name, "Triple DES Decrypt");
+        const result = chef.help("3DES解密");
+        assert.strictEqual(result[0].name, "3DES解密");
         assert.strictEqual(result[0].module, "Ciphers");
         assert.strictEqual(result[0].inputType, "string");
         assert.strictEqual(result[0].outputType, "string");
-        assert.strictEqual(result[0].description, "Triple DES applies DES three times to each block to increase key size.<br><br><b>Key:</b> Triple DES uses a key length of 24 bytes (192 bits).<br>DES uses a key length of 8 bytes (64 bits).<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used as a default.");
+        assert.strictEqual(result[0].description, "三重DES（3DES）对每个块进行三次DES来增加key长度。<br><br><b>Key:</b> 3DES的key长度为24字节（192位）。<br>DES的key长度为8字节（64位）。<br><br>你可以通过密钥派生操作来生成基于密码的key。<br><br><b>IV:</b>初始化向量的长度是8字节。<br><br><b>填充:</b>CBC和ECB模式下会使用PKCS#7填充。");
         assert.strictEqual(result[0].args.length, 5);
     }),
 
@@ -130,7 +132,7 @@ TestRegister.addApiTests([
 
     it("chef.help: takes a wrapped operation as input", () => {
         const result = chef.help(chef.toBase32);
-        assert.strictEqual(result[0].name, "To Base32");
+        assert.strictEqual(result[0].name, "Base32编码");
         assert.strictEqual(result[0].module, "Default");
     }),
 
@@ -141,17 +143,17 @@ TestRegister.addApiTests([
 
     it("chef.help: looks in description for matches too", () => {
         // string only in one operation's description.
-        const result = chef.help("Converts a unit of data to another format.");
+        const result = chef.help("转换计算机数据单位。");
         assert.strictEqual(result.length, 1);
-        assert.strictEqual(result[0].name, "Convert data units");
+        assert.strictEqual(result[0].name, "单位转换：数据");
     }),
 
     it("chef.help: lists name matches before desc matches", () => {
-        const result = chef.help("Checksum");
-        assert.ok(result[0].name.includes("Checksum"));
-        assert.ok(result[1].name.includes("Checksum"));
-        assert.strictEqual(result[result.length - 1].name.includes("Checksum"), false);
-        assert.ok(result[result.length - 1].description.includes("checksum"));
+        const result = chef.help("校验和");
+        assert.ok(result[0].name.includes("校验和"));
+        assert.ok(result[1].name.includes("校验和"));
+        assert.strictEqual(result[result.length - 1].name.includes("校验和"), false);
+        assert.ok(result[result.length - 1].description.includes("校验和"));
     }),
 
     it("chef.help: exact name match only returns one result", () => {
@@ -161,9 +163,9 @@ TestRegister.addApiTests([
     }),
 
     it("chef.help: exact match ignores whitespace", () => {
-        const result = chef.help("tobase64");
+        const result = chef.help("base64编码");
         assert.strictEqual(result.length, 1);
-        assert.strictEqual(result[0].name, "To Base64");
+        assert.strictEqual(result[0].name, "Base64编码");
     }),
 
     it("chef.bake: should exist", () => {
@@ -171,12 +173,12 @@ TestRegister.addApiTests([
     }),
 
     it("chef.bake: should return NodeDish", () => {
-        const result = chef.bake("input", "to base 64");
+        const result = chef.bake("input", "base64编码");
         assert(result instanceof NodeDish);
     }),
 
     it("chef.bake: should take an input and an op name and perform it", () => {
-        const result = chef.bake("some input", "to base 32");
+        const result = chef.bake("some input", "base32编码");
         assert.strictEqual(result.toString(), "ONXW2ZJANFXHA5LU");
     }),
 
@@ -196,7 +198,7 @@ TestRegister.addApiTests([
 
     it("chef.bake: Should take an input and an operation and perform it", () => {
         const result = chef.bake("https://google.com/search?q=help", chef.parseURI);
-        assert.strictEqual(result.toString(), "Protocol:\thttps:\nHostname:\tgoogle.com\nPath name:\t/search\nArguments:\n\tq = help\n");
+        assert.strictEqual(result.toString(), "协议：\thttps:\n主机名称：\tgoogle.com\n路径名称：\t/search\n参数：\n\tq = help\n");
     }),
 
     it("chef.bake: Should complain if an invalid operation is inputted", () => {
@@ -207,17 +209,17 @@ TestRegister.addApiTests([
     }),
 
     it("chef.bake: accepts an array of operation names and performs them all in order", () => {
-        const result = chef.bake("https://google.com/search?q=that's a complicated question", ["URL encode", "URL decode", "Parse URI"]);
-        assert.strictEqual(result.toString(), "Protocol:\thttps:\nHostname:\tgoogle.com\nPath name:\t/search\nArguments:\n\tq = that's a complicated question\n");
+        const result = chef.bake("https://google.com/search?q=that's a complicated question", ["URL编码", "URL解码", "解析URI"]);
+        assert.strictEqual(result.toString(), "协议：\thttps:\n主机名称：\tgoogle.com\n路径名称：\t/search\n参数：\n\tq = that's a complicated question\n");
     }),
 
     it("chef.bake: forgiving with operation names", () =>{
-        const result = chef.bake("https://google.com/search?q=that's a complicated question", ["urlencode", "url decode", "parseURI"]);
-        assert.strictEqual(result.toString(), "Protocol:\thttps:\nHostname:\tgoogle.com\nPath name:\t/search\nArguments:\n\tq = that's a complicated question\n");
+        const result = chef.bake("https://google.com/search?q=that's a complicated question", ["url编码", "url解码", "解析URI"]);
+        assert.strictEqual(result.toString(), "协议：\thttps:\n主机名称：\tgoogle.com\n路径名称：\t/search\n参数：\n\tq = that's a complicated question\n");
     }),
 
     it("chef.bake: forgiving with operation names", () =>{
-        const result = chef.bake("hello", ["to base 64"]);
+        const result = chef.bake("hello", ["base64编码"]);
         assert.strictEqual(result.toString(), "aGVsbG8=");
     }),
 
@@ -229,7 +231,7 @@ TestRegister.addApiTests([
 
     it("chef.bake: accepts an array of operations as recipe", () => {
         const result = chef.bake("https://google.com/search?q=that's a complicated question", [chef.URLEncode, chef.URLDecode, chef.parseURI]);
-        assert.strictEqual(result.toString(), "Protocol:\thttps:\nHostname:\tgoogle.com\nPath name:\t/search\nArguments:\n\tq = that's a complicated question\n");
+        assert.strictEqual(result.toString(), "协议：\thttps:\n主机名称：\tgoogle.com\n路径名称：\t/search\n参数：\n\tq = that's a complicated question\n");
     }),
 
     it("should complain if an invalid operation is inputted as part of array", () => {
@@ -243,7 +245,7 @@ TestRegister.addApiTests([
         const result = chef.bake("some input", {
             op: chef.toHex,
             args: {
-                Delimiter: "Colon"
+                分隔符: "冒号"
             }
         });
         assert.strictEqual(result.toString(), "73:6f:6d:65:20:69:6e:70:75:74");
@@ -259,7 +261,7 @@ TestRegister.addApiTests([
     it("chef.bake: should take single JSON object describing op and args ARRAY", () => {
         const result = chef.bake("some input", {
             op: chef.toHex,
-            args: ["Colon"]
+            args: ["冒号"]
         });
         assert.strictEqual(result.toString(), "73:6f:6d:65:20:69:6e:70:75:74");
     }),
@@ -267,7 +269,7 @@ TestRegister.addApiTests([
     it("chef.bake: should error if op in JSON is not chef op", () => {
         assert.throws(() => chef.bake("some input", {
             op: () => {},
-            args: ["Colon"],
+            args: ["冒号"],
         }), {
             name: "TypeError",
             message: "Inputted function not a Chef operation."
@@ -278,12 +280,12 @@ TestRegister.addApiTests([
         const result = chef.bake("some input", [
             {
                 op: chef.toHex,
-                args: ["Colon"]
+                args: ["冒号"]
             },
             {
-                op: "to octal",
+                op: "字符转八进制",
                 args: {
-                    delimiter: "Semi-colon",
+                    分隔符: "分号",
                 }
             }
         ]);
@@ -296,9 +298,9 @@ TestRegister.addApiTests([
                 op: chef.toHex,
             },
             {
-                op: "to octal",
+                op: "字符转八进制",
                 args: {
-                    delimiter: "Semi-colon",
+                    分隔符: "分号",
                 }
             }
         ]);
@@ -307,28 +309,28 @@ TestRegister.addApiTests([
 
     it("chef.bake: should handle op with multiple args", () => {
         const result = chef.bake("some input", {
-            op: "to morse code",
+            op: "摩尔斯电码编码",
             args: {
-                formatOptions: "Dash/Dot",
-                wordDelimiter: "Comma",
-                letterDelimiter: "Backslash",
+                格式: "Dash/Dot",
+                单词分隔符: "逗号",
+                字母分隔符: "反斜杠",
             }
         });
         assert.strictEqual(result.toString(), "DotDotDot\\DashDashDash\\DashDash\\Dot,DotDot\\DashDot\\DotDashDashDot\\DotDotDash\\Dash");
     }),
 
     it("chef.bake: should take compact JSON format from Chef Website as recipe", () => {
-        const result = chef.bake("some input", [{"op": "To Morse Code", "args": ["Dash/Dot", "Backslash", "Comma"]}, {"op": "Hex to PEM", "args": ["SOMETHING"]}, {"op": "To Snake case", "args": [false]}]);
+        const result = chef.bake("some input", [{"op": "摩尔斯电码编码", "args": ["Dash/Dot", "反斜杠", "逗号"]}, {"op": "十六进制转PEM", "args": ["SOMETHING"]}, {"op": "转换为Snake case", "args": [false]}]);
         assert.strictEqual(result.toString(), "begin_something_anananaaaaak_da_aaak_da_aaaaananaaaaaaan_da_aaaaaaanan_da_aaak_end_something");
     }),
 
     it("chef.bake: should accept Clean JSON format from Chef website as recipe", () => {
         const result = chef.bake("some input", [
-            { "op": "To Morse Code",
-                "args": ["Dash/Dot", "Backslash", "Comma"] },
-            { "op": "Hex to PEM",
+            { "op": "摩尔斯电码编码",
+                "args": ["Dash/Dot", "反斜杠", "逗号"] },
+            { "op": "十六进制转PEM",
                 "args": ["SOMETHING"] },
-            { "op": "To Snake case",
+            { "op": "转换为Snake case",
                 "args": [false] }
         ]);
         assert.strictEqual(result.toString(), "begin_something_anananaaaaak_da_aaak_da_aaaaananaaaaaaan_da_aaaaaaanan_da_aaak_end_something");
@@ -336,10 +338,10 @@ TestRegister.addApiTests([
 
     it("chef.bake: should accept Clean JSON format from Chef website - args optional", () => {
         const result = chef.bake("some input", [
-            { "op": "To Morse Code" },
-            { "op": "Hex to PEM",
+            { "op": "摩尔斯电码编码" },
+            { "op": "十六进制转PEM",
                 "args": ["SOMETHING"] },
-            { "op": "To Snake case",
+            { "op": "转换为Snake case",
                 "args": [false] }
         ]);
         assert.strictEqual(result.toString(), "begin_something_aaaaaaaaaaaaaa_end_something");
@@ -354,7 +356,7 @@ TestRegister.addApiTests([
             name: "TypeError",
             message: "flowControl operations like Magic are not currently allowed in recipes for chef.bake in the Node API"
         });
-        assert.throws(() => chef.bake("some input", ["to base 64", "magic"]), {
+        assert.throws(() => chef.bake("some input", ["base64编码", "magic"]), {
             name: "TypeError",
             message: "flowControl operations like Magic are not currently allowed in recipes for chef.bake in the Node API"
         });
@@ -382,11 +384,11 @@ TestRegister.addApiTests([
     it("Operation arguments: should be accessible from operation object if op has array arg", () => {
         assert.ok(chef.toCharcode.args);
         assert.deepEqual(chef.unzip.args, {
-            password: {
+            密码: {
                 type: "binaryString",
                 value: "",
             },
-            verifyResult: {
+            验证结果: {
                 type: "boolean",
                 value: false,
             }
@@ -394,20 +396,20 @@ TestRegister.addApiTests([
     }),
 
     it("Operation arguments: should have key for each argument in operation", () => {
-        assert.ok(chef.convertDistance.args.inputUnits);
-        assert.ok(chef.convertDistance.args.outputUnits);
+        assert.ok(chef.convertDistance.args.输入单位);
+        assert.ok(chef.convertDistance.args.输出单位);
 
-        assert.strictEqual(chef.bitShiftRight.args.amount.type, "number");
-        assert.strictEqual(chef.bitShiftRight.args.amount.value, 1);
-        assert.strictEqual(chef.bitShiftRight.args.type.type, "option");
-        assert.ok(Array.isArray(chef.bitShiftRight.args.type.options));
+        assert.strictEqual(chef.bitShiftRight.args.偏移量.type, "number");
+        assert.strictEqual(chef.bitShiftRight.args.偏移量.value, 1);
+        assert.strictEqual(chef.bitShiftRight.args.类型.type, "option");
+        assert.ok(Array.isArray(chef.bitShiftRight.args.类型.options));
 
     }),
 
     it("Operation arguments: should list all options excluding subheadings", () => {
         // First element (subheading) removed
-        assert.equal(chef.convertDistance.args.inputUnits.options[0], "Nanometres (nm)");
-        assert.equal(chef.defangURL.args.process.options[1], "Only full URLs");
+        assert.equal(chef.convertDistance.args.输入单位.options[0], "纳米 (nm)");
+        assert.equal(chef.defangURL.args.处理类型.options[1], "仅无效化完整URL");
     }),
 
 ]);

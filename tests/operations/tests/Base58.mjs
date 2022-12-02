@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Base58",
+                op: "Base58编码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Base58",
+                op: "Base58编码",
                 args: ["rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz"],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "StV1DL6CwTryKyV",
         recipeConfig: [
             {
-                op: "To Base58",
+                op: "Base58编码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],
@@ -48,7 +50,7 @@ TestRegister.addTests([
         expectedOutput: "StVrDLaUATiyKyV",
         recipeConfig: [
             {
-                op: "To Base58",
+                op: "Base58编码",
                 args: ["rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz"],
             },
         ],
@@ -59,7 +61,7 @@ TestRegister.addTests([
         expectedOutput: "111D7LMXYjHjTu",
         recipeConfig: [
             {
-                op: "To Base58",
+                op: "Base58编码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],
@@ -70,7 +72,7 @@ TestRegister.addTests([
         expectedOutput: "\0\0\0Hello\0\0\0",
         recipeConfig: [
             {
-                op: "From Base58",
+                op: "Base58解码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],
@@ -81,7 +83,7 @@ TestRegister.addTests([
         expectedOutput: "hello world",
         recipeConfig: [
             {
-                op: "From Base58",
+                op: "Base58解码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],
@@ -92,7 +94,7 @@ TestRegister.addTests([
         expectedOutput: "hello world",
         recipeConfig: [
             {
-                op: "From Base58",
+                op: "Base58解码",
                 args: ["rpshnaf39wBUDNEGHJKLM4PQRST7VWXYZ2bcdeCg65jkm8oFqi1tuvAxyz"],
             },
         ],

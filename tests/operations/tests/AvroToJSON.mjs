@@ -4,6 +4,8 @@
  * @author jarrodconnolly [jarrod@nestedquotes.ca]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "Please provide an input.",
         recipeConfig: [
             {
-                op: "Avro to JSON",
+                op: "Avro转JSON",
                 args: [true]
             }
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "Please provide an input.",
         recipeConfig: [
             {
-                op: "Avro to JSON",
+                op: "Avro转JSON",
                 args: [false]
             }
         ],
@@ -42,7 +44,7 @@ TestRegister.addTests([
         expectedOutput: "{\n    \"name\": \"myname\"\n}",
         recipeConfig: [
             {
-                op: "Avro to JSON",
+                op: "Avro转JSON",
                 args: [true]
             }
         ],
@@ -58,7 +60,7 @@ TestRegister.addTests([
         expectedOutput: "{\"name\":\"myname\"}\n",
         recipeConfig: [
             {
-                op: "Avro to JSON",
+                op: "Avro转JSON",
                 args: [false]
             }
         ],

@@ -43,13 +43,18 @@ class Recipe  {
      */
     _parseConfig(recipeConfig) {
         recipeConfig.forEach(c => {
-            this.opList.push({
-                name: c.op,
-                module: OperationConfig[c.op].module,
-                ingValues: c.args,
-                breakpoint: c.breakpoint,
-                disabled: c.disabled || c.op === "Comment",
-            });
+            try {
+                this.opList.push({
+                    name: c.op,
+                    module: OperationConfig[c.op].module,
+                    ingValues: c.args,
+                    breakpoint: c.breakpoint,
+                    disabled: c.disabled || c.op === "Comment",
+                });
+            } catch (error) {
+                console.log(`[WARNING] ${c.op} Not found: ${error}`);
+            }
+
         });
     }
 

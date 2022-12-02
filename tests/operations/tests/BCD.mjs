@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "0000",
         recipeConfig: [
             {
-                "op": "To BCD",
-                "args": ["8 4 2 1", true, false, "Nibbles"]
+                "op": "BCD码编码",
+                "args": ["8 4 2 1", true, false, "半字节"]
             }
         ]
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedOutput: "0000 0001 0000 0010 0000 0011 0000 0100 0000 0101 0000 0110 0000 0111 0000 1000 0000 1001 0000 0000",
         recipeConfig: [
             {
-                "op": "To BCD",
-                "args": ["8 4 2 1", false, false, "Nibbles"]
+                "op": "BCD码编码",
+                "args": ["8 4 2 1", false, false, "半字节"]
             }
         ]
     },
@@ -36,8 +38,8 @@ TestRegister.addTests([
         expectedOutput: "00000001 00100011 01000101 01100111 10001001 00001100",
         recipeConfig: [
             {
-                "op": "To BCD",
-                "args": ["8 4 2 1", true, true, "Bytes"]
+                "op": "BCD码编码",
+                "args": ["8 4 2 1", true, true, "字节"]
             }
         ]
     },
@@ -47,8 +49,8 @@ TestRegister.addTests([
         expectedOutput: "0000 0111 0110 0101 0100 1011 1010 1001 1000 1111 0000 1101",
         recipeConfig: [
             {
-                "op": "To BCD",
-                "args": ["8 4 -2 -1", true, true, "Nibbles"]
+                "op": "BCD码编码",
+                "args": ["8 4 -2 -1", true, true, "半字节"]
             }
         ]
     },
@@ -58,8 +60,8 @@ TestRegister.addTests([
         expectedOutput: "0",
         recipeConfig: [
             {
-                "op": "From BCD",
-                "args": ["8 4 2 1", true, false, "Nibbles"]
+                "op": "BCD码解码",
+                "args": ["8 4 2 1", true, false, "半字节"]
             }
         ]
     },
@@ -69,8 +71,8 @@ TestRegister.addTests([
         expectedOutput: "-1234567890",
         recipeConfig: [
             {
-                "op": "From BCD",
-                "args": ["8 4 2 1", true, true, "Bytes"]
+                "op": "BCD码解码",
+                "args": ["8 4 2 1", true, true, "字节"]
             }
         ]
     },
@@ -80,8 +82,8 @@ TestRegister.addTests([
         expectedOutput: "1234567890",
         recipeConfig: [
             {
-                "op": "From BCD",
-                "args": ["Excess-3", false, false, "Nibbles"]
+                "op": "BCD码解码",
+                "args": ["余3码", false, false, "半字节"]
             }
         ]
     },
@@ -91,12 +93,12 @@ TestRegister.addTests([
         expectedOutput: "1234567890",
         recipeConfig: [
             {
-                "op": "To BCD",
-                "args": ["4 2 2 1", true, true, "Raw"]
+                "op": "BCD码编码",
+                "args": ["4 2 2 1", true, true, "原始"]
             },
             {
-                "op": "From BCD",
-                "args": ["4 2 2 1", true, true, "Raw"]
+                "op": "BCD码解码",
+                "args": ["4 2 2 1", true, true, "原始"]
             }
         ]
     },

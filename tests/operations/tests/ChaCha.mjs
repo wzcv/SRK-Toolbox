@@ -4,6 +4,8 @@
  * @author joostrijneveld [joost@joostrijneveld.nl]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -12,16 +14,16 @@ TestRegister.addTests([
     {
         name: "ChaCha: no key",
         input: "",
-        expectedOutput: `Invalid key length: 0 bytes.
+        expectedOutput: `无效的key长度： 0 字节。
 
-ChaCha uses a key of 16 or 32 bytes (128 or 256 bits).`,
+ChaCha使用16或32字节的key（128或256位）。`,
         recipeConfig: [
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": ""},
-                    {"option": "Hex", "string": ""},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": ""},
+                    {"option": "十六进制", "string": ""},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -29,16 +31,16 @@ ChaCha uses a key of 16 or 32 bytes (128 or 256 bits).`,
     {
         name: "ChaCha: no nonce",
         input: "",
-        expectedOutput: `Invalid nonce length: 0 bytes.
+        expectedOutput: `无效的nonce长度： 0 字节。
 
-ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
+ChaCha使用8或12字节长度的nonce（64或96位）。`,
         recipeConfig: [
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -51,9 +53,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f:10:11:12:13:14:15:16:17:18:19:1a:1b:1c:1d:1e:1f"},
-                    {"option": "Hex", "string": "00:00:00:00:00:00:00:4a:00:00:00:00"},
-                    1, "20", "Raw", "Hex",
+                    {"option": "十六进制", "string": "00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f:10:11:12:13:14:15:16:17:18:19:1a:1b:1c:1d:1e:1f"},
+                    {"option": "十六进制", "string": "00:00:00:00:00:00:00:4a:00:00:00:00"},
+                    1, "20", "Raw", "十六进制",
                 ]
             }
         ],
@@ -66,9 +68,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff"},
-                    {"option": "Hex", "string": "0f 1e 2d 3c 4b 5a 69 78"},
-                    0, "8", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff"},
+                    {"option": "十六进制", "string": "0f 1e 2d 3c 4b 5a 69 78"},
+                    0, "8", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -81,9 +83,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff"},
-                    {"option": "Hex", "string": "0f 1e 2d 3c 4b 5a 69 78"},
-                    0, "12", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff"},
+                    {"option": "十六进制", "string": "0f 1e 2d 3c 4b 5a 69 78"},
+                    0, "12", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -96,9 +98,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff"},
-                    {"option": "Hex", "string": "0f 1e 2d 3c 4b 5a 69 78"},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff"},
+                    {"option": "十六进制", "string": "0f 1e 2d 3c 4b 5a 69 78"},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -111,9 +113,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff ff ee dd cc bb aa 99 88 77 66 55 44 33 22 11 00"},
-                    {"option": "Hex", "string": "0f 1e 2d 3c 4b 5a 69 78"},
-                    0, "8", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff ff ee dd cc bb aa 99 88 77 66 55 44 33 22 11 00"},
+                    {"option": "十六进制", "string": "0f 1e 2d 3c 4b 5a 69 78"},
+                    0, "8", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -126,9 +128,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff ff ee dd cc bb aa 99 88 77 66 55 44 33 22 11 00"},
-                    {"option": "Hex", "string": "0f 1e 2d 3c 4b 5a 69 78"},
-                    0, "12", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff ff ee dd cc bb aa 99 88 77 66 55 44 33 22 11 00"},
+                    {"option": "十六进制", "string": "0f 1e 2d 3c 4b 5a 69 78"},
+                    0, "12", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -141,9 +143,9 @@ ChaCha uses a nonce of 8 or 12 bytes (64 or 96 bits).`,
             {
                 "op": "ChaCha",
                 "args": [
-                    {"option": "Hex", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff ff ee dd cc bb aa 99 88 77 66 55 44 33 22 11 00"},
-                    {"option": "Hex", "string": "0f 1e 2d 3c 4b 5a 69 78"},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00 11 22 33 44 55 66 77 88 99 aa bb cc dd ee ff ff ee dd cc bb aa 99 88 77 66 55 44 33 22 11 00"},
+                    {"option": "十六进制", "string": "0f 1e 2d 3c 4b 5a 69 78"},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],

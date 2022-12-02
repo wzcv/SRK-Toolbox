@@ -4,6 +4,8 @@
  * @author john19696
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -26,7 +28,7 @@ TestRegister.addTests([
         input: wpExample,
         expectedOutput: wpOutput,
         recipeConfig: [
-            { "op": "To Base85",
+            { "op": "Base85编码",
                 "args": ["!-u"] }
         ]
     },
@@ -35,7 +37,7 @@ TestRegister.addTests([
         input: wpOutput + "\n",
         expectedOutput: wpExample,
         recipeConfig: [
-            { "op": "From Base85",
+            { "op": "Base85解码",
                 "args": ["!-u", true] }
         ]
     },
@@ -43,9 +45,9 @@ TestRegister.addTests([
         name: "From Base85",
         input: wpOutput + "v",
         expectedError: true,
-        expectedOutput: "From Base85 - Invalid character 'v' at index 337",
+        expectedOutput: "Base85解码 - 无效的字符 'v' ，位置： 337",
         recipeConfig: [
-            { "op": "From Base85",
+            { "op": "Base85解码",
                 "args": ["!-u", false] }
         ]
     },
@@ -54,7 +56,7 @@ TestRegister.addTests([
         input: allZeroExample,
         expectedOutput: allZeroOutput,
         recipeConfig: [
-            { "op": "To Base85",
+            { "op": "Base85编码",
                 "args": ["!-u"] }
         ]
     },
@@ -63,7 +65,7 @@ TestRegister.addTests([
         input: allZeroOutput,
         expectedOutput: allZeroExample,
         recipeConfig: [
-            { "op": "From Base85",
+            { "op": "Base85解码",
                 "args": ["!-u", true, "z"] }
         ]
     },

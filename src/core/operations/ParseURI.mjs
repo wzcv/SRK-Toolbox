@@ -43,7 +43,7 @@ class ParseURI extends Operation {
         if (uri.auth) output += "鉴权：\t\t" + uri.auth + "\n";
         if (uri.hostname) output += "主机名称：\t" + uri.hostname + "\n";
         if (uri.port) output += "端口：\t\t" + uri.port + "\n";
-        if (uri.pathname) output += "路径名称\t" + uri.pathname + "\n";
+        if (uri.pathname) output += "路径名称：\t" + uri.pathname + "\n";
         if (uri.query) {
             const keys = Object.keys(uri.query);
             let padding = 0;

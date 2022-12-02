@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -34,7 +36,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
         ],
@@ -45,7 +47,7 @@ TestRegister.addTests([
         expectedOutput: "SGVsbG8sIFdvcmxkIQ==",
         recipeConfig: [
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
         ],
@@ -56,7 +58,7 @@ TestRegister.addTests([
         expectedOutput: "4YOc4YOjIOGDnuGDkOGDnOGDmOGDmeGDkOGDoQ==",
         recipeConfig: [
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
         ],
@@ -67,7 +69,7 @@ TestRegister.addTests([
         expectedOutput: "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIjJCUmJygpKissLS4vMDEyMzQ1Njc4OTo7PD0+P0BBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWltcXV5fYGFiY2RlZmdoaWprbG1ub3BxcnN0dXZ3eHl6e3x9fn+AgYKDhIWGh4iJiouMjY6PkJGSk5SVlpeYmZqbnJ2en6ChoqOkpaanqKmqq6ytrq+wsbKztLW2t7i5uru8vb6/wMHCw8TFxsfIycrLzM3Oz9DR0tPU1dbX2Nna29zd3t/g4eLj5OXm5+jp6uvs7e7v8PHy8/T19vf4+fr7/P3+/w==",
         recipeConfig: [
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
         ],
@@ -78,7 +80,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Base64",
+                op: "Base64解码",
                 args: ["A-Za-z0-9+/=", true],
             },
         ],
@@ -89,7 +91,7 @@ TestRegister.addTests([
         expectedOutput: "Hello, World!",
         recipeConfig: [
             {
-                op: "From Base64",
+                op: "Base64解码",
                 args: ["A-Za-z0-9+/=", true],
             },
         ],
@@ -100,7 +102,7 @@ TestRegister.addTests([
         expectedOutput: "ნუ პანიკას",
         recipeConfig: [
             {
-                op: "From Base64",
+                op: "Base64解码",
                 args: ["A-Za-z0-9+/=", true],
             },
         ],
@@ -111,7 +113,7 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "From Base64",
+                op: "Base64解码",
                 args: ["A-Za-z0-9+/=", true],
             },
         ],

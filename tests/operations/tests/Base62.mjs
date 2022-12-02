@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -16,7 +18,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Base62",
+                op: "Base62编码",
                 args: ["0-9A-Za-z"],
             },
         ],
@@ -27,7 +29,7 @@ TestRegister.addTests([
         expectedOutput: "1wJfrzvdbtXUOlUjUf",
         recipeConfig: [
             {
-                op: "To Base62",
+                op: "Base62编码",
                 args: ["0-9A-Za-z"],
             },
         ],
@@ -38,7 +40,7 @@ TestRegister.addTests([
         expectedOutput: "BPDNbjoGvDCDzHbKT77eWg0vGQrJuWRXltuRVZ",
         recipeConfig: [
             {
-                op: "To Base62",
+                op: "Base62编码",
                 args: ["0-9A-Za-z"],
             },
         ],
@@ -49,7 +51,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Base62",
+                op: "Base62解码",
                 args: ["0-9A-Za-z"],
             },
         ],
@@ -60,7 +62,7 @@ TestRegister.addTests([
         expectedOutput: "Hello, World!",
         recipeConfig: [
             {
-                op: "From Base62",
+                op: "Base62解码",
                 args: ["0-9A-Za-z"],
             },
         ],
@@ -71,7 +73,7 @@ TestRegister.addTests([
         expectedOutput: "ნუ პანიკას",
         recipeConfig: [
             {
-                op: "From Base62",
+                op: "Base62解码",
                 args: ["0-9A-Za-z"],
             },
         ],

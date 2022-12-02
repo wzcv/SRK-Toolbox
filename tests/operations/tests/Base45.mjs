@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -18,7 +20,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Base45",
+                op: "Base45编码",
                 args: [defaultB45Alph],
             },
         ],
@@ -29,7 +31,7 @@ TestRegister.addTests([
         expectedOutput: "BB8",
         recipeConfig: [
             {
-                op: "To Base45",
+                op: "Base45编码",
                 args: [defaultB45Alph],
             },
         ],
@@ -40,7 +42,7 @@ TestRegister.addTests([
         expectedOutput: "%69 VD92EX0",
         recipeConfig: [
             {
-                op: "To Base45",
+                op: "Base45编码",
                 args: [defaultB45Alph],
             },
         ],
@@ -51,7 +53,7 @@ TestRegister.addTests([
         expectedOutput: "UJCLQE7W581",
         recipeConfig: [
             {
-                op: "To Base45",
+                op: "Base45编码",
                 args: [defaultB45Alph],
             },
         ],
@@ -62,7 +64,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Base45",
+                op: "Base45解码",
                 args: [defaultB45Alph],
             },
         ],
@@ -73,7 +75,7 @@ TestRegister.addTests([
         expectedOutput: "ietf!",
         recipeConfig: [
             {
-                op: "From Base45",
+                op: "Base45解码",
                 args: [defaultB45Alph],
             },
         ],
@@ -81,10 +83,10 @@ TestRegister.addTests([
     {
         name: "From Base45: Invalid character",
         input: "!",
-        expectedOutput: "Character not in alphabet: '!'",
+        expectedOutput: "非可用字符: '!'",
         recipeConfig: [
             {
-                op: "From Base45",
+                op: "Base45解码",
                 args: [defaultB45Alph],
             },
         ],
@@ -92,10 +94,10 @@ TestRegister.addTests([
     {
         name: "From Base45: Invalid triplet value",
         input: "ZZZ",
-        expectedOutput: "Triplet too large: 'ZZZ'",
+        expectedOutput: "超出编码范围: 'ZZZ'",
         recipeConfig: [
             {
-                op: "From Base45",
+                op: "Base45解码",
                 args: [defaultB45Alph],
             },
         ],

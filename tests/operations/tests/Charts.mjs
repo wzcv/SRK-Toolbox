@@ -4,6 +4,8 @@
  * @author Matt C [me@mitt.dev]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedMatch: /^<svg width/,
         recipeConfig: [
             {
-                "op": "Scatter chart",
-                "args": ["Line feed", "Space", false, "time", "stress", "black", 5, false]
+                "op": "散点图",
+                "args": ["换行", "空格", false, "time", "stress", "black", 5, false]
             }
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedMatch: /^<svg width/,
         recipeConfig: [
             {
-                "op": "Hex Density chart",
-                "args": ["Line feed", "Space", 25, 15, true, "", "", true, "white", "black", true]
+                "op": "六边形密度图",
+                "args": ["换行", "空格", 25, 15, true, "", "", true, "white", "black", true]
             }
         ],
     },
@@ -36,8 +38,8 @@ TestRegister.addTests([
         expectedMatch: /^<svg width/,
         recipeConfig: [
             {
-                "op": "Series chart",
-                "args": ["Line feed", "Space", "", 1, "mediumseagreen, dodgerblue, tomato"]
+                "op": "折线图",
+                "args": ["换行", "空格", "", 1, "mediumseagreen, dodgerblue, tomato"]
             }
         ],
     },
@@ -47,8 +49,8 @@ TestRegister.addTests([
         expectedMatch: /^<svg width/,
         recipeConfig: [
             {
-                "op": "Heatmap chart",
-                "args": ["Line feed", "Space", 25, 25, true, "", "", false, "white", "black"]
+                "op": "热图",
+                "args": ["换行", "空格", 25, 25, true, "", "", false, "white", "black"]
             }
         ],
     },

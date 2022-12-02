@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "BSON serialise",
+                op: "BSON序列化",
                 args: [],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "\x16\x00\x00\x00\x02hello\x00\x06\x00\x00\x00world\x00\x00",
         recipeConfig: [
             {
-                op: "BSON serialise",
+                op: "BSON序列化",
                 args: [],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "BSON deserialise",
+                op: "BSON反序列化",
                 args: [],
             },
         ],
@@ -48,7 +50,7 @@ TestRegister.addTests([
         expectedOutput: "{\n  \"hello\": \"world\"\n}",
         recipeConfig: [
             {
-                op: "BSON deserialise",
+                op: "BSON反序列化",
                 args: [],
             },
         ],

@@ -64,7 +64,7 @@ class GenerateHOTP extends Operation {
             secret: (new ToBase32).run(input, []).split("=")[0],
         });
         const counter = args[3];
-        return `URI： ${otpObj.hotpURL}\n\n动态码 ${otpObj.hotp(counter)}`;
+        return `URI： ${otpObj.hotpURL}\n\n动态码： ${otpObj.hotp(counter)}`;
     }
 
 }

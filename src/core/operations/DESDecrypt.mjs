@@ -49,12 +49,12 @@ class DESDecrypt extends Operation {
             {
                 "name": "输入格式",
                 "type": "option",
-                "value": ["原始内容", "十六进制"]
+                "value": ["十六进制", "原始内容"]
             },
             {
                 "name": "输出格式",
                 "type": "option",
-                "value": ["十六进制", "原始内容"]
+                "value": ["原始内容", "十六进制"]
             }
         ];
     }

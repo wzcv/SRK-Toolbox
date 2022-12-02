@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -35,7 +37,7 @@ TestRegister.addTests([
         expectedOutput: "00",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8"]
             }
         ]
@@ -46,7 +48,7 @@ TestRegister.addTests([
         expectedOutput: "f4",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8"]
             }
         ]
@@ -57,7 +59,7 @@ TestRegister.addTests([
         expectedOutput: "da",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/CDMA2000"]
             }
         ]
@@ -68,7 +70,7 @@ TestRegister.addTests([
         expectedOutput: "15",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/DARC"]
             }
         ]
@@ -79,7 +81,7 @@ TestRegister.addTests([
         expectedOutput: "bc",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/DVB-S2"]
             }
         ]
@@ -90,7 +92,7 @@ TestRegister.addTests([
         expectedOutput: "97",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/EBU"]
             }
         ]
@@ -101,7 +103,7 @@ TestRegister.addTests([
         expectedOutput: "7e",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/I-CODE"]
             }
         ]
@@ -112,7 +114,7 @@ TestRegister.addTests([
         expectedOutput: "a1",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/ITU"]
             }
         ]
@@ -123,7 +125,7 @@ TestRegister.addTests([
         expectedOutput: "a1",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/MAXIM"]
             }
         ]
@@ -134,7 +136,7 @@ TestRegister.addTests([
         expectedOutput: "d0",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/ROHC"]
             }
         ]
@@ -145,7 +147,7 @@ TestRegister.addTests([
         expectedOutput: "25",
         recipeConfig: [
             {
-                "op": "CRC-8 Checksum",
+                "op": "CRC-8校验和",
                 "args": ["CRC-8/WCDMA"]
             }
         ]
@@ -156,7 +158,7 @@ TestRegister.addTests([
         expectedOutput: "0000",
         recipeConfig: [
             {
-                "op": "CRC-16 Checksum",
+                "op": "CRC-16校验和",
                 "args": []
             }
         ]
@@ -167,7 +169,7 @@ TestRegister.addTests([
         expectedOutput: "0c70",
         recipeConfig: [
             {
-                "op": "CRC-16 Checksum",
+                "op": "CRC-16校验和",
                 "args": []
             }
         ]
@@ -178,7 +180,7 @@ TestRegister.addTests([
         expectedOutput: "dcf6",
         recipeConfig: [
             {
-                "op": "CRC-16 Checksum",
+                "op": "CRC-16校验和",
                 "args": []
             }
         ]
@@ -189,7 +191,7 @@ TestRegister.addTests([
         expectedOutput: "bad3",
         recipeConfig: [
             {
-                "op": "CRC-16 Checksum",
+                "op": "CRC-16校验和",
                 "args": []
             }
         ]
@@ -200,7 +202,7 @@ TestRegister.addTests([
         expectedOutput: "00000000",
         recipeConfig: [
             {
-                "op": "CRC-32 Checksum",
+                "op": "CRC-32校验和",
                 "args": []
             }
         ]
@@ -211,7 +213,7 @@ TestRegister.addTests([
         expectedOutput: "bf4b739c",
         recipeConfig: [
             {
-                "op": "CRC-32 Checksum",
+                "op": "CRC-32校验和",
                 "args": []
             }
         ]
@@ -222,7 +224,7 @@ TestRegister.addTests([
         expectedOutput: "87553290",
         recipeConfig: [
             {
-                "op": "CRC-32 Checksum",
+                "op": "CRC-32校验和",
                 "args": []
             }
         ]
@@ -233,7 +235,7 @@ TestRegister.addTests([
         expectedOutput: "29058c73",
         recipeConfig: [
             {
-                "op": "CRC-32 Checksum",
+                "op": "CRC-32校验和",
                 "args": []
             }
         ]

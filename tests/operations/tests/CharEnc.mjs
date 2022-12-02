@@ -4,6 +4,8 @@
  * @author tlwr [toby@toby.codes]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,11 +16,11 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Encode text",
+                "op": "文本编码",
                 "args": ["UTF-8 (65001)"]
             },
             {
-                "op": "Decode text",
+                "op": "文本解码",
                 "args": ["UTF-8 (65001)"]
             },
         ],
@@ -29,11 +31,11 @@ TestRegister.addTests([
         expectedOutput: "hello",
         recipeConfig: [
             {
-                "op": "Encode text",
+                "op": "文本编码",
                 "args": ["UTF-8 (65001)"]
             },
             {
-                "op": "Decode text",
+                "op": "文本解码",
                 "args": ["UTF-8 (65001)"]
             },
         ],
@@ -44,11 +46,11 @@ TestRegister.addTests([
         expectedOutput: "88 85 93 93 96",
         recipeConfig: [
             {
-                "op": "Encode text",
+                "op": "文本编码",
                 "args": ["IBM EBCDIC International (500)"]
             },
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": ["Space"]
             },
         ],
@@ -59,11 +61,11 @@ TestRegister.addTests([
         expectedOutput: "hello",
         recipeConfig: [
             {
-                "op": "From Hex",
+                "op": "十六进制转字符",
                 "args": ["Space"]
             },
             {
-                "op": "Decode text",
+                "op": "文本解码",
                 "args": ["IBM EBCDIC International (500)"]
             },
         ],
@@ -74,15 +76,15 @@ TestRegister.addTests([
         expectedOutput: "dir \"c:\\program files\" ",
         recipeConfig: [
             {
-                "op": "From Base64",
+                "op": "Base64解码",
                 "args": ["A-Za-z0-9+/=", true]
             },
             {
-                "op": "Decode text",
+                "op": "文本解码",
                 "args": ["UTF-16LE (1200)"]
             },
             {
-                "op": "Encode text",
+                "op": "文本编码",
                 "args": ["UTF-8 (65001)"]
             },
         ],

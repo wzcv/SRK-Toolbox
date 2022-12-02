@@ -6,6 +6,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -17,7 +19,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "Affine Cipher Encode",
+                op: "仿射密码加密",
                 args: [1, 0]
             }
         ],
@@ -28,7 +30,7 @@ TestRegister.addTests([
         expectedOutput: "The values of a and b can only be integers.",
         recipeConfig: [
             {
-                op: "Affine Cipher Encode",
+                op: "仿射密码加密",
                 args: [0.1, 0.00001]
             }
         ],
@@ -39,7 +41,7 @@ TestRegister.addTests([
         expectedOutput: "some keys are shaped as locks. index[me]",
         recipeConfig: [
             {
-                op: "Affine Cipher Encode",
+                op: "仿射密码加密",
                 args: [1, 0]
             }
         ],
@@ -50,7 +52,7 @@ TestRegister.addTests([
         expectedOutput: "vhnl tldv xyl vcxelo xv qhrtv. zkolg[nl]",
         recipeConfig: [
             {
-                op: "Affine Cipher Encode",
+                op: "仿射密码加密",
                 args: [23, 23]
             }
         ],
@@ -61,7 +63,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "Affine Cipher Decode",
+                op: "仿射密码解密",
                 args: [1, 0]
             }
         ],
@@ -69,10 +71,10 @@ TestRegister.addTests([
     {
         name: "Affine Decode: invalid a & b (non-integer)",
         input: "vhnl tldv xyl vcxelo xv qhrtv. zkolg[nl]",
-        expectedOutput: "The values of a and b can only be integers.",
+        expectedOutput: "a和b必须为整数",
         recipeConfig: [
             {
-                op: "Affine Cipher Decode",
+                op: "仿射密码解密",
                 args: [0.1, 0.00001]
             }
         ],
@@ -80,10 +82,10 @@ TestRegister.addTests([
     {
         name: "Affine Decode: invalid a (coprime)",
         input: "vhnl tldv xyl vcxelo xv qhrtv. zkolg[nl]",
-        expectedOutput: "The value of `a` must be coprime to 26.",
+        expectedOutput: "`a`必须和26互质",
         recipeConfig: [
             {
-                op: "Affine Cipher Decode",
+                op: "仿射密码解密",
                 args: [8, 23]
             }
         ],
@@ -94,7 +96,7 @@ TestRegister.addTests([
         expectedOutput: "vhnl tldv xyl vcxelo xv qhrtv. zkolg[nl]",
         recipeConfig: [
             {
-                op: "Affine Cipher Decode",
+                op: "仿射密码解密",
                 args: [1, 0]
             }
         ],
@@ -105,7 +107,7 @@ TestRegister.addTests([
         expectedOutput: "some keys are shaped as locks. index[me]",
         recipeConfig: [
             {
-                op: "Affine Cipher Decode",
+                op: "仿射密码解密",
                 args: [23, 23]
             }
         ],
@@ -116,8 +118,8 @@ TestRegister.addTests([
         expectedOutput: "20 8 9 19 9 19 20 8 5 20 5 19 20 19 5 14 20 5 14 3 5",
         recipeConfig: [
             {
-                op: "A1Z26 Cipher Encode",
-                args: ["Space"]
+                op: "A1Z26密码加密",
+                args: ["空格"]
             }
         ],
     },
@@ -127,19 +129,19 @@ TestRegister.addTests([
         expectedOutput: "thisisthetestsentence",
         recipeConfig: [
             {
-                op: "A1Z26 Cipher Decode",
-                args: ["Space"]
+                op: "A1Z26密码解密",
+                args: ["空格"]
             }
         ],
     },
     {
         name: "A1Z26 Decode: error",
         input: "20 8 9 27",
-        expectedOutput: "Error: all numbers must be between 1 and 26.",
+        expectedOutput: "错误：数字必须在1到26之间。",
         recipeConfig: [
             {
-                op: "A1Z26 Cipher Decode",
-                args: ["Space"]
+                op: "A1Z26密码解密",
+                args: ["空格"]
             }
         ],
     },
@@ -149,7 +151,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "Atbash Cipher",
+                op: "阿特巴希密码",
                 args: []
             }
         ],
@@ -160,7 +162,7 @@ TestRegister.addTests([
         expectedOutput: "low hold horn slim",
         recipeConfig: [
             {
-                op: "Atbash Cipher",
+                op: "阿特巴希密码",
                 args: []
             }
         ],
@@ -171,7 +173,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Encode",
+                "op": "双密码加密",
                 "args": ["nothing"]
             }
         ],
@@ -182,7 +184,7 @@ TestRegister.addTests([
         expectedOutput: "Vq daqcliho rmltofvlnc qbdhlcr nt qdq Fbm-Rdkkm vuoottnoi aitp al axf tdtmvt owppkaodtx.",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Encode",
+                "op": "双密码加密",
                 "args": [""]
             }
         ],
@@ -190,10 +192,10 @@ TestRegister.addTests([
     {
         name: "Bifid Cipher Encode: invalid key (non-alphabetic)",
         input: "We recreate conditions similar to the Van-Allen radiation belt in our secure facilities.",
-        expectedOutput: "The key must consist only of letters in the English alphabet",
+        expectedOutput: "Key只能包含英文字母",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Encode",
+                "op": "双密码加密",
                 "args": ["abc123"]
             }
         ],
@@ -204,7 +206,7 @@ TestRegister.addTests([
         expectedOutput: "Wc snpsigdd cpfrrcxnfi hikdnnp dm crc Fcb-Pdeug vueageacc vtyl sa zxm crebzp lyoeuaiwpv.",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Encode",
+                "op": "双密码加密",
                 "args": ["Schrodinger"]
             }
         ],
@@ -215,7 +217,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Decode",
+                "op": "双密码解密",
                 "args": ["nothing"]
             }
         ],
@@ -226,7 +228,7 @@ TestRegister.addTests([
         expectedOutput: "We recreate conditions similar to the Van-Allen radiation belt in our secure facilities.",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Decode",
+                "op": "双密码解密",
                 "args": [""]
             }
         ],
@@ -234,10 +236,10 @@ TestRegister.addTests([
     {
         name: "Bifid Cipher Decode: invalid key (non-alphabetic)",
         input: "Vq daqcliho rmltofvlnc qbdhlcr nt qdq Fbm-Rdkkm vuoottnoi aitp al axf tdtmvt owppkaodtx.",
-        expectedOutput: "The key must consist only of letters in the English alphabet",
+        expectedOutput: "Key只能包含英文字母",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Decode",
+                "op": "双密码解密",
                 "args": ["abc123"]
             }
         ],
@@ -248,18 +250,18 @@ TestRegister.addTests([
         expectedOutput: "We recreate conditions similar to the Van-Allen radiation belt in our secure facilities.",
         recipeConfig: [
             {
-                "op": "Bifid Cipher Decode",
+                "op": "双密码解密",
                 "args": ["Schrodinger"]
             }
         ],
     },
     {
-        name: "Citrix CTX1 Encode",
+        name: "Citrix CTX1编码",
         input: "Password1",
         expectedOutput: "PFFAJEDBOHECJEDBODEGIMCJPOFLJKDPKLAO",
         recipeConfig: [
             {
-                "op": "Citrix CTX1 Encode",
+                "op": "Citrix CTX1编码",
                 "args": []
             }
         ],
@@ -270,7 +272,7 @@ TestRegister.addTests([
         expectedOutput: "Password1",
         recipeConfig: [
             {
-                "op": "Citrix CTX1 Decode",
+                "op": "Citrix CTX1解码",
                 "args": []
             }
         ],
@@ -278,10 +280,10 @@ TestRegister.addTests([
     {
         name: "Citrix CTX1 Decode: invalid length",
         input: "PFFAJEDBOHECJEDBODEGIMCJPOFLJKDPKLA",
-        expectedOutput: "Incorrect hash length",
+        expectedOutput: "哈希长度错误",
         recipeConfig: [
             {
-                "op": "Citrix CTX1 Decode",
+                "op": "Citrix CTX1解码",
                 "args": []
             }
         ],
@@ -292,7 +294,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Vigenère Encode",
+                "op": "维吉尼亚密码加密",
                 "args": ["nothing"]
             }
         ],
@@ -300,10 +302,10 @@ TestRegister.addTests([
     {
         name: "Vigenère Encode: no key",
         input: "LUGGAGEBASEMENTVARENNESALLIESCANBECLOTHEDASENEMIESENEMIESCANBECLOTHEDASALLIESALWAYSUSEID",
-        expectedOutput: "No key entered",
+        expectedOutput: "未输入Key",
         recipeConfig: [
             {
-                "op": "Vigenère Encode",
+                "op": "维吉尼亚密码加密",
                 "args": [""]
             }
         ],
@@ -311,10 +313,10 @@ TestRegister.addTests([
     {
         name: "Vigenère Encode: invalid key",
         input: "LUGGAGEBASEMENTVARENNESALLIESCANBECLOTHEDASENEMIESENEMIESCANBECLOTHEDASALLIESALWAYSUSEID",
-        expectedOutput: "The key must consist only of letters",
+        expectedOutput: "Key只能是字母",
         recipeConfig: [
             {
-                "op": "Vigenère Encode",
+                "op": "维吉尼亚密码加密",
                 "args": ["abc123"]
             }
         ],
@@ -325,7 +327,7 @@ TestRegister.addTests([
         expectedOutput: "PXCGRJIEWSVPIQPVRUIQJEJDPOEEJFEQXETOSWDEUDWHJEDLIVANVPMHOCRQFHYLFWLHZAJDPOEEJDPZWYJXWHED",
         recipeConfig: [
             {
-                "op": "Vigenère Encode",
+                "op": "维吉尼亚密码加密",
                 "args": ["Edward"]
             }
         ],
@@ -336,7 +338,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Vigenère Decode",
+                "op": "维吉尼亚密码解密",
                 "args": ["nothing"]
             }
         ],
@@ -344,10 +346,10 @@ TestRegister.addTests([
     {
         name: "Vigenère Decode: no key",
         input: "PXCGRJIEWSVPIQPVRUIQJEJDPOEEJFEQXETOSWDEUDWHJEDLIVANVPMHOCRQFHYLFWLHZAJDPOEEJDPZWYJXWHED",
-        expectedOutput: "No key entered",
+        expectedOutput: "未输入Key",
         recipeConfig: [
             {
-                "op": "Vigenère Decode",
+                "op": "维吉尼亚密码解密",
                 "args": [""]
             }
         ],
@@ -355,10 +357,10 @@ TestRegister.addTests([
     {
         name: "Vigenère Decode: invalid key",
         input: "PXCGRJIEWSVPIQPVRUIQJEJDPOEEJFEQXETOSWDEUDWHJEDLIVANVPMHOCRQFHYLFWLHZAJDPOEEJDPZWYJXWHED",
-        expectedOutput: "The key must consist only of letters",
+        expectedOutput: "Key只能是字母",
         recipeConfig: [
             {
-                "op": "Vigenère Decode",
+                "op": "维吉尼亚密码解密",
                 "args": ["abc123"]
             }
         ],
@@ -369,7 +371,7 @@ TestRegister.addTests([
         expectedOutput: "LUGGAGEBASEMENTVARENNESALLIESCANBECLOTHEDASENEMIESENEMIESCANBECLOTHEDASALLIESALWAYSUSEID",
         recipeConfig: [
             {
-                "op": "Vigenère Decode",
+                "op": "维吉尼亚密码解密",
                 "args": ["Edward"]
             }
         ],
@@ -380,7 +382,7 @@ TestRegister.addTests([
         expectedOutput: "flee at once. we are discovered!",
         recipeConfig: [
             {
-                "op": "Substitute",
+                "op": "替换密码",
                 "args": ["", ""]
             }
         ],
@@ -391,7 +393,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Substitute",
+                "op": "替换密码",
                 "args": ["abcdefghijklmnopqrstuvwxyz", "zebrascdfghijklmnopqtuvwxy"]
             }
         ],
@@ -399,10 +401,10 @@ TestRegister.addTests([
     {
         name: "Substitute: uneven pt/ct",
         input: "flee at once. we are discovered!",
-        expectedOutput: "Warning: Plaintext and Ciphertext lengths differ\n\nsiaa zq lkba. va zoa rfpbluaoar!",
+        expectedOutput: "警告：明文和密文长度不同\n\nsiaa zq lkba. va zoa rfpbluaoar!",
         recipeConfig: [
             {
-                "op": "Substitute",
+                "op": "替换密码",
                 "args": ["abcdefghijklmnopqrstuvwxyz", "zebrascdfghijklmnopqtuvwx"]
             }
         ],
@@ -413,7 +415,7 @@ TestRegister.addTests([
         expectedOutput: "siaa zq lkba. va zoa rfpbluaoar!",
         recipeConfig: [
             {
-                "op": "Substitute",
+                "op": "替换密码",
                 "args": ["abcdefghijklmnopqrstuvwxyz", "zebrascdfghijklmnopqtuvwxy"]
             }
         ],
@@ -424,7 +426,7 @@ TestRegister.addTests([
         expectedOutput: "Cryptography is THE Art of Writing or solving codes",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Decode",
+                "op": "篱笆密码解密",
                 "args": [2, 0]
             }
         ],
@@ -432,10 +434,10 @@ TestRegister.addTests([
     {
         name: "Rail Fence Cipher Decode: key has to be bigger than 2",
         input: "Cytgah sTEAto rtn rsligcdsrporpyi H r fWiigo ovn oe",
-        expectedOutput: "Key has to be bigger than 2",
+        expectedOutput: "篱笆数量不少于2",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Decode",
+                "op": "篱笆密码解密",
                 "args": [1, 0]
             }
         ],
@@ -443,10 +445,10 @@ TestRegister.addTests([
     {
         name: "Rail Fence Cipher Decode: key has to be smaller than input's length",
         input: "shortinput",
-        expectedOutput: "Key should be smaller than the cipher's length",
+        expectedOutput: "篱笆数量不能超过明文长度",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Decode",
+                "op": "篱笆密码解密",
                 "args": [22, 0]
             }
         ],
@@ -454,10 +456,10 @@ TestRegister.addTests([
     {
         name: "Rail Fence Cipher Decode: offset should be positive",
         input: "shortinput",
-        expectedOutput: "Offset has to be a positive integer",
+        expectedOutput: "偏移量必须为正整数",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Decode",
+                "op": "篱笆密码解密",
                 "args": [2, -1]
             }
         ],
@@ -468,7 +470,7 @@ TestRegister.addTests([
         expectedOutput: "12345678901234567890",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Decode",
+                "op": "篱笆密码解密",
                 "args": [4, 2]
             }
         ],
@@ -479,7 +481,7 @@ TestRegister.addTests([
         expectedOutput: "Cytgah sTEAto rtn rsligcdsrporpyi H r fWiigo ovn oe",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Encode",
+                "op": "篱笆密码加密",
                 "args": [2, 0]
             }
         ],
@@ -487,10 +489,10 @@ TestRegister.addTests([
     {
         name: "Rail Fence Cipher Encode: key has to be bigger than 2",
         input: "Cryptography is THE Art of Writing or solving codes",
-        expectedOutput: "Key has to be bigger than 2",
+        expectedOutput: "篱笆数量不能少于2",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Encode",
+                "op": "篱笆密码加密",
                 "args": [1, 0]
             }
         ],
@@ -498,10 +500,10 @@ TestRegister.addTests([
     {
         name: "Rail Fence Cipher Encode: key has to be smaller than input's length",
         input: "shortinput",
-        expectedOutput: "Key should be smaller than the plain text's length",
+        expectedOutput: "篱笆数量不能超过明文长度",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Encode",
+                "op": "篱笆密码加密",
                 "args": [22, 0]
             }
         ],
@@ -509,10 +511,10 @@ TestRegister.addTests([
     {
         name: "Rail Fence Cipher Encode: offset should be positive",
         input: "shortinput",
-        expectedOutput: "Offset has to be a positive integer",
+        expectedOutput: "偏移量必须为正整数",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Encode",
+                "op": "篱笆密码加密",
                 "args": [2, -1]
             }
         ],
@@ -523,7 +525,7 @@ TestRegister.addTests([
         expectedOutput: "51746026813793592840",
         recipeConfig: [
             {
-                "op": "Rail Fence Cipher Encode",
+                "op": "篱笆密码加密",
                 "args": [4, 2]
             }
         ],

@@ -4,6 +4,8 @@
  * @author dolphinOnKeys
  * @copyright Crown Copyright 2022
  * @licence Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "a b c で",
         recipeConfig: [
             {
-                op: "Cetacean Cipher Decode",
+                op: "鲸豚密码解密",
                 args: []
             },
         ],

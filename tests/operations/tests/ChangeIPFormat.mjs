@@ -4,6 +4,8 @@
  * @author Chris Smith
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "c0a80101",
         recipeConfig: [
             {
-                op: "Change IP format",
-                args: ["Dotted Decimal", "Hex"],
+                op: "IP地址格式转换",
+                args: ["十进制用点分隔", "十六进制"],
             },
         ],
     }, {
@@ -24,8 +26,8 @@ TestRegister.addTests([
         expectedOutput: "192.168.1.1",
         recipeConfig: [
             {
-                op: "Change IP format",
-                args: ["Decimal", "Dotted Decimal"],
+                op: "IP地址格式转换",
+                args: ["十进制", "十进制用点分隔"],
             },
         ],
     }, {
@@ -34,8 +36,8 @@ TestRegister.addTests([
         expectedOutput: "030052000401",
         recipeConfig: [
             {
-                op: "Change IP format",
-                args: ["Hex", "Octal"],
+                op: "IP地址格式转换",
+                args: ["十六进制", "八进制"],
             },
         ],
     }, {
@@ -44,8 +46,8 @@ TestRegister.addTests([
         expectedOutput: "3232235777",
         recipeConfig: [
             {
-                op: "Change IP format",
-                args: ["Octal", "Decimal"],
+                op: "IP地址格式转换",
+                args: ["八进制", "十进制"],
             },
         ],
     },
