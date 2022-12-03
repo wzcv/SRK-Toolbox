@@ -10,6 +10,8 @@ CyberChef汉化版，因为是Apache 2.0 License，所以我可以给整个项�
 
 [汉化版在这里](https://btsrk.me) - have fun!
 
+[汉化分流地址](https://raka.rocks) - Github Pages防止上面的网站失联
+
 如果因为缓存没有显示最新版，记得Ctrl+F5。
 
 ## 构建备注
