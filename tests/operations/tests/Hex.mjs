@@ -1,3 +1,6 @@
+/*
+* Modified by Raka-loah@github for zh-CN i18n
+*/
 import TestRegister from "../../lib/TestRegister.mjs";
 
 TestRegister.addTests([
@@ -7,9 +10,9 @@ TestRegister.addTests([
         expectedOutput: "6162657279737477797468",
         recipeConfig: [
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": [
-                    "None",
+                    "无",
                     0
                 ]
             },
@@ -21,9 +24,9 @@ TestRegister.addTests([
         expectedOutput: "61:62:65:72:79:73:74:77:79:74:68",
         recipeConfig: [
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": [
-                    "Colon",
+                    "冒号",
                     0
                 ]
             }
@@ -35,9 +38,9 @@ TestRegister.addTests([
         expectedOutput: "0x61,0x62,0x65,0x72,0x79,0x73,0x74,0x77,0x79,0x74,0x68",
         recipeConfig: [
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": [
-                    "0x with comma",
+                    "0x和逗号",
                     0
                 ]
             }
@@ -49,9 +52,9 @@ TestRegister.addTests([
         expectedOutput: "0x61,0x62,0x65,0x72,\n0x79,0x73,0x74,0x77,\n0x79,0x74,0x68",
         recipeConfig: [
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": [
-                    "0x with comma",
+                    "0x和逗号",
                     4
                 ]
             }
@@ -63,9 +66,9 @@ TestRegister.addTests([
         expectedOutput: "救救孩子",
         recipeConfig: [
             {
-                "op": "From Hex",
+                "op": "十六进制转字符",
                 "args": [
-                    "Auto"
+                    "自动"
                 ]
             }
         ]
@@ -86,9 +89,9 @@ TestRegister.addTests([
         expectedOutput: "I saw myself sitting in the crotch of the this fig tree, starving to death, just because I couldn't make up my mind which of the figs I would choose.",
         recipeConfig: [
             {
-                "op": "From Hex",
+                "op": "十六进制转字符",
                 "args": [
-                    "Auto"
+                    "自动"
                 ]
             }
         ]
@@ -99,9 +102,9 @@ TestRegister.addTests([
         expectedOutput: "test string",
         recipeConfig: [
             {
-                "op": "From Hex",
+                "op": "十六进制转字符",
                 "args": [
-                    "0x with comma"
+                    "0x和逗号"
                 ]
             }
         ]

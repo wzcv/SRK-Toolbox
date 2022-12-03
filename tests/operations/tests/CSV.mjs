@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -47,8 +49,8 @@ TestRegister.addTests([
         ], null, 4),
         recipeConfig: [
             {
-                op: "CSV to JSON",
-                args: [",", "\r\n", "Array of dictionaries"],
+                op: "CSV转JSON",
+                args: [",", "\r\n", "字典数组"],
             }
         ],
     },
@@ -91,7 +93,7 @@ TestRegister.addTests([
         ], null, 4),
         recipeConfig: [
             {
-                op: "CSV to JSON",
+                op: "CSV转JSON",
                 args: [",", "\r\n", "Array of arrays"],
             }
         ],
@@ -127,7 +129,7 @@ TestRegister.addTests([
         expectedOutput: EXAMPLE_CSV,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\r\n"],
             }
         ],
@@ -171,7 +173,7 @@ TestRegister.addTests([
         expectedOutput: EXAMPLE_CSV,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\r\n"],
             }
         ],

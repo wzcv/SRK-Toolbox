@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 import {ASCII_TEXT, UTF8_TEXT, ALL_BYTES} from "../../samples/Ciphers.mjs";
@@ -151,11 +153,11 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "PGP Encrypt",
+                "op": "PGP加密",
                 "args": [ALICE_PUBLIC]
             },
             {
-                "op": "PGP Decrypt",
+                "op": "PGP解密",
                 "args": [ALICE_PRIVATE, ""]
             }
         ]
@@ -166,11 +168,11 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                "op": "PGP Encrypt",
+                "op": "PGP加密",
                 "args": [ALICE_PUBLIC]
             },
             {
-                "op": "PGP Decrypt",
+                "op": "PGP解密",
                 "args": [ALICE_PRIVATE, ""]
             }
         ]
@@ -181,11 +183,11 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "PGP Encrypt",
+                "op": "PGP加密",
                 "args": [BOB_PUBLIC]
             },
             {
-                "op": "PGP Decrypt",
+                "op": "PGP解密",
                 "args": [BOB_PRIVATE, ""]
             }
         ]
@@ -196,11 +198,11 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                "op": "PGP Encrypt",
+                "op": "PGP加密",
                 "args": [BOB_PUBLIC]
             },
             {
-                "op": "PGP Decrypt",
+                "op": "PGP解密",
                 "args": [BOB_PRIVATE, ""]
             }
         ]
@@ -225,14 +227,14 @@ IOE1W/Zqmqzq+4frwnzWwYv9/U1RwIs/qlFVnzliREOzW+om8EncSSd7fQ==
 =fEAT
 -----END PGP MESSAGE-----
 `,
-        expectedOutput: `Signed by PGP key ID: DF98E485
-PGP fingerprint: e94e06dd0b3744a0e970de9d84246548df98e485
-Signed on Tue, 29 May 2018 15:44:52 GMT
+        expectedOutput: `签名： PGP key ID：DF98E485
+PGP指纹：e94e06dd0b3744a0e970de9d84246548df98e485
+签名时间： Tue, 29 May 2018 15:44:52 GMT
 ----------------------------------
 ${UTF8_TEXT}`,
         recipeConfig: [
             {
-                "op": "PGP Decrypt and Verify",
+                "op": "PGP解密并验证",
                 "args": [ALICE_PUBLIC, BOB_PRIVATE, ""]
             }
         ]
@@ -255,7 +257,7 @@ H2qMY1O7hezH3fp+EZzCAccJMtK7VPk13WAgMRH22HirG4aK1i75IVOtjBgObzDh
         expectedOutput: ASCII_TEXT,
         recipeConfig: [
             {
-                "op": "PGP Decrypt",
+                "op": "PGP解密",
                 "args": [ALICE_PRIVATE, ""]
             }
         ]
@@ -274,14 +276,14 @@ v2FSpUu9jJiPBm1K1SEwLufQVexoRv6RsBNolRFB07sArau0s0DnIXUchCZWvyTP
 1KsjBnDr84U2b11H58g4DlTT4gQrz30rFuHz9AGmPAtDHbSXIA==
 =vnk/
 -----END PGP SIGNATURE-----`,
-        expectedOutput: `Signed by PGP key ID: DF98E485
-PGP fingerprint: e94e06dd0b3744a0e970de9d84246548df98e485
-Signed on Thu, 27 Jun 2019 16:20:15 GMT
+        expectedOutput: `签名：PGP key ID: DF98E485
+PGP指纹: e94e06dd0b3744a0e970de9d84246548df98e485
+签名日期: Thu, 27 Jun 2019 16:20:15 GMT
 ----------------------------------
 A common mistake that people make when trying to design something completely foolproof is to underestimate the ingenuity of complete fools.`,
         recipeConfig: [
             {
-                "op": "PGP Verify",
+                "op": "PGP验证",
                 "args": [ALICE_PUBLIC]
             }
         ]

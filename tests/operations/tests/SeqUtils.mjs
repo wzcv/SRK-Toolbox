@@ -4,6 +4,8 @@
  * @author Chris van Marle
  * @copyright Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "Photo-1.jpg\nPhoto-2.jpg\nPhoto-3.jpg\nPhoto-4.jpg",
         recipeConfig: [
             {
-                "op": "Sort",
-                "args": ["Line feed", false, "Numeric"]
+                "op": "排序",
+                "args": ["换行", false, "数字"]
             }
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedOutput: "CVE-2017-12345,CVE-2017-10001,CVE-2017-10000,CVE-2017-9999,CVE-2017-1234,CVE-2016-10001,CVE-2016-10000,CVE-2016-9999,CVE-2016-4321,CVE-2016-1234",
         recipeConfig: [
             {
-                "op": "Sort",
-                "args": ["Comma", true, "Numeric"]
+                "op": "排序",
+                "args": ["逗号", true, "数字"]
             }
         ],
     },
@@ -36,8 +38,8 @@ TestRegister.addTests([
         expectedOutput: "1,2,3,4,5,06,7,08,9,0a,b,c,0d,e,0f,10,11,12,13,14,15,16,17,18,19,1a,1b,1c,1d,1e,1f",
         recipeConfig: [
             {
-                "op": "Sort",
-                "args": ["Comma", false, "Numeric (hexadecimal)"]
+                "op": "排序",
+                "args": ["逗号", false, "数字（十六进制）"]
             }
         ],
     },

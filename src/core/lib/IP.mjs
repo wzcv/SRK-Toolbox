@@ -6,6 +6,8 @@
  * @author Klaxon [klaxon@veyr.com]
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Utils from "../Utils.mjs";
@@ -26,7 +28,7 @@ export function ipv4CidrRange(cidr, includeNetworkInfo, enumerateAddresses, allo
     let output = "";
 
     if (cidrRange < 0 || cidrRange > 31) {
-        throw new OperationError("IPv4 CIDR must be less than 32");
+        throw new OperationError("IPv4 CIDR 必须小于32");
     }
 
     const mask = ~(0xFFFFFFFF >>> cidrRange),
@@ -34,11 +36,11 @@ export function ipv4CidrRange(cidr, includeNetworkInfo, enumerateAddresses, allo
         ip2 = ip1 | ~mask;
 
     if (includeNetworkInfo) {
-        output += "Network: " + ipv4ToStr(network) + "\n";
-        output += "CIDR: " + cidrRange + "\n";
-        output += "Mask: " + ipv4ToStr(mask) + "\n";
-        output += "Range: " + ipv4ToStr(ip1) + " - " + ipv4ToStr(ip2) + "\n";
-        output += "Total addresses in range: " + (((ip2 - ip1) >>> 0) + 1) + "\n\n";
+        output += "网络： " + ipv4ToStr(network) + "\n";
+        output += "CIDR： " + cidrRange + "\n";
+        output += "掩码： " + ipv4ToStr(mask) + "\n";
+        output += "范围： " + ipv4ToStr(ip1) + " - " + ipv4ToStr(ip2) + "\n";
+        output += "范围中地址数： " + (((ip2 - ip1) >>> 0) + 1) + "\n\n";
     }
 
     if (enumerateAddresses) {
@@ -64,7 +66,7 @@ export function ipv6CidrRange(cidr, includeNetworkInfo) {
         cidrRange = parseInt(cidr[cidr.length-1], 10);
 
     if (cidrRange < 0 || cidrRange > 127) {
-        throw new OperationError("IPv6 CIDR must be less than 128");
+        throw new OperationError("IPv6 CIDR 必须小于128");
     }
 
     const ip1 = new Array(8),
@@ -88,12 +90,12 @@ export function ipv6CidrRange(cidr, includeNetworkInfo) {
     }
 
     if (includeNetworkInfo) {
-        output += "Network: " + ipv6ToStr(network) + "\n";
-        output += "Shorthand: " + ipv6ToStr(network, true) + "\n";
-        output += "CIDR: " + cidrRange + "\n";
-        output += "Mask: " + ipv6ToStr(mask) + "\n";
-        output += "Range: " + ipv6ToStr(ip1) + " - " + ipv6ToStr(ip2) + "\n";
-        output += "Total addresses in range: " + (parseInt(total.join(""), 2) + 1) + "\n\n";
+        output += "网络： " + ipv6ToStr(network) + "\n";
+        output += "Shorthand： " + ipv6ToStr(network, true) + "\n";
+        output += "CIDR： " + cidrRange + "\n";
+        output += "掩码： " + ipv6ToStr(mask) + "\n";
+        output += "范围： " + ipv6ToStr(ip1) + " - " + ipv6ToStr(ip2) + "\n";
+        output += "范围中地址数： " + (parseInt(total.join(""), 2) + 1) + "\n\n";
     }
 
     return output;
@@ -132,15 +134,15 @@ export function ipv4HyphenatedRange(range, includeNetworkInfo, enumerateAddresse
         subIp2 = subIp1 | ~mask;
 
     if (includeNetworkInfo) {
-        output += `Minimum subnet required to hold this range:
-\tNetwork: ${ipv4ToStr(network)}
-\tCIDR: ${cidr}
-\tMask: ${ipv4ToStr(mask)}
-\tSubnet range: ${ipv4ToStr(subIp1)} - ${ipv4ToStr(subIp2)}
-\tTotal addresses in subnet: ${(((subIp2 - subIp1) >>> 0) + 1)}
+        output += `包含此范围的最小子网为：
+\t网络： ${ipv4ToStr(network)}
+\tCIDR： ${cidr}
+\t掩码： ${ipv4ToStr(mask)}
+\t子网范围： ${ipv4ToStr(subIp1)} - ${ipv4ToStr(subIp2)}
+\t子网中地址数量： ${(((subIp2 - subIp1) >>> 0) + 1)}
 
-Range: ${ipv4ToStr(ip1)} - ${ipv4ToStr(ip2)}
-Total addresses in range: ${(((ip2 - ip1) >>> 0) + 1)}
+范围： ${ipv4ToStr(ip1)} - ${ipv4ToStr(ip2)}
+范围中地址数： ${(((ip2 - ip1) >>> 0) + 1)}
 
 `;
     }
@@ -181,9 +183,9 @@ export function ipv6HyphenatedRange(range, includeNetworkInfo) {
     }
 
     if (includeNetworkInfo) {
-        output += "Range: " + ipv6ToStr(ip1) + " - " + ipv6ToStr(ip2) + "\n";
-        output += "Shorthand range: " + ipv6ToStr(ip1, true) + " - " + ipv6ToStr(ip2, true) + "\n";
-        output += "Total addresses in range: " + (parseInt(total.join(""), 2) + 1) + "\n\n";
+        output += "范围： " + ipv6ToStr(ip1) + " - " + ipv6ToStr(ip2) + "\n";
+        output += "Shorthand范围： " + ipv6ToStr(ip1, true) + " - " + ipv6ToStr(ip2, true) + "\n";
+        output += "范围中地址数： " + (parseInt(total.join(""), 2) + 1) + "\n\n";
     }
 
     return output;
@@ -211,7 +213,7 @@ export function ipv4ListedRange(match, includeNetworkInfo, enumerateAddresses, a
         const network = strToIpv4(ipv4CidrList[i].split("/")[0]);
         const cidrRange = parseInt(ipv4CidrList[i].split("/")[1], 10);
         if (cidrRange < 0 || cidrRange > 31) {
-            throw new OperationError("IPv4 CIDR must be less than 32");
+            throw new OperationError("IPv4 CIDR 必须小于32");
         }
         const mask = ~(0xFFFFFFFF >>> cidrRange),
             cidrIp1 = network & mask,
@@ -254,7 +256,7 @@ export function ipv6ListedRange(match, includeNetworkInfo) {
         const cidrRange = parseInt(ipv6CidrList[i].split("/")[1], 10);
 
         if (cidrRange < 0 || cidrRange > 127) {
-            throw new OperationError("IPv6 CIDR must be less than 128");
+            throw new OperationError("IPv6 CIDR 必须小于128");
         }
 
         const cidrIp1 = new Array(8),
@@ -303,13 +305,13 @@ export function strToIpv4(ipStr) {
      */
     function parseBlocks(blocks) {
         if (blocks.length !== 4)
-            throw new OperationError("More than 4 blocks.");
+            throw new OperationError("多于4个数值。");
 
         const numBlocks = [];
         for (let i = 0; i < 4; i++) {
             numBlocks[i] = parseInt(blocks[i], 10);
             if (numBlocks[i] < 0 || numBlocks[i] > 255)
-                throw new OperationError("Block out of range.");
+                throw new OperationError("数值超出范围。");
         }
         return numBlocks;
     }
@@ -367,12 +369,12 @@ export function strToIpv6(ipStr) {
      */
     function parseBlocks(blocks) {
         if (blocks.length < 3 || blocks.length > 8)
-            throw new OperationError("Badly formatted IPv6 address.");
+            throw new OperationError("IPv6地址格式有误。");
         const numBlocks = [];
         for (let i = 0; i < blocks.length; i++) {
             numBlocks[i] = parseInt(blocks[i], 16);
             if (numBlocks[i] < 0 || numBlocks[i] > 65535)
-                throw new OperationError("Block out of range.");
+                throw new OperationError("数值超出范围。");
         }
         return numBlocks;
     }
@@ -451,7 +453,7 @@ export function generateIpv4Range(ip, endIp) {
             range.push(ipv4ToStr(ip));
         }
     } else {
-        range[0] = "Second IP address smaller than first.";
+        range[0] = "后一个IP地址小于前一个。";
     }
     return range;
 }
@@ -510,7 +512,7 @@ export function ipv6Compare(a, b) {
     return 0;
 }
 
-const _LARGE_RANGE_ERROR = "The specified range contains more than 65,536 addresses. Running this query could crash your browser. If you want to run it, select the \"Allow large queries\" option. You are advised to turn off \"Auto Bake\" whilst editing large ranges.";
+const _LARGE_RANGE_ERROR = "指定的范围包含超过65,536个地址。执行此查询可能会让你的浏览器崩溃。如果你想要执行，勾选\"允许大数据量查询\"选项。在编辑大地址范围时请关闭\"自动执行\"功能。";
 
 /**
  * A regular expression that matches an IPv4 address

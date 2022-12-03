@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "FEGIGFCAEOGFHEECEJEPFDCAGOGBGNGF",
         recipeConfig: [
             {
-                op: "Encode NetBIOS Name",
+                op: "NetBIOS名称编码",
                 args: [65],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "The NetBIOS name",
         recipeConfig: [
             {
-                op: "Decode NetBIOS Name",
+                op: "NetBIOS名称解码",
                 args: [65],
             },
         ],

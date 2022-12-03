@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -57,7 +59,7 @@ TestRegister.addTests([
         expectedOutput: outputObject,
         recipeConfig: [
             {
-                op: "JWT Verify",
+                op: "JWT验证",
                 args: [hsKey],
             }
         ],
@@ -68,7 +70,7 @@ TestRegister.addTests([
         expectedOutput: outputObject,
         recipeConfig: [
             {
-                op: "JWT Verify",
+                op: "JWT验证",
                 args: [rsPub],
             }
         ],
@@ -79,7 +81,7 @@ TestRegister.addTests([
         expectedOutput: outputObject,
         recipeConfig: [
             {
-                op: "JWT Verify",
+                op: "JWT验证",
                 args: [esPub],
             }
         ],

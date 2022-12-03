@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -38,14 +40,14 @@ TestRegister.addTests([
     {
         name: "Fork, (expect) Error, Merge",
         input: "1,2,3,4\n\n3,4,5,6",
-        expectedOutput: "Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?",
+        expectedOutput: "集合数量错误，你可能需要调整集合分隔符或者添加一些数据。",
         recipeConfig: [
             {
                 op: "Fork",
                 args: ["\n\n", "\n\n", false],
             },
             {
-                op: "Set Union",
+                op: "并集",
                 args: ["\n\n", ","],
             },
             {
@@ -61,10 +63,10 @@ TestRegister.addTests([
         recipeConfig: [
             {"op": "Fork", "args": ["\\n", "\\n", false]},
             {"op": "Conditional Jump", "args": ["1", false, "skipReturn", "10"]},
-            {"op": "To Hex", "args": ["Space"]},
+            {"op": "字符转十六进制", "args": ["空格"]},
             {"op": "Return", "args": []},
             {"op": "Label", "args": ["skipReturn"]},
-            {"op": "To Base64", "args": ["A-Za-z0-9+/="]}
+            {"op": "Base64编码", "args": ["A-Za-z0-9+/="]}
         ]
     },
     {
@@ -75,7 +77,7 @@ TestRegister.addTests([
             { "op": "Fork",   "args": [" ", " ", false] },
             { "op": "Fork",   "args": ["l", "l", false] },
             { "op": "Merge",  "args": [false] },
-            { "op": "To Hex", "args": ["None", 0] },
+            { "op": "字符转十六进制", "args": ["无", 0] },
         ]
     },
 ]);

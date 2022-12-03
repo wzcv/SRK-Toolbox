@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "Power Set",
+                op: "幂集",
                 args: [","],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "\n4\n2\n1\n2 4\n1 4\n1 2\n1 2 4\n",
         recipeConfig: [
             {
-                op: "Power Set",
+                op: "幂集",
                 args: [" "],
             },
         ],

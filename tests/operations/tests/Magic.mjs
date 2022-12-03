@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 import { JPG_RAW } from "../../samples/Images.mjs";
@@ -13,7 +15,7 @@ TestRegister.addTests([
     {
         name: "Magic: nothing",
         input: "",
-        expectedOutput: "Nothing of interest could be detected about the input data.\nHave you tried modifying the operation arguments?",
+        expectedOutput: "针对输入数据未检测到任何可用操作。\n请尝试调整操作参数。",
         recipeConfig: [
             {
                 op: "Magic",
@@ -24,7 +26,7 @@ TestRegister.addTests([
     {
         name: "Magic: hex, correct rank",
         input: "41 42 43 44 45",
-        expectedMatch: /Properties[^#]+?#recipe=From_Hex\('Space'\)"/,
+        expectedMatch: /属性[^#]+?#recipe=%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%AD%97%E7%AC%A6\('%E7%A9%BA%E6%A0%BC'\)"/,
         recipeConfig: [
             {
                 op: "Magic",
@@ -35,7 +37,7 @@ TestRegister.addTests([
     {
         name: "Magic: jpeg render",
         input: JPG_RAW,
-        expectedMatch: /Render_Image\('Raw'\)/,
+        expectedMatch: /渲染图像\('原始'\)/,
         recipeConfig: [
             {
                 op: "Magic",
@@ -68,7 +70,7 @@ TestRegister.addTests([
     {
         name: "Magic Chain: Base64",
         input: "WkVkV2VtUkRRbnBrU0Vwd1ltMWpQUT09",
-        expectedMatch: /From_Base64\('A-Za-z0-9\+\/=',true,false\)\nFrom_Base64\('A-Za-z0-9\+\/=',true,false\)\nFrom_Base64\('A-Za-z0-9\+\/=',true,false\)/,
+        expectedMatch: /Base64解码\('A-Za-z0-9\+\/=',true,false\)\nBase64解码\('A-Za-z0-9\+\/=',true,false\)\nBase64解码\('A-Za-z0-9\+\/=',true,false\)/,
         recipeConfig: [
             {
                 op: "Magic",
@@ -79,7 +81,7 @@ TestRegister.addTests([
     {
         name: "Magic Chain: Hex -> Hexdump -> Base64",
         input: "MDAwMDAwMDAgIDM3IDM0IDIwIDM2IDM1IDIwIDM3IDMzIDIwIDM3IDM0IDIwIDMyIDMwIDIwIDM3ICB8NzQgNjUgNzMgNzQgMjAgN3wKMDAwMDAwMTAgIDMzIDIwIDM3IDM0IDIwIDM3IDMyIDIwIDM2IDM5IDIwIDM2IDY1IDIwIDM2IDM3ICB8MyA3NCA3MiA2OSA2ZSA2N3w=",
-        expectedMatch: /From_Base64\('A-Za-z0-9\+\/=',true,false\)\nFrom_Hexdump\(\)\nFrom_Hex\('Space'\)/,
+        expectedMatch: /Base64解码\('A-Za-z0-9\+\/=',true,false\)\n从Hexdump提取\(\)\n十六进制转字符\('空格'\)/,
         recipeConfig: [
             {
                 op: "Magic",
@@ -90,7 +92,7 @@ TestRegister.addTests([
     {
         name: "Magic Chain: Charcode -> Octal -> Base32",
         input: "GY3SANRUEA2DAIBWGYQDMNJAGQYCANRXEA3DGIBUGAQDMNZAGY2CANBQEA3DEIBWGAQDIMBAGY3SANRTEA2DAIBWG4QDMNBAGQYCANRXEA3DEIBUGAQDMNRAG4YSANBQEA3DMIBRGQ2SANBQEA3DMIBWG4======",
-        expectedMatch: /From_Base32\('A-Z2-7=',false\)\nFrom_Octal\('Space'\)\nFrom_Hex\('Space'\)/,
+        expectedMatch: /Base32解码\('A-Z2-7=',false\)\n八进制转字符\('空格'\)\n十六进制转字符\('空格'\)/,
         recipeConfig: [
             {
                 op: "Magic",
@@ -134,7 +136,7 @@ TestRegister.addTests([
     {
         name: "Magic: Defang IP Address, valid",
         input: "192.168.0.1",
-        expectedMatch: /Properties[^#]+?#recipe=Defang_IP_Addresses\(\)"/,
+        expectedMatch: /属性[^#]+?#recipe=IP%E5%9C%B0%E5%9D%80%E6%97%A0%E6%95%88%E5%8C%96\(\)"/,
         recipeConfig: [
             {
                 op: "Magic",
@@ -145,7 +147,7 @@ TestRegister.addTests([
     {
         name: "Magic: Defang IP Address, invalid",
         input: "192.168.0.1.0",
-        unexpectedMatch: /Defang_IP_Addresses/,
+        unexpectedMatch: /IPIP%E5%9C%B0%E5%9D%80%E6%97%A0%E6%95%88%E5%8C%96/,
         recipeConfig: [
             {
                 op: "Magic",

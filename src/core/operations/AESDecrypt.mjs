@@ -125,9 +125,9 @@ class AESDecrypt extends Operation {
             throw new OperationError(`无效的Key长度： ${key.length} 字节
 
 根据Key的长度，会应用以下不同算法：
-    16字节 = AES-128
-    24字节 = AES-192
-    32字节 = AES-256`);
+  16字节 = AES-128
+  24字节 = AES-192
+  32字节 = AES-256`);
         }
 
         input = Utils.convertToByteString(input, inputType);

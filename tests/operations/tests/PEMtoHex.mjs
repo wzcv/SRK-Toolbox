@@ -4,6 +4,8 @@
  * @author cplussharp
  *
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -137,7 +139,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             }
         ]
@@ -148,7 +150,7 @@ TestRegister.addTests([
         expectedOutput: "PEM footer '-----END RSA PRIVATE KEY-----' not found",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             }
         ]
@@ -159,12 +161,12 @@ TestRegister.addTests([
         expectedOutput: "FOOBAR",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {
-                "op": "From Hex",
-                "args": ["Auto"]
+                "op": "十六进制转字符",
+                "args": ["自动"]
             }
         ]
     },
@@ -174,12 +176,12 @@ TestRegister.addTests([
         expectedOutput: "FOO",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             }
         ]
     },
@@ -189,7 +191,7 @@ TestRegister.addTests([
         expectedOutput: "30770201010420885d43140870c9c21c3dd7e16a8dbfe560c9c5a6168119a5197d5f4f9d4fdb87a00a06082a8648ce3d030107a1440342000414b41c05bcc3c1ea3a69fe24de4d2029630d58e6559fcfbd847dabbf80ca29867b135cfae0b06d3e707580ccfef870cac92af6a330f7ff8e9d21b40c5d464aa7",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             }
         ]
@@ -200,7 +202,7 @@ TestRegister.addTests([
         expectedOutput: "308187020100301306072a8648ce3d020106082a8648ce3d030107046d306b0201010420885d43140870c9c21c3dd7e16a8dbfe560c9c5a6168119a5197d5f4f9d4fdb87a1440342000414b41c05bcc3c1ea3a69fe24de4d2029630d58e6559fcfbd847dabbf80ca29867b135cfae0b06d3e707580ccfef870cac92af6a330f7ff8e9d21b40c5d464aa7",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             }
         ]
@@ -211,7 +213,7 @@ TestRegister.addTests([
         expectedOutput: "3059301306072a8648ce3d020106082a8648ce3d0301070342000414b41c05bcc3c1ea3a69fe24de4d2029630d58e6559fcfbd847dabbf80ca29867b135cfae0b06d3e707580ccfef870cac92af6a330f7ff8e9d21b40c5d464aa7",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             }
         ]
@@ -222,7 +224,7 @@ TestRegister.addTests([
         expectedOutput: "fb49bd96ffc5d1351a35d773921fac03",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {
@@ -237,7 +239,7 @@ TestRegister.addTests([
         expectedOutput: "23086d03633689fee64680c3c24409eb",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {
@@ -252,7 +254,7 @@ TestRegister.addTests([
         expectedOutput: "5fc3f1f6c5d5806760b12eaad0c0292c",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {
@@ -267,7 +269,7 @@ TestRegister.addTests([
         expectedOutput: "30fbe8e9495d591232affebdd6206ea6",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {
@@ -282,7 +284,7 @@ TestRegister.addTests([
         expectedOutput: "6694d8ca4a0ceb84c3951d25dc05ec6e",
         recipeConfig: [
             {
-                "op": "PEM to Hex",
+                "op": "PEM转十六进制",
                 "args": []
             },
             {

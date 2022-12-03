@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "42",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "4.2",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -48,7 +50,7 @@ TestRegister.addTests([
         expectedOutput: "\"string\"",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -59,7 +61,7 @@ TestRegister.addTests([
         expectedOutput: "false",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -70,7 +72,7 @@ TestRegister.addTests([
         expectedOutput: "[]",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -81,7 +83,7 @@ TestRegister.addTests([
         expectedOutput: "[2,1]",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -92,7 +94,7 @@ TestRegister.addTests([
         expectedOutput: "{\"second\":2,\"first\":3}",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],
@@ -103,7 +105,7 @@ TestRegister.addTests([
         expectedOutput: "[2,{\"second\":2,\"first\":3,\"beginning\":{\"j\":\"3\",\"i\":[2,3,false]}},1,2,3]",
         recipeConfig: [
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: [],
             },
         ],

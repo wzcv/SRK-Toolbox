@@ -70,13 +70,13 @@ class DESEncrypt extends Operation {
             [,, mode, inputType, outputType] = args;
 
         if (key.length !== 8) {
-            throw new OperationError(`无效的key长度： ${key.length}字节
+            throw new OperationError(`无效的key长度： ${key.length} 字节
 
 DES的key长度为8字节（64位）。
 三重DES的key长度为24字节（192位）。`);
         }
         if (iv.length !== 8 && mode !== "ECB") {
-            throw new OperationError(`无效的IV长度： ${iv.length}字节
+            throw new OperationError(`无效的IV长度： ${iv.length} 字节
 
 DES的IV长度为8字节（64位）。
 核实IV格式选取正确（例：十六进制或UTF8）。`);

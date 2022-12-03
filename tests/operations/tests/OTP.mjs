@@ -12,10 +12,10 @@ TestRegister.addTests([
     {
         name: "Generate HOTP",
         input: "12345678901234567890",
-        expectedOutput: "URI: otpauth://hotp/OTPAuthentication?secret=GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ\n\nPassword: 755224",
+        expectedOutput: "URI： otpauth://hotp/OTPAuthentication?secret=GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ\n\n动态码： 755224",
         recipeConfig: [
             {
-                op: "Generate HOTP",
+                op: "生成HOTP",
                 args: ["", 32, 6, 0],
             },
         ],

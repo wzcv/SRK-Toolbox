@@ -73,13 +73,13 @@ class TripleDESDecrypt extends Operation {
             outputType = args[4];
 
         if (key.length !== 24 && key.length !== 16) {
-            throw new OperationError(`无效的key长度： ${key.length}字节
+            throw new OperationError(`无效的key长度： ${key.length} 字节
 
 三重DES的key长度为24字节（192位）。
 DES的key长度为8字节（64位）。`);
         }
         if (iv.length !== 8 && mode !== "ECB") {
-            throw new OperationError(`无效的IV长度： ${iv.length}字节
+            throw new OperationError(`无效的IV长度： ${iv.length} 字节
 
 三重DES的IV长度为8字节（64位）。
 核实IV格式选取正确（例：十六进制或UTF8）。`);

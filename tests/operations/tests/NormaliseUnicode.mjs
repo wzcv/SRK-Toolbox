@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedMatch: /C\u0327C\u0327\u2160/,
         recipeConfig: [
             {
-                op: "Normalise Unicode",
+                op: "Unicode正规化",
                 args: ["NFD"],
             },
         ],
@@ -25,7 +27,7 @@ TestRegister.addTests([
         expectedMatch: /\u00C7\u00C7\u2160/,
         recipeConfig: [
             {
-                op: "Normalise Unicode",
+                op: "Unicode正规化",
                 args: ["NFC"],
             },
         ],
@@ -35,7 +37,7 @@ TestRegister.addTests([
         expectedMatch: /C\u0327C\u0327I/,
         recipeConfig: [
             {
-                op: "Normalise Unicode",
+                op: "Unicode正规化",
                 args: ["NFKD"],
             },
         ],
@@ -45,7 +47,7 @@ TestRegister.addTests([
         expectedMatch: /\u00C7\u00C7I/,
         recipeConfig: [
             {
-                op: "Normalise Unicode",
+                op: "Unicode正规化",
                 args: ["NFKC"],
             },
         ],

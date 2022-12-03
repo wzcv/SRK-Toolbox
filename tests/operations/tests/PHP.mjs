@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -16,7 +18,7 @@ TestRegister.addTests([
         expectedOutput: "{}",
         recipeConfig: [
             {
-                op: "PHP Deserialize",
+                op: "PHP反序列化",
                 args: [true],
             },
         ],
@@ -27,7 +29,7 @@ TestRegister.addTests([
         expectedOutput: "10",
         recipeConfig: [
             {
-                op: "PHP Deserialize",
+                op: "PHP反序列化",
                 args: [true],
             },
         ],
@@ -38,7 +40,7 @@ TestRegister.addTests([
         expectedOutput: "\"PHP Serialization\"",
         recipeConfig: [
             {
-                op: "PHP Deserialize",
+                op: "PHP反序列化",
                 args: [true],
             },
         ],
@@ -49,7 +51,7 @@ TestRegister.addTests([
         expectedOutput: "{\"a\": 10,\"0\": {\"ab\": true}}",
         recipeConfig: [
             {
-                op: "PHP Deserialize",
+                op: "PHP反序列化",
                 args: [true],
             },
         ],
@@ -60,7 +62,7 @@ TestRegister.addTests([
         expectedOutput: "{\"a\": 10,0: {\"ab\": true}}",
         recipeConfig: [
             {
-                op: "PHP Deserialize",
+                op: "PHP反序列化",
                 args: [false],
             },
         ],

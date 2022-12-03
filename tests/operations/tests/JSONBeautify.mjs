@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "42",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
         ],
@@ -37,11 +39,11 @@ TestRegister.addTests([
         expectedOutput: "\"string\"",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
             {
-                op: "HTML To Text",
+                op: "HTML转文本",
                 args: []
             }
         ],
@@ -52,7 +54,7 @@ TestRegister.addTests([
         expectedOutput: "false",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
         ],
@@ -63,7 +65,7 @@ TestRegister.addTests([
         expectedOutput: "[]",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
         ],
@@ -74,7 +76,7 @@ TestRegister.addTests([
         expectedOutput: "[\n 2,\n 1\n]",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
         ],
@@ -85,7 +87,7 @@ TestRegister.addTests([
         expectedOutput: "[\n\t2,\n\t1\n]",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: ["\t", false, false],
             },
         ],
@@ -96,11 +98,11 @@ TestRegister.addTests([
         expectedOutput: "{\n \"second\": 2,\n \"first\": 3\n}",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: [" ", false, false],
             },
             {
-                op: "HTML To Text",
+                op: "HTML转文本",
                 args: []
             }
         ],
@@ -111,11 +113,11 @@ TestRegister.addTests([
         expectedOutput: "[\n\t2,\n\t{\n\t\t\"second\": 2,\n\t\t\"first\": 3,\n\t\t\"beginning\": {\n\t\t\t\"j\": \"3\",\n\t\t\t\"i\": [\n\t\t\t\t2,\n\t\t\t\t3,\n\t\t\t\tfalse\n\t\t\t]\n\t\t}\n\t},\n\t1,\n\t2,\n\t3\n]",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: ["\t", false, false],
             },
             {
-                op: "HTML To Text",
+                op: "HTML转文本",
                 args: []
             }
         ],
@@ -126,11 +128,11 @@ TestRegister.addTests([
         expectedOutput: "[\n\t2,\n\t{\n\t\t\"beginning\": {\n\t\t\t\"i\": [\n\t\t\t\t2,\n\t\t\t\t3,\n\t\t\t\tfalse\n\t\t\t],\n\t\t\t\"j\": \"3\"\n\t\t},\n\t\t\"first\": 3,\n\t\t\"second\": 2\n\t},\n\t1,\n\t2,\n\t3\n]",
         recipeConfig: [
             {
-                op: "JSON Beautify",
+                op: "JSON美化",
                 args: ["\t", true, false],
             },
             {
-                op: "HTML To Text",
+                op: "HTML转文本",
                 args: []
             }
         ],

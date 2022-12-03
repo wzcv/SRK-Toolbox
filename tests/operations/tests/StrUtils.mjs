@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Diff",
-                "args": ["\\n\\n", "Character", true, true, false, false]
+                "args": ["\\n\\n", "字符", true, true, false, false]
             }
         ],
     },
@@ -26,7 +28,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Diff",
-                "args": ["\\n\\n", "Character", true, true, true, false]
+                "args": ["\\n\\n", "字符", true, true, true, false]
             }
         ],
     },
@@ -37,7 +39,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Diff",
-                "args": ["\\n\\n", "Character", true, true, true, false]
+                "args": ["\\n\\n", "字符", true, true, true, false]
             }
         ],
     },
@@ -48,7 +50,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", 0]
+                "args": ["换行", 0]
             }
         ],
     },
@@ -59,7 +61,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", 1]
+                "args": ["换行", 1]
             }
         ],
     },
@@ -70,7 +72,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", 2]
+                "args": ["换行", 2]
             }
         ],
     },
@@ -81,7 +83,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", 6]
+                "args": ["换行", 6]
             }
         ],
     },
@@ -92,7 +94,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", 100]
+                "args": ["换行", 100]
             }
         ],
     },
@@ -103,7 +105,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", -1]
+                "args": ["换行", -1]
             }
         ],
     },
@@ -114,7 +116,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", -2]
+                "args": ["换行", -2]
             }
         ],
     },
@@ -125,7 +127,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", -6]
+                "args": ["换行", -6]
             }
         ],
     },
@@ -136,7 +138,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Head",
-                "args": ["Line feed", -100]
+                "args": ["换行", -100]
             }
         ],
     },
@@ -147,7 +149,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", 0]
+                "args": ["换行", 0]
             }
         ],
     },
@@ -158,7 +160,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", 1]
+                "args": ["换行", 1]
             }
         ],
     },
@@ -169,7 +171,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", 2]
+                "args": ["换行", 2]
             }
         ],
     },
@@ -180,7 +182,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", 6]
+                "args": ["换行", 6]
             }
         ],
     },
@@ -191,7 +193,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", 100]
+                "args": ["换行", 100]
             }
         ],
     },
@@ -202,7 +204,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", -1]
+                "args": ["换行", -1]
             }
         ],
     },
@@ -213,7 +215,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", -2]
+                "args": ["换行", -2]
             }
         ],
     },
@@ -224,7 +226,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", -6]
+                "args": ["换行", -6]
             }
         ],
     },
@@ -235,7 +237,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "Tail",
-                "args": ["Line feed", -100]
+                "args": ["换行", -100]
             }
         ],
     },
@@ -245,8 +247,8 @@ TestRegister.addTests([
         expectedOutput: "Escape \\'these\\' quotes.",
         recipeConfig: [
             {
-                "op": "Escape string",
-                "args": ["Special chars", "Single", false, true, false]
+                "op": "转义字符串",
+                "args": ["特殊字符", "单引号", false, true, false]
             }
         ],
     },
@@ -256,8 +258,8 @@ TestRegister.addTests([
         expectedOutput: "Hello \\\"World\\\"!",
         recipeConfig: [
             {
-                "op": "Escape string",
-                "args": ["Special chars", "Double", false, true, false]
+                "op": "转义字符串",
+                "args": ["特殊字符", "双引号", false, true, false]
             }
         ],
     },
@@ -267,8 +269,8 @@ TestRegister.addTests([
         expectedOutput: "Fizz & buzz\\n\\ttabbed newline\\rcarriage returned line\\nbackspace character: \\\"\\b\\\" form feed character: \\\"\\f\\\"",
         recipeConfig: [
             {
-                "op": "Escape string",
-                "args": ["Special chars", "Double", false, true, false]
+                "op": "转义字符串",
+                "args": ["特殊字符", "双引号", false, true, false]
             }
         ],
     },
@@ -278,7 +280,7 @@ TestRegister.addTests([
         expectedOutput: "Hello \"World\"! Escape 'these' quotes.",
         recipeConfig: [
             {
-                "op": "Unescape string",
+                "op": "字符串转义恢复",
                 "args": []
             }
         ],
@@ -289,7 +291,7 @@ TestRegister.addTests([
         expectedOutput: "Fizz & buzz\n\ttabbed newline\rcarriage returned line\nbackspace character: \"\" form feed character: \"\"",
         recipeConfig: [
             {
-                "op": "Unescape string",
+                "op": "字符串转义恢复",
                 "args": []
             }
         ],
@@ -300,8 +302,8 @@ TestRegister.addTests([
         expectedOutput: "null\\0backspace\\btab\\tnewline\\nverticaltab\\x0bformfeed\\fcarriagereturn\\rdoublequote\"singlequote\\'hex\\xa9unicode\\u2665codepoint\\u{1d306}",
         recipeConfig: [
             {
-                "op": "Escape string",
-                "args": ["Special chars", "Single", false, true, false]
+                "op": "转义字符串",
+                "args": ["特殊字符", "单引号", false, true, false]
             }
         ],
     },
@@ -311,7 +313,7 @@ TestRegister.addTests([
         expectedOutput: "null\0backspace\btab\tnewline\nverticaltab\vformfeed\fcarriagereturn\rdoublequote\"singlequote'hex\xa9unicode\u2665codepoint\u{1D306}",
         recipeConfig: [
             {
-                "op": "Unescape string",
+                "op": "字符串转义恢复",
                 "args": []
             }
         ],

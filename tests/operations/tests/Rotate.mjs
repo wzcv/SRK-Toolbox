@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -16,16 +18,16 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["Space"]
+                op: "十六进制转字符",
+                args: ["空格"]
             },
             {
-                op: "Rotate left",
+                op: "循环左移",
                 args: [1, false],
             },
             {
-                op: "To Hex",
-                args: ["Space"]
+                op: "字符转十六进制",
+                args: ["空格"]
             }
         ],
     },
@@ -35,16 +37,16 @@ TestRegister.addTests([
         expectedOutput: "c2 c4 c6 62 64 66",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["Space"]
+                op: "十六进制转字符",
+                args: ["空格"]
             },
             {
-                op: "Rotate left",
+                op: "循环左移",
                 args: [1, false],
             },
             {
-                op: "To Hex",
-                args: ["Space"]
+                op: "字符转十六进制",
+                args: ["空格"]
             }
         ],
     },
@@ -54,16 +56,16 @@ TestRegister.addTests([
         expectedOutput: "85 89 8c c4 c8 cd",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["Space"]
+                op: "十六进制转字符",
+                args: ["空格"]
             },
             {
-                op: "Rotate left",
+                op: "循环左移",
                 args: [2, true],
             },
             {
-                op: "To Hex",
-                args: ["Space"]
+                op: "字符转十六进制",
+                args: ["空格"]
             }
         ],
     },
@@ -73,16 +75,16 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["Space"]
+                op: "十六进制转字符",
+                args: ["空格"]
             },
             {
-                op: "Rotate right",
+                op: "循环右移",
                 args: [1, false],
             },
             {
-                op: "To Hex",
-                args: ["Space"]
+                op: "字符转十六进制",
+                args: ["空格"]
             }
         ],
     },
@@ -92,16 +94,16 @@ TestRegister.addTests([
         expectedOutput: "b0 31 b1 98 19 99",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["Space"]
+                op: "十六进制转字符",
+                args: ["空格"]
             },
             {
-                op: "Rotate right",
+                op: "循环右移",
                 args: [1, false],
             },
             {
-                op: "To Hex",
-                args: ["Space"]
+                op: "字符转十六进制",
+                args: ["空格"]
             }
         ],
     },
@@ -111,16 +113,16 @@ TestRegister.addTests([
         expectedOutput: "d8 58 98 cc 4c 8c",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["Space"]
+                op: "十六进制转字符",
+                args: ["空格"]
             },
             {
-                op: "Rotate right",
+                op: "循环右移",
                 args: [2, true],
             },
             {
-                op: "To Hex",
-                args: ["Space"]
+                op: "字符转十六进制",
+                args: ["空格"]
             }
         ],
     },

@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,11 +16,11 @@ TestRegister.addTests([
         expectedOutput: "/<>",
         recipeConfig: [
             {
-                "op": "Regular expression",
-                "args": ["User defined", "", true, true, false, false, false, false, "Highlight matches"]
+                "op": "正则表达式",
+                "args": ["自定义", "", true, true, false, false, false, false, "高亮匹配"]
             },
             {
-                "op": "Remove whitespace",
+                "op": "移除空白字符",
                 "args": [true, true, true, true, true, false]
             }
         ],
@@ -29,8 +31,8 @@ TestRegister.addTests([
         expectedOutput: "Hello\nWorld",
         recipeConfig: [
             {
-                "op": "Regular expression",
-                "args": ["User defined", ".+", true, true, true, false, false, false, "List matches"]
+                "op": "正则表达式",
+                "args": ["自定义", ".+", true, true, true, false, false, false, "列出匹配"]
             }
         ],
     },
@@ -40,8 +42,8 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Regular expression",
-                "args": ["User defined", "\\pS", true, true, false, false, false, false, "List matches"]
+                "op": "正则表达式",
+                "args": ["自定义", "\\pS", true, true, false, false, false, false, "列出匹配"]
             }
         ],
     },
@@ -51,8 +53,8 @@ TestRegister.addTests([
         expectedOutput: "𝌆\n😆",
         recipeConfig: [
             {
-                "op": "Regular expression",
-                "args": ["User defined", "\\pS", true, true, false, false, true, false, "List matches"]
+                "op": "正则表达式",
+                "args": ["自定义", "\\pS", true, true, false, false, true, false, "列出匹配"]
             }
         ],
     }

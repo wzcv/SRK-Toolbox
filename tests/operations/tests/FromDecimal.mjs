@@ -4,6 +4,8 @@
  * @author qistoph
  * @copyright Crown Copyright 2018
  * @licence Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "Sample Text",
         recipeConfig: [
             {
-                op: "From Decimal",
-                args: ["Space", false]
+                op: "十进制转字符",
+                args: ["空格", false]
             },
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedOutput: "~this!\u0000\u00ff",
         recipeConfig: [
             {
-                op: "From Decimal",
-                args: ["Comma", true]
+                op: "十进制转字符",
+                args: ["逗号", true]
             },
         ],
     },

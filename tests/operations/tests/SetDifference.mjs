@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "1 2",
         recipeConfig: [
             {
-                op: "Set Difference",
+                op: "补集",
                 args: ["\n\n", " "],
             },
         ],
@@ -23,10 +25,10 @@ TestRegister.addTests([
     {
         name: "Set Difference: wrong sample count",
         input: "1 2 3 4 5_3_4 5 6 7",
-        expectedOutput: "Incorrect number of sets, perhaps you need to modify the sample delimiter or add more samples?",
+        expectedOutput: "集合数量错误，你可能需要调整集合分隔符或者添加一些数据。",
         recipeConfig: [
             {
-                op: "Set Difference",
+                op: "补集",
                 args: [" ", "_"],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "1;2",
         recipeConfig: [
             {
-                op: "Set Difference",
+                op: "补集",
                 args: ["\n\n", ";"],
             },
         ],
@@ -48,7 +50,7 @@ TestRegister.addTests([
         expectedOutput: "1;2",
         recipeConfig: [
             {
-                op: "Set Difference",
+                op: "补集",
                 args: ["===", ";"],
             },
         ],

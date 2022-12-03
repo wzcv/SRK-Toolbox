@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -22,13 +24,13 @@ TestRegister.addTests([
                 op: "RC4",
                 args: [
                     {
-                        "option": "Hex",
+                        "option": "十六进制",
                         "string": "$R0"
-                    }, "Hex", "Latin1"
+                    }, "十六进制", "Latin1"
                 ]
             },
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="]
             }
         ]
@@ -45,27 +47,27 @@ TestRegister.addTests([
                 args: ["(.{32})", true, false]
             },
             {
-                op: "Drop bytes",
+                op: "删除字节",
                 args: [0, 32, false]
             },
             {
-                op: "AES Decrypt",
+                op: "AES解密",
                 args: [
                     {
-                        "option": "Hex",
+                        "option": "十六进制",
                         "string": "1748e7179bd56570d51fa4ba287cc3e5"
                     },
                     {
-                        "option": "Hex",
+                        "option": "十六进制",
                         "string": "$R0"
                     },
-                    "CTR", "Hex", "Raw",
+                    "CTR", "十六进制", "原始",
                     {
-                        "option": "Hex",
+                        "option": "十六进制",
                         "string": ""
                     },
                     {
-                        "option": "Hex",
+                        "option": "十六进制",
                         "string": ""
                     }
                 ]

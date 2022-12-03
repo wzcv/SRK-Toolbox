@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -43,7 +45,7 @@ TestRegister.addTests([
         expectedOutput: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdHJpbmciOiJTb21lU3RyaW5nIiwiTnVtYmVyIjo0MiwiaWF0IjoxfQ.0ha6-j4FwvEIKPVZ-hf3S_R9Hy_UtXzq4dnedXcUrXk",
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [hsKey, "HS256"],
             }
         ],
@@ -54,7 +56,7 @@ TestRegister.addTests([
         expectedOutput: "eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJTdHJpbmciOiJTb21lU3RyaW5nIiwiTnVtYmVyIjo0MiwiaWF0IjoxfQ._bPK-Y3mIACConbJqkGFMQ_L3vbxgKXy9gSxtL9hA5XTganozTSXxD0vX0N1yT5s",
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [hsKey, "HS384"],
             }
         ],
@@ -65,7 +67,7 @@ TestRegister.addTests([
         expectedOutput: "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJTdHJpbmciOiJTb21lU3RyaW5nIiwiTnVtYmVyIjo0MiwiaWF0IjoxfQ.vZIJU4XYMFt3FLE1V_RZOxEetmV4RvxtPZQGzJthK_d47pjwlEb6pQE23YxHFmOj8H5RLEdqqLPw4jNsOyHRzA",
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [hsKey, "HS512"],
             }
         ],
@@ -76,11 +78,11 @@ TestRegister.addTests([
         expectedOutput: inputObject,
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [esKey, "ES256"],
             },
             {
-                op: "JWT Decode",
+                op: "JWT解码",
                 args: []
             }
         ],
@@ -91,11 +93,11 @@ TestRegister.addTests([
         expectedOutput: inputObject,
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [esKey, "ES384"],
             },
             {
-                op: "JWT Decode",
+                op: "JWT解码",
                 args: []
             }
         ],
@@ -106,11 +108,11 @@ TestRegister.addTests([
         expectedOutput: inputObject,
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [esKey, "ES512"],
             },
             {
-                op: "JWT Decode",
+                op: "JWT解码",
                 args: []
             }
         ],
@@ -121,11 +123,11 @@ TestRegister.addTests([
         expectedOutput: inputObject,
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [rsKey, "RS256"],
             },
             {
-                op: "JWT Decode",
+                op: "JWT解码",
                 args: []
             }
         ],
@@ -136,11 +138,11 @@ TestRegister.addTests([
         expectedOutput: inputObject,
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [rsKey, "RS384"],
             },
             {
-                op: "JWT Decode",
+                op: "JWT解码",
                 args: []
             }
         ],
@@ -151,11 +153,11 @@ TestRegister.addTests([
         expectedOutput: inputObject,
         recipeConfig: [
             {
-                op: "JWT Sign",
+                op: "JWT签名",
                 args: [esKey, "RS512"],
             },
             {
-                op: "JWT Decode",
+                op: "JWT解码",
                 args: []
             }
         ],

@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,19 +17,19 @@ TestRegister.addTests([
         expectedOutput: "Thursday 1st April 1999 22:33:01 +00:00 UTC",
         recipeConfig: [
             {
-                op: "Translate DateTime Format",
-                args: ["Standard date and time", "DD/MM/YYYY HH:mm:ss", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "UTC"],
+                op: "转换DateTime格式",
+                args: ["标准日期时间格式", "DD/MM/YYYY HH:mm:ss", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "UTC"],
             },
         ],
     },
     {
         name: "Translate DateTime Format: invalid input",
         input: "1234567890",
-        expectedMatch: /Invalid format./,
+        expectedMatch: /无效格式。/,
         recipeConfig: [
             {
-                op: "Translate DateTime Format",
-                args: ["Standard date and time", "DD/MM/YYYY HH:mm:ss", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "UTC"],
+                op: "转换DateTime格式",
+                args: ["标准日期时间格式", "DD/MM/YYYY HH:mm:ss", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "UTC"],
             },
         ],
     },
@@ -37,8 +39,8 @@ TestRegister.addTests([
         expectedOutput: "Thursday 1st April 1999 17:33:01 -05:00 EST",
         recipeConfig: [
             {
-                op: "Translate DateTime Format",
-                args: ["Standard date and time", "DD/MM/YYYY HH:mm:ss", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "US/Eastern"],
+                op: "转换DateTime格式",
+                args: ["标准日期时间格式", "DD/MM/YYYY HH:mm:ss", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "US/Eastern"],
             },
         ],
     },
@@ -48,8 +50,8 @@ TestRegister.addTests([
         expectedOutput: "Thursday 1st April 1999 22:33:01 +00:00 UTC",
         recipeConfig: [
             {
-                op: "Translate DateTime Format",
-                args: ["Automatic", "", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "UTC"],
+                op: "转换DateTime格式",
+                args: ["自动", "", "UTC", "dddd Do MMMM YYYY HH:mm:ss Z z", "UTC"],
             },
         ],
     }

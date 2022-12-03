@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,8 +17,8 @@ TestRegister.addTests([
         expectedMatch: /Windows-1251 Cyrillic \(1251\).{1,10}Булкі праз ляніва сабаку\./,
         recipeConfig: [
             {
-                op: "Text Encoding Brute Force",
-                args: ["Encode"],
+                op: "文本编码暴力破解",
+                args: ["编码"],
             },
         ],
     },
@@ -26,8 +28,8 @@ TestRegister.addTests([
         expectedMatch: /Windows-1251 Cyrillic \(1251\).{1,10}Булкі праз ляніва сабаку\./,
         recipeConfig: [
             {
-                op: "Text Encoding Brute Force",
-                args: ["Decode"],
+                op: "文本编码暴力破解",
+                args: ["解码"],
             },
         ],
     }

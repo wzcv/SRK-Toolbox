@@ -146,8 +146,8 @@ class GenerateAllHashes extends Operation {
             output += this.formatDigest(digest, length, includeNames, hash.name);
         });
 
-        if (length === "All") {
-            output += "\nChecksums:\n";
+        if (length === "所有") {
+            output += "\n校验和：\n";
             this.checksums.forEach(checksum => {
                 digest = this.executeAlgo(checksum.algo, checksum.inputType, checksum.params || []);
                 output += this.formatDigest(digest, length, includeNames, checksum.name);

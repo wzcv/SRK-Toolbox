@@ -21,7 +21,7 @@ class PlistViewer extends Operation {
 
         this.name = "P-list查看器";
         this.module = "Default";
-        this.description = "在macOS、iOS、NeXTSTEP和GNUstep编程框架中，属性列表文件（Property list file）用于存储序列化对象。属性列表文件使用扩展名.plist，因此通常被称作p-list文件。<br><br>此操作将plist文件展示为人力可读格式。";
+        this.description = "在macOS、iOS、NeXTSTEP和GNUstep编程框架中，属性列表文件（Property list file）用于存储序列化对象。属性列表文件使用扩展名.plist，因此通常被称作p-list文件。<br><br>此操作将plist文件展示为人类可读格式。";
         this.infoURL = "https://wikipedia.org/wiki/Property_list";
         this.inputType = "string";
         this.outputType = "string";

@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,8 +17,8 @@ TestRegister.addTests([
         expectedOutput: "... --- ...",
         recipeConfig: [
             {
-                op: "To Morse Code",
-                args: ["-/.", "Space", "Line feed"],
+                op: "摩尔斯电码编码",
+                args: ["-/.", "空格", "换行"],
             },
         ],
     },
@@ -26,8 +28,8 @@ TestRegister.addTests([
         expectedOutput: "SOS",
         recipeConfig: [
             {
-                op: "From Morse Code",
-                args: ["Space", "Line feed"],
+                op: "摩尔斯电码解码",
+                args: ["空格", "换行"],
             },
         ],
     },

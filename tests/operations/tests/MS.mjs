@@ -4,6 +4,8 @@
  * @author bwhitn [brian.m.whitney@outlook.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "var my_msg = \"Testing <1><2><3>!\";\r\n\r\nWScript.Echo(my_msg);",
         recipeConfig: [
             {
-                "op": "Microsoft Script Decoder",
+                "op": "Microsoft Script解码",
                 "args": []
             },
         ],

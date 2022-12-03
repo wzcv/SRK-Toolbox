@@ -7,6 +7,8 @@
  * @author swesven
  * @copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -40,8 +42,8 @@ TestRegister.addTests([
         expectedOutput: ECB_1,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: "", option: "Hex"}, "ECB/NoPadding", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: "", option: "十六进制"}, "ECB/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -51,8 +53,8 @@ TestRegister.addTests([
         expectedOutput: ECB_2,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: "", option: "Hex"}, "ECB/NoPadding", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: "", option: "十六进制"}, "ECB/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -62,8 +64,8 @@ TestRegister.addTests([
         expectedOutput: ECB_1P,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: "", option: "Hex"}, "ECB", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: "", option: "十六进制"}, "ECB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -73,8 +75,8 @@ TestRegister.addTests([
         expectedOutput: ECB_2P,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: "", option: "Hex"}, "ECB", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: "", option: "十六进制"}, "ECB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -84,8 +86,8 @@ TestRegister.addTests([
         expectedOutput: CBC_1,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "CBC/NoPadding", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "CBC/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -95,8 +97,8 @@ TestRegister.addTests([
         expectedOutput: CBC_2,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "CBC/NoPadding", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "CBC/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -106,8 +108,8 @@ TestRegister.addTests([
         expectedOutput: OFB_1,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "OFB", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "OFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -117,8 +119,8 @@ TestRegister.addTests([
         expectedOutput: OFB_2,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "OFB", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "OFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -128,8 +130,8 @@ TestRegister.addTests([
         expectedOutput: CFB_1,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "CFB", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "CFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -139,8 +141,8 @@ TestRegister.addTests([
         expectedOutput: CFB_2,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "CFB", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "CFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -150,8 +152,8 @@ TestRegister.addTests([
         expectedOutput: CTR_1,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "CTR", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "CTR", "十六进制", "十六进制"]
             }
         ]
     },
@@ -161,8 +163,8 @@ TestRegister.addTests([
         expectedOutput: CTR_2,
         recipeConfig: [
             {
-                "op": "SM4 Encrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "CTR", "Hex", "Hex"]
+                "op": "SM4加密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "CTR", "十六进制", "十六进制"]
             }
         ]
     },
@@ -172,8 +174,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: "", option: "Hex"}, "ECB/NoPadding", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: "", option: "十六进制"}, "ECB/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -183,8 +185,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: "", option: "Hex"}, "ECB/NoPadding", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: "", option: "十六进制"}, "ECB/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -194,8 +196,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "CBC/NoPadding", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "CBC/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -205,8 +207,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "CBC/NoPadding", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "CBC/NoPadding", "十六进制", "十六进制"]
             }
         ]
     },
@@ -216,8 +218,8 @@ TestRegister.addTests([
         expectedOutput: OFB_1,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "OFB", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "OFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -227,8 +229,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "OFB", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "OFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -238,8 +240,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "CFB", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "CFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -249,8 +251,8 @@ TestRegister.addTests([
         expectedOutput: TWO_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "CFB", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "CFB", "十六进制", "十六进制"]
             }
         ]
     },
@@ -260,8 +262,8 @@ TestRegister.addTests([
         expectedOutput: FOUR_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_1, option: "Hex"}, {string: IV, option: "Hex"}, "CTR", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_1, option: "十六进制"}, {string: IV, option: "十六进制"}, "CTR", "十六进制", "十六进制"]
             }
         ]
     },
@@ -271,8 +273,8 @@ TestRegister.addTests([
         expectedOutput: FOUR_BLOCK_PLAIN,
         recipeConfig: [
             {
-                "op": "SM4 Decrypt",
-                "args": [{string: KEY_2, option: "Hex"}, {string: IV, option: "Hex"}, "CTR", "Hex", "Hex"]
+                "op": "SM4解密",
+                "args": [{string: KEY_2, option: "十六进制"}, {string: IV, option: "十六进制"}, "CTR", "十六进制", "十六进制"]
             }
         ]
     },

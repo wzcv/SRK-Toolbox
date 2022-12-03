@@ -4,6 +4,8 @@
  * @author john19696 [john19696@protonmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -55,7 +57,7 @@ NT Hash:      0CB6948805F797BF2A82807973B89537
 SSDEEP:       3:Hn:Hn
 CTPH:         A:E:E
 
-Checksums:
+校验和：
 Fletcher-8:   3d
 Fletcher-16:  5dc1
 Fletcher-32:  3f5cd9e7
@@ -67,8 +69,8 @@ CRC-32:       d87f7e0c
 `,
         recipeConfig: [
             {
-                "op": "Generate all hashes",
-                "args": ["All", true]
+                "op": "哈希生成",
+                "args": ["所有", true]
             }
         ]
     },
@@ -86,7 +88,7 @@ NT Hash:      0CB6948805F797BF2A82807973B89537
 `,
         recipeConfig: [
             {
-                "op": "Generate all hashes",
+                "op": "哈希生成",
                 "args": ["128", true]
             }
         ]
@@ -107,7 +109,7 @@ ee67303696d205ddd2b2363e8e01b4b7199a80957d94d7678eaad3fc834c5a27
 `,
         recipeConfig: [
             {
-                "op": "Generate all hashes",
+                "op": "哈希生成",
                 "args": ["256", false]
             }
         ]

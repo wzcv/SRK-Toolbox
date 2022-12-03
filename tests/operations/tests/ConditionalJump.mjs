@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -23,11 +25,11 @@ TestRegister.addTests([
                 args: ["match", false, "", 0],
             },
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
         ],
@@ -47,14 +49,14 @@ TestRegister.addTests([
                 args: ["should", false, "skip match", 10],
             },
             {
-                op: "To Base64",
+                op: "Base64编码",
                 args: ["A-Za-z0-9+/="],
             },
             {
                 op: "Label", args: ["skip match"],
             },
             {
-                op: "To Base32",
+                op: "Base32编码",
                 args: ["A-Z2-7="],
             },
         ],

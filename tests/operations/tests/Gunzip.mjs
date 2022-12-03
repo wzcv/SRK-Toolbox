@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -16,8 +18,8 @@ TestRegister.addTests([
         expectedOutput: "The quick brown fox jumped over the slow dog",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["None"]
+                op: "十六进制转字符",
+                args: ["无"]
             },
             {
                 op: "Gunzip",
@@ -31,8 +33,8 @@ TestRegister.addTests([
         expectedOutput: "The quick brown fox jumped over the slow dog",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["None"]
+                op: "十六进制转字符",
+                args: ["无"]
             },
             {
                 op: "Gunzip",
@@ -46,8 +48,8 @@ TestRegister.addTests([
         expectedOutput: "The quick brown fox jumped over the slow dog",
         recipeConfig: [
             {
-                op: "From Hex",
-                args: ["None"]
+                op: "十六进制转字符",
+                args: ["无"]
             },
             {
                 op: "Gunzip",

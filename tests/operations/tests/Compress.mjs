@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,11 +16,11 @@ TestRegister.addTests([
         expectedOutput: "The cat sat on the mat.",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Space"]
+                "op": "十六进制转字符",
+                "args": ["空格"]
             },
             {
-                "op": "Bzip2 Decompress",
+                "op": "Bzip2解压",
                 "args": []
             }
         ],
@@ -30,11 +32,11 @@ TestRegister.addTests([
         expectedOutput: "The cat sat on the mat.",
         recipeConfig: [
             {
-                "op": "LZMA Compress",
+                "op": "LZMA压缩",
                 "args": ["6"]
             },
             {
-                "op": "LZMA Decompress",
+                "op": "LZMA解压",
                 "args": []
             },
         ],
@@ -46,16 +48,16 @@ TestRegister.addTests([
         expectedOutput: "00 01 02 03 04 05 06 07 08 09 0a 0b 0c 0d 0e 0f 10",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Space"]
+                "op": "十六进制转字符",
+                "args": ["空格"]
             },
             {
-                "op": "LZMA Decompress",
+                "op": "LZMA解压",
                 "args": []
             },
             {
-                "op": "To Hex",
-                "args": ["Space", 0]
+                "op": "字符转十六进制",
+                "args": ["空格", 0]
             }
         ],
     },
@@ -66,11 +68,11 @@ TestRegister.addTests([
         expectedOutput: "The cat sat on the mat.",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Space"]
+                "op": "十六进制转字符",
+                "args": ["空格"]
             },
             {
-                "op": "LZMA Decompress",
+                "op": "LZMA解压",
                 "args": []
             }
         ],
@@ -81,12 +83,12 @@ TestRegister.addTests([
         expectedOutput: "04224d184070df170000805468652063617420736174206f6e20746865206d61742e00000000",
         recipeConfig: [
             {
-                "op": "LZ4 Compress",
+                "op": "LZ4压缩",
                 "args": []
             },
             {
-                "op": "To Hex",
-                "args": ["None", 0]
+                "op": "字符转十六进制",
+                "args": ["无", 0]
             }
         ],
     },
@@ -96,11 +98,11 @@ TestRegister.addTests([
         expectedOutput: "The cat sat on the mat.",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
-                "op": "LZ4 Decompress",
+                "op": "LZ4解压",
                 "args": []
             }
         ],

@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -19,7 +21,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_SINGLE,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -30,7 +32,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_SINGLE,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -41,7 +43,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_SINGLE,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -52,7 +54,7 @@ TestRegister.addTests([
         expectedOutput: "a,b,c\r\nfalse,null,3\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -63,7 +65,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_SINGLE,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -74,7 +76,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_MULTIPLE,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -85,7 +87,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_EMPTY,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -96,7 +98,7 @@ TestRegister.addTests([
         expectedOutput: EXPECTED_CSV_EMPTY,
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -107,7 +109,7 @@ TestRegister.addTests([
         expectedOutput: "a,b.c,b.d\r\n1,2,3\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -118,7 +120,7 @@ TestRegister.addTests([
         expectedOutput: "a,b.0,b.1\r\n1,2,3\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -129,7 +131,7 @@ TestRegister.addTests([
         expectedOutput: "a,b.c.0,b.c.1,b.d\r\n1,2,3,4\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -140,7 +142,7 @@ TestRegister.addTests([
         expectedOutput: "a,b.0.c,b.0.d\r\n1,3,4\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -151,7 +153,7 @@ TestRegister.addTests([
         expectedOutput: "a,b.0.0,b.0.1\r\n1,2,3\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],
@@ -162,7 +164,7 @@ TestRegister.addTests([
         expectedOutput: "a,b.c.d,b.c.e\r\n1,2,3\r\n",
         recipeConfig: [
             {
-                op: "JSON to CSV",
+                op: "JSON转CSV",
                 args: [",", "\\r\\n"]
             },
         ],

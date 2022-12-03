@@ -4,6 +4,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,11 +16,11 @@ TestRegister.addTests([
         expectedOutput: "http://en.m.wikipedia.org",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
-                "op": "Parse QR Code",
+                "op": "解析二维码",
                 "args": [false]
             }
         ]
@@ -29,11 +31,11 @@ TestRegister.addTests([
         expectedOutput: "Hello world!",
         recipeConfig: [
             {
-                "op": "From Hex",
+                "op": "十六进制转字符",
                 "args": ["Space"]
             },
             {
-                "op": "Parse QR Code",
+                "op": "解析二维码",
                 "args": [false]
             },
         ],
@@ -44,11 +46,11 @@ TestRegister.addTests([
         expectedOutput: "http://en.m.wikipedia.org",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
-                "op": "Parse QR Code",
+                "op": "解析二维码",
                 "args": [true]
             },
         ],
@@ -59,11 +61,11 @@ TestRegister.addTests([
         expectedOutput: "https://globeon.mobi/jyri",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
-                "op": "Parse QR Code",
+                "op": "解析二维码",
                 "args": [true]
             }
         ]

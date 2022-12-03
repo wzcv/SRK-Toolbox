@@ -4,6 +4,8 @@
  * @author Matt C [matt@artemisbot.uk]
  * @copyright Crown Copyright 2017
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -433,7 +435,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA224"]
+                "args": [{"option": "十六进制", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA224"]
             }
         ]
     },
@@ -444,7 +446,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA256"]
+                "args": [{"option": "十六进制", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA256"]
             }
         ]
     },
@@ -455,7 +457,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA384"]
+                "args": [{"option": "十六进制", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA384"]
             }
         ]
     },
@@ -466,7 +468,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA512"]
+                "args": [{"option": "十六进制", "string": "0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b"}, "SHA512"]
             }
         ]
     },
@@ -477,7 +479,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "4a656665"}, "SHA224"]
+                "args": [{"option": "十六进制", "string": "4a656665"}, "SHA224"]
             }
         ]
     },
@@ -488,7 +490,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "4a656665"}, "SHA256"]
+                "args": [{"option": "十六进制", "string": "4a656665"}, "SHA256"]
             }
         ]
     },
@@ -499,7 +501,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "4a656665"}, "SHA384"]
+                "args": [{"option": "十六进制", "string": "4a656665"}, "SHA384"]
             }
         ]
     },
@@ -510,7 +512,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "4a656665"}, "SHA512"]
+                "args": [{"option": "十六进制", "string": "4a656665"}, "SHA512"]
             }
         ]
     },
@@ -520,12 +522,12 @@ TestRegister.addTests([
         expectedOutput: "7fb3cb3588c6c1f6ffa9694d7d6ad2649365b0c1f65d69d1ec8333ea",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA224"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA224"]
             }
         ]
     },
@@ -535,12 +537,12 @@ TestRegister.addTests([
         expectedOutput: "773ea91e36800e46854db8ebd09181a72959098b3ef8c122d9635514ced565fe",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA256"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA256"]
             }
         ]
     },
@@ -550,12 +552,12 @@ TestRegister.addTests([
         expectedOutput: "88062608d3e6ad8a0aa2ace014c8a86f0aa635d947ac9febe83ef4e55966144b2a5ab39dc13814b94e3ab6e101a34f27",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA384"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA384"]
             }
         ]
     },
@@ -565,12 +567,12 @@ TestRegister.addTests([
         expectedOutput: "fa73b0089d56a284efb0f0756c890be9b1b5dbdd8ee81a3655f83e33b2279d39bf3e848279a722c806b485a47e67c807b946a337bee8942674278859e13292fb",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA512"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA512"]
             }
         ]
     },
@@ -580,12 +582,12 @@ TestRegister.addTests([
         expectedOutput: "6c11506874013cac6a2abc1bb382627cec6a90d86efc012de7afec5a",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA224"]
+                "args": [{"option": "十六进制", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA224"]
             }
         ]
     },
@@ -595,12 +597,12 @@ TestRegister.addTests([
         expectedOutput: "82558a389a443c0ea4cc819899f2083a85f0faa3e578f8077a2e3ff46729665b",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA256"]
+                "args": [{"option": "十六进制", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA256"]
             }
         ]
     },
@@ -610,12 +612,12 @@ TestRegister.addTests([
         expectedOutput: "3e8a69b7783c25851933ab6290af6ca77a9981480850009cc5577c6e1f573b4e6801dd23c4a7d679ccf8a386c674cffb",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA384"]
+                "args": [{"option": "十六进制", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA384"]
             }
         ]
     },
@@ -625,12 +627,12 @@ TestRegister.addTests([
         expectedOutput: "b0ba465637458c6990e5a8c5f61d4af7e576d97ff94b872de76f8050361ee3dba91ca5c11aa25eb4d679275cc5788063a5f19741120c4f2de2adebeb10a298dd",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA512"]
+                "args": [{"option": "十六进制", "string": "0102030405060708090a0b0c0d0e0f10111213141516171819"}, "SHA512"]
             }
         ]
     },
@@ -641,7 +643,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA224"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA224"]
             }
         ]
     },
@@ -652,7 +654,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA256"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA256"]
             }
         ]
     },
@@ -663,7 +665,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA384"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA384"]
             }
         ]
     },
@@ -674,7 +676,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA512"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA512"]
             }
         ]
     },
@@ -685,7 +687,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA224"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA224"]
             }
         ]
     },
@@ -696,7 +698,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA256"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA256"]
             }
         ]
     },
@@ -707,7 +709,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA384"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA384"]
             }
         ]
     },
@@ -718,7 +720,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 "op": "HMAC",
-                "args": [{"option": "Hex", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA512"]
+                "args": [{"option": "十六进制", "string": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}, "SHA512"]
             }
         ]
     },
@@ -728,8 +730,8 @@ TestRegister.addTests([
         expectedOutput: "4f4f02e2646545aa8fc42f613c9aa068",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "MD5",
@@ -743,8 +745,8 @@ TestRegister.addTests([
         expectedOutput: "2c5400aaee7e8ad4cad29bfbdf8d566924e5442c",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA1",
@@ -758,8 +760,8 @@ TestRegister.addTests([
         expectedOutput: "66c166eba2529ecc44a7b7b218a64a8e3892f873c8d231e8e3c1ef3d",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA2",
@@ -773,8 +775,8 @@ TestRegister.addTests([
         expectedOutput: "186ffd22c3af83995afa4a0316023f81a7f8834fd16bd2ed358c7b1b8182ba41",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA2",
@@ -788,8 +790,8 @@ TestRegister.addTests([
         expectedOutput: "2a6369ffec550ea0bfb810b3b8246b7d6b7f060edfae88441f0f242b98b91549aa4ff407de38c6d03b5f377434ad2f36",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA2",
@@ -803,8 +805,8 @@ TestRegister.addTests([
         expectedOutput: "544ae686522c05b70d12b460b5b39ea0a758eb4027333edbded7e2b3f467aa605804f71f54db61a7bbe50e6e7898510635efd6721fd418a9ea4d05b286d12806",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA2",
@@ -818,8 +820,8 @@ TestRegister.addTests([
         expectedOutput: "e2c07562ee8c2d73e3dd309efea257159abd0948ebc14619bab9ffb3",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA3",
@@ -833,8 +835,8 @@ TestRegister.addTests([
         expectedOutput: "55a55275387586afd1ed64757c9ee7ad1d96ca81a5b7b742c40127856ee78a2d",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA3",
@@ -848,8 +850,8 @@ TestRegister.addTests([
         expectedOutput: "39f8796dd697dc39e5a943817833793f2c29dc0d1adc7037854c0fb51e135c6bd26b113240c4fb1e3fcc16ff8690c91a",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA3",
@@ -863,8 +865,8 @@ TestRegister.addTests([
         expectedOutput: "ee9061bed83b1ad1e2fc4a4bac72a5a65a23a0fa55193b808af0a3e2013b718a5a3e40474765b4f93d1b2747401058a5b58099cc890a159db92b2ea816287add",
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "SHA3",
@@ -985,10 +987,10 @@ TestRegister.addTests([
     {
         name: "Bcrypt compare: dolphin",
         input: "dolphin",
-        expectedOutput: "Match: dolphin",
+        expectedOutput: "匹配： dolphin",
         recipeConfig: [
             {
-                op: "Bcrypt compare",
+                op: "Bcrypt比较",
                 args: ["$2a$10$qyon0LQCmMxpFFjwWH6Qh.dDdhqntQh./IN0RXCc3XIMILuOYZKgK"]
             }
         ]
@@ -1094,7 +1096,7 @@ TestRegister.addTests([
         expectedOutput: "981e5f3ca30c841487830f84fb433e13ac1101569b9c13584ac483234cd656c0",
         recipeConfig: [
             {
-                op: "GOST hash",
+                op: "GOST哈希",
                 args: ["D-A"]
             }
         ]
@@ -1105,7 +1107,7 @@ TestRegister.addTests([
         expectedOutput: "2cefc2f7b7bdc514e18ea57fa74ff357e7fa17d652c75f69cb1be7893ede48eb",
         recipeConfig: [
             {
-                op: "GOST hash",
+                op: "GOST哈希",
                 args: ["D-A"]
             }
         ]

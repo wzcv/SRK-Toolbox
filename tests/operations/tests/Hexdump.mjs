@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -34,11 +36,11 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Hexdump",
+                op: "转换到Hexdump",
                 args: [16, false, false]
             },
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -49,11 +51,11 @@ TestRegister.addTests([
         expectedOutput: "Hello, World!",
         recipeConfig: [
             {
-                op: "To Hexdump",
+                op: "转换到Hexdump",
                 args: [16, false, false]
             },
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -64,11 +66,11 @@ TestRegister.addTests([
         expectedOutput: "ნუ პანიკას",
         recipeConfig: [
             {
-                op: "To Hexdump",
+                op: "转换到Hexdump",
                 args: [16, false, false]
             },
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -79,11 +81,11 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "To Hexdump",
+                op: "转换到Hexdump",
                 args: [16, false, false]
             },
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -95,7 +97,7 @@ TestRegister.addTests([
 00000010  e1 83 98 e1 83 99 e1 83 90 e1 83 a1              |á..á..á..á.¡|`,
         recipeConfig: [
             {
-                op: "To Hexdump",
+                op: "转换到Hexdump",
                 args: [16, false, false]
             }
         ],
@@ -121,7 +123,7 @@ TestRegister.addTests([
 000000f0  f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 fa fb fc fd fe ff  |ðñòóôõö÷øùúûüýþÿ|`,
         recipeConfig: [
             {
-                op: "To Hexdump",
+                op: "转换到Hexdump",
                 args: [16, false, false]
             }
         ],
@@ -147,7 +149,7 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -174,7 +176,7 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -200,7 +202,7 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -226,7 +228,7 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],
@@ -253,7 +255,7 @@ TestRegister.addTests([
         expectedOutput: ALL_BYTES,
         recipeConfig: [
             {
-                op: "From Hexdump",
+                op: "从Hexdump提取",
                 args: []
             }
         ],

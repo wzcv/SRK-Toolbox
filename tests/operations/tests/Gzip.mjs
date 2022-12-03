@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -17,15 +19,15 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 op: "Gzip",
-                args: ["Dynamic Huffman Coding", "", "", false]
+                args: ["动态哈夫曼压缩", "", "", false]
             },
             {
-                op: "Drop bytes",
+                op: "删除字节",
                 args: [0, 10, false]
             },
             {
-                op: "To Hex",
-                args: ["None"]
+                op: "字符转十六进制",
+                args: ["无"]
             }
         ]
     },
@@ -36,15 +38,15 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 op: "Gzip",
-                args: ["Dynamic Huffman Coding", "comment", "", false]
+                args: ["动态哈夫曼压缩", "comment", "", false]
             },
             {
-                op: "Drop bytes",
+                op: "删除字节",
                 args: [0, 10, false]
             },
             {
-                op: "To Hex",
-                args: ["None"]
+                op: "字符转十六进制",
+                args: ["无"]
             }
         ]
     },
@@ -55,15 +57,15 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 op: "Gzip",
-                args: ["Dynamic Huffman Coding", "", "comment", false]
+                args: ["动态哈夫曼压缩", "", "comment", false]
             },
             {
-                op: "Drop bytes",
+                op: "删除字节",
                 args: [0, 10, false]
             },
             {
-                op: "To Hex",
-                args: ["None"]
+                op: "字符转十六进制",
+                args: ["无"]
             }
         ]
     },
@@ -74,15 +76,15 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 op: "Gzip",
-                args: ["Dynamic Huffman Coding", "filename", "comment", false]
+                args: ["动态哈夫曼压缩", "filename", "comment", false]
             },
             {
-                op: "Drop bytes",
+                op: "删除字节",
                 args: [0, 10, false]
             },
             {
-                op: "To Hex",
-                args: ["None"]
+                op: "字符转十六进制",
+                args: ["无"]
             }
         ]
     },
