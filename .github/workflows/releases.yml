@@ -25,10 +25,10 @@ jobs:
     - name: Lint
       run: npx grunt lint
 
-#     - name: Unit Tests
-#       run: |
-#         npm test
-#         npm run testnodeconsumer
+    - name: Unit Tests
+      run: |
+        npm test
+        npm run testnodeconsumer
 
     - name: Production Build
       if: success()
@@ -48,7 +48,7 @@ jobs:
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
-        body: "详情请参考CyberChef原版[CHANGELOG](https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md)和[commit messages](https://github.com/gchq/CyberChef/commits/master)。"
+        body: "详情请参考[SRK Toolbox CHANGELOG](https://github.com/Raka-loah/SRK-Toolbox/blob/master/CHANGELOG_SRKTOOLBOX.md)和CyberChef原版[CHANGELOG](https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md)以及[commit messages](https://github.com/gchq/CyberChef/commits/master)。"
 
 #     - name: Publish to NPM
 #       if: success()
@@ -78,7 +78,6 @@ jobs:
       uses: docker/build-push-action@v3.2.0
       with:
         context: .
-        # Path to the Dockerfile
         file: ./Dockerfile
         push: true
         tags: ${{ steps.meta.outputs.tags }}

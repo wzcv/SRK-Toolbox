@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -12,7 +14,7 @@ TestRegister.addTests([
         expectedOutput: "c8f0",
         recipeConfig: [
             {
-                op: "Fletcher-16 Checksum",
+                op: "Fletcher-16校验和",
                 args: [],
             },
         ],
@@ -23,7 +25,7 @@ TestRegister.addTests([
         expectedOutput: "2057",
         recipeConfig: [
             {
-                op: "Fletcher-16 Checksum",
+                op: "Fletcher-16校验和",
                 args: [],
             },
         ],
@@ -34,7 +36,7 @@ TestRegister.addTests([
         expectedOutput: "0627",
         recipeConfig: [
             {
-                op: "Fletcher-16 Checksum",
+                op: "Fletcher-16校验和",
                 args: [],
             },
         ],
@@ -45,7 +47,7 @@ TestRegister.addTests([
         expectedOutput: "f04fc729",
         recipeConfig: [
             {
-                op: "Fletcher-32 Checksum",
+                op: "Fletcher-32校验和",
                 args: [],
             },
         ],
@@ -56,7 +58,7 @@ TestRegister.addTests([
         expectedOutput: "56502d2a",
         recipeConfig: [
             {
-                op: "Fletcher-32 Checksum",
+                op: "Fletcher-32校验和",
                 args: [],
             },
         ],
@@ -67,7 +69,7 @@ TestRegister.addTests([
         expectedOutput: "ebe19591",
         recipeConfig: [
             {
-                op: "Fletcher-32 Checksum",
+                op: "Fletcher-32校验和",
                 args: [],
             },
         ],
@@ -78,7 +80,7 @@ TestRegister.addTests([
         expectedOutput: "c8c6c527646362c6",
         recipeConfig: [
             {
-                op: "Fletcher-64 Checksum",
+                op: "Fletcher-64校验和",
                 args: [],
             },
         ],
@@ -89,7 +91,7 @@ TestRegister.addTests([
         expectedOutput: "c8c72b276463c8c6",
         recipeConfig: [
             {
-                op: "Fletcher-64 Checksum",
+                op: "Fletcher-64校验和",
                 args: [],
             },
         ],
@@ -100,7 +102,7 @@ TestRegister.addTests([
         expectedOutput: "312e2b28cccac8c6",
         recipeConfig: [
             {
-                op: "Fletcher-64 Checksum",
+                op: "Fletcher-64校验和",
                 args: [],
             },
         ],

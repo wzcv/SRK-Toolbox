@@ -4,6 +4,8 @@
  * @author crespyl [peter@crespyl.net]
  * @copyright Peter Jacobs 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "BYUwNmD2AEDukCcwBMg=",
         recipeConfig: [
             {
-                "op": "LZString Compress",
+                "op": "LZString压缩",
                 "args": ["Base64"]
             }
         ],
@@ -25,7 +27,7 @@ TestRegister.addTests([
         expectedOutput: "hello world",
         recipeConfig: [
             {
-                "op": "LZString Decompress",
+                "op": "LZString解压",
                 "args": ["Base64"]
             }
         ],

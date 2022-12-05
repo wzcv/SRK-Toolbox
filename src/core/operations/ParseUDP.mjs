@@ -70,7 +70,7 @@ class ParseUDP extends Operation {
         };
         // Parse data if present
         if (s.hasMore()) {
-            UDPPacket.Data = "0x" + toHexFast(s.getBytes(UDPPacket.Length - 8));
+            UDPPacket.数据 = "0x" + toHexFast(s.getBytes(UDPPacket.长度 - 8));
         }
 
         return UDPPacket;

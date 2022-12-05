@@ -4,6 +4,8 @@
  * @author brun0ne [brunonblok@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "C5FA1C40E55734A8E528DBFE21766D23",
         recipeConfig: [
             {
-                op: "NT Hash",
+                op: "NT哈希",
                 args: [],
             },
         ],
@@ -25,7 +27,7 @@ TestRegister.addTests([
         expectedOutput: "6D9DF16655336CA75A3C13DD18BA8156",
         recipeConfig: [
             {
-                op: "LM Hash",
+                op: "LM哈希",
                 args: [],
             },
         ],

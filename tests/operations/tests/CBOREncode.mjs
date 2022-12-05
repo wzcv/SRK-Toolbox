@@ -4,6 +4,8 @@
  * @author Danh4 [dan.h4@ncsc.gov.uk]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -15,11 +17,11 @@ TestRegister.addTests([
         expectedOutput: "0f",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]
@@ -30,11 +32,11 @@ TestRegister.addTests([
         expectedOutput: "f9 3e 00",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]
@@ -45,11 +47,11 @@ TestRegister.addTests([
         expectedOutput: "64 54 65 78 74",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]
@@ -60,11 +62,11 @@ TestRegister.addTests([
         expectedOutput: "f5",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]
@@ -75,11 +77,11 @@ TestRegister.addTests([
         expectedOutput: "f4",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]
@@ -90,11 +92,11 @@ TestRegister.addTests([
         expectedOutput: "a3 61 61 01 61 62 02 61 63 03",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]
@@ -105,11 +107,11 @@ TestRegister.addTests([
         expectedOutput: "83 00 01 02",
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "To Hex",
+                op: "字符转十六进制",
                 args: []
             }
         ]

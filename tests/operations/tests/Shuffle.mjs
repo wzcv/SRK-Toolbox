@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -12,8 +14,8 @@ TestRegister.addTests([
         "expectedOutput": "",
         "recipeConfig": [
             {
-                "op": "Shuffle",
-                "args": ["Comma"]
+                "op": "乱序",
+                "args": ["逗号"]
             }
         ]
     },
@@ -23,16 +25,16 @@ TestRegister.addTests([
         "expectedOutput": "31 32 33 34 35 36 37 38",
         "recipeConfig": [
             {
-                "op": "Shuffle",
-                "args": ["Nothing (separate chars)"]
+                "op": "乱序",
+                "args": ["无"]
             },
             {
-                "op": "To Hex",
-                "args": ["Space", 0]
+                "op": "字符转十六进制",
+                "args": ["空格", 0]
             },
             {
-                "op": "Sort",
-                "args": ["Space", false, "Alphabetical (case sensitive)"]
+                "op": "排序",
+                "args": ["空格", false, "字母顺序（不区分大小写）"]
             }
         ]
     },
@@ -42,12 +44,12 @@ TestRegister.addTests([
         "expectedOutput": "\n1\n2\n3\n4\n5\n6\n7\n8\n9\na\nb\nc\nd\ne\nf",
         "recipeConfig": [
             {
-                "op": "Shuffle",
-                "args": ["Line feed"]
+                "op": "乱序",
+                "args": ["换行"]
             },
             {
-                "op": "Sort",
-                "args": ["Line feed", false, "Alphabetical (case sensitive)"]
+                "op": "排序",
+                "args": ["换行", false, "字母顺序（不区分大小写）"]
             }
         ]
     }

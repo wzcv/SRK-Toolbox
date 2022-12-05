@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "Caesar Box Cipher",
+                op: "恺撒箱密码",
                 args: ["1"],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "Hlodeor!lWl",
         recipeConfig: [
             {
-                op: "Caesar Box Cipher",
+                op: "恺撒箱密码",
                 args: ["3"],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "HelloWorld!",
         recipeConfig: [
             {
-                op: "Caesar Box Cipher",
+                op: "恺撒箱密码",
                 args: ["4"],
             },
         ],

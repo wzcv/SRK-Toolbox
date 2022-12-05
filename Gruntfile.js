@@ -97,7 +97,7 @@ module.exports = function (grunt) {
             PKG_VERSION: JSON.stringify(pkg.version),
         },
         moduleEntryPoints = listEntryModules(),
-        nodeConsumerTestPath = "~/tmp-cyberchef",
+        nodeConsumerTestPath = "~/tmp-srktoolbox",
         /**
          * Configuration for Webpack production build. Defined as a function so that it
          * can be recalculated when new modules are generated.
@@ -368,7 +368,7 @@ module.exports = function (grunt) {
                     `mkdir ${nodeConsumerTestPath}`,
                     `cp tests/node/consumers/* ${nodeConsumerTestPath}`,
                     `cd ${nodeConsumerTestPath}`,
-                    "npm link cyberchef"
+                    "npm link srktoolbox"
                 ]),
                 sync: true
             },

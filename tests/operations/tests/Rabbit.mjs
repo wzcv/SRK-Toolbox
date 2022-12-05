@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -15,9 +17,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -30,9 +32,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "912813292e3d36fe3bfc62f1dc51c3ac"},
-                    {"option": "Hex", "string": ""},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "912813292e3d36fe3bfc62f1dc51c3ac"},
+                    {"option": "十六进制", "string": ""},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -45,9 +47,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "8395741587e0c733e9e9ab01c09b0043"},
-                    {"option": "Hex", "string": ""},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "8395741587e0c733e9e9ab01c09b0043"},
+                    {"option": "十六进制", "string": ""},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -60,9 +62,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": "0000000000000000"},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": "0000000000000000"},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -75,9 +77,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": "c373f575c1267e59"},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": "c373f575c1267e59"},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -90,9 +92,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": "a6eb561ad2f41727"},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": "a6eb561ad2f41727"},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -105,9 +107,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -120,9 +122,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -130,14 +132,14 @@ TestRegister.addTests([
     {
         name: "Rabbit: invalid key length",
         input: "",
-        expectedOutput: "Invalid key length: 8 bytes (expected: 16)",
+        expectedOutput: "无效的key长度：8 字节（正确值：16）",
         recipeConfig: [
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "0000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "0000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -145,14 +147,14 @@ TestRegister.addTests([
     {
         name: "Rabbit: invalid IV length",
         input: "",
-        expectedOutput: "Invalid IV length: 4 bytes (expected: 0 or 8)",
+        expectedOutput: "无效的IV长度：4 字节（正确值：0或8）",
         recipeConfig: [
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": "00000000"},
-                    "Big", "Hex", "Hex"
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": "00000000"},
+                    "大端序", "十六进制", "十六进制"
                 ]
             }
         ]
@@ -167,9 +169,9 @@ TestRegister.addTests([
             {
                 "op": "Rabbit",
                 "args": [
-                    {"option": "Hex", "string": "23c2731e8b5469fd8dabb5bc592a0f3a"},
-                    {"option": "Hex", "string": "712906405ef03201"},
-                    "Little", "Raw", "Hex"
+                    {"option": "十六进制", "string": "23c2731e8b5469fd8dabb5bc592a0f3a"},
+                    {"option": "十六进制", "string": "712906405ef03201"},
+                    "小端序", "原始", "十六进制"
                 ]
             }
         ]

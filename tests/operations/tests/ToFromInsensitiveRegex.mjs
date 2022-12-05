@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Case Insensitive Regex",
+                op: "从大小写不敏感正则恢复",
                 args: [],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "[sS]0[mM][eE][tT][hH]![nN][gG]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -48,7 +50,7 @@ TestRegister.addTests([
         expectedOutput: "s0meth!nG [wr][On][g]?",
         recipeConfig: [
             {
-                op: "From Case Insensitive Regex",
+                op: "从大小写不敏感正则恢复",
                 args: [],
             },
         ],
@@ -59,7 +61,7 @@ TestRegister.addTests([
         expectedOutput: "[A-Za-z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -70,7 +72,7 @@ TestRegister.addTests([
         expectedOutput: "[A-Za-z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -81,7 +83,7 @@ TestRegister.addTests([
         expectedOutput: "[A-DH-dh-z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -92,7 +94,7 @@ TestRegister.addTests([
         expectedOutput: "[!-Da-d]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -103,7 +105,7 @@ TestRegister.addTests([
         expectedOutput: "[%-^a-z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -114,7 +116,7 @@ TestRegister.addTests([
         expectedOutput: "[K-`k-z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -125,7 +127,7 @@ TestRegister.addTests([
         expectedOutput: "[[-}A-Z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -136,7 +138,7 @@ TestRegister.addTests([
         expectedOutput: "[b-}B-Z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -147,7 +149,7 @@ TestRegister.addTests([
         expectedOutput: "[<-z]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -158,7 +160,7 @@ TestRegister.addTests([
         expectedOutput: "[A-J^-j]",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -169,7 +171,7 @@ TestRegister.addTests([
         expectedOutput: "[mM][oO][zZ][iI][lL][lL][aA][A-Za-z0-9]+[A-Za-z][mM][oO][zZ][iI][lL][lL][aA][0-9[wW][hH][aA][tT]A-Za-z][A-DH-dh-z][!-Ha-h][a-~A-Z](.)+",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],
@@ -177,10 +179,10 @@ TestRegister.addTests([
     {
         name: "To Case Insensitive Regex: erroneous test",
         input: "Mozilla[A-Z",
-        expectedOutput: "Invalid Regular Expression (Please note this version of node does not support look behinds).",
+        expectedOutput: "无效的正则表达式（请注意此版本的Node不支持正则的后行断言）。",
         recipeConfig: [
             {
-                op: "To Case Insensitive Regex",
+                op: "转换为大小写不敏感正则",
                 args: [],
             },
         ],

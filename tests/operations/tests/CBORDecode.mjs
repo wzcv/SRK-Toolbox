@@ -4,6 +4,8 @@
  * @author Danh4 [dan.h4@ncsc.gov.uk]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -15,11 +17,11 @@ TestRegister.addTests([
         expectedOutput: "15",
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             }
         ]
@@ -30,11 +32,11 @@ TestRegister.addTests([
         expectedOutput: "1.5",
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             }
         ]
@@ -45,11 +47,11 @@ TestRegister.addTests([
         expectedOutput: "\"Text\"",
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             }
         ]
@@ -60,11 +62,11 @@ TestRegister.addTests([
         expectedOutput: "true",
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             }
         ]
@@ -75,11 +77,11 @@ TestRegister.addTests([
         expectedOutput: "false",
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             }
         ]
@@ -90,15 +92,15 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify({a: 1, b: 2, c: 3}),
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             },
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: []
             }
         ]
@@ -109,15 +111,15 @@ TestRegister.addTests([
         expectedOutput: "[0,1,2]",
         recipeConfig: [
             {
-                op: "From Hex",
+                op: "十六进制转字符",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             },
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: []
             }
         ]
@@ -128,15 +130,15 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify({a: 1, b: false, c: [1, 2, 3]}),
         recipeConfig: [
             {
-                op: "CBOR Encode",
+                op: "CBOR编码",
                 args: []
             },
             {
-                op: "CBOR Decode",
+                op: "CBOR解码",
                 args: []
             },
             {
-                op: "JSON Minify",
+                op: "JSON压缩",
                 args: []
             }
         ]

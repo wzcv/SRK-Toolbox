@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -16,7 +18,7 @@ TestRegister.addTests([
         expectedOutput: "1970-01-01T00:00:00.000Z",
         recipeConfig: [
             {
-                op: "Parse ObjectID timestamp",
+                op: "解析ObjectID时间戳",
                 args: [],
             }
         ],

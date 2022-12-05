@@ -4,6 +4,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -59,15 +61,15 @@ TestRegister.addTests([
                 "args": ["386756", true, true, false],
             },
             {
-                "op": "From Hex",
-                "args": ["Auto"],
+                "op": "十六进制转字符",
+                "args": ["自动"],
             },
             {
                 "op": "Merge",
                 "args": [true],
             },
             {
-                "op": "From Base64",
+                "op": "Base64解码",
                 "args": ["A-Za-z0-9+/=", true, false],
             },
         ],
@@ -86,15 +88,15 @@ TestRegister.addTests([
                 "args": ["386756", true, true, false],
             },
             {
-                "op": "From Hex",
-                "args": ["Auto"],
+                "op": "十六进制转字符",
+                "args": ["自动"],
             },
             {
                 "op": "Merge",
                 "args": [false],
             },
             {
-                "op": "From Base64",
+                "op": "Base64解码",
                 "args": ["A-Za-z0-9+/=", true, false],
             },
         ],

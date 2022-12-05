@@ -4,6 +4,8 @@
  * @author n1474335
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -11,11 +13,11 @@ TestRegister.addTests([
     {
         name: "Parse TCP: No options",
         input: "c2eb0050a138132e70dc9fb9501804025ea70000",
-        expectedMatch: /1026 \(Scaled: 1026\)/,
+        expectedMatch: /1026 \(扩大后: 1026\)/,
         recipeConfig: [
             {
-                op: "Parse TCP",
-                args: ["Hex"],
+                op: "解析TCP",
+                args: ["十六进制"],
             }
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedMatch: /1460/,
         recipeConfig: [
             {
-                op: "Parse TCP",
-                args: ["Hex"],
+                op: "解析TCP",
+                args: ["十六进制"],
             }
         ],
     },
@@ -36,8 +38,8 @@ TestRegister.addTests([
         expectedMatch: /2766719221/,
         recipeConfig: [
             {
-                op: "Parse TCP",
-                args: ["Hex"],
+                op: "解析TCP",
+                args: ["十六进制"],
             }
         ],
     }

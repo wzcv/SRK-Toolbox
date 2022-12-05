@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -16,7 +18,7 @@ TestRegister.addTests([
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
+                "args": [{"option": "十六进制", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
             },
         ]
     },
@@ -26,12 +28,12 @@ TestRegister.addTests([
         "expectedOutput": "070a16b46b4d4144f79bdd9dd04a287c",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
+                "args": [{"option": "十六进制", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
             },
         ]
     },
@@ -41,12 +43,12 @@ TestRegister.addTests([
         "expectedOutput": "7d85449ea6ea19c823a7bf78837dfade",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
+                "args": [{"option": "十六进制", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
             },
         ]
     },
@@ -56,12 +58,12 @@ TestRegister.addTests([
         "expectedOutput": "51f0bebf7e3b9d92fc49741779363cfe",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
+                "args": [{"option": "十六进制", "string": "2b7e151628aed2a6abf7158809cf4f3c"}, "AES"]
             },
         ]
     },
@@ -72,7 +74,7 @@ TestRegister.addTests([
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
+                "args": [{"option": "十六进制", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
             },
         ]
     },
@@ -82,12 +84,12 @@ TestRegister.addTests([
         "expectedOutput": "9e99a7bf31e710900662f65e617c5184",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
+                "args": [{"option": "十六进制", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
             },
         ]
     },
@@ -97,12 +99,12 @@ TestRegister.addTests([
         "expectedOutput": "3d75c194ed96070444a9fa7ec740ecf8",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
+                "args": [{"option": "十六进制", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
             },
         ]
     },
@@ -112,12 +114,12 @@ TestRegister.addTests([
         "expectedOutput": "a1d5df0eed790f794d77589659f39a11",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
+                "args": [{"option": "十六进制", "string": "8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b"}, "AES"]
             },
         ]
     },
@@ -128,7 +130,7 @@ TestRegister.addTests([
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
+                "args": [{"option": "十六进制", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
             },
         ]
     },
@@ -138,12 +140,12 @@ TestRegister.addTests([
         "expectedOutput": "28a7023f452e8f82bd4bf28d8c37c35c",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
+                "args": [{"option": "十六进制", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
             },
         ]
     },
@@ -153,12 +155,12 @@ TestRegister.addTests([
         "expectedOutput": "156727dc0878944a023c1fe03bad6d93",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
+                "args": [{"option": "十六进制", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
             },
         ]
     },
@@ -168,12 +170,12 @@ TestRegister.addTests([
         "expectedOutput": "e1992190549f6ed5696a2c056c315410",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
+                "args": [{"option": "十六进制", "string": "603deb1015ca71be2b73aef0857d77811f352c073b6108d72d9810a30914dff4"}, "AES"]
             },
         ]
     },
@@ -184,7 +186,7 @@ TestRegister.addTests([
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "3DES"]
             },
         ]
     },
@@ -194,12 +196,12 @@ TestRegister.addTests([
         "expectedOutput": "30239cf1f52e6609",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "3DES"]
             },
         ]
     },
@@ -209,12 +211,12 @@ TestRegister.addTests([
         "expectedOutput": "6c9f3ee4923f6be2",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "3DES"]
             },
         ]
     },
@@ -224,12 +226,12 @@ TestRegister.addTests([
         "expectedOutput": "99429bd0bf7904e5",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef01456789abcdef0123"}, "3DES"]
             },
         ]
     },
@@ -240,7 +242,7 @@ TestRegister.addTests([
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "3DES"]
             },
         ]
     },
@@ -250,12 +252,12 @@ TestRegister.addTests([
         "expectedOutput": "cc18a0b79af2413b",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "3DES"]
             },
         ]
     },
@@ -265,12 +267,12 @@ TestRegister.addTests([
         "expectedOutput": "c06d377ecd101969",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "3DES"]
             },
         ]
     },
@@ -280,34 +282,34 @@ TestRegister.addTests([
         "expectedOutput": "9cd33580f9b64dfb",
         "recipeConfig": [
             {
-                "op": "From Hex",
-                "args": ["None"]
+                "op": "十六进制转字符",
+                "args": ["无"]
             },
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "0123456789abcdef23456789abcdef010123456789abcdef"}, "3DES"]
             },
         ]
     },
     {
         "name": "CMAC-AES: invalid key length",
         "input": "",
-        "expectedOutput": "The key for AES must be either 16, 24, or 32 bytes (currently 20 bytes)",
+        "expectedOutput": "AES key必须为16、24或32字节长度（当前 20 字节）",
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "00112233445566778899aabbccddeeff01234567"}, "AES"]
+                "args": [{"option": "十六进制", "string": "00112233445566778899aabbccddeeff01234567"}, "AES"]
             },
         ]
     },
     {
         "name": "CMAC-TDES: invalid key length",
         "input": "",
-        "expectedOutput": "The key for Triple DES must be 16 or 24 bytes (currently 20 bytes)",
+        "expectedOutput": "3DES key必须为16或24字节长度（当前 20 字节）",
         "recipeConfig": [
             {
                 "op": "CMAC",
-                "args": [{"option": "Hex", "string": "00112233445566778899aabbccddeeff01234567"}, "Triple DES"]
+                "args": [{"option": "十六进制", "string": "00112233445566778899aabbccddeeff01234567"}, "3DES"]
             },
         ]
     },

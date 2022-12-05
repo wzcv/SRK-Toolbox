@@ -6,6 +6,8 @@
  *
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -16,7 +18,7 @@ TestRegister.addTests([
         expectedOutput: "a\u0332",
         recipeConfig: [
             {
-                "op": "Unicode Text Format",
+                "op": "Unicode文本格式",
                 "args": [true, false],
             }
         ],
@@ -27,7 +29,7 @@ TestRegister.addTests([
         expectedOutput: "a\u0336",
         recipeConfig: [
             {
-                "op": "Unicode Text Format",
+                "op": "Unicode文本格式",
                 "args": [false, true],
             }
         ],
@@ -38,7 +40,7 @@ TestRegister.addTests([
         expectedOutput: "a\u0336\u0332",
         recipeConfig: [
             {
-                "op": "Unicode Text Format",
+                "op": "Unicode文本格式",
                 "args": [true, true],
             }
         ],
@@ -49,11 +51,11 @@ TestRegister.addTests([
         expectedOutput: "a",
         recipeConfig: [
             {
-                "op": "Unicode Text Format",
+                "op": "Unicode文本格式",
                 "args": [true, true],
             },
             {
-                "op": "Remove Diacritics",
+                "op": "移除变音符号",
                 "args": []
             }
         ],
@@ -64,7 +66,7 @@ TestRegister.addTests([
         expectedOutput: "a",
         recipeConfig: [
             {
-                "op": "Remove Diacritics",
+                "op": "移除变音符号",
                 "args": []
             }
         ],
@@ -75,7 +77,7 @@ TestRegister.addTests([
         expectedOutput: "a, e, i, o, u  A, E, I, O, U\na, e, i, o, u, y A, E, I, O, U, Y\na, e, i, o, u A, E, I, O, U\na, n, o A, N, O\na, e, i, o, u, y A, E, I, O, U, Y\na, A",
         recipeConfig: [
             {
-                "op": "Remove Diacritics",
+                "op": "移除变音符号",
                 "args": []
             },
         ],

@@ -857,7 +857,7 @@ class InputWaiter {
     async preserveCarriageReturns(input) {
         if (input.indexOf("\r") < 0) return false;
 
-        const optionsStr = "此行为可在设置中进行调整：<a href='#' onclick='document.getElementById(\"options\").click()'>打开设置</a>";
+        const optionsStr = "此行为可在设置中进行调整：<a href='#' onclick='document.getElementById(\"options\").click()'>点此打开设置</a>";
         const preserveStr = `在输入中检测到回车符（\\r, 0x0d）。为保留这些字符，已禁用输入框的编辑功能。<br>${optionsStr}`;
         const dontPreserveStr = `在输入中检测到回车符（\\r, 0x0d）。未保留这些字符。<br>${optionsStr}`;
 

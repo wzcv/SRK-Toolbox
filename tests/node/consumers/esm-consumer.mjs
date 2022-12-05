@@ -4,10 +4,12 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import assert from "assert";
-import chef from "cyberchef";
-import { bake, toHex, reverse, unique, multiply } from "cyberchef";
+import chef from "srktoolbox";
+import { bake, toHex, reverse, unique, multiply } from "srktoolbox";
 
 const a = bake("Testing, 1 2 3", [
     toHex,
@@ -15,13 +17,13 @@ const a = bake("Testing, 1 2 3", [
     {
         op: unique,
         args: {
-            delimiter: "Space",
+            分隔符: "空格",
         }
     },
     {
         op: multiply,
         args: {
-            delimiter: "Space",
+            分隔符: "空格",
         }
     }
 ]);
@@ -34,13 +36,13 @@ const b = chef.bake("Testing, 1 2 3", [
     {
         op: chef.unique,
         args: {
-            delimiter: "Space",
+            分隔符: "空格",
         }
     },
     {
         op: chef.multiply,
         args: {
-            delimiter: "Space",
+            分隔符: "空格",
         }
     }
 ]);

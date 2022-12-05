@@ -532,9 +532,9 @@ class ELFInfo extends Operation {
             entry = stream.readInt(readSize, endianness);
             phoff = stream.readInt(readSize, endianness);
             shoff = stream.readInt(readSize, endianness);
-            ehResult.push("Entry Point：".padEnd(align) + `0x${Utils.hex(entry)}`);
-            ehResult.push("Entry PHOFF：".padEnd(align) + `0x${Utils.hex(phoff)}`);
-            ehResult.push("Entry SHOFF：".padEnd(align) + `0x${Utils.hex(shoff)}`);
+            ehResult.push("Entry Point:".padEnd(align) + `0x${Utils.hex(entry)}`);
+            ehResult.push("Entry PHOFF:".padEnd(align) + `0x${Utils.hex(phoff)}`);
+            ehResult.push("Entry SHOFF:".padEnd(align) + `0x${Utils.hex(shoff)}`);
 
             const flags = stream.readInt(4, endianness);
             ehResult.push("标志：".padEnd(align) + `${Utils.bin(flags)}`);

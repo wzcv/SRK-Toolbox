@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -28,10 +30,10 @@ TestRegister.addTests([
     {
         name: "YARA Match: simple foobar",
         input: "foobar foobar bar foo foobar",
-        expectedOutput: "Rule \"foo\" matches (4 times):\nPos 0, length 3, identifier $re1, data: \"foo\"\nPos 7, length 3, identifier $re1, data: \"foo\"\nPos 18, length 3, identifier $re1, data: \"foo\"\nPos 22, length 3, identifier $re1, data: \"foo\"\nRule \"bar\" matches (4 times):\nPos 3, length 3, identifier $re1, data: \"bar\"\nPos 10, length 3, identifier $re1, data: \"bar\"\nPos 14, length 3, identifier $re1, data: \"bar\"\nPos 25, length 3, identifier $re1, data: \"bar\"\n",
+        expectedOutput: "规则 \"foo\" 匹配 (4 次):\n位置 0, 长度 3, 标识符 $re1, 数据: \"foo\"\n位置 7, 长度 3, 标识符 $re1, 数据: \"foo\"\n位置 18, 长度 3, 标识符 $re1, 数据: \"foo\"\n位置 22, 长度 3, 标识符 $re1, 数据: \"foo\"\n规则 \"bar\" 匹配 (4 次):\n位置 3, 长度 3, 标识符 $re1, 数据: \"bar\"\n位置 10, 长度 3, 标识符 $re1, 数据: \"bar\"\n位置 14, 长度 3, 标识符 $re1, 数据: \"bar\"\n位置 25, 长度 3, 标识符 $re1, 数据: \"bar\"\n",
         recipeConfig: [
             {
-                "op": "YARA Rules",
+                "op": "YARA规则",
                 "args": ["rule foo {strings: $re1 = /foo/ condition: $re1} rule bar {strings: $re1 = /bar/ condition: $re1}", true, true, true, true],
             }
         ],
@@ -39,10 +41,10 @@ TestRegister.addTests([
     {
         name: "YARA Match: hashing rules",
         input: "Hello World!",
-        expectedOutput: "Input matches rule \"HelloWorldMD5\".\nInput matches rule \"HelloWorldSHA256\".\n",
+        expectedOutput: "输入匹配规则 \"HelloWorldMD5\".\n输入匹配规则 \"HelloWorldSHA256\".\n",
         recipeConfig: [
             {
-                "op": "YARA Rules",
+                "op": "YARA规则",
                 "args": [
                     `import "hash"
                     rule HelloWorldMD5 {
@@ -62,13 +64,13 @@ TestRegister.addTests([
     {
         name: "YARA Match: compile warnings",
         input: "CyberChef Yara",
-        expectedOutput: "Warning on line 5: string \"$s\" may slow down scanning\n" +
-            "Warning on line 12: string \"$s\" may slow down scanning\n" +
-            "Input matches rule \"a\".\n" +
-            "Input matches rule \"b\".\n",
+        expectedOutput: "行 5 警告： string \"$s\" may slow down scanning\n" +
+            "行 12 警告： string \"$s\" may slow down scanning\n" +
+            "输入匹配规则 \"a\".\n" +
+            "输入匹配规则 \"b\".\n",
         recipeConfig: [
             {
-                "op": "YARA Rules",
+                "op": "YARA规则",
                 "args": [CONSOLE_COMPILE_WARNING_RULE, false, false, false, false, true, false],
             }
         ],
@@ -78,11 +80,11 @@ TestRegister.addTests([
         input: "CyberChef Yara",
         expectedOutput: "log rule a\n" +
             "log rule b: int8(0)=0x43\n" +
-            "Input matches rule \"a\".\n" +
-            "Input matches rule \"b\".\n",
+            "输入匹配规则 \"a\".\n" +
+            "输入匹配规则 \"b\".\n",
         recipeConfig: [
             {
-                "op": "YARA Rules",
+                "op": "YARA规则",
                 "args": [CONSOLE_COMPILE_WARNING_RULE, false, false, false, false, false, true],
             }
         ],

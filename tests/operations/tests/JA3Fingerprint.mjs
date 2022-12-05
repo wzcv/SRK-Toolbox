@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "503053a0c5b2bd9b9334bf7f3d3b8852",
         recipeConfig: [
             {
-                "op": "JA3 Fingerprint",
-                "args": ["Hex", "Hash digest"]
+                "op": "JA3指纹",
+                "args": ["十六进制", "哈希摘要"]
             }
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedOutput: "a314eb64cee6cb832aaaa372c8295bab",
         recipeConfig: [
             {
-                "op": "JA3 Fingerprint",
-                "args": ["Hex", "Hash digest"]
+                "op": "JA3指纹",
+                "args": ["十六进制", "哈希摘要"]
             }
         ],
     },
@@ -36,8 +38,8 @@ TestRegister.addTests([
         expectedOutput: "c1a36e1a870786cc75edddc0009eaf3a",
         recipeConfig: [
             {
-                "op": "JA3 Fingerprint",
-                "args": ["Hex", "Hash digest"]
+                "op": "JA3指纹",
+                "args": ["十六进制", "哈希摘要"]
             }
         ],
     },
@@ -47,8 +49,8 @@ TestRegister.addTests([
         expectedOutput: "4826a90ec2daf4f7b4b64cc1c8bd343b",
         recipeConfig: [
             {
-                "op": "JA3 Fingerprint",
-                "args": ["Hex", "Hash digest"]
+                "op": "JA3指纹",
+                "args": ["十六进制", "哈希摘要"]
             }
         ],
     },

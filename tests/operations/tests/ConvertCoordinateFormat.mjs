@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 /**
@@ -27,8 +29,8 @@ TestRegister.addTests([
         expectedOutput: "51° 30' 14.4\",-0° 7' 33.6\",",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Degrees Minutes Seconds", "Comma", "None", 1]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度分秒", "逗号", "无", 1]
             },
         ],
     },
@@ -38,8 +40,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Degrees Minutes Seconds", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["度分秒", "逗号", "度数", "逗号", "无", 3]
             },
         ],
     },
@@ -49,8 +51,8 @@ TestRegister.addTests([
         expectedOutput: "51° 30.24',-0° 7.56',",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Degrees Decimal Minutes", "Comma", "None", 2]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度分", "逗号", "无", 2]
             }
         ]
     },
@@ -60,8 +62,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Degrees Decimal Minutes", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["度分", "逗号", "度数", "逗号", "无", 3]
             }
         ]
     },
@@ -71,8 +73,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度数", "逗号", "无", 3]
             }
         ]
     },
@@ -82,8 +84,8 @@ TestRegister.addTests([
         expectedOutput: "gcpvj0h0x,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Geohash", "Comma", "None", 9]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "Geohash", "逗号", "无", 9]
             },
         ],
     },
@@ -93,8 +95,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Geohash", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["Geohash", "逗号", "度数", "逗号", "无", 3]
             },
         ],
     },
@@ -104,8 +106,8 @@ TestRegister.addTests([
         expectedOutput: "30U XC 99455 09790,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Military Grid Reference System", "Comma", "None", 10]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "军事格网参考系统", "逗号", "无", 10]
             },
         ],
     },
@@ -115,8 +117,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Military Grid Reference System", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["军事格网参考系统", "逗号", "度数", "逗号", "无", 3]
             }
         ]
     },
@@ -126,8 +128,8 @@ TestRegister.addTests([
         expectedOutput: "TQ 30163 80005,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Ordnance Survey National Grid", "Comma", "None", 10]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "地形测量局国家格网参考系统", "逗号", "无", 10]
             },
         ],
     },
@@ -137,8 +139,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Ordnance Survey National Grid", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["地形测量局国家格网参考系统", "逗号", "度数", "逗号", "无", 3]
             },
         ],
     },
@@ -148,8 +150,8 @@ TestRegister.addTests([
         expectedOutput: "30 N 699456 5709791,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Universal Transverse Mercator", "Comma", "None", 0]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "通用横轴墨卡托投影", "逗号", "无", 0]
             },
         ],
     },
@@ -159,8 +161,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Universal Transverse Mercator", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["通用横轴墨卡托投影", "逗号", "度数", "逗号", "无", 3]
             },
         ],
     },
@@ -170,8 +172,8 @@ TestRegister.addTests([
         expectedOutput: "51.504°,-0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Decimal Degrees", "Comma", "None", 3]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度数", "逗号", "无", 3]
             },
         ],
     },
@@ -181,8 +183,8 @@ TestRegister.addTests([
         expectedOutput: "N 51.504°,W 0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Decimal Degrees", "Comma", "Before", 3]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度数", "逗号", "在前", 3]
             },
         ],
     },
@@ -192,8 +194,8 @@ TestRegister.addTests([
         expectedOutput: "N 51.504°,W 0.126°,",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Decimal Degrees", "Comma", "Before", 3]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度数", "逗号", "在前", 3]
             },
         ],
     },
@@ -203,8 +205,8 @@ TestRegister.addTests([
         expectedOutput: "N 51° 30' 14.4\",W 0° 7' 33.6\",",
         recipeConfig: [
             {
-                op: "Convert co-ordinate format",
-                args: ["Decimal Degrees", "Comma", "Degrees Minutes Seconds", "Comma", "Before", 3]
+                op: "坐标格式转换",
+                args: ["度数", "逗号", "度分秒", "逗号", "在前", 3]
             },
         ],
     }

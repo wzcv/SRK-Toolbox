@@ -4,6 +4,8 @@
  * @author n1073645 [n1073645@gmail.com]
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "test\nTest\ntEst\nTEst\nteSt\nTeSt\ntESt\nTESt\ntesT\nTesT\ntEsT\nTEsT\nteST\nTeST\ntEST\nTEST",
         recipeConfig: [
             {
-                "op": "Get All Casings",
+                "op": "大小写穷举",
                 "args": []
             }
         ]
@@ -25,7 +27,7 @@ TestRegister.addTests([
         expectedOutput: "t\nT",
         recipeConfig: [
             {
-                "op": "Get All Casings",
+                "op": "大小写穷举",
                 "args": []
             }
         ]
@@ -36,7 +38,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                "op": "Get All Casings",
+                "op": "大小写穷举",
                 "args": []
             }
         ]

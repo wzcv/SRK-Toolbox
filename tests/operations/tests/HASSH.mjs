@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "21b457a327ce7a2d4fce5ef2c42400bd",
         recipeConfig: [
             {
-                "op": "HASSH Client Fingerprint",
-                "args": ["Hex", "Hash digest"]
+                "op": "HASSH客户端指纹",
+                "args": ["十六进制", "哈希摘要"]
             }
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedOutput: "f430cd6761697a6a658ee1d45ed22e49",
         recipeConfig: [
             {
-                "op": "HASSH Server Fingerprint",
-                "args": ["Hex", "Hash digest"]
+                "op": "HASSH服务器指纹",
+                "args": ["十六进制", "哈希摘要"]
             }
         ],
     }

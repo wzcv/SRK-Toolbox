@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "(,t74ci78cp/8trx*yesu:alp1wqy",
         recipeConfig: [
             {
-                op: "LS47 Encrypt",
+                op: "LS47加密",
                 args: ["helloworld", 0, "test"],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "thequickbrownfoxjumped---test",
         recipeConfig: [
             {
-                op: "LS47 Decrypt",
+                op: "LS47解密",
                 args: ["helloworld", 0],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: "Letter H is not included in LS47",
         recipeConfig: [
             {
-                op: "LS47 Encrypt",
+                op: "LS47加密",
                 args: ["Helloworld", 0, "test"],
             },
         ],

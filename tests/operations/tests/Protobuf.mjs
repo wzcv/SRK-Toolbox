@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -24,11 +26,11 @@ TestRegister.addTests([
         }, null, 4),
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Auto"]
+                "op": "十六进制转字符",
+                "args": ["自动"]
             },
             {
-                "op": "Protobuf Decode",
+                "op": "Protobuf解码",
                 "args": ["", false, false]
             }
         ]
@@ -47,11 +49,11 @@ TestRegister.addTests([
         }, null, 4),
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Auto"]
+                "op": "十六进制转字符",
+                "args": ["自动"]
             },
             {
-                "op": "Protobuf Decode",
+                "op": "Protobuf解码",
                 "args": [
                     `message Test {
                     repeated fixed32 Apple = 1;
@@ -87,11 +89,11 @@ TestRegister.addTests([
         }, null, 4),
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Auto"]
+                "op": "十六进制转字符",
+                "args": ["自动"]
             },
             {
-                "op": "Protobuf Decode",
+                "op": "Protobuf解码",
                 "args": [
                     `message Test {
                     repeated fixed32 Apple = 1;
@@ -124,11 +126,11 @@ TestRegister.addTests([
         }, null, 4),
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Auto"]
+                "op": "十六进制转字符",
+                "args": ["自动"]
             },
             {
-                "op": "Protobuf Decode",
+                "op": "Protobuf解码",
                 "args": [
                     `message Test {
                         repeated fixed32 Apple = 1;
@@ -172,11 +174,11 @@ TestRegister.addTests([
         }, null, 4),
         recipeConfig: [
             {
-                "op": "From Hex",
-                "args": ["Auto"]
+                "op": "十六进制转字符",
+                "args": ["自动"]
             },
             {
-                "op": "Protobuf Decode",
+                "op": "Protobuf解码",
                 "args": [
                     `message Test {
                         optional string Banana = 2;
@@ -221,7 +223,7 @@ TestRegister.addTests([
         expectedOutput: "0d1c0000001203596f751a024d65202b2a0a0a06616263313233120031ba32a96cc10200003801",
         recipeConfig: [
             {
-                "op": "Protobuf Encode",
+                "op": "Protobuf编码",
                 "args": [
                     `message Test {
                         repeated fixed32 Apple = 1;
@@ -245,9 +247,9 @@ TestRegister.addTests([
                 ]
             },
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": [
-                    "None",
+                    "无",
                     0
                 ]
             }
@@ -274,7 +276,7 @@ TestRegister.addTests([
         expectedOutput: "1203596f75202b2a0a0a06616263313233120031ba32a96cc1020000",
         recipeConfig: [
             {
-                "op": "Protobuf Encode",
+                "op": "Protobuf编码",
                 "args": [
                     `message Test {
                         optional string Banana = 2;
@@ -295,9 +297,9 @@ TestRegister.addTests([
                 ]
             },
             {
-                "op": "To Hex",
+                "op": "字符转十六进制",
                 "args": [
-                    "None",
+                    "无",
                     0
                 ]
             }

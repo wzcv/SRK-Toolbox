@@ -3,6 +3,8 @@
  *
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
             0x0b, 0x27, 0x22),
         recipeConfig: [
             {
-                op: "Unescape string",
+                op: "字符串转义恢复",
                 args: [],
             },
         ],
@@ -25,7 +27,7 @@ TestRegister.addTests([
         expectedOutput: String.fromCharCode(0, 1, 10, 1, 10),
         recipeConfig: [
             {
-                op: "Unescape string",
+                op: "字符串转义恢复",
                 args: [],
             },
         ],
@@ -36,7 +38,7 @@ TestRegister.addTests([
         expectedOutput: String.fromCharCode(0, 170, 170),
         recipeConfig: [
             {
-                op: "Unescape string",
+                op: "字符串转义恢复",
                 args: [],
             },
         ],
@@ -47,7 +49,7 @@ TestRegister.addTests([
         expectedOutput: "ab",
         recipeConfig: [
             {
-                op: "Unescape string",
+                op: "字符串转义恢复",
                 args: [],
             },
         ],

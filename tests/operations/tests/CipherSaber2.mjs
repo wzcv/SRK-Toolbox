@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2020
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedMatch: /.{21}/s,
         recipeConfig: [
             {
-                op: "CipherSaber2 Encrypt",
+                op: "CipherSaber2加密",
                 args: [{ "option": "Latin1", "string": "test" }, 20],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "helloworld",
         recipeConfig: [
             {
-                op: "CipherSaber2 Decrypt",
+                op: "CipherSaber2解密",
                 args: [{ "option": "Latin1", "string": "test" }, 20],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedMatch: /.{10}/s,
         recipeConfig: [
             {
-                op: "CipherSaber2 Encrypt",
+                op: "CipherSaber2加密",
                 args: [{ "option": "Latin1", "string": "" }, 20],
             },
         ],

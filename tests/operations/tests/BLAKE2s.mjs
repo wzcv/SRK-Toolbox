@@ -4,6 +4,8 @@
  * @author h345983745
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "7706af019148849e516f95ba630307a2018bb7bf03803eca5ed7ed2c3c013513",
         recipeConfig: [
             { "op": "BLAKE2s",
-                "args": ["256", "Hex", {string: "", option: "UTF8"}] }
+                "args": ["256", "十六进制", {string: "", option: "UTF8"}] }
         ]
     },
     {
@@ -23,7 +25,7 @@ TestRegister.addTests([
         expectedOutput: "0e4fcfc2ee0097ac1d72d70b595a39e09a3c7c7e",
         recipeConfig: [
             { "op": "BLAKE2s",
-                "args": ["160", "Hex", {string: "", option: "UTF8"}] }
+                "args": ["160", "十六进制", {string: "", option: "UTF8"}] }
         ]
     },
     {
@@ -32,7 +34,7 @@ TestRegister.addTests([
         expectedOutput: "9964ee6f36126626bf864363edfa96f6",
         recipeConfig: [
             { "op": "BLAKE2s",
-                "args": ["128", "Hex", {string: "", option: "UTF8"}] }
+                "args": ["128", "十六进制", {string: "", option: "UTF8"}] }
         ]
     },
     {
@@ -41,7 +43,7 @@ TestRegister.addTests([
         expectedOutput: "9964ee6f36126626bf864363edfa96f6",
         recipeConfig: [
             { "op": "BLAKE2s",
-                "args": ["128", "Hex", {string: "", option: "UTF8"}] }
+                "args": ["128", "十六进制", {string: "", option: "UTF8"}] }
         ]
     }
 ]);

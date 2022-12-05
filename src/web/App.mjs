@@ -121,8 +121,7 @@ class App {
             "showEasing": "swing",
             "hideEasing": "linear",
             "showMethod": "fadeIn",
-            "hideMethod": "fadeOut",
-            "escapeHtml": true
+            "hideMethod": "fadeOut"
         };
     }
 
@@ -633,7 +632,7 @@ class App {
 
         // const compareURL = `https://github.com/gchq/CyberChef/compare/v${prev.join(".")}...v${PKG_VERSION}`;
 
-        let compileInfo = `<a href='https://github.com/gchq/CyberChef/blob/master/CHANGELOG.md'>此版本编译于： ${timeSinceCompile.substr(0, 1).toUpperCase() + timeSinceCompile.substr(1)}之前</a>`;
+        let compileInfo = `<a href='https://github.com/Raka-loah/SRK-Toolbox/blob/master/CHANGELOG_SRKTOOLBOX.md'>此版本编译于： ${timeSinceCompile.substr(0, 1).toUpperCase() + timeSinceCompile.substr(1)}之前</a>`;
 
         if (window.compileMessage !== "") {
             compileInfo += " - " + window.compileMessage;

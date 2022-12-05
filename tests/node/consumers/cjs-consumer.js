@@ -4,11 +4,13 @@
  * @author d98762625 [d98762625@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 const assert = require("assert");
 
-require("cyberchef").then(chef => {
+require("srktoolbox").then(chef => {
 
     const d = chef.bake("Testing, 1 2 3", [
         chef.toHex,
@@ -16,13 +18,13 @@ require("cyberchef").then(chef => {
         {
             op: chef.unique,
             args: {
-                delimiter: "Space",
+                分隔符: "空格",
             }
         },
         {
             op: chef.multiply,
             args: {
-                delimiter: "Space",
+                分隔符: "空格",
             }
         }
     ]);

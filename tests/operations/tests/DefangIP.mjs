@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "192[.]168[.]1[.]1",
         recipeConfig: [
             {
-                op: "Defang IP Addresses",
+                op: "IP地址无效化",
                 args: [],
             },
         ],
@@ -25,7 +27,7 @@ TestRegister.addTests([
         expectedOutput: "2001[:]0db8[:]85a3[:]0000[:]0000[:]8a2e[:]0370[:]7343",
         recipeConfig: [
             {
-                op: "Defang IP Addresses",
+                op: "IP地址无效化",
                 args: [],
             },
         ],
@@ -35,7 +37,7 @@ TestRegister.addTests([
         expectedOutput: "2001[:]db8[:]3c4d[:]15[:][:]1a2f[:]1a2b",
         recipeConfig: [
             {
-                op: "Defang IP Addresses",
+                op: "IP地址无效化",
                 args: [],
             },
         ],
