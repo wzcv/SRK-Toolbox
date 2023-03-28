@@ -28,7 +28,7 @@ class FromCharcode extends Operation {
         this.description = "把Unicode字符码还原为字符。<br><br>例： <code>0393 03b5 03b9 03ac 20 03c3 03bf 03c5</code> 解码为 <code>Γειά σου</code>";
         this.infoURL = "https://wikipedia.org/wiki/Plane_(Unicode)";
         this.inputType = "string";
-        this.outputType = "byteArray";
+        this.outputType = "ArrayBuffer";
         this.args = [
             {
                 "name": "分隔符",
@@ -46,7 +46,7 @@ class FromCharcode extends Operation {
     /**
      * @param {string} input
      * @param {Object[]} args
-     * @returns {byteArray}
+     * @returns {ArrayBuffer}
      *
      * @throws {OperationError} if base out of range
      */
@@ -61,7 +61,7 @@ class FromCharcode extends Operation {
         }
 
         if (input.length === 0) {
-            return [];
+            return new ArrayBuffer;
         }
 
         if (base !== 16 && isWorkerEnvironment()) self.setOption("attemptHighlight", false);
@@ -79,7 +79,7 @@ class FromCharcode extends Operation {
         for (i = 0; i < bites.length; i++) {
             latin1 += Utils.chr(parseInt(bites[i], base));
         }
-        return Utils.strToByteArray(latin1);
+        return Utils.strToArrayBuffer(latin1);
     }
 
 }

@@ -51,7 +51,7 @@ class ParseIPv4Header extends Operation {
         if (format === "十六进制") {
             input = fromHex(input);
         } else if (format === "原始") {
-            input = Utils.strToByteArray(input);
+            input = new Uint8Array(Utils.strToArrayBuffer(input));
         } else {
             throw new OperationError("未知的输入格式。");
         }

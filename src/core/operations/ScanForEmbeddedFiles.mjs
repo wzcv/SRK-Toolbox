@@ -62,7 +62,7 @@ class ScanForEmbeddedFiles extends Operation {
   扩展名：   ${type.fileDetails.extension}
   MIME类型： ${type.fileDetails.mime}\n`;
 
-                if (type.fileDetails.description && type.fileDetails.description.length) {
+                if (type?.fileDetails?.description?.length) {
                     output += `  描述： ${type.fileDetails.description}\n`;
                 }
             });

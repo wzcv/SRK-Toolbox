@@ -88,12 +88,12 @@ class ROT13BruteForce extends Operation {
             }
             const rotatedString = Utils.byteArrayToUtf8(rotated);
             if (rotatedString.toLowerCase().indexOf(cribLower) >= 0) {
-                const rotatedStringPrintable = Utils.printable(rotatedString, false);
+                const rotatedStringEscaped = Utils.escapeWhitespace(rotatedString);
                 if (printAmount) {
                     const amountStr = "偏移量 = " + (" " + amount).slice(-2) + ": ";
-                    result.push(amountStr + rotatedStringPrintable);
+                    result.push(amountStr + rotatedStringEscaped);
                 } else {
-                    result.push(rotatedStringPrintable);
+                    result.push(rotatedStringEscaped);
                 }
             }
         }

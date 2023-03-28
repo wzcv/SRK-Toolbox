@@ -80,7 +80,7 @@ class IndexOfCoincidence extends Operation {
 
 <script type='application/javascript'>
   var canvas = document.getElementById("chart-area"),
-      parentRect = canvas.parentNode.getBoundingClientRect(),
+      parentRect = canvas.closest(".cm-scroller").getBoundingClientRect(),
       ic = ${ic};
 
   canvas.width = parentRect.width * 0.95;

@@ -42,11 +42,11 @@ class BindingsWaiter {
                     break;
                 case "KeyI": // Focus input
                     e.preventDefault();
-                    document.getElementById("input-text").focus();
+                    this.manager.input.inputEditorView.focus();
                     break;
                 case "KeyO": // Focus output
                     e.preventDefault();
-                    document.getElementById("output-text").focus();
+                    this.manager.output.outputEditorView.focus();
                     break;
                 case "Period": // Focus next operation
                     e.preventDefault();
@@ -128,7 +128,7 @@ class BindingsWaiter {
                     break;
                 case "KeyW": // Close tab
                     e.preventDefault();
-                    this.manager.input.removeInput(this.manager.tabs.getActiveInputTab());
+                    this.manager.input.removeInput(this.manager.tabs.getActiveTab("input"));
                     break;
                 case "ArrowLeft": // Go to previous tab
                     e.preventDefault();
@@ -150,6 +150,13 @@ class BindingsWaiter {
                     }
                     break;
             }
+        } else {
+            switch (e.code) {
+                case "F1":
+                    e.preventDefault();
+                    this.contextualHelp();
+                    break;
+            }
         }
     }
 
@@ -166,9 +173,14 @@ class BindingsWaiter {
         }
         document.getElementById("keybList").innerHTML = `
         <tr>
-            <td><b>命令</b></td>
-            <td><b>快捷键(Win/Linux)</b></td>
-            <td><b>快捷键(Mac)</b></td>
+            <th>命令</th>
+            <th>快捷键(Win/Linux)</th>
+            <th>快捷键(Mac)</th>
+        </tr>
+        <tr>
+            <td>Activate contextual help</td>
+            <td>F1</td>
+            <td>F1</td>
         </tr>
         <tr>
             <td>光标置于搜索框</td>
@@ -255,6 +267,42 @@ class BindingsWaiter {
             <td>Ctrl+${modMac}+LeftArrow</td>
         </tr>
         `;
+    }
+
+    /**
+     * Shows contextual help message based on where the mouse pointer is
+     */
+    contextualHelp() {
+        const hoveredHelpEls = document.querySelectorAll(":hover[data-help],:hover[data-help-proxy]");
+        if (!hoveredHelpEls.length) return;
+
+        let helpEl = hoveredHelpEls[hoveredHelpEls.length - 1];
+        const helpElSelector = helpEl.getAttribute("data-help-proxy");
+        if (helpElSelector) {
+            // A hovered element is directing us to another element for its help text
+            helpEl = document.querySelector(helpElSelector);
+        }
+        this.displayHelp(helpEl);
+    }
+
+    /**
+     * Displays the help pane populated with help text associated with the given element
+     *
+     * @param {Element} el
+     */
+    displayHelp(el) {
+        const helpText = el.getAttribute("data-help");
+        let helpTitle = el.getAttribute("data-help-title");
+
+        if (helpTitle)
+            helpTitle = "<span class='text-muted'>Help topic:</span> " + helpTitle;
+        else
+            helpTitle = "<span class='text-muted'>Help topic</span>";
+
+        document.querySelector("#help-modal .modal-body").innerHTML = helpText;
+        document.querySelector("#help-modal #help-title").innerHTML = helpTitle;
+
+        $("#help-modal").modal();
     }
 
 }
