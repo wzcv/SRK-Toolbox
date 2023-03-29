@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import {showPanel} from "@codemirror/view";
@@ -41,8 +43,8 @@ class StatusBarPanel {
         const rhs = document.createElement("div");
 
         dom.className = "cm-status-bar";
-        dom.setAttribute("data-help-title", `${this.label} status bar`);
-        dom.setAttribute("data-help", `This status bar provides information about data in the ${this.label}. Help topics are available for each of the components by activating help when hovering over them.`);
+        dom.setAttribute("data-help-title", `${this.label}框状态栏`);
+        dom.setAttribute("data-help", `此状态栏提供关于${this.label}框数据的信息。鼠标指向需要解释的组件上并手动触发帮助功能，会提供对应的帮助信息。`);
         lhs.innerHTML = this.constructLHS();
         rhs.innerHTML = this.constructRHS();
 
@@ -224,22 +226,22 @@ class StatusBarPanel {
         if (state.lineBreak === this.eolVal) return;
 
         const eolLookup = {
-            "\u000a": ["LF", "Line Feed"],
-            "\u000b": ["VT", "Vertical Tab"],
-            "\u000c": ["FF", "Form Feed"],
-            "\u000d": ["CR", "Carriage Return"],
-            "\u000d\u000a": ["CRLF", "Carriage Return + Line Feed"],
-            "\u0085": ["NEL", "Next Line"],
-            "\u2028": ["LS", "Line Separator"],
-            "\u2029": ["PS", "Paragraph Separator"]
+            "\u000a": ["LF", "换行符"],
+            "\u000b": ["VT", "垂直定位"],
+            "\u000c": ["FF", "换页符"],
+            "\u000d": ["CR", "回车符"],
+            "\u000d\u000a": ["CRLF", "回车+换行"],
+            "\u0085": ["NEL", "下一行"],
+            "\u2028": ["LS", "分行"],
+            "\u2029": ["PS", "分段"]
         };
 
         const val = this.dom.querySelector(".eol-value");
         const button = val.closest(".cm-status-bar-select-btn");
         const eolName = eolLookup[state.lineBreak];
         val.textContent = eolName[0];
-        button.setAttribute("title", `End of line sequence:<br>${eolName[1]}`);
-        button.setAttribute("data-original-title", `End of line sequence:<br>${eolName[1]}`);
+        button.setAttribute("title", `文本行结尾字符：<br>${eolName[1]}`);
+        button.setAttribute("data-original-title", `文本行结尾字符：<br>${eolName[1]}`);
         this.eolVal = state.lineBreak;
     }
 
@@ -251,13 +253,13 @@ class StatusBarPanel {
         const chrEncVal = this.chrEncGetter();
         if (chrEncVal === this.chrEncVal) return;
 
-        const name = CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] ? CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] : "Raw Bytes";
+        const name = CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] ? CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] : "原始字节";
 
         const val = this.dom.querySelector(".chr-enc-value");
         const button = val.closest(".cm-status-bar-select-btn");
         val.textContent = name;
-        button.setAttribute("title", `${this.label} character encoding:<br>${name}`);
-        button.setAttribute("data-original-title", `${this.label} character encoding:<br>${name}`);
+        button.setAttribute("title", `${this.label}字符编码<br>${name}`);
+        button.setAttribute("data-original-title", `${this.label}字符编码：<br>${name}`);
         this.chrEncVal = chrEncVal;
     }
 
@@ -270,7 +272,7 @@ class StatusBarPanel {
         const bakingTime = this.dom.querySelector(".baking-time-value");
         const bakingTimeInfo = this.dom.querySelector(".baking-time-info");
 
-        if (this.label === "Output" && this.timing) {
+        if (this.label === "输出" && this.timing) {
             bakingTimeInfo.style.display = "inline-block";
             bakingTime.textContent = this.timing.duration(this.tabNumGetter());
 
@@ -325,21 +327,21 @@ class StatusBarPanel {
      */
     constructLHS() {
         return `
-            <span data-toggle="tooltip" title="${this.label} length" data-help-title="${this.label} length" data-help="This number represents the number of characters in the ${this.label}.<br><br>The CRLF end of line separator is counted as two characters which impacts this value.">
+            <span data-toggle="tooltip" title="${this.label}长度" data-help-title="${this.label}长度" data-help="这个数字代表${this.label}框中的字符数。<br><br>CRLF换行符算作两个字符，会影响总数。">
                 <i class="material-icons">abc</i>
                 <span class="stats-length-value"></span>
             </span>
-            <span data-toggle="tooltip" title="Number of lines"  data-help-title="Number of lines" data-help="This number represents the number of lines in the ${this.label}. Lines are separated by the End of Line Sequence which can be changed using the EOL selector at the far right of this status bar.">
+            <span data-toggle="tooltip" title="行数"  data-help-title="行数" data-help="这个数字代表${this.label}框中文本的行数。换行符类型可在状态栏最右侧手工切换。">
                 <i class="material-icons">sort</i>
                 <span class="stats-lines-value"></span>
             </span>
 
-            <span class="sel-info" data-toggle="tooltip" title="Main selection" data-help-title="Main selection" data-help="These numbers show which offsets have been selected and how many characters are in the current selection. If multiple selections are made, these numbers refer to the latest one. ">
+            <span class="sel-info" data-toggle="tooltip" title="选中区域" data-help-title="选中区域" data-help="这些数字代表当前选择范围的开头和结尾偏移量以及选择了多少个字符。如果有多个选择区域，这些数字代表最近选择的那个区域。 ">
                 <i class="material-icons">highlight_alt</i>
                 <span class="sel-start-value"></span>\u279E<span class="sel-end-value"></span>
-                (<span class="sel-length-value"></span> selected)
+                (<span class="sel-length-value"></span> 选中)
             </span>
-            <span class="cur-offset-info" data-toggle="tooltip" title="Cursor offset" data-help-title="Cursor offset" data-help="This number indicates what the current offset of the cursor is from the beginning of the ${this.label}.<br><br>The CRLF end of line separator is counted as two characters which impacts this value.">
+            <span class="cur-offset-info" data-toggle="tooltip" title="光标偏移量" data-help-title="光标偏移量" data-help="这个数字代表目前光标所在的${this.label}字符位置。<br><br>CRLF换行符算作两个字符，会影响总数。">
                 <i class="material-icons">location_on</i>
                 <span class="cur-offset-value"></span>
             </span>`;
@@ -358,27 +360,27 @@ class StatusBarPanel {
 
         let chrEncHelpText = "",
             eolHelpText = "";
-        if (this.label === "Input") {
-            chrEncHelpText = "The input character encoding defines how the input text is encoded into bytes which are then processed by the Recipe.<br><br>The 'Raw bytes' option attempts to treat the input as individual bytes in the range 0-255. If it detects any characters with Unicode values above 255, it will treat the entire input as UTF-8. 'Raw bytes' is usually the best option if you are inputting binary data, such as a file.";
-            eolHelpText = "The End of Line Sequence defines which bytes are considered EOL terminators. Pressing the return key will enter this value into the input and create a new line.<br><br>Changing the EOL sequence will not modify any existing data in the input but may change how previously entered line breaks are displayed. Lines added while a different EOL terminator was set may not now result in a new line, but may be displayed as control characters instead.";
+        if (this.label === "输入") {
+            chrEncHelpText = "输入字符编码决定输入框中的文本以何种方式编码成字节形式后交由操作流程进行计算。<br><br>“原始字节”选项会尝试将输入内容当作从0-255的单个字节进行处理。如果检测到了Unicode值大于255的字符，输入框会把整个内容按UTF-8编码。如果输入内容是二进制，例如某个图片文件，“原始字节”通常是最优选项。";
+            eolHelpText = "文本行结尾字符定义那些字节作为换行符使用。在输入框按回车会使用选定的结尾字符进行换行。<br><br>改变这个设定不会影响当前的数据，但可能会影响之前输入的换行的显示。使用不同换行符进行的换行可能会显示成控制字符而不再具有换行作用。";
         } else {
-            chrEncHelpText = "The output character encoding defines how the output bytes are decoded into text which can be displayed to you.<br><br>The 'Raw bytes' option treats the output data as individual bytes in the range 0-255.";
-            eolHelpText = "The End of Line Sequence defines which bytes are considered EOL terminators.<br><br>Changing this value will not modify the value of the output, but may change how certain bytes are displayed and whether they result in a new line being created.";
+            chrEncHelpText = "输出字符编码决定输出框中的文本在显示之前使用何种方式解码。<br><br>“原始字节”选项把输出数据当作0-255范围的单个字节处理。";
+            eolHelpText = "文本行结尾字符定义那些字节作为换行符使用。<br><br>改变这个设定不会影响当前的数据，但可能会影响数据中的特定字符是否会显示成换行。";
         }
 
         return `
-            <span class="baking-time-info" style="display: none" data-toggle="tooltip" data-html="true" title="Baking time" data-help-title="Baking time" data-help="The baking time is the total time between data being read from the input, processed, and then displayed in the output.<br><br>The 'Threading overhead' value accounts for the transfer of data between different processing threads, as well as some garbage collection. It is not included in the overall bake time displayed in the status bar as it is largely influenced by background operating system and browser activity which can fluctuate significantly.">
+            <span class="baking-time-info" style="display: none" data-toggle="tooltip" data-html="true" title="处理时间" data-help-title="处理时间" data-help="处理时间指从输入框中读取、处理，到显示在输出框中的总计用时。<br><br>“线程开销”值指数据在处理线程间传递以及垃圾回收消耗的时间。此时间不计入处理时间，由于受操作系统和浏览器影响，此时间上下浮动范围较大。">
                 <i class="material-icons">schedule</i>
                 <span class="baking-time-value"></span>ms
             </span>
 
-            <div class="cm-status-bar-select chr-enc-select" data-help-title="${this.label} character encoding" data-help="${chrEncHelpText}">
-                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="${this.label} character encoding">
-                    <i class="material-icons">text_fields</i> <span class="chr-enc-value">Raw Bytes</span>
+            <div class="cm-status-bar-select chr-enc-select" data-help-title="${this.label}框字符编码" data-help="${chrEncHelpText}">
+                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="${this.label}框字符编码">
+                    <i class="material-icons">text_fields</i> <span class="chr-enc-value">原始字节</span>
                 </span>
                 <div class="cm-status-bar-select-content">
                     <div class="cm-status-bar-select-scroll no-select">
-                        <a href="#" draggable="false" data-val="0">Raw Bytes</a>
+                        <a href="#" draggable="false" data-val="0">原始字节</a>
                         ${chrEncOptions}
                     </div>
                     <div class="input-group cm-status-bar-filter-search">
@@ -387,24 +389,24 @@ class StatusBarPanel {
                                 <i class="material-icons">search</i>
                             </span>
                         </div>
-                        <input type="text" class="form-control cm-status-bar-filter-input" placeholder="Filter...">
+                        <input type="text" class="form-control cm-status-bar-filter-input" placeholder="筛选...">
                     </div>
                 </div>
             </div>
 
-            <div class="cm-status-bar-select eol-select" data-help-title="${this.label} EOL sequence" data-help="${eolHelpText}">
-                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="End of line sequence">
+            <div class="cm-status-bar-select eol-select" data-help-title="${this.label}框文本行结尾字符" data-help="${eolHelpText}">
+                <span class="cm-status-bar-select-btn" data-toggle="tooltip" data-html="true" data-placement="left" title="文本行结尾字符">
                     <i class="material-icons">keyboard_return</i> <span class="eol-value"></span>
                 </span>
                 <div class="cm-status-bar-select-content no-select">
-                    <a href="#" draggable="false" data-val="LF">Line Feed, U+000A</a>
-                    <a href="#" draggable="false" data-val="VT">Vertical Tab, U+000B</a>
-                    <a href="#" draggable="false" data-val="FF">Form Feed, U+000C</a>
-                    <a href="#" draggable="false" data-val="CR">Carriage Return, U+000D</a>
-                    <a href="#" draggable="false" data-val="CRLF">CR+LF, U+000D U+000A</a>
-                    <!-- <a href="#" draggable="false" data-val="NL">Next Line, U+0085</a> This causes problems. -->
-                    <a href="#" draggable="false" data-val="LS">Line Separator, U+2028</a>
-                    <a href="#" draggable="false" data-val="PS">Paragraph Separator, U+2029</a>
+                    <a href="#" draggable="false" data-val="LF">换行符, U+000A</a>
+                    <a href="#" draggable="false" data-val="VT">垂直定位, U+000B</a>
+                    <a href="#" draggable="false" data-val="FF">换页符, U+000C</a>
+                    <a href="#" draggable="false" data-val="CR">回车符, U+000D</a>
+                    <a href="#" draggable="false" data-val="CRLF">回车+换行, U+000D U+000A</a>
+                    <!-- <a href="#" draggable="false" data-val="NL">下一行, U+0085</a> This causes problems. -->
+                    <a href="#" draggable="false" data-val="LS">分行, U+2028</a>
+                    <a href="#" draggable="false" data-val="PS">分段, U+2029</a>
                 </div>
             </div>`;
     }

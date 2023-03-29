@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,9 +19,9 @@ class SwapCase extends Operation {
     constructor() {
         super();
 
-        this.name = "Swap case";
+        this.name = "大小写互换";
         this.module = "Default";
-        this.description = "Converts uppercase letters to lowercase ones, and lowercase ones to uppercase ones.";
+        this.description = "大写转小写，小写转大写。";
         this.infoURL = "";
         this.inputType = "string";
         this.outputType = "string";

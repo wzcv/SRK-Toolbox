@@ -113,7 +113,7 @@ class InputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "Input",
+                    label: "输入",
                     eolHandler: this.eolChange.bind(this),
                     chrEncHandler: this.chrEncChange.bind(this),
                     chrEncGetter: this.getChrEnc.bind(this)

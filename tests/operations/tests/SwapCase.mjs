@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -12,7 +14,7 @@ TestRegister.addTests([
         "expectedOutput": "hELLO, wORLD!",
         "recipeConfig": [
             {
-                "op": "Swap case",
+                "op": "大小写互换",
                 "args": [
                 ],
             },
@@ -24,7 +26,7 @@ TestRegister.addTests([
         "expectedOutput": "",
         "recipeConfig": [
             {
-                "op": "Swap case",
+                "op": "大小写互换",
                 "args": [
                 ],
             },

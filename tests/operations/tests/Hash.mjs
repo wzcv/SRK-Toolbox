@@ -1143,7 +1143,7 @@ TestRegister.addTests([
                     1,
                     32,
                     "Argon2i",
-                    "Encoded hash"
+                    "编码哈希"
                 ]
             }
         ]
@@ -1151,10 +1151,10 @@ TestRegister.addTests([
     {
         name: "Argon2 compare",
         input: "argon2password",
-        expectedOutput: "Match: argon2password",
+        expectedOutput: "匹配：argon2password",
         recipeConfig: [
             {
-                op: "Argon2 compare",
+                op: "Argon2比较",
                 args: [
                     "$argon2i$v=19$m=4096,t=3,p=1$c29tZXNhbHQ$s43my9eBljQADuF/LWCG8vGqwAJzOorKQ0Yog8jFvbw"
                 ]

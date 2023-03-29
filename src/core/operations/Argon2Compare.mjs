@@ -2,6 +2,8 @@
  * @author Tan Zhen Yong [tzy@beyondthesprawl.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,15 +20,15 @@ class Argon2Compare extends Operation {
     constructor() {
         super();
 
-        this.name = "Argon2 compare";
+        this.name = "Argon2比较";
         this.module = "Crypto";
-        this.description = "Tests whether the input matches the given Argon2 hash. To test multiple possible passwords, use the 'Fork' operation.";
+        this.description = "检测输入的密码是否和给定的Argon2哈希一致。想要同时检测多个密码，使用“Fork”操作。";
         this.infoURL = "https://wikipedia.org/wiki/Argon2";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Encoded hash",
+                "name": "编码哈希",
                 "type": "string",
                 "value": ""
             }
@@ -47,9 +49,9 @@ class Argon2Compare extends Operation {
                 encoded
             });
 
-            return `Match: ${input}`;
+            return `匹配：${input}`;
         } catch (err) {
-            return "No match";
+            return "不匹配";
         }
     }
 

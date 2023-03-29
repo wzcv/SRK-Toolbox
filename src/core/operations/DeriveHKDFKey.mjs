@@ -2,6 +2,8 @@
  * @author mikecat
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,27 +22,27 @@ class DeriveHKDFKey extends Operation {
     constructor() {
         super();
 
-        this.name = "Derive HKDF key";
+        this.name = "派生HKDF密钥";
         this.module = "Crypto";
-        this.description = "A simple Hashed Message Authenticaton Code (HMAC)-based key derivation function (HKDF), defined in RFC5869.";
+        this.description = "一个简单的基于Hashed Message Authenticaton Code (HMAC)的密钥派生算法(HKDF)。定义于RFC5869。";
         this.infoURL = "https://wikipedia.org/wiki/HKDF";
         this.inputType = "ArrayBuffer";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Salt",
+                "name": "盐",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "Decimal", "Base64", "UTF8", "Latin1"]
+                "toggleValues": ["十六进制", "十进制", "Base64", "UTF8", "Latin1"]
             },
             {
-                "name": "Info",
+                "name": "信息",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "Decimal", "Base64", "UTF8", "Latin1"]
+                "toggleValues": ["十六进制", "十进制", "Base64", "UTF8", "Latin1"]
             },
             {
-                "name": "Hashing function",
+                "name": "哈希函数",
                 "type": "option",
                 "value": [
                     "MD2",
@@ -67,25 +69,25 @@ class DeriveHKDFKey extends Operation {
                 "defaultIndex": 6
             },
             {
-                "name": "Extract mode",
+                "name": "提取模式",
                 "type": "argSelector",
                 "value": [
                     {
-                        "name": "with salt",
+                        "name": "加盐",
                         "on": [0]
                     },
                     {
-                        "name": "no salt",
+                        "name": "不加盐",
                         "off": [0]
                     },
                     {
-                        "name": "skip",
+                        "name": "跳过",
                         "off": [0]
                     }
                 ]
             },
             {
-                "name": "L (number of output octets)",
+                "name": "L (输出的八比特组数)",
                 "type": "number",
                 "value": 16,
                 "min": 0
@@ -109,10 +111,10 @@ class DeriveHKDFKey extends Operation {
             HashLen = hasher.finalize().length;
 
         if (L < 0) {
-            throw new OperationError("L must be non-negative");
+            throw new OperationError("L不能是负数");
         }
         if (L > 255 * HashLen) {
-            throw new OperationError("L too large (maximum length for " + args[2] + " is " + (255 * HashLen) + ")");
+            throw new OperationError("L的值太大（对于" + args[2] + "的最大长度是" + (255 * HashLen) + "）");
         }
 
         const hmacHash = function(key, data) {
@@ -121,8 +123,8 @@ class DeriveHKDFKey extends Operation {
             mac.update(data);
             return mac.finalize();
         };
-        const salt = extractMode === "with salt" ? argSalt : "\0".repeat(HashLen);
-        const PRK = extractMode === "skip" ? IKM : hmacHash(salt, IKM);
+        const salt = extractMode === "加盐" ? argSalt : "\0".repeat(HashLen);
+        const PRK = extractMode === "跳过" ? IKM : hmacHash(salt, IKM);
         let T = "";
         let result = "";
         for (let i = 1; i <= 255 && result.length < L; i++) {

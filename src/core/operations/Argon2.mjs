@@ -2,6 +2,8 @@
  * @author Tan Zhen Yong [tzy@beyondthesprawl.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -22,47 +24,47 @@ class Argon2 extends Operation {
 
         this.name = "Argon2";
         this.module = "Crypto";
-        this.description = "Argon2 is a key derivation function that was selected as the winner of the Password Hashing Competition in July 2015. It was designed by Alex Biryukov, Daniel Dinu, and Dmitry Khovratovich from the University of Luxembourg.<br><br>Enter the password in the input to generate its hash.";
+        this.description = "Argon2是2015年7月Password Hashing Competition大赛中密钥派生算法的胜出者。算法由卢森堡大学的Alex Biryukov、Daniel Dinu和Dmitry Khovratovich设计。<br><br>在输入框输入密码来生成对应的哈希。";
         this.infoURL = "https://wikipedia.org/wiki/Argon2";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Salt",
+                "name": "盐",
                 "type": "toggleString",
                 "value": "somesalt",
-                "toggleValues": ["UTF8", "Hex", "Base64", "Latin1"]
+                "toggleValues": ["UTF8", "十六进制", "Base64", "Latin1"]
             },
             {
-                "name": "Iterations",
+                "name": "迭代次数",
                 "type": "number",
                 "value": 3
             },
             {
-                "name": "Memory (KiB)",
+                "name": "内存 (KiB)",
                 "type": "number",
                 "value": 4096
             },
             {
-                "name": "Parallelism",
+                "name": "并行",
                 "type": "number",
                 "value": 1
             },
             {
-                "name": "Hash length (bytes)",
+                "name": "哈希长度 (字节)",
                 "type": "number",
                 "value": 32
             },
             {
-                "name": "Type",
+                "name": "类型",
                 "type": "option",
                 "value": ["Argon2i", "Argon2d", "Argon2id"],
                 "defaultIndex": 0
             },
             {
-                "name": "Output format",
+                "name": "输出格式",
                 "type": "option",
-                "value": ["Encoded hash", "Hex hash", "Raw hash"]
+                "value": ["编码哈希", "十六进制哈希", "原始哈希"]
             }
         ];
     }
@@ -99,16 +101,16 @@ class Argon2 extends Operation {
             });
 
             switch (outFormat) {
-                case "Hex hash":
+                case "十六进制哈希":
                     return result.hashHex;
-                case "Raw hash":
+                case "原始哈希":
                     return Utils.arrayBufferToStr(result.hash);
-                case "Encoded hash":
+                case "编码哈希":
                 default:
                     return result.encoded;
             }
         } catch (err) {
-            throw new OperationError(`Error: ${err.message}`);
+            throw new OperationError(`错误： ${err.message}`);
         }
     }
 

@@ -58,7 +58,7 @@ class TranslateDateTimeFormat extends Operation {
             }
         ];
 
-        this.invalidFormatMessage = "Invalid format.";
+        this.invalidFormatMessage = "无效格式。";
     }
 
     /**

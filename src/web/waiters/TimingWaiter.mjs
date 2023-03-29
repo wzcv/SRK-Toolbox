@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 /**
@@ -146,10 +148,10 @@ class TimingWaiter {
             outputDecoding = input.outputDecodingEnd - input.outputDecodingStart,
             overhead = total - inputEncoding - outputDecoding - input.bakeDuration;
 
-        return `Input encoding: ${inputEncoding}ms
-Recipe duration: ${input.bakeDuration}ms
-Output decoding: ${outputDecoding}ms
-<span class="small">Threading overhead: ${overhead}ms</span>`;
+        return `输入编码： ${inputEncoding}ms
+流程处理： ${input.bakeDuration}ms
+输出解码： ${outputDecoding}ms
+线程开销： ${overhead}ms`;
     }
 
     /**

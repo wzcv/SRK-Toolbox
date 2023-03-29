@@ -103,7 +103,7 @@ class OutputWaiter {
 
                 // Custom extensions
                 statusBar({
-                    label: "Output",
+                    label: "输出",
                     timing: this.manager.timing,
                     tabNumGetter: function() {
                         return this.manager.tabs.getActiveTab("output");
@@ -778,7 +778,7 @@ class OutputWaiter {
             ext = `.${types[0].extension.split(",", 1)[0]}`;
         }
 
-        const fileName = window.prompt("Please enter a filename: ", `download${ext}`);
+        const fileName = window.prompt("请输入文件名：", `download${ext}`);
 
         // Assume if the user clicks cancel they don't want to download
         if (fileName === null) return;
@@ -1364,7 +1364,7 @@ class OutputWaiter {
         }
 
         const output = await this.getDishStr(dish);
-        const self = this;
+        // const self = this;
 
         // Create invisible textarea to populate with the raw dish string (not the printable version that
         // contains dots instead of the actual bytes)

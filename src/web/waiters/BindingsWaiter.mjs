@@ -295,9 +295,9 @@ class BindingsWaiter {
         let helpTitle = el.getAttribute("data-help-title");
 
         if (helpTitle)
-            helpTitle = "<span class='text-muted'>Help topic:</span> " + helpTitle;
+            helpTitle = "<span class='text-muted'>帮助主题：</span> " + helpTitle;
         else
-            helpTitle = "<span class='text-muted'>Help topic</span>";
+            helpTitle = "<span class='text-muted'>帮助主题</span>";
 
         document.querySelector("#help-modal .modal-body").innerHTML = helpText;
         document.querySelector("#help-modal #help-title").innerHTML = helpTitle;
