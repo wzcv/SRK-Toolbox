@@ -155,7 +155,7 @@ class OutputWaiter {
         if (currentTabNum >= 0) {
             this.outputs[currentTabNum].eolSequence = eolVal;
         } else {
-            throw new Error(`Cannot change output ${currentTabNum} EOL sequence to ${eolVal}`);
+            throw new Error(`无法将输出框#${currentTabNum}的行尾结束符更改为${eolVal}`);
         }
 
         // Update the EOL value
@@ -194,7 +194,7 @@ class OutputWaiter {
         if (currentTabNum >= 0) {
             this.outputs[currentTabNum].encoding = chrEncVal;
         } else {
-            throw new Error(`Cannot change output ${currentTabNum} chrEnc to ${chrEncVal}`);
+            throw new Error(`无法将输入框#${currentTabNum}的字符编码更改为${chrEncVal}`);
         }
 
         // Reset the output, forcing it to re-decode the data with the new character encoding
@@ -599,7 +599,7 @@ class OutputWaiter {
                     await this.setOutput(output.data.result);
                 }
             } else if (output.status === "baked" || output.status === "inactive") {
-                document.querySelector("#output-loader .loading-msg").textContent = `Loading output ${inputNum}`;
+                document.querySelector("#output-loader .loading-msg").textContent = `正在载入输出#${inputNum}`;
 
                 if (output.data === null) {
                     this.clearHTMLOutput();
@@ -892,8 +892,8 @@ class OutputWaiter {
 
         const downloadButton = document.getElementById("save-all-to-file");
         downloadButton.classList.remove("spin");
-        downloadButton.title = "Save all outputs to a zip file";
-        downloadButton.setAttribute("data-original-title", "Save all outputs to a zip file");
+        downloadButton.title = "保存为压缩包";
+        downloadButton.setAttribute("data-original-title", "保存为压缩包");
         downloadButton.firstElementChild.innerHTML = "archive";
     }
 
@@ -1077,7 +1077,7 @@ class OutputWaiter {
         const min = this.getSmallestInputNum(),
             max = this.getLargestInputNum();
 
-        let tabNum = window.prompt(`Enter tab number (${min} - ${max}):`, this.manager.tabs.getActiveTab("output").toString());
+        let tabNum = window.prompt(`输入标签页编号 (${min} - ${max}):`, this.manager.tabs.getActiveTab("output").toString());
         if (tabNum === null) return;
         tabNum = parseInt(tabNum, 10);
 
@@ -1388,9 +1388,9 @@ class OutputWaiter {
         }
 
         if (success) {
-            this.app.alert("Copied raw output successfully.", 2000);
+            this.app.alert("原始输出复制成功。", 2000);
         } else {
-            this.app.alert("Sorry, the output could not be copied.", 3000);
+            this.app.alert("抱歉，数据复制失败。", 3000);
         }
 
         // Clean up

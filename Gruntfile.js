@@ -331,12 +331,12 @@ module.exports = function (grunt) {
                     switch (process.platform) {
                         case "darwin":
                             return chainCommands([
-                                `shasum -a 256 build/prod/CyberChef_v${pkg.version}.zip | awk '{print $1;}' > build/prod/sha256digest.txt`,
+                                `shasum -a 256 build/prod/SRK_Toolbox_v${pkg.version}.zip | awk '{print $1;}' > build/prod/sha256digest.txt`,
                                 `sed -i '' -e "s/DOWNLOAD_HASH_PLACEHOLDER/$(cat build/prod/sha256digest.txt)/" build/prod/index.html`
                             ]);
                         default:
                             return chainCommands([
-                                `sha256sum build/prod/CyberChef_v${pkg.version}.zip | awk '{print $1;}' > build/prod/sha256digest.txt`,
+                                `sha256sum build/prod/SRK_Toolbox_v${pkg.version}.zip | awk '{print $1;}' > build/prod/sha256digest.txt`,
                                 `sed -i -e "s/DOWNLOAD_HASH_PLACEHOLDER/$(cat build/prod/sha256digest.txt)/" build/prod/index.html`
                             ]);
                     }

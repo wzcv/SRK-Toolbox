@@ -235,7 +235,7 @@ class InputWaiter {
             if (longest > lineLengthThreshold) {
                 // If we are exceeding the max line length, turn off word wrap
                 wrap = false;
-                this.app.alert("Maximum line length exceeded. Word wrap will be temporarily disabled to improve performance.", 20000);
+                this.app.alert("超过最大行数，为防止影响性能自动换行将被暂时关闭。", 20000);
             }
         }
 
@@ -1467,7 +1467,7 @@ class InputWaiter {
      */
     async goToTab() {
         const inputNums = await this.getInputNums();
-        let tabNum = window.prompt(`Enter tab number (${inputNums.min} - ${inputNums.max}):`, this.manager.tabs.getActiveTab("input").toString());
+        let tabNum = window.prompt(`输入标签页编号 (${inputNums.min} - ${inputNums.max})：`, this.manager.tabs.getActiveTab("input").toString());
 
         if (tabNum === null) return;
         tabNum = parseInt(tabNum, 10);
