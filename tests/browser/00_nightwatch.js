@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2018
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 const utils = require("./browserUtils.js");
@@ -39,27 +41,27 @@ module.exports = {
     "Operations loaded": browser => {
         browser.useXpath();
         // Check that an operation in every category has been populated
-        browser.expect.element("//li[contains(@class, 'operation') and text()='To Base64']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='To Binary']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='AES Decrypt']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='PEM to Hex']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Power Set']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Parse IP range']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Remove Diacritics']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Sort']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='To UNIX Timestamp']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Extract dates']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='Base64编码']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='字符转二进制']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='AES解密']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='PEM转十六进制']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='幂集']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='解析IP范围']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='移除变音符号']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='排序']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='转换到UNIX时间戳']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='提取日期']").to.be.present;
         browser.expect.element("//li[contains(@class, 'operation') and text()='Gzip']").to.be.present;
         browser.expect.element("//li[contains(@class, 'operation') and text()='Keccak']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='JSON Beautify']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Detect File Type']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Play Media']").to.be.present;
-        browser.expect.element("//li[contains(@class, 'operation') and text()='Disassemble x86']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='JSON美化']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='检测文件类型']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='播放媒体文件']").to.be.present;
+        browser.expect.element("//li[contains(@class, 'operation') and text()='x86反汇编']").to.be.present;
         browser.expect.element("//li[contains(@class, 'operation') and text()='Register']").to.be.present;
     },
 
     "Recipe can be run": browser => {
-        const toHex = "//li[contains(@class, 'operation') and text()='To Hex']";
+        const toHex = "//li[contains(@class, 'operation') and text()='字符转十六进制']";
         const op = "#rec-list .operation .op-title";
 
         // Check that operation is visible
@@ -79,7 +81,7 @@ module.exports = {
         browser
             .useCss()
             .waitForElementVisible(op, 100)
-            .expect.element(op).text.to.contain("To Hex");
+            .expect.element(op).text.to.contain("字符转十六进制");
 
         // Enter input
         browser
@@ -107,19 +109,19 @@ module.exports = {
         browser.useCss();
 
         // BSON
-        loadOp("BSON deserialise", browser)
+        loadOp("BSON反序列化", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Charts
-        loadOp("Entropy", browser)
+        loadOp("熵", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Ciphers
-        loadOp("AES Encrypt", browser)
+        loadOp("AES加密", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Code
-        loadOp("XPath expression", browser)
+        loadOp("XPath表达式", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Compression
@@ -139,7 +141,7 @@ module.exports = {
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Encodings
-        loadOp("Encode text", browser)
+        loadOp("文本编码", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Hashing
@@ -147,15 +149,15 @@ module.exports = {
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Image
-        loadOp("Extract EXIF", browser)
+        loadOp("提取EXIF", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // PGP
-        loadOp("PGP Encrypt", browser)
+        loadOp("PGP加密", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // PublicKey
-        loadOp("Hex to PEM", browser)
+        loadOp("十六进制转PEM", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Regex
@@ -163,27 +165,27 @@ module.exports = {
             .waitForElementNotVisible("#output-loader", 5000);
 
         // Shellcode
-        loadOp("Disassemble x86", browser)
+        loadOp("x86反汇编", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // URL
-        loadOp("URL Encode", browser)
+        loadOp("URL编码", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // UserAgent
-        loadOp("Parse User Agent", browser)
+        loadOp("解析User Agent", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         // YARA
-        loadOp("YARA Rules", browser)
+        loadOp("YARA规则", browser)
             .waitForElementNotVisible("#output-loader", 5000);
 
         browser.click("#clr-recipe");
     },
 
     "Move around the UI": browser => {
-        const otherCat = "//a[contains(@class, 'category-title') and contains(@data-target, '#catOther')]",
-            genUUID = "//li[contains(@class, 'operation') and text()='Generate UUID']";
+        const otherCat = "//a[contains(@class, 'category-title') and contains(@data-target, '#cat其他')]",
+            genUUID = "//li[contains(@class, 'operation') and text()='生成UUID']";
 
         browser.useXpath();
 
@@ -231,15 +233,15 @@ module.exports = {
         // Alert bar shows and contains correct content
         browser
             .click("#copy-output")
-            .waitForElementVisible("#snackbar-container")
-            .waitForElementVisible("#snackbar-container .snackbar-content")
-            .expect.element("#snackbar-container .snackbar-content").text.to.equal("Copied raw output successfully.");
+            .waitForElementVisible("#toast-container")
+            .waitForElementVisible("#toast-container .toast .toast-message")
+            .expect.element("#toast-container .toast .toast-message").text.to.equal("原始数据复制成功。");
 
         // Alert bar disappears after the correct amount of time
         // Should disappear after 2000ms
         browser
-            .waitForElementNotPresent("#snackbar-container .snackbar-content", 2500)
-            .waitForElementNotVisible("#snackbar-container");
+            .waitForElementNotPresent("#toast-container .toast .toast-message", 2500)
+            .waitForElementNotPresent("#toast-container");
     },
 
     after: browser => {

@@ -1364,37 +1364,13 @@ class OutputWaiter {
         }
 
         const output = await this.getDishStr(dish);
-        // const self = this;
+        const self = this;
 
-        // Create invisible textarea to populate with the raw dish string (not the printable version that
-        // contains dots instead of the actual bytes)
-        const textarea = document.createElement("textarea");
-        textarea.style.position = "fixed";
-        textarea.style.top = 0;
-        textarea.style.left = 0;
-        textarea.style.width = 0;
-        textarea.style.height = 0;
-        textarea.style.border = "none";
-
-        textarea.value = output;
-        document.body.appendChild(textarea);
-
-        let success = false;
-        try {
-            textarea.select();
-            success = output && document.execCommand("copy");
-        } catch (err) {
-            success = false;
-        }
-
-        if (success) {
-            this.app.alert("原始输出复制成功。", 2000);
-        } else {
-            this.app.alert("抱歉，数据复制失败。", 3000);
-        }
-
-        // Clean up
-        document.body.removeChild(textarea);
+        navigator.clipboard.writeText(output).then(function() {
+            self.app.alert("原始数据复制成功。", 2000);
+        }, function(err) {
+            self.app.alert("抱歉，数据复制失败。", 3000);
+        });
     }
 
     /**

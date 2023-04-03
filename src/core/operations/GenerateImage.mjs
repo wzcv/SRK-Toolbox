@@ -69,11 +69,11 @@ class GenerateImage extends Operation {
         }
 
         const bytePerPixelMap = {
-            "Greyscale": 1,
+            "灰度": 1,
             "RG": 2,
             "RGB": 3,
             "RGBA": 4,
-            "Bits": 1/8,
+            "位": 1/8,
         };
 
         const bytesPerPixel = bytePerPixelMap[mode];

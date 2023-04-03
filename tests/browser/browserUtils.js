@@ -51,7 +51,7 @@ function bake(browser) {
     browser
         .click("#bake")
         .waitForElementNotVisible("#stale-indicator", 5000)
-        .waitForElementNotVisible("#output-loader", 5000);
+        .waitForElementNotVisible("#output-loader", 10000);
 }
 
 /** @function
@@ -204,6 +204,7 @@ function uploadFile(browser, filename) {
     browser.execute(() => {
         document.getElementById("open-file").style.display = "none";
     });
+    browser.pause(200); // Stale reference error on my potato system because it runs too slow -- Rakaloah
     browser.waitForElementVisible("#input-text .cm-file-details");
 }
 
