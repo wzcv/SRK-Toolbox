@@ -305,12 +305,12 @@ class App {
         // Add edit button to first category (Favourites)
         const favCat = document.querySelector("#categories a");
         favCat.appendChild(document.getElementById("edit-favourites"));
-        favCat.setAttribute("data-help-title", "Favourite operations");
-        favCat.setAttribute("data-help", `<p>This category displays your favourite operations.</p>
+        favCat.setAttribute("data-help-title", "收藏");
+        favCat.setAttribute("data-help", `<p>此分类展示之前收藏的操作。</p>
         <ul>
-            <li><b>To add:</b> drag an operation over the Favourites category</li>
-            <li><b>To reorder:</b> Click on the 'Edit favourites' button and drag operations up and down in the list provided</li>
-            <li><b>To remove:</b> Click on the 'Edit favourites' button and hit the delete button next to the operation you want to remove</li>
+            <li><b>添加：</b>直接将操作拖拽到“收藏”分类上</li>
+            <li><b>排序：</b>点击“编辑收藏”按钮然后在列表上上下拖动</li>
+            <li><b>移除：</b>点击“编辑收藏”按钮然后按对应操作旁边的删除按钮</li>
         </ul>`);
     }
 
@@ -686,8 +686,8 @@ class App {
         const notice = document.getElementById("notice");
         notice.innerHTML = compileInfo;
         notice.setAttribute("title", Utils.stripHtmlTags(window.compileMessage));
-        notice.setAttribute("data-help-title", "Last build");
-        notice.setAttribute("data-help", "This live version of CyberChef is updated whenever new commits are added to the master branch of the CyberChef repository. It represents the latest, most up-to-date build of CyberChef.");
+        notice.setAttribute("data-help-title", "编译时间");
+        notice.setAttribute("data-help", "显示当前版本的SRK Toolbox编译于什么时间。");
     }
 
 

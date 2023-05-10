@@ -4,6 +4,8 @@
  * @author j433866 [j433866@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github
  */
 
 import Dish from "../../core/Dish.mjs";
@@ -98,7 +100,7 @@ async function bufferToStr(data) {
         try {
             str = cptable.utils.decode(data.encoding, new Uint8Array(data.buffer));
         } catch (err) {
-            str = err;
+            str = err.message;
         }
     }
 
