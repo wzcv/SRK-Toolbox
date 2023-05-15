@@ -46,7 +46,7 @@ TestRegister.addTests([
     {
         name: "Parse IPv6 CIDR - full",
         input: "2404:6800:4001:0000:0000:0000:0000:0000/48",
-        expectedOutput: "网络： 2404:6800:4001:0000:0000:0000:0000:0000\nShorthand： 2404:6800:4001::\nCIDR： 48\n掩码： ffff:ffff:ffff:0000:0000:0000:0000:0000\n范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1.2089258196146292e+24\n\n",
+        expectedOutput: "网络： 2404:6800:4001:0000:0000:0000:0000:0000\nShorthand： 2404:6800:4001::\nCIDR： 48\n掩码： ffff:ffff:ffff:0000:0000:0000:0000:0000\n范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1208925819614629174706176\n\n",
         recipeConfig: [
             {
                 "op": "解析IP范围",
@@ -57,7 +57,7 @@ TestRegister.addTests([
     {
         name: "Parse IPv6 CIDR - collapsed",
         input: "2404:6800:4001::/48",
-        expectedOutput: "网络： 2404:6800:4001:0000:0000:0000:0000:0000\nShorthand： 2404:6800:4001::\nCIDR： 48\n掩码： ffff:ffff:ffff:0000:0000:0000:0000:0000\n范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1.2089258196146292e+24\n\n",
+        expectedOutput: "网络： 2404:6800:4001:0000:0000:0000:0000:0000\nShorthand： 2404:6800:4001::\nCIDR： 48\n掩码： ffff:ffff:ffff:0000:0000:0000:0000:0000\n范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1208925819614629174706176\n\n",
         recipeConfig: [
             {
                 "op": "解析IP范围",
@@ -68,7 +68,7 @@ TestRegister.addTests([
     {
         name: "Parse IPv6 hyphenated",
         input: "2404:6800:4001:: - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff",
-        expectedOutput: "范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\nShorthand范围： 2404:6800:4001:: - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1.2089258196146292e+24\n\n",
+        expectedOutput: "范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\nShorthand范围： 2404:6800:4001:: - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1208925819614629174706176\n\n",
         recipeConfig: [
             {
                 "op": "解析IP范围",
@@ -79,7 +79,7 @@ TestRegister.addTests([
     {
         name: "Parse IPv6 list",
         input: "2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n2404:6800:4001::ffff\n2404:6800:4001:ffff:ffff::1111\n2404:6800:4001::/64",
-        expectedOutput: "范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\nShorthand范围： 2404:6800:4001:: - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1.2089258196146292e+24\n\n",
+        expectedOutput: "范围： 2404:6800:4001:0000:0000:0000:0000:0000 - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\nShorthand范围： 2404:6800:4001:: - 2404:6800:4001:ffff:ffff:ffff:ffff:ffff\n范围中地址数： 1208925819614629174706176\n\n",
         recipeConfig: [
             {
                 "op": "解析IP范围",

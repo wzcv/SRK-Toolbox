@@ -95,7 +95,9 @@ export function ipv6CidrRange(cidr, includeNetworkInfo) {
         output += "CIDR： " + cidrRange + "\n";
         output += "掩码： " + ipv6ToStr(mask) + "\n";
         output += "范围： " + ipv6ToStr(ip1) + " - " + ipv6ToStr(ip2) + "\n";
-        output += "范围中地址数： " + (parseInt(total.join(""), 2) + 1) + "\n\n";
+        // output += "范围中地址数： " + (parseInt(total.join(""), 2) + 1) + "\n\n";
+        /* global BigInt */
+        output += "范围中地址数： " + (BigInt("0b" + total.join("")) + BigInt(1)) + "\n\n";
     }
 
     return output;
@@ -185,7 +187,7 @@ export function ipv6HyphenatedRange(range, includeNetworkInfo) {
     if (includeNetworkInfo) {
         output += "范围： " + ipv6ToStr(ip1) + " - " + ipv6ToStr(ip2) + "\n";
         output += "Shorthand范围： " + ipv6ToStr(ip1, true) + " - " + ipv6ToStr(ip2, true) + "\n";
-        output += "范围中地址数： " + (parseInt(total.join(""), 2) + 1) + "\n\n";
+        output += "范围中地址数： " + (BigInt("0b" + total.join("")) + BigInt(1)) + "\n\n";
     }
 
     return output;
