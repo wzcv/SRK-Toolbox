@@ -9,7 +9,7 @@
 import Operation from "../Operation.mjs";
 import OperationError from "../errors/OperationError.mjs";
 import GostDigest from "../vendor/gost/gostDigest.mjs";
-import {toHexFast} from "../lib/Hex.mjs";
+import { toHexFast } from "../lib/Hex.mjs";
 
 /**
  * GOST hash operation
@@ -30,20 +30,30 @@ class GOSTHash extends Operation {
         this.outputType = "string";
         this.args = [
             {
-                "name": "S-Box",
-                "type": "option",
-                "value": [
-                    "D-A",
-                    "D-SC",
-                    "E-TEST",
-                    "E-A",
-                    "E-B",
-                    "E-C",
-                    "E-D",
-                    "E-SC",
-                    "E-Z",
-                    "D-TEST"
+                name: "Algorithm",
+                type: "argSelector",
+                value: [
+                    {
+                        name: "GOST 28147 (1994)",
+                        off: [1],
+                        on: [2]
+                    },
+                    {
+                        name: "GOST R 34.11 (Streebog, 2012)",
+                        on: [1],
+                        off: [2]
+                    }
                 ]
+            },
+            {
+                name: "Digest length",
+                type: "option",
+                value: ["256", "512"]
+            },
+            {
+                name: "sBox",
+                type: "option",
+                value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             }
         ];
     }
@@ -54,13 +64,23 @@ class GOSTHash extends Operation {
      * @returns {string}
      */
     run(input, args) {
+        const [version, length, sBox] = args;
+
+        const versionNum = version === "GOST 28147 (1994)" ? 1994 : 2012;
+        const algorithm = {
+            name: versionNum === 1994 ? "GOST 28147" : "GOST R 34.10",
+            version: versionNum,
+            mode: "HASH"
+        };
+
+        if (versionNum === 1994) {
+            algorithm.sBox = sBox;
+        } else {
+            algorithm.length = parseInt(length, 10);
+        }
+
         try {
-            const sBox = args[1];
-            const gostDigest = new GostDigest({
-                name: "GOST R 34.11",
-                version: 1994,
-                sBox: sBox
-            });
+            const gostDigest = new GostDigest(algorithm);
 
             return toHexFast(gostDigest.digest(input));
         } catch (err) {

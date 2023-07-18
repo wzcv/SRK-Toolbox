@@ -199,6 +199,7 @@ module.exports = function (grunt) {
         },
         webpack: {
             options: webpackConfig,
+            myConfig: webpackConfig,
             web: webpackProdConf(),
         },
         "webpack-dev-server": {

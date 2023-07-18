@@ -1097,7 +1097,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 op: "GOST哈希",
-                args: ["D-A"]
+                args: ["GOST 28147 (1994)", "256", "D-A"]
             }
         ]
     },
@@ -1108,7 +1108,7 @@ TestRegister.addTests([
         recipeConfig: [
             {
                 op: "GOST哈希",
-                args: ["D-A"]
+                args: ["GOST 28147 (1994)", "256", "D-A"]
             }
         ]
     },
