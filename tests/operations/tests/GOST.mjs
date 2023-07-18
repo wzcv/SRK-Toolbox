@@ -9,6 +9,8 @@
  *
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -19,12 +21,12 @@ TestRegister.addTests([
         expectedOutput: "f124ac5c0853870906dbaf9b56",
         recipeConfig: [
             {
-                op: "GOST Encrypt",
+                op: "GOST加密",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "0011223344556677" },
-                    "Raw",
-                    "Hex",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "0011223344556677" },
+                    "原始字节",
+                    "十六进制",
                     "GOST 28147 (Magma, 1989)",
                     "64",
                     "E-SC",
@@ -41,12 +43,12 @@ TestRegister.addTests([
         expectedOutput: "8673d490dfa4a66d5e3ff00ba316724f",
         recipeConfig: [
             {
-                op: "GOST Encrypt",
+                op: "GOST加密",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "00112233445566778899aabbccddeeff" },
-                    "Raw",
-                    "Hex",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "00112233445566778899aabbccddeeff" },
+                    "原始字节",
+                    "十六进制",
                     "GOST R 34.12 (Kuznyechik, 2015)",
                     "128",
                     "E-SC",
@@ -63,12 +65,12 @@ TestRegister.addTests([
         expectedOutput: "Hello, World!",
         recipeConfig: [
             {
-                op: "GOST Decrypt",
+                op: "GOST解密",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "0011223344556677" },
-                    "Hex",
-                    "Raw",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "0011223344556677" },
+                    "十六进制",
+                    "原始字节",
                     "GOST 28147 (Magma, 1989)",
                     "128",
                     "E-SC",
@@ -85,12 +87,12 @@ TestRegister.addTests([
         expectedOutput: "Hello, World!\0\0\0",
         recipeConfig: [
             {
-                op: "GOST Decrypt",
+                op: "GOST解密",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "00112233445566778899aabbccddeeff" },
-                    "Hex",
-                    "Raw",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "00112233445566778899aabbccddeeff" },
+                    "十六进制",
+                    "原始字节",
                     "GOST R 34.12 (Kuznyechik, 2015)",
                     "128",
                     "E-TEST",
@@ -107,12 +109,12 @@ TestRegister.addTests([
         expectedOutput: "810d0c40e965",
         recipeConfig: [
             {
-                op: "GOST Sign",
+                op: "GOST签名",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "0011223344556677" },
-                    "Raw",
-                    "Hex",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "0011223344556677" },
+                    "原始字节",
+                    "十六进制",
                     "GOST 28147 (Magma, 1989)",
                     "64",
                     "E-C",
@@ -124,15 +126,15 @@ TestRegister.addTests([
     {
         name: "GOST Verify",
         input: "Hello, World!",
-        expectedOutput: "The signature matches",
+        expectedOutput: "签名相符",
         recipeConfig: [
             {
-                op: "GOST Verify",
+                op: "GOST验证",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "00112233445566778899aabbccddeeff" },
-                    { "option": "Hex", "string": "42b77fb3d6f6bf04" },
-                    "Raw",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "00112233445566778899aabbccddeeff" },
+                    { "option": "十六进制", "string": "42b77fb3d6f6bf04" },
+                    "原始字节",
                     "GOST R 34.12 (Kuznyechik, 2015)",
                     "128",
                     "E-TEST"
@@ -146,12 +148,12 @@ TestRegister.addTests([
         expectedOutput: "0bb706e92487fceef97589911faeb28200000000000000000000000000000000\r\n6b7bfd16",
         recipeConfig: [
             {
-                op: "GOST Key Wrap",
+                op: "GOST密钥包装",
                 args: [
-                    { "option": "Hex", "string": "00112233" },
-                    { "option": "Hex", "string": "0011223344556677" },
-                    "Raw",
-                    "Hex",
+                    { "option": "十六进制", "string": "00112233" },
+                    { "option": "十六进制", "string": "0011223344556677" },
+                    "原始字节",
+                    "十六进制",
                     "GOST R 34.12 (Kuznyechik, 2015)",
                     "64",
                     "E-TEST",
@@ -166,12 +168,12 @@ TestRegister.addTests([
         expectedOutput: "0123456789abcdef0123456789abcdef",
         recipeConfig: [
             {
-                op: "GOST Key Unwrap",
+                op: "GOST密钥解包装",
                 args: [
-                    { "option": "Hex", "string": "" },
+                    { "option": "十六进制", "string": "" },
                     { "option": "Latin1", "string": "00112233" },
-                    "Hex",
-                    "Raw",
+                    "十六进制",
+                    "原始字节",
                     "GOST 28147 (Magma, 1989)",
                     "64",
                     "E-Z",

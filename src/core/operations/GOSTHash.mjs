@@ -30,7 +30,7 @@ class GOSTHash extends Operation {
         this.outputType = "string";
         this.args = [
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -46,7 +46,7 @@ class GOSTHash extends Operation {
                 ]
             },
             {
-                name: "Digest length",
+                name: "摘要长度",
                 type: "option",
                 value: ["256", "512"]
             },

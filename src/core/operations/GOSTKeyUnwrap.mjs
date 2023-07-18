@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,9 +23,9 @@ class GOSTKeyUnwrap extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Key Unwrap";
+        this.name = "GOST密钥解包装";
         this.module = "Ciphers";
-        this.description = "A decryptor for keys wrapped using one of the GOST block ciphers.";
+        this.description = "对使用GOST块加密包装的密钥解包装。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";
         this.outputType = "string";
@@ -32,26 +34,26 @@ class GOSTKeyUnwrap extends Operation {
                 name: "Key",
                 type: "toggleString",
                 value: "",
-                toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
+                toggleValues: ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 name: "User Key Material",
                 type: "toggleString",
                 value: "",
-                toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
+                toggleValues: ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 name: "Input type",
                 type: "option",
-                value: ["Hex", "Raw"]
+                value: ["十六进制", "原始字节"]
             },
             {
                 name: "Output type",
                 type: "option",
-                value: ["Raw", "Hex"]
+                value: ["原始字节", "十六进制"]
             },
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -67,7 +69,7 @@ class GOSTKeyUnwrap extends Operation {
                 ]
             },
             {
-                name: "Block length",
+                name: "块长度",
                 type: "option",
                 value: ["64", "128"]
             },
@@ -77,7 +79,7 @@ class GOSTKeyUnwrap extends Operation {
                 value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             },
             {
-                name: "Key wrapping",
+                name: "Key包装",
                 type: "option",
                 value: ["NO", "CP", "SC"]
             }
@@ -94,7 +96,7 @@ class GOSTKeyUnwrap extends Operation {
 
         const key = toHexFast(Utils.convertToByteArray(keyObj.string, keyObj.option));
         const ukm = toHexFast(Utils.convertToByteArray(ukmObj.string, ukmObj.option));
-        input = inputType === "Hex" ? input : toHexFast(Utils.strToArrayBuffer(input));
+        input = inputType === "十六进制" ? input : toHexFast(Utils.strToArrayBuffer(input));
 
         const versionNum = version === "GOST 28147 (Magma, 1989)" ? 1989 : 2015;
         const blockLength = versionNum === 1989 ? 64 : parseInt(length, 10);
@@ -115,10 +117,10 @@ class GOSTKeyUnwrap extends Operation {
             const cipher = GostEngine.getGostCipher(algorithm);
             const out = Hex.encode(cipher.unwrapKey(Hex.decode(key), Hex.decode(input)));
 
-            return outputType === "Hex" ? out : Utils.byteArrayToChars(fromHex(out));
+            return outputType === "十六进制" ? out : Utils.byteArrayToChars(fromHex(out));
         } catch (err) {
             if (err.toString().includes("Invalid typed array length")) {
-                throw new OperationError("Incorrect input length. Must be a multiple of the block size.");
+                throw new OperationError("无效的输入长度：必须为块大小的整数倍。");
             }
             throw new OperationError(err);
         }

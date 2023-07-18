@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,9 +23,9 @@ class GOSTSign extends Operation {
     constructor() {
         super();
 
-        this.name = "GOST Sign";
+        this.name = "GOST签名";
         this.module = "Ciphers";
-        this.description = "Sign a plaintext message using one of the GOST block ciphers.";
+        this.description = "使用GOST块加密对明文信息签名。";
         this.infoURL = "https://wikipedia.org/wiki/GOST_(block_cipher)";
         this.inputType = "string";
         this.outputType = "string";
@@ -32,26 +34,26 @@ class GOSTSign extends Operation {
                 name: "Key",
                 type: "toggleString",
                 value: "",
-                toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
+                toggleValues: ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 name: "IV",
                 type: "toggleString",
                 value: "",
-                toggleValues: ["Hex", "UTF8", "Latin1", "Base64"]
+                toggleValues: ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
-                name: "Input type",
+                name: "输入类型",
                 type: "option",
-                value: ["Raw", "Hex"]
+                value: ["原始字节", "十六进制"]
             },
             {
-                name: "Output type",
+                name: "输出类型",
                 type: "option",
-                value: ["Hex", "Raw"]
+                value: ["十六进制", "原始字节"]
             },
             {
-                name: "Algorithm",
+                name: "算法",
                 type: "argSelector",
                 value: [
                     {
@@ -67,7 +69,7 @@ class GOSTSign extends Operation {
                 ]
             },
             {
-                name: "Block length",
+                name: "块长度",
                 type: "option",
                 value: ["64", "128"]
             },
@@ -77,7 +79,7 @@ class GOSTSign extends Operation {
                 value: ["E-TEST", "E-A", "E-B", "E-C", "E-D", "E-SC", "E-Z", "D-TEST", "D-A", "D-SC"]
             },
             {
-                name: "MAC length",
+                name: "MAC长度",
                 type: "number",
                 value: 32,
                 min: 8,
@@ -97,7 +99,7 @@ class GOSTSign extends Operation {
 
         const key = toHexFast(Utils.convertToByteArray(keyObj.string, keyObj.option));
         const iv = toHexFast(Utils.convertToByteArray(ivObj.string, ivObj.option));
-        input = inputType === "Hex" ? input : toHexFast(Utils.strToArrayBuffer(input));
+        input = inputType === "十六进制" ? input : toHexFast(Utils.strToArrayBuffer(input));
 
         const versionNum = version === "GOST 28147 (Magma, 1989)" ? 1989 : 2015;
         const blockLength = versionNum === 1989 ? 64 : parseInt(length, 10);
@@ -118,7 +120,7 @@ class GOSTSign extends Operation {
             const cipher = GostEngine.getGostCipher(algorithm);
             const out = Hex.encode(cipher.sign(Hex.decode(key), Hex.decode(input)));
 
-            return outputType === "Hex" ? out : Utils.byteArrayToChars(fromHex(out));
+            return outputType === "十六进制" ? out : Utils.byteArrayToChars(fromHex(out));
         } catch (err) {
             throw new OperationError(err);
         }
