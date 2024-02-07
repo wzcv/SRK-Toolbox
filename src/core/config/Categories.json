@@ -352,7 +352,7 @@
             "LZMA解压",
             "LZ4压缩",
             "LZ4解压",
-            "LZNT1 Decompress"
+            "LZNT1解压"
         ]
     },
     {

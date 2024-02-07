@@ -7,6 +7,8 @@
  * @license Apache-2.0
  *
  * https://github.com/Velocidex/go-ntfs/blob/master/parser%2Flznt1.go
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Utils from "../Utils.mjs";
@@ -48,7 +50,7 @@ export function decompress(compressed) {
         if (size === 0) {
             break;
         } else if (compressed.length < coffset + size) {
-            throw new OperationError("Malformed LZNT1 stream: Block too small! Has the stream been truncated?");
+            throw new OperationError("LZNT1流格式错误：块尺寸过小！数据流是否中途被截断？");
         }
 
         if ((blockHeader & COMPRESSED_MASK) !== 0) {
@@ -70,7 +72,7 @@ export function decompress(compressed) {
                         for (let shiftDelta = 0; shiftDelta < symbolLength + 1; shiftDelta++) {
                             const shift = shiftOffset + shiftDelta;
                             if (shift < 0 || decompressed.length <= shift) {
-                                throw new OperationError("Malformed LZNT1 stream: Invalid shift!");
+                                throw new OperationError("LZNT1流格式错误：无效的移位长度！");
                             }
                             decompressed.push(decompressed[shift]);
                         }

@@ -4,6 +4,8 @@
  * @author 0xThiebaut [thiebaut.dev]
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,7 +16,7 @@ TestRegister.addTests([
         expectedOutput: "compressedtestdatacompressedalot",
         recipeConfig: [
             {
-                op: "LZNT1 Decompress",
+                op: "LZNT1解压",
                 args: []
             }
         ],

@@ -178,7 +178,7 @@ class BindingsWaiter {
             <th>快捷键(Mac)</th>
         </tr>
         <tr>
-            <td>Activate contextual help</td>
+            <td>激活上下文帮助</td>
             <td>F1</td>
             <td>F1</td>
         </tr>
