@@ -85,6 +85,10 @@ class RegularExpression extends Operation {
                         name: "字符串",
                         value: "[A-Za-z\\d/\\-:.,_$%\\x27\"()<>= !\\[\\]{}@]{4,}"
                     },
+                    {
+                        name: "UUID (any version)",
+                        value: "[0-9a-fA-F]{8}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{4}\\b-[0-9a-fA-F]{12}"
+                    },
                 ],
                 "target": 1
             },

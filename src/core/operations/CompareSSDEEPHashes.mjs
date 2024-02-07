@@ -26,7 +26,7 @@ class CompareSSDEEPHashes extends Operation {
         this.name = "比较SSDEEP哈希值";
         this.module = "Crypto";
         this.description = "比较两个SSDEEP模糊哈希值，并按相似度从0到100打分。";
-        this.infoURL = "https://forensicswiki.xyz/wiki/index.php?title=Ssdeep";
+        this.infoURL = "https://forensics.wiki/ssdeep/";
         this.inputType = "string";
         this.outputType = "Number";
         this.args = [

@@ -41,7 +41,7 @@ class ExtractFiles extends Operation {
                 ${supportedExts.join("</li><li>")}
                 </li>
             </ul>可以指定最小文件尺寸来防止误判。`;
-        this.infoURL = "https://forensicswiki.xyz/wiki/index.php?title=File_Carving";
+        this.infoURL = "https://forensics.wiki/file_carving";
         this.inputType = "ArrayBuffer";
         this.outputType = "List<File>";
         this.presentType = "html";

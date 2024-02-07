@@ -26,7 +26,7 @@ class CompareCTPHHashes extends Operation {
         this.name = "比较CTPH哈希值";
         this.module = "Crypto";
         this.description = "比较两个基于内容分割的分片哈希（Context Triggered Piecewise Hashing, CTPH）模糊哈希值，并按相似度从0到100打分。";
-        this.infoURL = "https://forensicswiki.xyz/wiki/index.php?title=Context_Triggered_Piecewise_Hashing";
+        this.infoURL = "https://forensics.wiki/context_triggered_piecewise_hashing/";
         this.inputType = "string";
         this.outputType = "Number";
         this.args = [
