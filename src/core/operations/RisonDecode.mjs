@@ -2,6 +2,8 @@
  * @author sg5506844 [sg5506844@gmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,20 +21,20 @@ class RisonDecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Rison Decode";
+        this.name = "Rison解码";
         this.module = "Default";
-        this.description = "Rison, a data serialization format optimized for compactness in URIs. Rison is a slight variation of JSON that looks vastly superior after URI encoding. Rison still expresses exactly the same set of data structures as JSON, so data can be translated back and forth without loss or guesswork.";
+        this.description = "Rison是一种紧凑的数据序列化格式，专门为能在URI中使用进行了优化。Rison在JSON的基础上进行了少量改进，使得序列化数据在URI编码后看起来十分直观。Rison表示的数据结构和JSON是一致的，因此数据可以在两种格式间无损互转。";
         this.infoURL = "https://github.com/Nanonid/rison";
         this.inputType = "string";
         this.outputType = "Object";
         this.args = [
             {
-                name: "Decode Option",
+                name: "解码选项",
                 type: "editableOption",
                 value: [
-                    { name: "Decode", value: "Decode", },
-                    { name: "Decode Object", value: "Decode Object", },
-                    { name: "Decode Array", value: "Decode Array", },
+                    { name: "普通解码", value: "普通解码", },
+                    { name: "解码为对象（O-Rison）", value: "解码为对象（O-Rison）", },
+                    { name: "解码为数组（A-Rison）", value: "解码为数组（A-Rison）", },
                 ]
             },
         ];
@@ -46,14 +48,14 @@ class RisonDecode extends Operation {
     run(input, args) {
         const [decodeOption] = args;
         switch (decodeOption) {
-            case "Decode":
+            case "普通解码":
                 return rison.decode(input);
-            case "Decode Object":
+            case "解码为对象（O-Rison）":
                 return rison.decode_object(input);
-            case "Decode Array":
+            case "解码为数组（A-Rison）":
                 return rison.decode_array(input);
         }
-        throw new OperationError("Invalid Decode option");
+        throw new OperationError("无效的解码选项");
     }
 }
 

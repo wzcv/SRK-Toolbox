@@ -6,6 +6,8 @@
  * @author AliceGrey [alice@grey.systems]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,18 +25,18 @@ class MurmurHash3 extends Operation {
 
         this.name = "MurmurHash3";
         this.module = "Default";
-        this.description = "Generates a MurmurHash v3 for a string input and an optional seed input";
+        this.description = "对给定的输入字符串（可自选种子）生成对应的MurmurHash v3哈希。";
         this.infoURL = "https://wikipedia.org/wiki/MurmurHash";
         this.inputType = "string";
         this.outputType = "number";
         this.args = [
             {
-                name: "Seed",
+                name: "种子",
                 type: "number",
                 value: 0
             },
             {
-                name: "Convert to Signed",
+                name: "转换为有符号数值",
                 type: "boolean",
                 value: false
             }

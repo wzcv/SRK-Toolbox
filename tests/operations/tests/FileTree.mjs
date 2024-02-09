@@ -2,6 +2,8 @@
  * @author sw5678
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -12,7 +14,7 @@ TestRegister.addTests([
         "expectedOutput": "test_dir1\n|---test_file1.txt\n|---test_file2.txt\ntest_dir2\n|---test_file1.txt",
         "recipeConfig": [
             {
-                "op": "File Tree",
+                "op": "文件树",
                 "args": [
                 ],
             },

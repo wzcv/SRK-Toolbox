@@ -2,6 +2,8 @@
  * @author sg5506844 [sg5506844@gmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -13,8 +15,8 @@ TestRegister.addTests([
         expectedOutput: "(any:json,yes:!t)",
         recipeConfig: [
             {
-                op: "Rison Encode",
-                args: ["Encode"]
+                op: "Rison编码",
+                args: ["普通编码"]
             }
         ]
     },
@@ -24,8 +26,8 @@ TestRegister.addTests([
         expectedOutput: "ints:435,supportsObjects:!t",
         recipeConfig: [
             {
-                op: "Rison Encode",
-                args: ["Encode Object"]
+                op: "Rison编码",
+                args: ["编码为对象（O-Rison）"]
             }
         ]
     },
@@ -35,20 +37,20 @@ TestRegister.addTests([
         expectedOutput: "A,B,(supportsObjects:!t)",
         recipeConfig: [
             {
-                op: "Rison Encode",
-                args: ["Encode Array"]
+                op: "Rison编码",
+                args: ["编码为数组（A-Rison）"]
             }
         ]
     },
     {
         name: "Rison Encode: Object for an array",
         input: JSON.stringify({ supportsObjects: true, ints: 435 }),
-        expectedOutput: "Rison Encode - rison.encode_array expects an array argument",
-        expectedError: "Rison Encode - rison.encode_array expects an array argument",
+        expectedOutput: "Rison编码 - rison.encode_array expects an array argument",
+        expectedError: "Rison编码 - rison.encode_array expects an array argument",
         recipeConfig: [
             {
-                op: "Rison Encode",
-                args: ["Encode Array"]
+                op: "Rison编码",
+                args: ["编码为数组（A-Rison）"]
             }
         ]
     },
@@ -58,8 +60,8 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify({ any: "json", yes: true }, null, 4),
         recipeConfig: [
             {
-                op: "Rison Decode",
-                args: ["Decode"]
+                op: "Rison解码",
+                args: ["普通解码"]
             }
         ]
     }

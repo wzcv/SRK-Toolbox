@@ -4,6 +4,8 @@
  * @author sg5506844 [sg5506844@gmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -15,7 +17,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "To Base92",
+                op: "Base92编码",
                 args: [],
             },
         ],
@@ -26,7 +28,7 @@ TestRegister.addTests([
         expectedOutput: "8y2",
         recipeConfig: [
             {
-                op: "To Base92",
+                op: "Base92编码",
                 args: [],
             },
         ],
@@ -37,7 +39,7 @@ TestRegister.addTests([
         expectedOutput: ";K_$aOTo&",
         recipeConfig: [
             {
-                op: "To Base92",
+                op: "Base92编码",
                 args: [],
             },
         ],
@@ -48,7 +50,7 @@ TestRegister.addTests([
         expectedOutput: "DX2?V<Y(*",
         recipeConfig: [
             {
-                op: "To Base92",
+                op: "Base92编码",
                 args: [],
             },
         ],
@@ -59,7 +61,7 @@ TestRegister.addTests([
         expectedOutput: "",
         recipeConfig: [
             {
-                op: "From Base92",
+                op: "Base92解码",
                 args: [],
             },
         ],
@@ -70,7 +72,7 @@ TestRegister.addTests([
         expectedOutput: "ietf!",
         recipeConfig: [
             {
-                op: "From Base92",
+                op: "Base92解码",
                 args: [],
             },
         ],
@@ -78,10 +80,10 @@ TestRegister.addTests([
     {
         name: "From Base92: Invalid character",
         input: "~",
-        expectedOutput: "~ is not a base92 character",
+        expectedOutput: "~ 不是有效的Base92字符",
         recipeConfig: [
             {
-                op: "From Base92",
+                op: "Base92解码",
                 args: [],
             },
         ],

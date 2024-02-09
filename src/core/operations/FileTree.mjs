@@ -2,6 +2,8 @@
  * @author sw5678
  * @copyright Crown Copyright 2016
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,19 +21,19 @@ class FileTree extends Operation {
     constructor() {
         super();
 
-        this.name = "File Tree";
+        this.name = "文件树";
         this.module = "Default";
-        this.description = "Creates file tree from list of file paths (Similar too tree linux command)";
+        this.description = "从给定的文件路径列表生成文件树（和Linux的tree命令类似）。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "File Path Delimiter",
+                name: "文件路径分隔符",
                 type: "binaryString",
                 value: "/"
             },
             {
-                name: "Delimiter",
+                name: "列表分隔符",
                 type: "option",
                 value: INPUT_DELIM_OPTIONS
             }

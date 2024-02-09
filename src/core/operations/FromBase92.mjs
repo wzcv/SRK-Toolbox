@@ -2,6 +2,8 @@
  * @author sg5506844 [sg5506844@gmail.com]
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import { base92Ord } from "../lib/Base92.mjs";
@@ -17,9 +19,9 @@ class FromBase92 extends Operation {
     constructor() {
         super();
 
-        this.name = "From Base92";
+        this.name = "Base92解码";
         this.module = "Default";
-        this.description = "Base92 is a notation for encoding arbitrary byte data using a restricted set of symbols that can be conveniently used by humans and processed by computers.";
+        this.description = "Base92是把字节数据转换成特定字符组合的编码方式，编码后便于人类阅读，也方便计算机读取。";
         this.infoURL = "https://wikipedia.org/wiki/List_of_numeral_systems";
         this.inputType = "string";
         this.outputType = "byteArray";
