@@ -29,6 +29,8 @@
             "Base64编码",
             "Base64解码",
             "显示Base64偏移形式",
+            "To Base92",
+            "From Base92",
             "Base85编码",
             "Base85解码",
             "十进制数转其它进制",
@@ -67,7 +69,9 @@
             "JSON转CSV",
             "Avro转JSON",
             "CBOR编码",
-            "CBOR解码"
+            "CBOR解码",
+            "Rison Encode",
+            "Rison Decode"
         ]
     },
     {
@@ -294,7 +298,8 @@
             "转义字符串",
             "字符串转义恢复",
             "伪随机数生成器",
-            "Sleep"
+            "Sleep",
+            "File Tree"
         ]
     },
     {
@@ -369,6 +374,7 @@
             "SHA2",
             "SHA3",
             "SM3",
+            "MurmurHash3",
             "Keccak",
             "Shake",
             "RIPEMD",

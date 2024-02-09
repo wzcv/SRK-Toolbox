@@ -37,17 +37,6 @@ class AnalyseHash extends Operation {
     run(input, args) {
         input = input.replace(/\s/g, "");
 
-        // analyze hash if it is bcrypt
-        if (/^\$2[abxy]?\$[0-9]+\$[a-zA-Z0-9/.]{53}$/.test(input)) {
-            input = input.split("$");
-            return "哈希算法标识符： $" + input[1] + "$\n" +
-                "轮数： " + input[2] + "\n" +
-                "Base64编码输入盐（22字节）： " + input[3].slice(0, 22) + "\n" +
-                "Base64编码哈希（31字节）： " + input[3].slice(22) + "\n\n" +
-                "根据长度，此哈希值可能由以下哈希算法生成：\n" +
-                "bcrypt";
-        }
-
         let output = "",
             possibleHashFunctions = [];
         const byteLength = input.length / 2,

@@ -398,11 +398,7 @@ class RecipeWaiter {
         const item = document.createElement("li");
 
         item.classList.add("operation");
-
-        if (this.app.operations[name] != null) {
-            item.innerHTML = name;
-        }
-
+        item.innerHTML = name;
         this.buildRecipeOperation(item);
         document.getElementById("rec-list").appendChild(item);
 
