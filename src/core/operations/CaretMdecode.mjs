@@ -2,6 +2,8 @@
  * @author tedk [tedk@ted.do]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,9 +21,9 @@ class CaretMdecode extends Operation {
     constructor() {
         super();
 
-        this.name = "Caret/M-decode";
+        this.name = "Caret/M-解码";
         this.module = "Default";
-        this.description = "Decodes caret or M-encoded strings, i.e. ^M turns into a newline, M-^] turns into 0x9d. Sources such as `cat -v`.\n\nPlease be aware that when using `cat -v` ^_ (caret-underscore) will not be encoded, but represents a valid encoding (namely that of 0x1f).";
+        this.description = "解码脱字符（^，插入记号，caret）或 M-编码（M-notation） 的字符串，例如 ^M 解码为换行， M-^] 解码为 0x9d。一般来源于类似 `cat -v` 指令的输出结果。\n\n注意使用 `cat -v` 的时候 ^_ （脱字符+下划线）不会被编码，只会用来表示0x1f。";
         this.infoURL = "https://en.wikipedia.org/wiki/Caret_notation";
         this.inputType = "string";
         this.outputType = "byteArray";

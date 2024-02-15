@@ -17,7 +17,7 @@ TestRegister.addTests([
         "recipeConfig": [
             {
                 "op": "文件树",
-                "args": ["/", "Line feed"],
+                "args": ["/", "换行"],
             },
         ],
     }
