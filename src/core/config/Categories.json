@@ -70,6 +70,7 @@
             "Avro转JSON",
             "CBOR编码",
             "CBOR解码",
+            "Caret/M-decode",
             "Rison编码",
             "Rison解码"
         ]
