@@ -52,7 +52,12 @@ class JWTSign extends Operation {
 
         try {
             return jwt.sign(input, key, {
-                algorithm: algorithm === "None" ? "none" : algorithm
+                algorithm: algorithm === "None" ? "none" : algorithm,
+
+                // To utilize jsonwebtoken 9+ library and maintain backwards compatibility for regression tests
+                // This could be turned into operation args in a future PR
+                allowInsecureKeySizes: true,
+                allowInvalidAsymmetricKeyTypes: true
             });
         } catch (err) {
             throw new OperationError(`错误：Key必须是HMAC算法的secret或PEM编码的RSA/ECDSA密钥。

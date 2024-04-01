@@ -193,7 +193,7 @@ ChaCha使用8或12字节长度的nonce（64或96位）。`);
         if (outputType === "十六进制") {
             return toHex(output);
         } else {
-            return Utils.arrayBufferToStr(output);
+            return Utils.arrayBufferToStr(Uint8Array.from(output).buffer);
         }
     }
 

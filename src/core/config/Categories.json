@@ -14,6 +14,8 @@
             "从字符码提取",
             "字符转十进制",
             "十进制转字符",
+            "To Float",
+            "From Float",
             "字符转二进制",
             "二进制转字符",
             "字符转八进制",
@@ -95,6 +97,8 @@
             "RC4",
             "RC4 Drop",
             "ChaCha",
+            "Salsa20",
+            "XSalsa20",
             "Rabbit",
             "SM4加密",
             "SM4解密",
@@ -151,7 +155,8 @@
             "Typex",
             "Lorenz",
             "Colossus",
-            "SIGABA"
+            "SIGABA",
+            "XXTEA"
         ]
     },
     {
@@ -231,6 +236,7 @@
             "VarInt解码",
             "JA3指纹",
             "JA3S指纹",
+            "JA4 Fingerprint",
             "HASSH客户端指纹",
             "HASSH服务器指纹",
             "MAC地址格式化",
@@ -239,6 +245,7 @@
             "NetBIOS名称编码",
             "NetBIOS名称解码",
             "URL无效化",
+            "Fang URL",
             "IP地址无效化"
         ]
     },

@@ -547,8 +547,8 @@ module.exports = {
         browser.expect.element("#output-text .cm-status-bar .stats-lines-value").text.to.equal("2");
 
         /* Line endings appear in the URL */
-        browser.assert.urlContains("ieol=%0D%0A");
-        browser.assert.urlContains("oeol=%0D");
+        browser.assert.urlContains("ieol=CRLF");
+        browser.assert.urlContains("oeol=CR");
 
         /* Preserved when changing tabs */
         browser
@@ -647,7 +647,7 @@ module.exports = {
     // "Loading from URL": browser => {
     //     /* Complex deep link populates the input correctly (encoding, eol, input) */
     //     browser
-    //         .urlHash("recipe=Base64%E7%BC%96%E7%A0%81('A-Za-z0-9%2B/%3D')&input=VGhlIHNoaXBzIGh1bmcgaW4gdGhlIHNreSBpbiBtdWNoIHRoZSBzYW1lIHdheSB0aGF0IGJyaWNrcyBkb24ndC4M&ienc=21866&oenc=1201&ieol=%0C&oeol=%E2%80%A9")
+    //         .urlHash("recipe=Base64%E7%BC%96%E7%A0%81('A-Za-z0-9%2B/%3D')&input=VGhlIHNoaXBzIGh1bmcgaW4gdGhlIHNreSBpbiBtdWNoIHRoZSBzYW1lIHdheSB0aGF0IGJyaWNrcyBkb24ndC4M&ienc=21866&oenc=1201&ieol=FF&oeol=PS")
     //         .waitForElementVisible("#rec-list li.operation");
 
     //     browser.expect.element(`#input-text .cm-content`).to.have.property("textContent").match(/^.{65}$/);
