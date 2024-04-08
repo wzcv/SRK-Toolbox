@@ -166,7 +166,7 @@ class OutputWaiter {
 
         if (this.eolState === 1) {
             // Alert
-            this.app.alert(`Output end of line separator has been detected and changed to ${eolCodeToName[eol]}`, 5000);
+            this.app.alert(`输出框行尾结束符已自动检测并切换为${eolCodeToName[eol]}`, 5000);
         }
 
         const currentTabNum = this.manager.tabs.getActiveTab("output");
@@ -234,7 +234,7 @@ class OutputWaiter {
             this.app.updateURL(true);
         } else if (currentEnc !== chrEncVal) {
             // Alert
-            this.app.alert(`Output character encoding has been detected and changed to ${CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] || "Raw Bytes"}`, 5000);
+            this.app.alert(`输出框字符编码已自动检测并切换为${CHR_ENC_SIMPLE_REVERSE_LOOKUP[chrEncVal] || "原始字节"}`, 5000);
         }
     }
 
@@ -524,9 +524,6 @@ class OutputWaiter {
         // Remove the output (will only get removed if it already exists)
         this.removeOutput(inputNum);
 
-        // Option to make output use UTF-8 as default for showing Chinese characters
-        const defaultEnc = this.app.options.outputUTF8 ? 65001 : 0;
-
         const newOutput = {
             data: null,
             inputNum: inputNum,
@@ -535,7 +532,7 @@ class OutputWaiter {
             status: "inactive",
             bakeId: -1,
             progress: false,
-            encoding: defaultEnc,
+            encoding: 0,
             eolSequence: "\u000a"
         };
 

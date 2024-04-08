@@ -2,6 +2,8 @@
  * @author Karsten Silkenbäumer [github.com/kassi]
  * @copyright Karsten Silkenbäumer 2019
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,15 +20,15 @@ class FernetDecrypt extends Operation {
     constructor() {
         super();
 
-        this.name = "Fernet Decrypt";
+        this.name = "Fernet解密";
         this.module = "Default";
-        this.description = "Fernet is a symmetric encryption method which makes sure that the message encrypted cannot be manipulated/read without the key. It uses URL safe encoding for the keys. Fernet uses 128-bit AES in CBC mode and PKCS7 padding, with HMAC using SHA256 for authentication. The IV is created from os.random().<br><br><b>Key:</b> The key must be 32 bytes (256 bits) encoded with Base64.";
+        this.description = "Fernet是一种对称加密算法，设计目的是确保加密过的信息在没有密钥的情况下无法被解密和修改。密钥使用URL安全编码。Fernet使用128位AES算法（CBC模式，PKCS7填充）和使用SHA256算法的HMAC进行校验。IV使用os.random()生成。<br><br><b>密钥：</b>密钥长度必须为32字节（256位），使用Base64编码。";
         this.infoURL = "https://asecuritysite.com/encryption/fer";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "string",
                 "value": ""
             },

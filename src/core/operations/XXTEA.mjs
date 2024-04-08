@@ -3,6 +3,8 @@
  * @author Ma Bingyao [mabingyao@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,13 +25,13 @@ class XXTEAEncrypt extends Operation {
 
         this.name = "XXTEA";
         this.module = "Default";
-        this.description = "Corrected Block TEA (often referred to as XXTEA) is a block cipher designed to correct weaknesses in the original Block TEA. XXTEA operates on variable-length blocks that are some arbitrary multiple of 32 bits in size (minimum 64 bits). The number of full cycles depends on the block size, but there are at least six (rising to 32 for small block sizes). The original Block TEA applies the XTEA round function to each word in the block and combines it additively with its leftmost neighbour. Slow diffusion rate of the decryption process was immediately exploited to break the cipher. Corrected Block TEA uses a more involved round function which makes use of both immediate neighbours in processing each word in the block.";
+        this.description = "Corrected Block TEA（改进版块TEA，通常被称作XXTEA）是设计用来改进原版块TEA密码弱点的块密码算法。XXTEA可以加密任意不少于64位、总长为32位倍数长度的块。执行的总循环数取决于块大小，但至少会有6次（对于较小的块提升到32次）。原版的块TEA算法将XTEA的轮算法应用于块中的每个词然后叠加到相邻最左侧，导致解密时的扩散速度较慢，这个弱点被用来破解此密码算法。Corrected Block TEA使用改进后的轮算法，利用块中相邻的两个词进行计算。";
         this.infoURL = "https://wikipedia.org/wiki/XXTEA";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "string",
                 "value": "",
             },
@@ -45,11 +47,11 @@ class XXTEAEncrypt extends Operation {
         let key = args[0];
 
         if (input === undefined || input === null || input.length === 0) {
-            throw new OperationError("Invalid input length (0)");
+            throw new OperationError("无效的输入长度（0）");
         }
 
         if (key === undefined || key === null || key.length === 0) {
-            throw new OperationError("Invalid key length (0)");
+            throw new OperationError("无效的密钥长度（0）");
         }
 
         input = Utils.convertToByteString(input, "utf8");

@@ -4,7 +4,7 @@
   "description": "SRK Toolbox - a web app (based on CyberChef) for encryption, encoding, compression and data analysis, translated to Chinese locale",
   "author": "Raka-loah <i@lotc.cc>",
   "homepage": "https://github.com/Raka-loah/SRK-Toolbox",
-  "copyright": "Crown copyright 2016 / Zack Zhou copyright 2022",
+  "copyright": "Crown copyright 2016 / Zack Zhou copyright 2024",
   "license": "Apache-2.0",
   "keywords": [
     "cipher",
@@ -55,7 +55,7 @@
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-transform-builtin-extend": "1.1.2",
     "base64-loader": "^1.0.0",
-    "chromedriver": "^122.0.0",
+    "chromedriver": "^123.0.0",
     "cli-progress": "^3.12.0",
     "colors": "^1.4.0",
     "copy-webpack-plugin": "^12.0.2",

@@ -4,6 +4,8 @@
  * @author joostrijneveld [joost@joostrijneveld.nl]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -12,16 +14,16 @@ TestRegister.addTests([
     {
         name: "Salsa20: no key",
         input: "",
-        expectedOutput: `Invalid key length: 0 bytes.
+        expectedOutput: `无效的密钥长度： 0 字节。
 
-Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`,
+Salsa20使用16或32字节（128或256位）的密钥。`,
         recipeConfig: [
             {
                 "op": "Salsa20",
                 "args": [
-                    {"option": "Hex", "string": ""},
-                    {"option": "Hex", "string": ""},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": ""},
+                    {"option": "十六进制", "string": ""},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -29,16 +31,16 @@ Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`,
     {
         name: "Salsa20: no nonce",
         input: "",
-        expectedOutput: `Invalid nonce length: 0 bytes.
+        expectedOutput: `无效的nonce长度： 0 字节。
 
-Salsa20 uses a nonce of 8 bytes (64 bits).`,
+Salsa20使用8字节（64位）的nonce。`,
         recipeConfig: [
             {
                 "op": "Salsa20",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -51,9 +53,9 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`,
             {
                 "op": "Salsa20",
                 "args": [
-                    {"option": "Hex", "string": "80:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"},
-                    {"option": "Hex", "string": "00:00:00:00:00:00:00:00"},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "80:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00"},
+                    {"option": "十六进制", "string": "00:00:00:00:00:00:00:00"},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -66,9 +68,9 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`,
             {
                 "op": "Salsa20",
                 "args": [
-                    {"option": "Hex", "string": "0F:62:B5:08:5B:AE:01:54:A7:FA:4D:A0:F3:46:99:EC"},
-                    {"option": "Hex", "string": "28:8F:F6:5D:C4:2B:92:F9"},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "0F:62:B5:08:5B:AE:01:54:A7:FA:4D:A0:F3:46:99:EC"},
+                    {"option": "十六进制", "string": "28:8F:F6:5D:C4:2B:92:F9"},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],

@@ -197,7 +197,7 @@ module.exports = {
         // Open category
         browser
             .useCss()
-            .waitForElementNotVisible("#snackbar-container", 10000)
+            // .waitForElementNotVisible("#snackbar-container", 10000)
             .useXpath()
             .click(otherCat)
             .expect.element(genUUID).to.be.visible;
@@ -235,7 +235,7 @@ module.exports = {
 
         // Alert bar shows and contains correct content
         browser
-            .waitForElementNotVisible("#snackbar-container")
+            .waitForElementNotPresent("#toast-container")
             .click("#copy-output")
             .waitForElementVisible("#toast-container")
             .waitForElementVisible("#toast-container .toast .toast-message")

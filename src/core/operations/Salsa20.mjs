@@ -2,6 +2,8 @@
  * @author joostrijneveld [joost@joostrijneveld.nl]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,43 +25,43 @@ class Salsa20 extends Operation {
 
         this.name = "Salsa20";
         this.module = "Default";
-        this.description = "Salsa20 is a stream cipher designed by Daniel J. Bernstein and submitted to the eSTREAM project; Salsa20/8 and Salsa20/12 are round-reduced variants. It is closely related to the ChaCha stream cipher.<br><br><b>Key:</b> Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits).<br><br><b>Nonce:</b> Salsa20 uses a nonce of 8 bytes (64 bits).<br><br><b>Counter:</b> Salsa uses a counter of 8 bytes (64 bits). The counter starts at zero at the start of the keystream, and is incremented at every 64 bytes.";
+        this.description = "Salsa20是一种流加密算法，由丹尼尔·J·伯恩斯坦提交到eSTREAM。Salsa20/8和Salsa20/12是加密轮数减少的版本。Salsa20和ChaCha流加密算法有着紧密联系。<br><br><b>密钥：</b> Salsa20使用16或32字节（128或256位）长度的密钥。<br><br><b>Nonce：</b> Salsa20使用8字节（64位）长度的nonce。<br><br><b>计数：</b> Salsa使用8字节（64位）长度的计数。计数在流的起始处为0，每64字节递增。";
         this.infoURL = "https://wikipedia.org/wiki/Salsa20";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "Nonce",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64", "Integer"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64", "整数"]
             },
             {
-                "name": "Counter",
+                "name": "计数",
                 "type": "number",
                 "value": 0,
                 "min": 0
             },
             {
-                "name": "Rounds",
+                "name": "轮数",
                 "type": "option",
                 "value": ["20", "12", "8"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始", "十六进制"]
             }
         ];
     }
@@ -77,20 +79,20 @@ class Salsa20 extends Operation {
             outputType = args[5];
 
         if (key.length !== 16 && key.length !== 32) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes.
+            throw new OperationError(`无效的密钥长度： ${key.length} 字节。
 
-Salsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`);
+Salsa20使用16或32字节（128或256位）的密钥。`);
         }
 
         let counter, nonce;
-        if (nonceType === "Integer") {
+        if (nonceType === "整数") {
             nonce = Utils.intToByteArray(parseInt(args[1].string, 10), 8, "little");
         } else {
             nonce = Utils.convertToByteArray(args[1].string, args[1].option);
             if (!(nonce.length === 8)) {
-                throw new OperationError(`Invalid nonce length: ${nonce.length} bytes.
+                throw new OperationError(`无效的nonce长度： ${nonce.length} 字节。
 
-Salsa20 uses a nonce of 8 bytes (64 bits).`);
+Salsa20使用8字节（64位）的nonce。`);
             }
         }
         counter = Utils.intToByteArray(args[2], 8, "little");
@@ -108,7 +110,7 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`);
             counterAsInt++;
         }
 
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             return toHex(output);
         } else {
             return Utils.arrayBufferToStr(Uint8Array.from(output).buffer);
@@ -127,7 +129,7 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`);
     highlight(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始" && outputType === "原始") {
             return pos;
         }
     }
@@ -144,7 +146,7 @@ Salsa20 uses a nonce of 8 bytes (64 bits).`);
     highlightReverse(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始" && outputType === "原始") {
             return pos;
         }
     }

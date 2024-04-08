@@ -4,6 +4,8 @@
  * @author joostrijneveld [joost@joostrijneveld.nl]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -12,16 +14,16 @@ TestRegister.addTests([
     {
         name: "XSalsa20: no key",
         input: "",
-        expectedOutput: `Invalid key length: 0 bytes.
+        expectedOutput: `无效的密钥长度： 0 字节。
 
-XSalsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`,
+XSalsa20使用16或32字节（128或256位）的密钥。`,
         recipeConfig: [
             {
                 "op": "XSalsa20",
                 "args": [
-                    {"option": "Hex", "string": ""},
-                    {"option": "Hex", "string": ""},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": ""},
+                    {"option": "十六进制", "string": ""},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -29,16 +31,16 @@ XSalsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`,
     {
         name: "XSalsa20: no nonce",
         input: "",
-        expectedOutput: `Invalid nonce length: 0 bytes.
+        expectedOutput: `无效的nonce长度： 0 字节。
 
-XSalsa20 uses a nonce of 24 bytes (192 bits).`,
+XSalsa20使用24字节（192位）的nonce。`,
         recipeConfig: [
             {
                 "op": "XSalsa20",
                 "args": [
-                    {"option": "Hex", "string": "00000000000000000000000000000000"},
-                    {"option": "Hex", "string": ""},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00000000000000000000000000000000"},
+                    {"option": "十六进制", "string": ""},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],
@@ -51,9 +53,9 @@ XSalsa20 uses a nonce of 24 bytes (192 bits).`,
             {
                 "op": "XSalsa20",
                 "args": [
-                    {"option": "Hex", "string": "00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13:14:15:16:17:18:19:1A:1B:1C:1D:1E:1F"},
-                    {"option": "Hex", "string": "00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13:14:15:16:17"},
-                    0, "20", "Hex", "Hex",
+                    {"option": "十六进制", "string": "00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13:14:15:16:17:18:19:1A:1B:1C:1D:1E:1F"},
+                    {"option": "十六进制", "string": "00:01:02:03:04:05:06:07:08:09:0A:0B:0C:0D:0E:0F:10:11:12:13:14:15:16:17"},
+                    0, "20", "十六进制", "十六进制",
                 ]
             }
         ],

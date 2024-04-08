@@ -2,6 +2,8 @@
  * @author arnydo [github@arnydo.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -17,24 +19,24 @@ class FangURL extends Operation {
     constructor() {
         super();
 
-        this.name = "Fang URL";
+        this.name = "URL无效化恢复";
         this.module = "Default";
-        this.description = "Takes a 'Defanged' Universal Resource Locator (URL) and 'Fangs' it. Meaning, it removes the alterations (defanged) that render it useless so that it can be used again.";
+        this.description = "将已经“无效化（Defanged）”的URL恢复成有效状态。";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Restore [.]",
+                name: "恢复[.]",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Restore hxxp",
+                name: "恢复hxxp",
                 type: "boolean",
                 value: true
             },
             {
-                name: "Restore ://",
+                name: "恢复://",
                 type: "boolean",
                 value: true
             }

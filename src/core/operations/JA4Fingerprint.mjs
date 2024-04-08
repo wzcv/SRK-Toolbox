@@ -2,6 +2,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,22 +21,22 @@ class JA4Fingerprint extends Operation {
     constructor() {
         super();
 
-        this.name = "JA4 Fingerprint";
+        this.name = "JA4指纹";
         this.module = "Crypto";
-        this.description = "Generates a JA4 fingerprint to help identify TLS clients based on hashing together values from the Client Hello.<br><br>Input: A hex stream of the TLS or QUIC Client Hello packet application layer.";
+        this.description = "通过将Client Hello中的值进行哈希，生成用于辨识TLS客户端的JA4指纹。<br><br>输入：TLS或QUIC客户端应用层Client Hello包的十六进制流。";
         this.infoURL = "https://medium.com/foxio/ja4-network-fingerprinting-9376fe9ca637";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input format",
+                name: "输入格式",
                 type: "option",
-                value: ["Hex", "Base64", "Raw"]
+                value: ["十六进制", "Base64", "原始"]
             },
             {
-                name: "Output format",
+                name: "输出格式",
                 type: "option",
-                value: ["JA4", "JA4 Original Rendering", "JA4 Raw", "JA4 Raw Original Rendering", "All"]
+                value: ["JA4", "JA4 Original Rendering", "JA4 Raw", "JA4 Raw Original Rendering", "所有"]
             }
         ];
     }
@@ -59,7 +61,7 @@ class JA4Fingerprint extends Operation {
                 return ja4.JA4_r;
             case "JA4 Raw Original Rendering":
                 return ja4.JA4_ro;
-            case "All":
+            case "所有":
             default:
                 return `JA4:    ${ja4.JA4}
 JA4_o:  ${ja4.JA4_o}

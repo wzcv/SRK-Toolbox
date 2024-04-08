@@ -2,6 +2,8 @@
  * @author joostrijneveld [joost@joostrijneveld.nl]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -23,43 +25,43 @@ class XSalsa20 extends Operation {
 
         this.name = "XSalsa20";
         this.module = "Default";
-        this.description = "XSalsa20 is a variant of the Salsa20 stream cipher designed by Daniel J. Bernstein; XSalsa uses longer nonces.<br><br><b>Key:</b> XSalsa20 uses a key of 16 or 32 bytes (128 or 256 bits).<br><br><b>Nonce:</b> XSalsa20 uses a nonce of 24 bytes (192 bits).<br><br><b>Counter:</b> XSalsa uses a counter of 8 bytes (64 bits). The counter starts at zero at the start of the keystream, and is incremented at every 64 bytes.";
+        this.description = "XSalsa20是Salsa20流加密算法的变种，由丹尼尔·J·伯恩斯坦设计。XSalsa相比Salsa使用更长的nonce。<br><br><b>密钥：</b> XSalsa20使用16或32字节（128或256位）。<br><br><b>Nonce：</b> XSalsa20使用24字节（192位）长度的nonce。<br><br><b>计数：</b> XSalsa使用8字节（64位）长度的计数。计数在流的起始处为0，每64字节递增。";
         this.infoURL = "https://en.wikipedia.org/wiki/Salsa20#XSalsa20_with_192-bit_nonce";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Key",
+                "name": "密钥",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64"]
             },
             {
                 "name": "Nonce",
                 "type": "toggleString",
                 "value": "",
-                "toggleValues": ["Hex", "UTF8", "Latin1", "Base64", "Integer"]
+                "toggleValues": ["十六进制", "UTF8", "Latin1", "Base64", "整数"]
             },
             {
-                "name": "Counter",
+                "name": "计数",
                 "type": "number",
                 "value": 0,
                 "min": 0
             },
             {
-                "name": "Rounds",
+                "name": "轮数",
                 "type": "option",
                 "value": ["20", "12", "8"]
             },
             {
-                "name": "Input",
+                "name": "输入",
                 "type": "option",
-                "value": ["Hex", "Raw"]
+                "value": ["十六进制", "原始"]
             },
             {
-                "name": "Output",
+                "name": "输出",
                 "type": "option",
-                "value": ["Raw", "Hex"]
+                "value": ["原始", "十六进制"]
             }
         ];
     }
@@ -77,20 +79,20 @@ class XSalsa20 extends Operation {
             outputType = args[5];
 
         if (key.length !== 16 && key.length !== 32) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes.
+            throw new OperationError(`无效的密钥长度： ${key.length} 字节。
 
-XSalsa20 uses a key of 16 or 32 bytes (128 or 256 bits).`);
+XSalsa20使用16或32字节（128或256位）的密钥。`);
         }
 
         let counter, nonce;
-        if (nonceType === "Integer") {
+        if (nonceType === "整数") {
             nonce = Utils.intToByteArray(parseInt(args[1].string, 10), 8, "little");
         } else {
             nonce = Utils.convertToByteArray(args[1].string, args[1].option);
             if (!(nonce.length === 24)) {
-                throw new OperationError(`Invalid nonce length: ${nonce.length} bytes.
+                throw new OperationError(`无效的nonce长度： ${nonce.length} 字节。
 
-XSalsa20 uses a nonce of 24 bytes (192 bits).`);
+XSalsa20使用24字节（192位）的nonce。`);
             }
         }
         counter = Utils.intToByteArray(args[2], 8, "little");
@@ -110,7 +112,7 @@ XSalsa20 uses a nonce of 24 bytes (192 bits).`);
             counterAsInt++;
         }
 
-        if (outputType === "Hex") {
+        if (outputType === "十六进制") {
             return toHex(output);
         } else {
             return Utils.arrayBufferToStr(Uint8Array.from(output).buffer);
@@ -129,7 +131,7 @@ XSalsa20 uses a nonce of 24 bytes (192 bits).`);
     highlight(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始" && outputType === "原始") {
             return pos;
         }
     }
@@ -146,7 +148,7 @@ XSalsa20 uses a nonce of 24 bytes (192 bits).`);
     highlightReverse(pos, args) {
         const inputType = args[4],
             outputType = args[5];
-        if (inputType === "Raw" && outputType === "Raw") {
+        if (inputType === "原始" && outputType === "原始") {
             return pos;
         }
     }

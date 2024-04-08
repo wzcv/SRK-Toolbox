@@ -73,13 +73,13 @@ class BlowfishEncrypt extends Operation {
             outputType = args[4];
 
         if (key.length < 4 || key.length > 56) {
-            throw new OperationError(`Invalid key length: ${key.length} bytes
-    
-Blowfish's key length needs to be between 4 and 56 bytes (32-448 bits).`);
+            throw new OperationError(`无效的key长度： ${key.length}字节
+
+Blowfish的key长度需要在4到56字节之间（32-448位）`);
         }
 
         if (iv.length !== 8) {
-            throw new OperationError(`Invalid IV length: ${iv.length} bytes. Expected 8 bytes`);
+            throw new OperationError(`无效的IV长度： ${iv.length}字节。必须为8字节。`);
         }
 
         input = Utils.convertToByteString(input, inputType);

@@ -226,8 +226,8 @@ class StatusBarPanel {
         switch (this.getEOLState()) {
             case 1: // Detected
                 val.classList.add("font-italic");
-                eolCode += " (detected)";
-                eolName += " (detected)";
+                eolCode += " (自动检测)";
+                eolName += " (自动检测)";
                 // Pulse
                 val.classList.add("pulse");
                 setTimeout(() => {
@@ -242,8 +242,8 @@ class StatusBarPanel {
         }
 
         val.textContent = eolCode;
-        button.setAttribute("title", `End of line sequence:<br>${eolName}`);
-        button.setAttribute("data-original-title", `End of line sequence:<br>${eolName}`);
+        button.setAttribute("title", `文本行结尾字符：<br>${eolName}`);
+        button.setAttribute("data-original-title", `文本行结尾字符：<br>${eolName}`);
         this.eolVal = state.lineBreak;
     }
 
@@ -263,7 +263,7 @@ class StatusBarPanel {
         switch (this.getEncodingState()) {
             case 1: // Detected
                 val.classList.add("font-italic");
-                name += " (detected)";
+                name += " (自动检测)";
                 // Pulse
                 val.classList.add("pulse");
                 setTimeout(() => {

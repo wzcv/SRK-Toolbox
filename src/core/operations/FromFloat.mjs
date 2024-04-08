@@ -2,6 +2,8 @@
  * @author tcode2k16 [tcode2k16@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,27 +22,27 @@ class FromFloat extends Operation {
     constructor() {
         super();
 
-        this.name = "From Float";
+        this.name = "浮点数转字符";
         this.module = "Default";
-        this.description = "Convert from EEE754 Floating Point Numbers";
+        this.description = "将 IEEE754 浮点数转换为字符";
         this.infoURL = "https://en.wikipedia.org/wiki/IEEE_754";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [
             {
-                "name": "Endianness",
+                "name": "端序",
                 "type": "option",
                 "value": [
-                    "Big Endian",
-                    "Little Endian"
+                    "大端序",
+                    "小端序"
                 ]
             },
             {
-                "name": "Size",
+                "name": "类型",
                 "type": "option",
                 "value": [
-                    "Float (4 bytes)",
-                    "Double (8 bytes)"
+                    "Float (4字节)",
+                    "Double (8字节)"
                 ]
             },
             {
@@ -61,8 +63,8 @@ class FromFloat extends Operation {
 
         const [endianness, size, delimiterName] = args;
         const delim = Utils.charRep(delimiterName || "Space");
-        const byteSize = size === "Double (8 bytes)" ? 8 : 4;
-        const isLE = endianness === "Little Endian";
+        const byteSize = size === "Double (8字节)" ? 8 : 4;
+        const isLE = endianness === "小端序";
         const mLen = byteSize === 4 ? 23 : 52;
         const floats = input.split(delim);
 

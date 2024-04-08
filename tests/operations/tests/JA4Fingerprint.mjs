@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -14,8 +16,8 @@ TestRegister.addTests([
         expectedOutput: "t13d1516h2_8daaf6152771_e5627efa2ab1",
         recipeConfig: [
             {
-                "op": "JA4 Fingerprint",
-                "args": ["Hex", "JA4"]
+                "op": "JA4指纹",
+                "args": ["十六进制", "JA4"]
             }
         ],
     },
@@ -25,8 +27,8 @@ TestRegister.addTests([
         expectedOutput: "t13d1516h2_acb858a92679_5276cb03a33b",
         recipeConfig: [
             {
-                "op": "JA4 Fingerprint",
-                "args": ["Hex", "JA4 Original Rendering"]
+                "op": "JA4指纹",
+                "args": ["十六进制", "JA4 Original Rendering"]
             }
         ],
     },
@@ -36,8 +38,8 @@ TestRegister.addTests([
         expectedOutput: "t13d1715h2_5b57614c22b0_3d5424432f57",
         recipeConfig: [
             {
-                "op": "JA4 Fingerprint",
-                "args": ["Hex", "JA4"]
+                "op": "JA4指纹",
+                "args": ["十六进制", "JA4"]
             }
         ],
     },
@@ -47,8 +49,8 @@ TestRegister.addTests([
         expectedOutput: "t13d1715h2_5b234860e130_014157ec0da2",
         recipeConfig: [
             {
-                "op": "JA4 Fingerprint",
-                "args": ["Hex", "JA4 Original Rendering"]
+                "op": "JA4指纹",
+                "args": ["十六进制", "JA4 Original Rendering"]
             }
         ],
     },

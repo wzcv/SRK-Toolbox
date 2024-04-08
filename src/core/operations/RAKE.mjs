@@ -2,6 +2,8 @@
  * @author sw5678
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ * 
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -20,27 +22,27 @@ class RAKE extends Operation {
         this.name = "RAKE";
         this.module = "Default";
         this.description = [
-            "Rapid Keyword Extraction (RAKE)",
+            "快速自动关键词提取（Rapid Automatic Keyword Extraction，RAKE）",
             "<br><br>",
-            "RAKE is a domain-independent keyword extraction algorithm in Natural Language Processing.",
+            "RAKE是自然语言处理（NLP）中的一种领域无关的关键词提取算法。",
             "<br><br>",
-            "The list of stop words are from the NLTK python package",
+            "终止词（Stop words）的列表来自NLTK Python包。",
         ].join("\n");
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Word Delimiter (Regex)",
+                name: "词分隔符（正则）",
                 type: "text",
                 value: "\\s"
             },
             {
-                name: "Sentence Delimiter (Regex)",
+                name: "句分隔符（正则）",
                 type: "text",
                 value: "\\.\\s|\\n"
             },
             {
-                name: "Stop Words",
+                name: "终止词（Stop Words）",
                 type: "text",
                 value: "i,me,my,myself,we,our,ours,ourselves,you,you're,you've,you'll,you'd,your,yours,yourself,yourselves,he,him,his,himself,she,she's,her,hers,herself,it,it's,its,itsef,they,them,their,theirs,themselves,what,which,who,whom,this,that,that'll,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does',did,doing,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,s,t,can,will,just,don,don't,should,should've,now,d,ll,m,o,re,ve,y,ain,aren,aren't,couldn,couldn't,didn,didn't,doesn,doesn't,hadn,hadn't,hasn,hasn't,haven,haven't,isn,isn't,ma,mightn,mightn't,mustn,mustn't,needn,needn't,shan,shan't,shouldn,shouldn't,wasn,wasn't,weren,weren't,won,won't,wouldn,wouldn't"
             }
@@ -137,7 +139,7 @@ class RAKE extends Operation {
             return new Array(score, phrase.join(" "));
         });
         scores.sort((a, b) => b[0] - a[0]);
-        scores.unshift(new Array("Scores: ", "Keywords: "));
+        scores.unshift(new Array("评分：", "关键词："));
 
         // Output works with the 'To Table' functionality already built into CC
         return scores.map(function (score) {

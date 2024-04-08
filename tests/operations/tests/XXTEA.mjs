@@ -5,6 +5,8 @@
  *
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -42,7 +44,7 @@ TestRegister.addTests([
     {
         name: "XXTEA",
         input: "",
-        expectedOutput: "Invalid input length (0)",
+        expectedOutput: "无效的输入长度（0）",
         reecipeConfig: [
             {
                 args: "1234567890"
@@ -52,7 +54,7 @@ TestRegister.addTests([
     {
         name: "XXTEA",
         input: "",
-        expectedOutput: "Invalid input length (0)",
+        expectedOutput: "无效的输入长度（0）",
         reecipeConfig: [
             {
                 args: ""
