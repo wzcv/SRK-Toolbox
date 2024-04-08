@@ -2,7 +2,7 @@
  * @author Karsten Silkenbäumer [github.com/kassi]
  * @copyright Karsten Silkenbäumer 2019
  * @license Apache-2.0
- * 
+ *
  * Modified by Raka-loah@github for zh-CN i18n
  */
 

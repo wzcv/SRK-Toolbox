@@ -3,7 +3,7 @@
  * @author Ma Bingyao [mabingyao@gmail.com]
  * @copyright Crown Copyright 2022
  * @license Apache-2.0
- * 
+ *
  * Modified by Raka-loah@github for zh-CN i18n
  */
 

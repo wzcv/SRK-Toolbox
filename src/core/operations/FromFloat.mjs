@@ -2,7 +2,7 @@
  * @author tcode2k16 [tcode2k16@gmail.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
- * 
+ *
  * Modified by Raka-loah@github for zh-CN i18n
  */
 
