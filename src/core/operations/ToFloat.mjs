@@ -25,8 +25,8 @@ class ToFloat extends Operation {
 
         this.name = "字符转浮点数";
         this.module = "Default";
-        this.description = "转换为 IEEE754 浮点数";
-        this.infoURL = "https://en.wikipedia.org/wiki/IEEE_754";
+        this.description = "转换为 IIEEE754 浮点数";
+        this.infoURL = "https://wikipedia.org/wiki/IEEE_754";
         this.inputType = "byteArray";
         this.outputType = "string";
         this.args = [

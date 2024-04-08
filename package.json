@@ -1,6 +1,6 @@
 {
   "name": "srktoolbox",
-  "version": "10.14.0",
+  "version": "10.15.1",
   "description": "SRK Toolbox - a web app (based on CyberChef) for encryption, encoding, compression and data analysis, translated to Chinese locale",
   "author": "Raka-loah <i@lotc.cc>",
   "homepage": "https://github.com/Raka-loah/SRK-Toolbox",
@@ -135,7 +135,7 @@
     "jsesc": "^3.0.2",
     "json5": "^2.2.3",
     "jsonpath-plus": "^8.0.0",
-    "jsonwebtoken": "^9.0.0",
+    "jsonwebtoken": "8.5.1",
     "jsqr": "^1.4.0",
     "jsrsasign": "^11.1.0",
     "kbpgp": "2.1.15",

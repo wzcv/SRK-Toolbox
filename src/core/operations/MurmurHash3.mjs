@@ -24,7 +24,7 @@ class MurmurHash3 extends Operation {
         super();
 
         this.name = "MurmurHash3";
-        this.module = "Default";
+        this.module = "Hashing";
         this.description = "对给定的输入字符串（可自选种子）生成对应的MurmurHash v3哈希。";
         this.infoURL = "https://wikipedia.org/wiki/MurmurHash";
         this.inputType = "string";
@@ -117,11 +117,7 @@ class MurmurHash3 extends Operation {
     * @return {number} 32-bit signed integer
     */
     unsignedToSigned(value) {
-        if (value & 0x80000000) {
-            return -0x100000000 + value;
-        } else {
-            return value;
-        }
+        return value & 0x80000000 ? -0x100000000 + value : value;
     }
 
     /**

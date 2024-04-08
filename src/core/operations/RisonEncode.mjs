@@ -22,7 +22,7 @@ class RisonEncode extends Operation {
         super();
 
         this.name = "Rison编码";
-        this.module = "Default";
+        this.module = "Encodings";
         this.description = "Rison是一种紧凑的数据序列化格式，专门为能在URI中使用进行了优化。Rison在JSON的基础上进行了少量改进，使得序列化数据在URI编码后看起来十分直观。Rison表示的数据结构和JSON是一致的，因此数据可以在两种格式间无损互转。";
         this.infoURL = "https://github.com/Nanonid/rison";
         this.inputType = "Object";
@@ -30,7 +30,7 @@ class RisonEncode extends Operation {
         this.args = [
             {
                 name: "编码选项",
-                type: "editableOption",
+                type: "Option",
                 value: [
                     { name: "普通编码", value: "普通编码", },
                     { name: "编码为对象（O-Rison）", value: "编码为对象（O-Rison）", },
@@ -57,8 +57,9 @@ class RisonEncode extends Operation {
                 return rison.encode_array(input);
             case "编码为URI":
                 return rison.encode_uri(input);
+            default:
+                throw new OperationError("Invalid encode option");
         }
-        throw new OperationError("无效的编码选项");
     }
 }
 

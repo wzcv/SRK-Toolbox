@@ -102,7 +102,7 @@ class ChaCha extends Operation {
         super();
 
         this.name = "ChaCha";
-        this.module = "Default";
+        this.module = "Ciphers";
         this.description = "ChaCha是由Daniel J. Bernstein设计的流密码算法。它是Salsa流密码算法的一个变种。存在多个参数化种类；“ChaCha”可以指原版算法，或在RFC-8439中定义的算法。ChaCha通常和Poly1305配合使用，称作ChaCha20-Poly1305 AEAD算法。<br><br><b>Key：</b>ChaCha使用16或32字节的key（128或256位）。<br><br><b>Nonce：</b>ChaCha使用8或12字节长度的nonce（64或96位）。<br><br><b>Counter：</b>ChaCha使用4或8字节的counter（32或64位）；Nonce和counter必须合计16字节。计数（Counter）从0开始，每64字节的密文流后自增。";
         this.infoURL = "https://wikipedia.org/wiki/Salsa20#ChaCha_variant";
         this.inputType = "string";

@@ -22,7 +22,7 @@ class RisonDecode extends Operation {
         super();
 
         this.name = "Rison解码";
-        this.module = "Default";
+        this.module = "Encodings";
         this.description = "Rison是一种紧凑的数据序列化格式，专门为能在URI中使用进行了优化。Rison在JSON的基础上进行了少量改进，使得序列化数据在URI编码后看起来十分直观。Rison表示的数据结构和JSON是一致的，因此数据可以在两种格式间无损互转。";
         this.infoURL = "https://github.com/Nanonid/rison";
         this.inputType = "string";
@@ -31,11 +31,7 @@ class RisonDecode extends Operation {
             {
                 name: "解码选项",
                 type: "editableOption",
-                value: [
-                    { name: "普通解码", value: "普通解码", },
-                    { name: "解码为对象（O-Rison）", value: "解码为对象（O-Rison）", },
-                    { name: "解码为数组（A-Rison）", value: "解码为数组（A-Rison）", },
-                ]
+                value: ["Decode", "Decode Object", "Decode Array"]
             },
         ];
     }
@@ -54,8 +50,9 @@ class RisonDecode extends Operation {
                 return rison.decode_object(input);
             case "解码为数组（A-Rison）":
                 return rison.decode_array(input);
+            default:
+                throw new OperationError("Invalid Decode option");
         }
-        throw new OperationError("无效的解码选项");
     }
 }
 

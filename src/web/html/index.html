@@ -1,10 +1,10 @@
 <!-- htmlmin:ignore --><!--
     CyberChef - The Cyber Swiss Army Knife
 
-    @copyright Crown Copyright 2016
+    @copyright Crown Copyright 2016-<%= htmlWebpackPlugin.options.compileYear %>
     @license Apache-2.0
 
-      Copyright 2016 Crown Copyright
+      Copyright 2016-<%= htmlWebpackPlugin.options.compileYear %> Crown Copyright
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
         <meta charset="UTF-8">
         <title>SRK Toolbox</title>
 
-        <meta name="copyright" content="Crown Copyright 2016 (CyberChef) Raka-loah@github Copyright 2021 (Modifications)" />
+        <meta name="copyright" content="Crown Copyright 2016 (CyberChef) Raka-loah@github Copyright 2021 (Modifications)-<%= htmlWebpackPlugin.options.compileYear %>" />
         <meta name="description" content="A web app (based on CyberChef) for encryption, encoding, compression and data analysis" />
         <meta name="keywords" content="base64, hex, decode, encode, encrypt, decrypt, compress, decompress, regex, regular expressions, hash, crypt, hexadecimal, user agent, url, certificate, x.509, parser, JSON, gzip,  md5, sha1, aes, des, blowfish, xor" />
 
@@ -562,12 +562,10 @@
                     <div class="modal-body">
                         <img aria-hidden="true" class="about-img-left" src="<%- require('../static/images/srk-128x128.png') %>" alt="SRK Toolbox Logo"/>
                         <p class="subtext">
-                            基于CyberChef版本： <%=  htmlWebpackPlugin.options.version %><br>
+                            基于CyberChef版本： <%= htmlWebpackPlugin.options.version %><br>
                             编译时间： <%= htmlWebpackPlugin.options.compileTime %>
                         </p>
-                        <p><strong>S</strong>miling <strong>R</strong>a<strong>K</strong>a Toolbox是一个非常好用（自称）的网页版编解码加解密工具箱。</p>
-                        <p>套壳自<a href="https://github.com/gchq/CyberChef" target="_blank">CyberChef - The Cyber Swiss Army Knife</a></p>
-                        <p>Based on CyberChef &copy; Crown Copyright 2016. Released under the Apache Licence, Version 2.0.</p>
+
 
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item" role="presentation">
@@ -861,7 +859,7 @@
                         <ul>
                             <li>编译时间： <%= htmlWebpackPlugin.options.compileTime %></li>
                             <li>Changelog： <a href="https://github.com/Raka-loah/SRK-Toolbox/blob/master/CHANGELOG.md">点此</a></li>
-                            <li>&copy; Crown Copyright 2016 / Raka-loah@github 2023</li>
+                            <li>&copy; Crown Copyright 2016 / Raka-loah@github 2023-<%= htmlWebpackPlugin.options.compileYear %></li>
                             <li>Released under the Apache Licence, Version 2.0</li>
                             <li>SHA256 hash: DOWNLOAD_HASH_PLACEHOLDER</li>
                         </ul>

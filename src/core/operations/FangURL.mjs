@@ -22,6 +22,7 @@ class FangURL extends Operation {
         this.name = "URL无效化恢复";
         this.module = "Default";
         this.description = "将已经“无效化（Defanged）”的URL恢复成有效状态。";
+        this.infoURL = "https://isc.sans.edu/forums/diary/Defang+all+the+things/22744/";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [

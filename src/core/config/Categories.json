@@ -179,7 +179,8 @@
             "RSA验证",
             "RSA加密",
             "RSA解密",
-            "解析SSH主机密钥"
+            "解析SSH主机密钥",
+            "Parse CSR"
         ]
     },
     {
@@ -321,6 +322,7 @@
             "转换到UNIX时间戳",
             "Windows Filetime转UNIX时间戳",
             "UNIX时间戳转Windows Filetime",
+            "DateTime Delta",
             "提取日期",
             "获取当前时间",
             "Sleep"
@@ -337,6 +339,7 @@
             "提取域名",
             "提取文件路径",
             "提取日期",
+            "Extract hashes",
             "正则表达式",
             "XPath表达式",
             "JPath表达式",
@@ -385,7 +388,6 @@
             "SHA2",
             "SHA3",
             "SM3",
-            "MurmurHash3",
             "Keccak",
             "Shake",
             "RIPEMD",
@@ -410,6 +412,7 @@
             "Scrypt",
             "NT哈希",
             "LM哈希",
+            "MurmurHash3",
             "Fletcher-8校验和",
             "Fletcher-16校验和",
             "Fletcher-32校验和",

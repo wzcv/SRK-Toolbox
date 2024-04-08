@@ -24,7 +24,7 @@ class XSalsa20 extends Operation {
         super();
 
         this.name = "XSalsa20";
-        this.module = "Default";
+        this.module = "Ciphers";
         this.description = "XSalsa20是Salsa20流加密算法的变种，由丹尼尔·J·伯恩斯坦设计。XSalsa相比Salsa使用更长的nonce。<br><br><b>密钥：</b> XSalsa20使用16或32字节（128或256位）。<br><br><b>Nonce：</b> XSalsa20使用24字节（192位）长度的nonce。<br><br><b>计数：</b> XSalsa使用8字节（64位）长度的计数。计数在流的起始处为0，每64字节递增。";
         this.infoURL = "https://en.wikipedia.org/wiki/Salsa20#XSalsa20_with_192-bit_nonce";
         this.inputType = "string";

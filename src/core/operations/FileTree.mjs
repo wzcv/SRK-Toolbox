@@ -1,6 +1,6 @@
 /**
  * @author sw5678
- * @copyright Crown Copyright 2016
+ * @copyright Crown Copyright 2023
  * @license Apache-2.0
  *
  * Modified by Raka-loah@github for zh-CN i18n
@@ -23,7 +23,8 @@ class FileTree extends Operation {
 
         this.name = "文件树";
         this.module = "Default";
-        this.description = "从给定的文件路径列表生成文件树（和Linux的tree命令类似）。";
+        this.description = "Creates a file tree from a list of file paths (similar to the tree command in Linux)";
+        this.infoURL = "https://wikipedia.org/wiki/Tree_(command)";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [

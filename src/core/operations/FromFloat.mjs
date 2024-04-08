@@ -24,8 +24,8 @@ class FromFloat extends Operation {
 
         this.name = "浮点数转字符";
         this.module = "Default";
-        this.description = "将 IEEE754 浮点数转换为字符";
-        this.infoURL = "https://en.wikipedia.org/wiki/IEEE_754";
+        this.description = "将 IIEEE754 浮点数转换为字符";
+        this.infoURL = "https://wikipedia.org/wiki/IEEE_754";
         this.inputType = "string";
         this.outputType = "byteArray";
         this.args = [

@@ -24,7 +24,7 @@ class Salsa20 extends Operation {
         super();
 
         this.name = "Salsa20";
-        this.module = "Default";
+        this.module = "Ciphers";
         this.description = "Salsa20是一种流加密算法，由丹尼尔·J·伯恩斯坦提交到eSTREAM。Salsa20/8和Salsa20/12是加密轮数减少的版本。Salsa20和ChaCha流加密算法有着紧密联系。<br><br><b>密钥：</b> Salsa20使用16或32字节（128或256位）长度的密钥。<br><br><b>Nonce：</b> Salsa20使用8字节（64位）长度的nonce。<br><br><b>计数：</b> Salsa使用8字节（64位）长度的计数。计数在流的起始处为0，每64字节递增。";
         this.infoURL = "https://wikipedia.org/wiki/Salsa20";
         this.inputType = "string";
