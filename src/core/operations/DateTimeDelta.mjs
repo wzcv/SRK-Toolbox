@@ -2,6 +2,8 @@
  * @author tomgond [tom.gonda@gmail.com]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,45 +21,45 @@ class DateTimeDelta extends Operation {
     constructor() {
         super();
 
-        this.name = "DateTime Delta";
+        this.name = "DateTime推算";
         this.module = "Default";
-        this.description = "Calculates a new DateTime value given an input DateTime value and a time difference (delta) from the input DateTime value.";
+        this.description = "根据给定的DateTime值和相应的时间间隔（delta）推算新的DateTime值。";
         this.inputType = "string";
         this.outputType = "html";
         this.args = [
             {
-                "name": "Built in formats",
+                "name": "预设格式",
                 "type": "populateOption",
                 "value": DATETIME_FORMATS,
                 "target": 1
             },
             {
-                "name": "Input format string",
+                "name": "输入格式",
                 "type": "binaryString",
                 "value": "DD/MM/YYYY HH:mm:ss"
             },
             {
-                "name": "Time Operation",
+                "name": "时间操作",
                 "type": "option",
-                "value": ["Add", "Subtract"]
+                "value": ["加", "减"]
             },
             {
-                "name": "Days",
+                "name": "天",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Hours",
+                "name": "小时",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Minutes",
+                "name": "分钟",
                 "type": "number",
                 "value": 0
             },
             {
-                "name": "Seconds",
+                "name": "秒",
                 "type": "number",
                 "value": 0
             }
@@ -85,10 +87,10 @@ class DateTimeDelta extends Operation {
             date = moment.tz(input, inputFormat, inputTimezone);
             if (!date || date.format() === "Invalid date") throw Error;
         } catch (err) {
-            return `Invalid format.\n\n${FORMAT_EXAMPLES}`;
+            return `无效的输入格式。\n\n${FORMAT_EXAMPLES}`;
         }
         let newDate;
-        if (operationType === "Add") {
+        if (operationType === "加") {
             newDate = date.add(daysDelta, "days")
                 .add(hoursDelta, "hours")
                 .add(minutesDelta, "minutes")

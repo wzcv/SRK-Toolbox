@@ -24,7 +24,7 @@ class FromFloat extends Operation {
 
         this.name = "浮点数转字符";
         this.module = "Default";
-        this.description = "将 IIEEE754 浮点数转换为字符";
+        this.description = "将 IEEE754 浮点数转换为字符";
         this.infoURL = "https://wikipedia.org/wiki/IEEE_754";
         this.inputType = "string";
         this.outputType = "byteArray";
@@ -46,7 +46,7 @@ class FromFloat extends Operation {
                 ]
             },
             {
-                "name": "Delimiter",
+                "name": "分隔符",
                 "type": "option",
                 "value": DELIM_OPTIONS
             }
@@ -62,7 +62,7 @@ class FromFloat extends Operation {
         if (input.length === 0) return [];
 
         const [endianness, size, delimiterName] = args;
-        const delim = Utils.charRep(delimiterName || "Space");
+        const delim = Utils.charRep(delimiterName || "空格");
         const byteSize = size === "Double (8字节)" ? 8 : 4;
         const isLE = endianness === "小端序";
         const mLen = byteSize === 4 ? 23 : 52;

@@ -23,7 +23,7 @@ class FileTree extends Operation {
 
         this.name = "文件树";
         this.module = "Default";
-        this.description = "Creates a file tree from a list of file paths (similar to the tree command in Linux)";
+        this.description = "从给定的文件路径列表生成文件树（和Linux的tree命令类似）。";
         this.infoURL = "https://wikipedia.org/wiki/Tree_(command)";
         this.inputType = "string";
         this.outputType = "string";

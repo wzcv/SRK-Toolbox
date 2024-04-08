@@ -61,7 +61,7 @@ TestRegister.addTests([
         expectedOutput: "111111",
         recipeConfig: [
             {
-                op: "To Base58",
+                op: "Base58编码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],
@@ -72,7 +72,7 @@ TestRegister.addTests([
         expectedOutput: "\0\0\0\0\0\0",
         recipeConfig: [
             {
-                op: "From Base58",
+                op: "Base58解码",
                 args: ["123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"],
             },
         ],

@@ -30,8 +30,8 @@ class RisonDecode extends Operation {
         this.args = [
             {
                 name: "解码选项",
-                type: "editableOption",
-                value: ["Decode", "Decode Object", "Decode Array"]
+                type: "Option",
+                value: ["普通解码", "解码为对象（O-Rison）", "解码为数组（A-Rison）"]
             },
         ];
     }
@@ -51,7 +51,7 @@ class RisonDecode extends Operation {
             case "解码为数组（A-Rison）":
                 return rison.decode_array(input);
             default:
-                throw new OperationError("Invalid Decode option");
+                throw new OperationError("无效的解码选项");
         }
     }
 }

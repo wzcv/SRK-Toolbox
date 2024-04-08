@@ -180,7 +180,7 @@
             "RSA加密",
             "RSA解密",
             "解析SSH主机密钥",
-            "Parse CSR"
+            "解析CSR"
         ]
     },
     {
@@ -322,7 +322,7 @@
             "转换到UNIX时间戳",
             "Windows Filetime转UNIX时间戳",
             "UNIX时间戳转Windows Filetime",
-            "DateTime Delta",
+            "DateTime推算",
             "提取日期",
             "获取当前时间",
             "Sleep"
@@ -339,7 +339,7 @@
             "提取域名",
             "提取文件路径",
             "提取日期",
-            "Extract hashes",
+            "提取哈希",
             "正则表达式",
             "XPath表达式",
             "JPath表达式",

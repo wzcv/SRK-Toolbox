@@ -39,8 +39,8 @@ TestRegister.addTests([
         expectedOutput: "20/02/2024 13:37:00",
         recipeConfig: [
             {
-                op: "DateTime Delta",
-                args: ["Standard date and time", "DD/MM/YYYY HH:mm:ss", "Add", 0, 0, 1, 0],
+                op: "DateTime推算",
+                args: ["标准日期时间格式", "DD/MM/YYYY HH:mm:ss", "加", 0, 0, 1, 0],
             },
         ],
     },
@@ -50,8 +50,8 @@ TestRegister.addTests([
         expectedOutput: "20/02/2024 13:37:00",
         recipeConfig: [
             {
-                op: "DateTime Delta",
-                args: ["Standard date and time", "DD/MM/YYYY HH:mm:ss", "Subtract", 0, 1, 0, 0],
+                op: "DateTime推算",
+                args: ["标准日期时间格式", "DD/MM/YYYY HH:mm:ss", "减", 0, 1, 0, 0],
             },
         ],
     },

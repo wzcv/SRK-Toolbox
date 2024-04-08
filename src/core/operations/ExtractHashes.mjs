@@ -2,6 +2,8 @@
  * @author mshwed [m@ttshwed.com]
  * @copyright Crown Copyright 2019
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -18,25 +20,25 @@ class ExtractHashes extends Operation {
     constructor() {
         super();
 
-        this.name = "Extract hashes";
+        this.name = "提取哈希";
         this.module = "Regex";
-        this.description = "Extracts potential hashes based on hash character length";
+        this.description = "根据哈希值长度提取哈希值。";
         this.infoURL = "https://wikipedia.org/wiki/Comparison_of_cryptographic_hash_functions";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Hash character length",
+                name: "哈希值长度",
                 type: "number",
                 value: 40
             },
             {
-                name: "All hashes",
+                name: "搜索所有种类哈希值",
                 type: "boolean",
                 value: false
             },
             {
-                name: "Display Total",
+                name: "显示总数",
                 type: "boolean",
                 value: false
             }
@@ -72,7 +74,7 @@ class ExtractHashes extends Operation {
 
         let output = "";
         if (showDisplayTotal) {
-            output = `Total Results: ${hashCount}\n\n`;
+            output = `结果总数：${hashCount}\n\n`;
         }
 
         output = output + results.join("\n");

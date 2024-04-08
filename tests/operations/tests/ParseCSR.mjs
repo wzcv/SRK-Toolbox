@@ -4,6 +4,8 @@
  * @author jkataja
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import TestRegister from "../../lib/TestRegister.mjs";
@@ -29,21 +31,21 @@ NFgFNIvSXhbqMYoHAAApMHJOxiWpBFdYKp3tESnlgh2lUh7lQtmOjD4a1dzfU8PU
 oViyp+UJGasN2WRd+4VtaPw64w==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_RSA_1024 = `Version:          1 (0x00)
-Subject
+const OUT_EXAMPLE_COM_RSA_1024 = `版本：       1 (0x00)
+主体
   C = CH
   ST = Zurich
   L = Zurich
   O = Example RE
   OU = IT Department
   CN = example.com
-Subject Alternative Names
-  DNS: example.com
-  DNS: www.example.com
-Public Key
-  Algorithm:      RSA
-  Length:         1024 bits
-  Modulus:        ae:b4:eb:2c:8e:85:93:38:d7:f0:56:5f:72:5b:76:a3:
+主体别名
+  DNS：example.com
+  DNS：www.example.com
+公钥
+  算法：     RSA
+  长度：     1024 位
+  模数：     ae:b4:eb:2c:8e:85:93:38:d7:f0:56:5f:72:5b:76:a3:
                   1d:43:cf:b2:91:c2:de:5f:e9:f7:d9:89:ce:ed:c0:b0:
                   0a:27:86:a8:fc:7d:c0:3e:3c:28:15:55:17:1a:38:8d:
                   8f:f5:c5:d9:19:48:77:85:31:07:56:fa:0a:05:a3:ba:
@@ -51,10 +53,10 @@ Public Key
                   6d:a5:5c:fe:57:d6:3c:5f:d9:04:14:24:46:18:3c:86:
                   e7:e5:fe:36:ee:82:3b:34:e9:50:f0:e3:e1:b2:08:5f:
                   fb:8f:93:77:c3:60:31:2a:2c:29:55:cb:cf:d5:4b:8f
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      sha256WithRSAEncryption
-  Signature:      74:99:49:4f:82:de:a9:b7:f9:23:0f:4a:73:39:43:64:
+  指数：     65537 (0x10001)
+签名
+  算法：     sha256WithRSAEncryption
+  签名：     74:99:49:4f:82:de:a9:b7:f9:23:0f:4a:73:39:43:64:
                   e5:ef:67:04:54:18:40:6b:86:20:71:98:6c:f5:f7:9a:
                   2e:16:77:db:d4:09:d3:e2:c6:d3:d2:4e:e9:c7:5a:cd:
                   9c:c5:7d:a7:33:cf:8c:75:c3:53:63:ee:d0:34:58:05:
@@ -62,7 +64,7 @@ Signature
                   25:a9:04:57:58:2a:9d:ed:11:29:e5:82:1d:a5:52:1e:
                   e5:42:d9:8e:8c:3e:1a:d5:dc:df:53:c3:d4:a1:58:b2:
                   a7:e5:09:19:ab:0d:d9:64:5d:fb:85:6d:68:fc:3a:e3
-Extensions
+扩展
   basicConstraints CRITICAL:
     CA = false
   keyUsage CRITICAL:
@@ -97,21 +99,21 @@ m9cpVxuxGLtONBnohzohnFECytSXWEXPIj8L9SpYK97G02nJYYCAcb5BF11Alfux
 sNxtsr6zgPaLRrvOBT11WxJVKerbhfezAJ3naem1eM3VLxCGWwMwxg==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_RSA_2048 = `Version:          1 (0x00)
-Subject
+const OUT_EXAMPLE_COM_RSA_2048 = `版本：       1 (0x00)
+主体
   C = CH
   ST = Zurich
   L = Zurich
   O = Example RE
   OU = IT Department
   CN = example.com
-Subject Alternative Names
-  DNS: example.com
-  DNS: www.example.com
-Public Key
-  Algorithm:      RSA
-  Length:         2048 bits
-  Modulus:        a3:e8:80:b9:96:3e:e2:bf:20:67:5c:b7:6b:ff:dc:c1:
+主体别名
+  DNS：example.com
+  DNS：www.example.com
+公钥
+  算法：     RSA
+  长度：     2048 位
+  模数：     a3:e8:80:b9:96:3e:e2:bf:20:67:5c:b7:6b:ff:dc:c1:
                   4a:55:a5:5e:2a:9d:87:97:96:ad:ff:30:c5:2c:20:1e:
                   e7:56:f0:87:b0:6a:35:52:44:72:2e:00:a7:09:57:03:
                   55:95:99:03:c1:14:12:65:63:04:19:56:3c:f9:50:03:
@@ -127,10 +129,10 @@ Public Key
                   33:bc:c4:c6:aa:aa:07:58:28:16:97:e4:6a:f5:9e:8f:
                   4e:03:6c:44:ee:02:2a:e8:35:67:09:a1:f3:2e:9a:71:
                   9e:ec:61:bf:dd:6a:bf:07:39:ea:89:9d:cd:29:0a:ff
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      sha256WithRSAEncryption
-  Signature:      1b:47:23:7d:10:58:d6:90:73:bb:e8:df:ef:23:10:ac:
+  指数：     65537 (0x10001)
+签名
+  算法：     sha256WithRSAEncryption
+  签名：     1b:47:23:7d:10:58:d6:90:73:bb:e8:df:ef:23:10:ac:
                   ae:66:42:b8:7b:d9:a8:ab:56:e5:c7:9a:87:21:9b:25:
                   31:ca:dd:06:ee:8b:e7:36:12:84:af:e5:fd:b2:74:a1:
                   24:b8:b9:aa:5c:af:9d:bd:ab:a2:2c:25:0a:6b:b0:18:
@@ -146,7 +148,7 @@ Signature
                   be:41:17:5d:40:95:fb:b1:b0:dc:6d:b2:be:b3:80:f6:
                   8b:46:bb:ce:05:3d:75:5b:12:55:29:ea:db:85:f7:b3:
                   00:9d:e7:69:e9:b5:78:cd:d5:2f:10:86:5b:03:30:c6
-Extensions
+扩展
   basicConstraints CRITICAL:
     CA = false
   keyUsage CRITICAL:
@@ -174,7 +176,7 @@ zj0EAwIDSAAwRQIgQkum/qaLzE3QZ3WD00uLpalUn113FObd7rM5Mr3HQwQCIQCr
 7OjzYI9v7qIJp/E9N16XfJN87G2ZVIZ4FuPXVjokCQ==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_EC = `Parse CSR - Cannot read public key. OID is not RSA.`;
+const OUT_EXAMPLE_COM_EC = `解析CSR - Cannot read public key. OID is not RSA.`;
 
 TestRegister.addTests([
     {
@@ -183,7 +185,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_RSA_1024,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM", true]
             }
         ]
@@ -194,7 +196,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_RSA_2048,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM", true]
             }
         ]
@@ -207,7 +209,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_EC,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM", true]
             }
         ]

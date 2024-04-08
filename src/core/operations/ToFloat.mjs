@@ -25,7 +25,7 @@ class ToFloat extends Operation {
 
         this.name = "字符转浮点数";
         this.module = "Default";
-        this.description = "转换为 IIEEE754 浮点数";
+        this.description = "转换为 IEEE754 浮点数";
         this.infoURL = "https://wikipedia.org/wiki/IEEE_754";
         this.inputType = "byteArray";
         this.outputType = "string";
@@ -61,7 +61,7 @@ class ToFloat extends Operation {
      */
     run(input, args) {
         const [endianness, size, delimiterName] = args;
-        const delim = Utils.charRep(delimiterName || "Space");
+        const delim = Utils.charRep(delimiterName || "空格");
         const byteSize = size === "Double (8字节)" ? 8 : 4;
         const isLE = endianness === "小端序";
         const mLen = byteSize === 4 ? 23 : 52;

@@ -36,7 +36,7 @@ module.exports = {
         testOp(browser, "AES加密", "test input", "e42eb8fbfb7a98fff061cd2c1a794d92", [{"option": "十六进制", "string": "00112233445566778899aabbccddeeff"}, {"option": "十六进制", "string": "00000000000000000000000000000000"}, "CBC", "原始", "十六进制"]);
         testOp(browser, "AND", "test input", "4$04  $044", [{ "option": "十六进制", "string": "34" }]);
         testOp(browser, "添加行号", "test input", "1 test input");
-        testOp(browser, ["十六进制转字符", "图像加字", "Base64编码"], Images.PNG_HEX, Images.PNG_CHEF_B64, [[], ["Chef", "Center", "Middle", 0, 0, 16], []]);
+        testOp(browser, ["十六进制转字符", "图像加字", "Base64编码"], Images.PNG_HEX, Images.PNG_CHEF_B64, [[], ["Chef", "居中", "中部", 0, 0, 16], []]);
         testOp(browser, "Adler-32校验和", "test input", "16160411");
         testOp(browser, "仿射密码解密", "test input", "rcqr glnsr", [1, 2]);
         testOp(browser, "仿射密码加密", "test input", "njln rbfpn", [2, 1]);
@@ -53,7 +53,7 @@ module.exports = {
         // testOp(browser, "Bacon Cipher Encode", "test input", "test_output");
         testOp(browser, "Bcrypt", "test input", /^\$2a\$06\$.{53}$/, [6]);
         testOp(browser, "Bcrypt比较", "test input", "匹配： test input", ["$2a$05$FCfBSVX7OeRkK.9kQVFCiOYu9XtwtIbePqUiroD1lkASW9q5QClzG"]);
-        testOp(browser, "Bcrypt解析", "$2a$05$kXWtAIGB/R8VEzInoM5ocOTBtyc0m2YTIwFiBU/0XoW032f9QrkWW", /Rounds: 5/);
+        testOp(browser, "Bcrypt解析", "$2a$05$kXWtAIGB/R8VEzInoM5ocOTBtyc0m2YTIwFiBU/0XoW032f9QrkWW", /轮数： 5/);
         testOp(browser, "双密码解密", "qblb tfovy", "test input", ["pass"]);
         testOp(browser, "双密码加密", "test input", "qblb tfovy", ["pass"]);
         testOp(browser, "按位左移", "test input", "\u00E8\u00CA\u00E6\u00E8@\u00D2\u00DC\u00E0\u00EA\u00E8");
@@ -63,7 +63,7 @@ module.exports = {
         testOp(browser, ["十六进制转字符", "模糊图像", "Base64编码"], Images.PNG_HEX, Images.PNG_BLUR_B64);
         testOpHtml(browser, "Bombe", "XTSYN WAEUG EZALY NRQIM AMLZX MFUOD AWXLY LZCUZ QOQBQ JLCPK NDDRW F", "table tr:last-child td:first-child", "ECG", ["3-rotor", "LEYJVCNIXWPBQMDRTAKZGFUHOS", "BDFHJLCPRTXVZNYEIWGAKMUSQO<W", "AJDKSIRUXBLHWTMCQGZNPYFVOE<F", "ESOVPZJAYQUIRHXLNFTGKDCMWB<K", "AY BR CU DH EQ FS GL IP JX KN MO TZ VW", "HELLO CYBER CHEFU SER", 0, true]);
         testOp(browser, ["Bzip2压缩", "字符转十六进制"], "test input", "42 5a 68 39 31 41 59 26 53 59 cf 96 82 1d 00 00 03 91 80 40 00 02 21 4e 00 20 00 21 90 c2 10 c0 88 33 92 8e df 17 72 45 38 50 90 cf 96 82 1d");
-        testOp(browser, ["十六进制转字符", "Bzip2解压缩"], "425a68393141592653597b0884b7000003038000008200ce00200021a647a4218013709517c5dc914e14241ec2212dc0", "test_output", [[], [true]]);
+        testOp(browser, ["十六进制转字符", "Bzip2解压"], "425a68393141592653597b0884b7000003038000008200ce00200021a647a4218013709517c5dc914e14241ec2212dc0", "test_output", [[], [true]]);
     // testOp(browser, "CBOR Decode", "test input", "test output");
     // testOp(browser, "CBOR Encode", "test input", "test output");
         testOp(browser, "CRC-16校验和", "test input", "77c7");

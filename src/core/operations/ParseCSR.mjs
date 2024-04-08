@@ -2,6 +2,8 @@
  * @author jkataja
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,25 +21,25 @@ class ParseCSR extends Operation {
     constructor() {
         super();
 
-        this.name = "Parse CSR";
+        this.name = "解析CSR";
         this.module = "PublicKey";
-        this.description = "Parse Certificate Signing Request (CSR) for an X.509 certificate";
+        this.description = "解析X.509证书的证书签名申请（Certificate Signing Request，CSR）数据。";
         this.infoURL = "https://wikipedia.org/wiki/Certificate_signing_request";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                "name": "Input format",
+                "name": "输入格式",
                 "type": "option",
                 "value": ["PEM"]
             },
             {
-                "name": "Key type",
+                "name": "密钥类型",
                 "type": "option",
                 "value": ["RSA"]
             },
             {
-                "name": "Strict ASN.1 value lengths",
+                "name": "严格的ASN.1值长度",
                 "type": "boolean",
                 "value": true
             }
@@ -58,24 +60,24 @@ class ParseCSR extends Operation {
      */
     run(input, args) {
         if (!input.length) {
-            return "No input";
+            return "输入内容为空";
         }
 
         const csr = forge.pki.certificationRequestFromPem(input, args[1]);
 
         // RSA algorithm is the only one supported for CSR in node-forge as of 1.3.1
-        return `Version:          ${1 + csr.version} (0x${Utils.hex(csr.version)})
-Subject${formatSubject(csr.subject)}
-Subject Alternative Names${formatSubjectAlternativeNames(csr)}
-Public Key
-  Algorithm:      RSA
-  Length:         ${csr.publicKey.n.bitLength()} bits
-  Modulus:        ${formatMultiLine(chop(csr.publicKey.n.toString(16).replace(/(..)/g, "$&:")))}
-  Exponent:       ${csr.publicKey.e} (0x${Utils.hex(csr.publicKey.e)})
-Signature
-  Algorithm:      ${forge.pki.oids[csr.signatureOid]}
-  Signature:      ${formatMultiLine(Utils.strToByteArray(csr.signature).map(b => Utils.hex(b)).join(":"))}
-Extensions${formatExtensions(csr)}`;
+        return `版本：       ${1 + csr.version} (0x${Utils.hex(csr.version)})
+主体${formatSubject(csr.subject)}
+主体别名${formatSubjectAlternativeNames(csr)}
+公钥
+  算法：     RSA
+  长度：     ${csr.publicKey.n.bitLength()} 位
+  模数：     ${formatMultiLine(chop(csr.publicKey.n.toString(16).replace(/(..)/g, "$&:")))}
+  指数：     ${csr.publicKey.e} (0x${Utils.hex(csr.publicKey.e)})
+签名
+  算法：     ${forge.pki.oids[csr.signatureOid]}
+  签名：     ${formatMultiLine(Utils.strToByteArray(csr.signature).map(b => Utils.hex(b)).join(":"))}
+扩展${formatExtensions(csr)}`;
     }
 }
 
@@ -110,19 +112,19 @@ function formatSubjectAlternativeNames(csr) {
                 for (const altName of extension.altNames) {
                     switch (altName.type) {
                         case 1:
-                            names.push(`EMAIL: ${altName.value}`);
+                            names.push(`EMAIL：${altName.value}`);
                             break;
                         case 2:
-                            names.push(`DNS: ${altName.value}`);
+                            names.push(`DNS：${altName.value}`);
                             break;
                         case 6:
-                            names.push(`URI: ${altName.value}`);
+                            names.push(`URI：${altName.value}`);
                             break;
                         case 7:
-                            names.push(`IP: ${altName.ip}`);
+                            names.push(`IP：${altName.ip}`);
                             break;
                         default:
-                            names.push(`(unable to format type ${altName.type} name)\n`);
+                            names.push(`（无法格式化的类型名称：${altName.type}）\n`);
                     }
                 }
                 out += indent(2, names);
@@ -160,7 +162,7 @@ function formatExtensions(csr) {
                     parts = describeExtendedKeyUsage(extension);
                     break;
                 default :
-                    parts = ["(unable to format extension)"];
+                    parts = ["（无法格式化的扩展）"];
             }
             out += indent(4, parts);
         }
@@ -219,7 +221,7 @@ function describeKeyUsage(extension) {
     if (extension.encipherOnly) usage.push("Encipher only");
     if (extension.decipherOnly) usage.push("Decipher only");
 
-    if (usage.length === 0) usage.push("(none)");
+    if (usage.length === 0) usage.push("（无）");
 
     return usage;
 }
@@ -245,7 +247,7 @@ function describeExtendedKeyUsage(extension) {
     if (extension.msEFS) usage.push("Microsoft Encrypted File System");
     if (extension.nsSGC) usage.push("Netscape Server Gated Crypto");
 
-    if (usage.length === 0) usage.push("(none)");
+    if (usage.length === 0) usage.push("（无）");
 
     return usage;
 }

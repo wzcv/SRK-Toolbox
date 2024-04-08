@@ -388,8 +388,8 @@ module.exports = {
 
         /* Output encoding should be autodetected */
         browser
-            .waitForElementVisible("#snackbar-container .snackbar-content", 5000)
-            .expect.element("#snackbar-container .snackbar-content").text.to.equal("Output character encoding has been detected and changed to UTF-8");
+            .waitForElementVisible("#toast-container .toast .toast-message", 5000)
+            .expect.element("#toast-container .toast .toast-message").text.to.equal("输出框字符编码已自动检测并切换为UTF-8");
 
         utils.expectOutput(browser, CHINESE_CHARS);
 

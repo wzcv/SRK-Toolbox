@@ -31,12 +31,7 @@ class RisonEncode extends Operation {
             {
                 name: "编码选项",
                 type: "Option",
-                value: [
-                    { name: "普通编码", value: "普通编码", },
-                    { name: "编码为对象（O-Rison）", value: "编码为对象（O-Rison）", },
-                    { name: "编码为数组（A-Rison）", value: "编码为数组（A-Rison）", },
-                    { name: "编码为URI", value: "编码为URI", }
-                ]
+                value: ["普通编码", "编码为对象（O-Rison）", "编码为数组（A-Rison）", "编码为URI"]
             },
         ];
     }
@@ -58,7 +53,7 @@ class RisonEncode extends Operation {
             case "编码为URI":
                 return rison.encode_uri(input);
             default:
-                throw new OperationError("Invalid encode option");
+                throw new OperationError("无效的编码选项");
         }
     }
 }
