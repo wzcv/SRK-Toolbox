@@ -64,7 +64,7 @@ export function renderSpecialChar(code, desc, placeholder) {
     if (code >= 0xe000 && code <= 0xf8ff) {
         code = code - 0xe000;
         placeholder = String.fromCharCode(0x2400 + code);
-        desc = "控制字符 " + (Names[code] || "0x" + code.toString(16));
+        desc = "Control character " + (Names[code] || "0x" + code.toString(16));
     }
 
     s.textContent = placeholder;
@@ -91,7 +91,7 @@ export function escapeControlChars(str, preserveWs=false, lineBreak="\n") {
     return str.replace(Specials, function(c) {
         if (lineBreak.includes(c)) return c;
         const code = c.charCodeAt(0);
-        const desc = "控制字符 " + (Names[code] || "0x" + code.toString(16));
+        const desc = "Control character " + (Names[code] || "0x" + code.toString(16));
         const placeholder = code > 32 ? "\u2022" : String.fromCharCode(9216 + code);
         const n = renderSpecialChar(code, desc, placeholder);
         return n.outerHTML;
