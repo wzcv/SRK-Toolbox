@@ -39,7 +39,7 @@ module.exports = {
         testOp(browser, ["十六进制转字符", "图像加字", "Base64编码"], Images.PNG_HEX, Images.PNG_CHEF_B64, [[], ["Chef", "居中", "中部", 0, 0, 16], []]);
         testOp(browser, "Adler-32校验和", "test input", "16160411");
         testOp(browser, "仿射密码解密", "test input", "rcqr glnsr", [1, 2]);
-        testOp(browser, "仿射密码加密", "test input", "njln rbfpn", [2, 1]);
+        testOp(browser, "仿射密码加密", "test input", "gndg zoujg", [3, 1]);
         testOp(browser, "AMF解码", "\u000A\u0013\u0001\u0003a\u0006\u0009test", /"\$value": "test"/);
         testOp(browser, "AMF编码", '{"a": "test"}', "\u000A\u0013\u0001\u0003a\u0006\u0009test");
         testOp(browser, "哈希分析", "0123456789abcdef", /CRC-64/);

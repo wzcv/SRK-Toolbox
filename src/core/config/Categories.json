@@ -117,6 +117,8 @@
             "XOR暴力破解",
             "维吉尼亚密码加密",
             "维吉尼亚密码解密",
+            "XXTEA Encrypt",
+            "XXTEA Decrypt",
             "摩尔斯电码编码",
             "摩尔斯电码解码",
             "培根密码加密",
@@ -155,8 +157,7 @@
             "Typex",
             "Lorenz",
             "Colossus",
-            "SIGABA",
-            "XXTEA"
+            "SIGABA"
         ]
     },
     {
@@ -168,6 +169,8 @@
             "十六进制转PEM",
             "OID转十六进制",
             "十六进制转OID",
+            "PEM to JWK",
+            "JWK to PEM",
             "生成PGP密钥对",
             "PGP加密",
             "PGP解密",
@@ -179,8 +182,14 @@
             "RSA验证",
             "RSA加密",
             "RSA解密",
+            "Generate ECDSA Key Pair",
+            "ECDSA Signature Conversion",
+            "ECDSA Sign",
+            "ECDSA Verify",
             "解析SSH主机密钥",
-            "解析CSR"
+            "解析CSR",
+            "Public Key from Certificate",
+            "Public Key from Private Key"
         ]
     },
     {
@@ -238,6 +247,7 @@
             "JA3指纹",
             "JA3S指纹",
             "JA4指纹",
+            "JA4Server Fingerprint",
             "HASSH客户端指纹",
             "HASSH服务器指纹",
             "MAC地址格式化",
