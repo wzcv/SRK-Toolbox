@@ -10,7 +10,7 @@ import Operation from "../Operation.mjs";
 import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Normalise Image operation
@@ -45,7 +45,7 @@ class NormaliseImage extends Operation {
 
         let image;
         try {
-            image = await jimp.read(input);
+            image = await Jimp.read(input);
         } catch (err) {
             throw new OperationError(`打开图像文件出错：(${err})`);
         }
@@ -55,9 +55,9 @@ class NormaliseImage extends Operation {
 
             let imageBuffer;
             if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(jimp.MIME_PNG);
+                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
             } else {
-                imageBuffer = await image.getBufferAsync(jimp.AUTO);
+                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
             }
             return imageBuffer.buffer;
         } catch (err) {

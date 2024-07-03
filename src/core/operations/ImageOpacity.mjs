@@ -11,7 +11,7 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Image Opacity operation
@@ -55,7 +55,7 @@ class ImageOpacity extends Operation {
 
         let image;
         try {
-            image = await jimp.read(input);
+            image = await Jimp.read(input);
         } catch (err) {
             throw new OperationError(`载入图像出错：(${err})`);
         }
@@ -66,9 +66,9 @@ class ImageOpacity extends Operation {
 
             let imageBuffer;
             if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(jimp.MIME_PNG);
+                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
             } else {
-                imageBuffer = await image.getBufferAsync(jimp.AUTO);
+                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
             }
             return imageBuffer.buffer;
         } catch (err) {

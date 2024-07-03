@@ -12,7 +12,7 @@ import Utils from "../Utils.mjs";
 import {isImage} from "../lib/FileType.mjs";
 import {toBase64} from "../lib/Base64.mjs";
 import {isWorkerEnvironment} from "../Utils.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Generate Image operation
@@ -83,7 +83,7 @@ class GenerateImage extends Operation {
         }
 
         const height = Math.ceil(input.length / bytesPerPixel / width);
-        const image = await new jimp(width, height, (err, image) => {});
+        const image = await new Jimp(width, height, (err, image) => {});
 
         if (isWorkerEnvironment())
             self.sendStatusMessage("从给定数据生成图像……");
@@ -97,7 +97,7 @@ class GenerateImage extends Operation {
                     const y = Math.floor(index / width);
 
                     const value = curByte[k] === "0" ? 0xFF : 0x00;
-                    const pixel = jimp.rgbaToInt(value, value, value, 0xFF);
+                    const pixel = Jimp.rgbaToInt(value, value, value, 0xFF);
                     image.setPixelColor(pixel, x, y);
                 }
             }
@@ -141,7 +141,7 @@ class GenerateImage extends Operation {
                 }
 
                 try {
-                    const pixel = jimp.rgbaToInt(red, green, blue, alpha);
+                    const pixel = Jimp.rgbaToInt(red, green, blue, alpha);
                     image.setPixelColor(pixel, x, y);
                 } catch (err) {
                     throw new OperationError(`生成图像时报错：(${err})`);
@@ -153,11 +153,11 @@ class GenerateImage extends Operation {
             if (isWorkerEnvironment())
                 self.sendStatusMessage("缩放图像……");
 
-            image.scaleToFit(width*scale, height*scale, jimp.RESIZE_NEAREST_NEIGHBOR);
+            image.scaleToFit(width*scale, height*scale, Jimp.RESIZE_NEAREST_NEIGHBOR);
         }
 
         try {
-            const imageBuffer = await image.getBufferAsync(jimp.MIME_PNG);
+            const imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
             return imageBuffer.buffer;
         } catch (err) {
             throw new OperationError(`生成图像时报错：(${err})`);

@@ -171,6 +171,7 @@
                 <div id="operations" class="split split-horizontal no-select">
                     <div class="title no-select" data-help-title="可用操作列表" data-help="<p>可用操作列表按类型列出当前SRK Toolbox中所有可用的数据操作。有些操作可能会出现在多个类别中。可以使用搜索框来搜索需要的操作。</p><p>双击或者将操作拖动到操作流程框中来使用。你可以在操作流程框中调整对应的参数。</p>">
                         可用操作
+                        <span class="op-count"></span>
                     </div>
                     <input id="search" type="search" class="form-control" placeholder="搜索..." autocomplete="off" tabindex="2" data-help-title="搜索可用操作" data-help="<p>使用搜索框来查找需要的操作。</p><p>操作名称和描述内容都可以被模糊搜索。</p>">
                     <ul id="search-results" class="op-list"></ul>
@@ -518,7 +519,14 @@
                         <div class="checkbox option-item">
                             <label for="syncTabs">
                                 <input type="checkbox" option="syncTabs" id="syncTabs">
-                                同步选中输入输出标签
+                                Keep the current tab in sync between the input and output
+                            </label>
+                        </div>
+
+                        <div class="checkbox option-item">
+                            <label for="showCatCount">
+                                <input type="checkbox" option="showCatCount" id="showCatCount">
+                                Show the number of operations in each category
                             </label>
                         </div>
                     </div>

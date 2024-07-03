@@ -12,7 +12,7 @@ import Utils from "../Utils.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { runHash } from "../lib/Hash.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Randomize Colour Palette operation
@@ -50,7 +50,7 @@ class RandomizeColourPalette extends Operation {
         if (!isImage(input)) throw new OperationError("请输入合法的图像文件。");
 
         const seed = args[0] || (Math.random().toString().substr(2)),
-            parsedImage = await jimp.read(input),
+            parsedImage = await Jimp.read(input),
             width = parsedImage.bitmap.width,
             height = parsedImage.bitmap.height;
 
@@ -63,7 +63,7 @@ class RandomizeColourPalette extends Operation {
             parsedImage.setPixelColor(parseInt(rgbHex, 16), x, y);
         });
 
-        const imageBuffer = await parsedImage.getBufferAsync(jimp.AUTO);
+        const imageBuffer = await parsedImage.getBufferAsync(Jimp.AUTO);
 
         return new Uint8Array(imageBuffer).buffer;
     }

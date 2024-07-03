@@ -11,7 +11,7 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Contain Image operation
@@ -93,20 +93,20 @@ class ContainImage extends Operation {
         const [width, height, hAlign, vAlign, alg, opaqueBg] = args;
 
         const resizeMap = {
-            "临近": jimp.RESIZE_NEAREST_NEIGHBOR,
-            "双线性": jimp.RESIZE_BILINEAR,
-            "双三次": jimp.RESIZE_BICUBIC,
-            "Hermite": jimp.RESIZE_HERMITE,
-            "Bezier": jimp.RESIZE_BEZIER
+            "临近": Jimp.RESIZE_NEAREST_NEIGHBOR,
+            "双线性": Jimp.RESIZE_BILINEAR,
+            "双三次": Jimp.RESIZE_BICUBIC,
+            "Hermite": Jimp.RESIZE_HERMITE,
+            "Bezier": Jimp.RESIZE_BEZIER
         };
 
         const alignMap = {
-            "左对齐": jimp.HORIZONTAL_ALIGN_LEFT,
-            "居中": jimp.HORIZONTAL_ALIGN_CENTER,
-            "右对齐": jimp.HORIZONTAL_ALIGN_RIGHT,
-            "顶端": jimp.VERTICAL_ALIGN_TOP,
-            "中间": jimp.VERTICAL_ALIGN_MIDDLE,
-            "底端": jimp.VERTICAL_ALIGN_BOTTOM
+            "左对齐": Jimp.HORIZONTAL_ALIGN_LEFT,
+            "居中": Jimp.HORIZONTAL_ALIGN_CENTER,
+            "右对齐": Jimp.HORIZONTAL_ALIGN_RIGHT,
+            "顶端": Jimp.VERTICAL_ALIGN_TOP,
+            "中间": Jimp.VERTICAL_ALIGN_MIDDLE,
+            "底端": Jimp.VERTICAL_ALIGN_BOTTOM
         };
 
         if (!isImage(input)) {
@@ -115,7 +115,7 @@ class ContainImage extends Operation {
 
         let image;
         try {
-            image = await jimp.read(input);
+            image = await Jimp.read(input);
         } catch (err) {
             throw new OperationError(`载入图像出错：(${err})`);
         }
@@ -125,16 +125,16 @@ class ContainImage extends Operation {
             image.contain(width, height, alignMap[hAlign] | alignMap[vAlign], resizeMap[alg]);
 
             if (opaqueBg) {
-                const newImage = await jimp.read(width, height, 0x000000FF);
+                const newImage = await Jimp.read(width, height, 0x000000FF);
                 newImage.blit(image, 0, 0);
                 image = newImage;
             }
 
             let imageBuffer;
             if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(jimp.MIME_PNG);
+                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
             } else {
-                imageBuffer = await image.getBufferAsync(jimp.AUTO);
+                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
             }
             return imageBuffer.buffer;
         } catch (err) {

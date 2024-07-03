@@ -37,12 +37,6 @@ class JPathExpression extends Operation {
                 name: "查询结果分隔符",
                 type: "binaryShortString",
                 value: "\\n"
-            },
-            {
-                name: "阻止Eval",
-                type: "boolean",
-                value: true,
-                description: "安全起见，默认阻止表达式的Eval"
             }
         ];
     }
@@ -53,7 +47,7 @@ class JPathExpression extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        const [query, delimiter, preventEval] = args;
+        const [query, delimiter] = args;
         let results, jsonObj;
 
         try {
@@ -65,8 +59,7 @@ class JPathExpression extends Operation {
         try {
             results = JSONPath({
                 path: query,
-                json: jsonObj,
-                preventEval: preventEval
+                json: jsonObj
             });
         } catch (err) {
             throw new OperationError(`无效的JPath表达式： ${err.message}`);

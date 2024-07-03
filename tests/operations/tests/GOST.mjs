@@ -16,7 +16,7 @@ import TestRegister from "../../lib/TestRegister.mjs";
 
 TestRegister.addTests([
     {
-        name: "GOST Encrypt: Magma",
+        name: "GOST Encrypt: 1989",
         input: "Hello, World!",
         expectedOutput: "f124ac5c0853870906dbaf9b56",
         recipeConfig: [
@@ -27,8 +27,7 @@ TestRegister.addTests([
                     { "option": "十六进制", "string": "0011223344556677" },
                     "原始字节",
                     "十六进制",
-                    "GOST 28147 (Magma, 1989)",
-                    "64",
+                    "GOST 28147 (1989)",
                     "E-SC",
                     "OFB",
                     "CP",
@@ -50,7 +49,6 @@ TestRegister.addTests([
                     "原始字节",
                     "十六进制",
                     "GOST R 34.12 (Kuznyechik, 2015)",
-                    "128",
                     "E-SC",
                     "CBC",
                     "CP",
@@ -60,7 +58,7 @@ TestRegister.addTests([
         ],
     },
     {
-        name: "GOST Decrypt: Magma",
+        name: "GOST Decrypt: 1989",
         input: "f124ac5c0853870906dbaf9b56",
         expectedOutput: "Hello, World!",
         recipeConfig: [
@@ -71,8 +69,7 @@ TestRegister.addTests([
                     { "option": "十六进制", "string": "0011223344556677" },
                     "十六进制",
                     "原始字节",
-                    "GOST 28147 (Magma, 1989)",
-                    "128",
+                    "GOST 28147 (1989)",
                     "E-SC",
                     "OFB",
                     "CP",
@@ -94,7 +91,6 @@ TestRegister.addTests([
                     "十六进制",
                     "原始字节",
                     "GOST R 34.12 (Kuznyechik, 2015)",
-                    "128",
                     "E-TEST",
                     "CBC",
                     "CP",
@@ -115,8 +111,7 @@ TestRegister.addTests([
                     { "option": "十六进制", "string": "0011223344556677" },
                     "原始字节",
                     "十六进制",
-                    "GOST 28147 (Magma, 1989)",
-                    "64",
+                    "GOST 28147 (1989)",
                     "E-C",
                     48
                 ]
@@ -136,7 +131,6 @@ TestRegister.addTests([
                     { "option": "十六进制", "string": "42b77fb3d6f6bf04" },
                     "原始字节",
                     "GOST R 34.12 (Kuznyechik, 2015)",
-                    "128",
                     "E-TEST"
                 ]
             }
@@ -154,8 +148,7 @@ TestRegister.addTests([
                     { "option": "十六进制", "string": "0011223344556677" },
                     "原始字节",
                     "十六进制",
-                    "GOST R 34.12 (Kuznyechik, 2015)",
-                    "64",
+                    "GOST R 34.12 (Magma, 2015)",
                     "E-TEST",
                     "CP"
                 ]
@@ -174,8 +167,7 @@ TestRegister.addTests([
                     { "option": "Latin1", "string": "00112233" },
                     "十六进制",
                     "原始字节",
-                    "GOST 28147 (Magma, 1989)",
-                    "64",
+                    "GOST 28147 (1989)",
                     "E-Z",
                     "CP"
                 ]

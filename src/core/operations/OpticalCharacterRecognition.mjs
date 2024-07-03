@@ -14,8 +14,9 @@ import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
 
-import process from "process";
 import { createWorker } from "tesseract.js";
+
+const OEM_MODES = ["Tesseract only", "LSTM only", "Tesseract/LSTM Combined"];
 
 /**
  * Optical Character Recognition operation
@@ -39,6 +40,12 @@ class OpticalCharacterRecognition extends Operation {
                 name: "显示置信度",
                 type: "boolean",
                 value: true
+            },
+            {
+                name: "OCR Engine Mode",
+                type: "option",
+                value: OEM_MODES,
+                defaultIndex: 1
             }
         ];
     }
@@ -49,7 +56,7 @@ class OpticalCharacterRecognition extends Operation {
      * @returns {string}
      */
     async run(input, args) {
-        const [showConfidence] = args;
+        const [showConfidence, oemChoice] = args;
 
         if (!isWorkerEnvironment()) throw new OperationError("此操作仅支持在浏览器运行");
 
@@ -58,12 +65,13 @@ class OpticalCharacterRecognition extends Operation {
             throw new OperationError("不支持的文件格式（仅支持：jpg、png、pbm、bmp）或未提供文件");
         }
 
-        const assetDir = isWorkerEnvironment() ? `${self.docURL}/assets/` : `${process.cwd()}/src/core/vendor/`;
+        const assetDir = `${self.docURL}/assets/`;
+        const oem = OEM_MODES.indexOf(oemChoice);
 
         try {
             self.sendStatusMessage("启动Tesseract worker……");
             const image = `data:${type};base64,${toBase64(input)}`;
-            const worker = createWorker({
+            const worker = await createWorker("eng", oem, {
                 workerPath: `${assetDir}tesseract/worker.min.js`,
                 langPath: `${assetDir}tesseract/lang-data`,
                 corePath: `${assetDir}tesseract/tesseract-core.wasm.js`,
@@ -73,11 +81,6 @@ class OpticalCharacterRecognition extends Operation {
                     }
                 }
             });
-            await worker.load();
-            self.sendStatusMessage(`载入英文语言包……`);
-            await worker.loadLanguage("eng");
-            self.sendStatusMessage("初始化Tesseract API……");
-            await worker.initialize("eng");
             self.sendStatusMessage("识别文本……");
             const result = await worker.recognize(image);
 

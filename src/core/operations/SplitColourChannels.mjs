@@ -10,7 +10,7 @@ import Operation from "../Operation.mjs";
 import OperationError from "../errors/OperationError.mjs";
 import Utils from "../Utils.mjs";
 import {isImage} from "../lib/FileType.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Split Colour Channels operation
@@ -43,7 +43,7 @@ class SplitColourChannels extends Operation {
         // Make sure that the input is an image
         if (!isImage(input)) throw new OperationError("无效的文件类型。");
 
-        const parsedImage = await jimp.read(Buffer.from(input));
+        const parsedImage = await Jimp.read(Buffer.from(input));
 
         const red = new Promise(async (resolve, reject) => {
             try {
@@ -53,7 +53,7 @@ class SplitColourChannels extends Operation {
                         {apply: "blue", params: [-255]},
                         {apply: "green", params: [-255]}
                     ])
-                    .getBufferAsync(jimp.MIME_PNG);
+                    .getBufferAsync(Jimp.MIME_PNG);
                 resolve(new File([new Uint8Array((await split).values())], "红.png", {type: "image/png"}));
             } catch (err) {
                 reject(new OperationError(`无法分离红色通道：${err}`));
@@ -66,7 +66,7 @@ class SplitColourChannels extends Operation {
                     .color([
                         {apply: "red", params: [-255]},
                         {apply: "blue", params: [-255]},
-                    ]).getBufferAsync(jimp.MIME_PNG);
+                    ]).getBufferAsync(Jimp.MIME_PNG);
                 resolve(new File([new Uint8Array((await split).values())], "绿.png", {type: "image/png"}));
             } catch (err) {
                 reject(new OperationError(`无法分离绿色通道：${err}`));
@@ -79,7 +79,7 @@ class SplitColourChannels extends Operation {
                     .color([
                         {apply: "red", params: [-255]},
                         {apply: "green", params: [-255]},
-                    ]).getBufferAsync(jimp.MIME_PNG);
+                    ]).getBufferAsync(Jimp.MIME_PNG);
                 resolve(new File([new Uint8Array((await split).values())], "蓝.png", {type: "image/png"}));
             } catch (err) {
                 reject(new OperationError(`无法分离蓝色通道：${err}`));

@@ -11,7 +11,7 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import jimp from "jimp";
+import Jimp from "jimp/es/index.js";
 
 /**
  * Add Text To Image operation
@@ -129,7 +129,7 @@ class AddTextToImage extends Operation {
 
         let image;
         try {
-            image = await jimp.read(input);
+            image = await Jimp.read(input);
         } catch (err) {
             throw new OperationError(`载入图像出错：(${err})`);
         }
@@ -165,7 +165,7 @@ class AddTextToImage extends Operation {
             const font = fontsMap[fontFace];
 
             // LoadFont needs an absolute url, so append the font name to self.docURL
-            const jimpFont = await jimp.loadFont(self.docURL + "/" + font.default);
+            const jimpFont = await Jimp.loadFont(self.docURL + "/" + font.default);
 
             jimpFont.pages.forEach(function(page) {
                 if (page.bitmap) {
@@ -192,7 +192,7 @@ class AddTextToImage extends Operation {
             });
 
             // Create a temporary image to hold the rendered text
-            const textImage = new jimp(jimp.measureText(jimpFont, text), jimp.measureTextHeight(jimpFont, text));
+            const textImage = new Jimp(Jimp.measureText(jimpFont, text), Jimp.measureTextHeight(jimpFont, text));
             textImage.print(jimpFont, 0, 0, text);
 
             // Scale the rendered text image to the correct size
@@ -200,9 +200,9 @@ class AddTextToImage extends Operation {
             if (size !== 1) {
                 // Use bicubic for decreasing size
                 if (size > 1) {
-                    textImage.scale(scaleFactor, jimp.RESIZE_BICUBIC);
+                    textImage.scale(scaleFactor, Jimp.RESIZE_BICUBIC);
                 } else {
-                    textImage.scale(scaleFactor, jimp.RESIZE_BILINEAR);
+                    textImage.scale(scaleFactor, Jimp.RESIZE_BILINEAR);
                 }
             }
 
@@ -236,9 +236,9 @@ class AddTextToImage extends Operation {
 
             let imageBuffer;
             if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(jimp.MIME_PNG);
+                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
             } else {
-                imageBuffer = await image.getBufferAsync(jimp.AUTO);
+                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
             }
             return imageBuffer.buffer;
         } catch (err) {
