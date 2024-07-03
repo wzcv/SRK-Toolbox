@@ -184,7 +184,7 @@ class InputWaiter {
 
         if (this.eolState === 1) {
             // Alert
-            this.app.alert(`Input end of line separator has been detected and changed to ${eolCodeToName[eol]}`, 5000);
+            this.app.alert(`已检测到输入换行符并自动更换为： ${eolCodeToName[eol]}`, 5000);
         }
 
         // Update the EOL value

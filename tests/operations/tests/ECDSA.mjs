@@ -4,6 +4,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 import { ASCII_TEXT } from "../../samples/Ciphers.mjs";
@@ -96,120 +98,120 @@ TestRegister.addTests([
     {
         name: "ECDSA Sign/Verify: P-256 with MD5",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.privateKeyPkcs1, "MD5", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.privateKeyPkcs1, "MD5", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "MD5", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "MD5", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify: P-256 with SHA1",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.privateKeyPkcs1, "SHA-1", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.privateKeyPkcs1, "SHA-1", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-1", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-1", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify: P-256 with SHA256",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.privateKeyPkcs1, "SHA-256", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.privateKeyPkcs1, "SHA-256", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify: P-256 with SHA384",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.privateKeyPkcs1, "SHA-384", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.privateKeyPkcs1, "SHA-384", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-384", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-384", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify: P-256 with SHA512",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.privateKeyPkcs1, "SHA-512", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.privateKeyPkcs1, "SHA-512", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-512", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-512", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify:: Using a private key in PKCS#8 format works",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.privateKeyPkcs8, "SHA-256", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.privateKeyPkcs8, "SHA-256", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify: P-384 with SHA384",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P384.privateKeyPkcs8, "SHA-384", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P384.privateKeyPkcs8, "SHA-384", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-384", P384.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-384", P384.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Sign/Verify: P-521 with SHA512",
         input: ASCII_TEXT,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P521.privateKeyPkcs8, "SHA-512", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P521.privateKeyPkcs8, "SHA-512", "ASN.1十六进制"]
             },
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-512", P521.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-512", P521.publicKey, ASCII_TEXT]
             }
         ]
     },
@@ -218,22 +220,22 @@ TestRegister.addTests([
     {
         name: "ECDSA Sign: Using public key fails",
         input: ASCII_TEXT,
-        expectedOutput: "Provided key is not a private key.",
+        expectedOutput: "提供的密钥不是私钥",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [P256.publicKey, "SHA-256", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [P256.publicKey, "SHA-256", "ASN.1十六进制"]
             }
         ]
     },
     {
         name: "ECDSA Sign: Using an RSA key fails",
         input: ASCII_TEXT,
-        expectedOutput: "Provided key is not an EC key.",
+        expectedOutput: "提供的密钥不是EC密钥。",
         recipeConfig: [
             {
-                "op": "ECDSA Sign",
-                "args": [PEM_PPRIV_RSA512, "SHA-256", "ASN.1 HEX"]
+                "op": "ECDSA签名",
+                "args": [PEM_PPRIV_RSA512, "SHA-256", "ASN.1十六进制"]
             }
         ]
     },
@@ -242,88 +244,88 @@ TestRegister.addTests([
     {
         name: "ECDSA Verify: P-256 with SHA256 (ASN.1 signature)",
         input: P256.signature.sha256.asn1,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["Auto", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["自动检测", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: P-256 with SHA256 (P1363 signature)",
         input: P256.signature.sha256.p1363,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["Auto", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["自动检测", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: P-256 with SHA256 (JWS signature)",
         input: P256.signature.sha256.jws,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["Auto", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["自动检测", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: P-256 with SHA256 (JSON signature)",
         input: P256.signature.sha256.json,
-        expectedOutput: "Verified OK",
+        expectedOutput: "验证成功",
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["Auto", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["自动检测", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: JSON signature missing r",
         input: JSON.stringify({s: JSON.parse(P256.signature.sha256.json).s}),
-        expectedOutput: 'No "r" value in the signature JSON',
+        expectedOutput: '签名JSON中没有"r"值',
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["Auto", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["自动检测", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: JSON signature missing s",
         input: JSON.stringify({r: JSON.parse(P256.signature.sha256.json).r}),
-        expectedOutput: 'No "s" value in the signature JSON',
+        expectedOutput: '签名JSON中没有"s"值',
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["Auto", "SHA-256", P256.publicKey, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["自动检测", "SHA-256", P256.publicKey, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: Using private key fails",
         input: P256.signature.sha256.asn1,
-        expectedOutput: "Provided key is not a public key.",
+        expectedOutput: "提供的密钥不是公钥。",
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-256", P256.privateKeyPkcs1, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-256", P256.privateKeyPkcs1, ASCII_TEXT]
             }
         ]
     },
     {
         name: "ECDSA Verify: Using an RSA key fails",
         input: P256.signature.sha256.asn1,
-        expectedOutput: "Provided key is not an EC key.",
+        expectedOutput: "提供的密钥不是EC密钥。",
         recipeConfig: [
             {
-                "op": "ECDSA Verify",
-                "args": ["ASN.1 HEX", "SHA-256", PEM_PUB_RSA512, ASCII_TEXT]
+                "op": "ECDSA验证",
+                "args": ["ASN.1十六进制", "SHA-256", PEM_PUB_RSA512, ASCII_TEXT]
             }
         ]
     },
@@ -335,8 +337,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.asn1,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "ASN.1 HEX"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "ASN.1十六进制"]
             }
         ]
     },
@@ -346,8 +348,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.p1363,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "P1363 HEX"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "P1363十六进制"]
             }
         ]
     },
@@ -357,8 +359,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.jws,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "JSON Web Signature"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "JSON Web签名（JWS）"]
             }
         ]
     },
@@ -368,8 +370,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.json,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "Raw JSON"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "原始JSON"]
             }
         ]
     },
@@ -379,8 +381,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.asn1,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "ASN.1 HEX"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "ASN.1十六进制"]
             }
         ]
     },
@@ -390,8 +392,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.p1363,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "P1363 HEX"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "P1363十六进制"]
             }
         ]
     },
@@ -401,8 +403,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.jws,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "JSON Web Signature"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "JSON Web签名（JWS）"]
             }
         ]
     },
@@ -412,8 +414,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.json,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "Raw JSON"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "原始JSON"]
             }
         ]
     },
@@ -423,8 +425,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.asn1,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "ASN.1 HEX"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "ASN.1十六进制"]
             }
         ]
     },
@@ -434,8 +436,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.p1363,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "P1363 HEX"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "P1363十六进制"]
             }
         ]
     },
@@ -445,8 +447,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.jws,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "JSON Web Signature"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "JSON Web签名（JWS）"]
             }
         ]
     },
@@ -456,8 +458,8 @@ TestRegister.addTests([
         expectedOutput: P256.signature.sha256.json,
         recipeConfig: [
             {
-                "op": "ECDSA Signature Conversion",
-                "args": ["Auto", "Raw JSON"]
+                "op": "ECDSA签名格式转换",
+                "args": ["自动检测", "原始JSON"]
             }
         ]
     }

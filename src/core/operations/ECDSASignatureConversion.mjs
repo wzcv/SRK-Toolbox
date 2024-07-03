@@ -2,6 +2,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,32 +23,32 @@ class ECDSASignatureConversion extends Operation {
     constructor() {
         super();
 
-        this.name = "ECDSA Signature Conversion";
+        this.name = "ECDSA签名格式转换";
         this.module = "Ciphers";
-        this.description = "Convert an ECDSA signature between hex, asn1 and json.";
+        this.description = "将ECDSA签名转换为十六进制、ASN.1和JSON格式。";
         this.infoURL = "https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
                 value: [
-                    "Auto",
-                    "ASN.1 HEX",
-                    "P1363 HEX",
-                    "JSON Web Signature",
-                    "Raw JSON"
+                    "自动检测",
+                    "ASN.1十六进制",
+                    "P1363十六进制",
+                    "JSON Web签名（JWS）",
+                    "原始JSON"
                 ]
             },
             {
                 name: "Output Format",
                 type: "option",
                 value: [
-                    "ASN.1 HEX",
-                    "P1363 HEX",
-                    "JSON Web Signature",
-                    "Raw JSON"
+                    "ASN.1十六进制",
+                    "P1363十六进制",
+                    "JSON Web签名（JWS）",
+                    "原始JSON"
                 ]
             }
         ];
@@ -63,56 +65,56 @@ class ECDSASignatureConversion extends Operation {
 
         // detect input format
         let inputJson;
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动检测") {
             try {
                 inputJson = JSON.parse(input);
                 if (typeof(inputJson) === "object") {
-                    inputFormat = "Raw JSON";
+                    inputFormat = "原始JSON";
                 }
             } catch {}
         }
 
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动检测") {
             const hexRegex = /^[a-f\d]{2,}$/gi;
             if (hexRegex.test(input)) {
                 if (input.substring(0, 2) === "30" && r.ASN1HEX.isASN1HEX(input)) {
-                    inputFormat = "ASN.1 HEX";
+                    inputFormat = "ASN.1十六进制";
                 } else {
-                    inputFormat = "P1363 HEX";
+                    inputFormat = "P1363十六进制";
                 }
             }
         }
 
         let inputBase64;
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动检测") {
             try {
                 inputBase64 = fromBase64(input, "A-Za-z0-9-_", false);
-                inputFormat = "JSON Web Signature";
+                inputFormat = "JSON Web签名（JWS）";
             } catch {}
         }
 
         // convert input to ASN.1 hex
         let signatureASN1Hex;
         switch (inputFormat) {
-            case "Auto":
-                throw new OperationError("Signature format could not be detected");
-            case "ASN.1 HEX":
+            case "自动检测":
+                throw new OperationError("无法检测到签名格式");
+            case "ASN.1十六进制":
                 signatureASN1Hex = input;
                 break;
-            case "P1363 HEX":
+            case "P1363十六进制":
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.concatSigToASN1Sig(input);
                 break;
-            case "JSON Web Signature":
+            case "JSON Web签名（JWS）":
                 if (!inputBase64) inputBase64 = fromBase64(input, "A-Za-z0-9-_");
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.concatSigToASN1Sig(toHexFast(inputBase64));
                 break;
-            case "Raw JSON": {
+            case "原始JSON": {
                 if (!inputJson) inputJson = JSON.parse(input);
                 if (!inputJson.r) {
-                    throw new OperationError('No "r" value in the signature JSON');
+                    throw new OperationError('签名JSON中没有"r"值');
                 }
                 if (!inputJson.s) {
-                    throw new OperationError('No "s" value in the signature JSON');
+                    throw new OperationError('签名JSON中没有"s"值');
                 }
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.hexRSSigToASN1Sig(inputJson.r, inputJson.s);
                 break;
@@ -122,17 +124,17 @@ class ECDSASignatureConversion extends Operation {
         // convert ASN.1 hex to output format
         let result;
         switch (outputFormat) {
-            case "ASN.1 HEX":
+            case "ASN.1十六进制":
                 result = signatureASN1Hex;
                 break;
-            case "P1363 HEX":
+            case "P1363十六进制":
                 result = r.KJUR.crypto.ECDSA.asn1SigToConcatSig(signatureASN1Hex);
                 break;
-            case "JSON Web Signature":
+            case "JSON Web签名（JWS）":
                 result = r.KJUR.crypto.ECDSA.asn1SigToConcatSig(signatureASN1Hex);
                 result = toBase64(fromHex(result), "A-Za-z0-9-_");  // base64url
                 break;
-            case "Raw JSON": {
+            case "原始JSON": {
                 const signatureRS = r.KJUR.crypto.ECDSA.parseSigHexInHexRS(signatureASN1Hex);
                 result = JSON.stringify(signatureRS);
                 break;

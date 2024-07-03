@@ -4,6 +4,8 @@
  * @author n1474335 [n1474335@gmail.com]
  * @copyright Crown Copyright 2024
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import OperationError from "../errors/OperationError.mjs";
@@ -21,17 +23,17 @@ export function parseTLSRecord(bytes) {
 
     // Content type
     r.contentType = {
-        description: "Content Type",
+        description: "内容类型",
         length: 1,
         data: b.getBytes(1),
         value: s.readInt(1)
     };
     if (r.contentType.value !== 0x16)
-        throw new OperationError("Not handshake data.");
+        throw new OperationError("不是握手数据。");
 
     // Version
     r.version = {
-        description: "Protocol Version",
+        description: "协议版本",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
@@ -39,17 +41,17 @@ export function parseTLSRecord(bytes) {
 
     // Length
     r.length = {
-        description: "Record Length",
+        description: "记录长度",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
     };
     if (s.length !== r.length.value + 5)
-        throw new OperationError("Incorrect handshake length.");
+        throw new OperationError("无效的握手数据长度。");
 
     // Handshake
     r.handshake = {
-        description: "Handshake",
+        description: "握手消息",
         length: r.length.value,
         data: b.getBytes(r.length.value),
         value: parseHandshake(s.getBytes(r.length.value))
@@ -70,7 +72,7 @@ function parseHandshake(bytes) {
 
     // Handshake type
     h.handshakeType = {
-        description: "Handshake Type",
+        description: "握手消息类型",
         length: 1,
         data: b.getBytes(1),
         value: s.readInt(1)
@@ -78,13 +80,13 @@ function parseHandshake(bytes) {
 
     // Handshake length
     h.handshakeLength = {
-        description: "Handshake Length",
+        description: "握手消息长度",
         length: 3,
         data: b.getBytes(3),
         value: s.readInt(3)
     };
     if (s.length !== h.handshakeLength.value + 4)
-        throw new OperationError("Not enough data in Handshake message.");
+        throw new OperationError("握手消息中没有足够的数据。");
 
 
     switch (h.handshakeType.value) {
@@ -97,7 +99,7 @@ function parseHandshake(bytes) {
             parseServerHello(s, b, h);
             break;
         default:
-            throw new OperationError("Not a known handshake message.");
+            throw new OperationError("未知的握手消息。");
     }
 
     return h;
@@ -113,7 +115,7 @@ function parseHandshake(bytes) {
 function parseClientHello(s, b, h) {
     // Hello version
     h.helloVersion = {
-        description: "Client Hello Version",
+        description: "Client Hello版本",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
@@ -121,7 +123,7 @@ function parseClientHello(s, b, h) {
 
     // Random
     h.random = {
-        description: "Client Random",
+        description: "客户端随机数",
         length: 32,
         data: b.getBytes(32),
         value: s.getBytes(32)
@@ -129,7 +131,7 @@ function parseClientHello(s, b, h) {
 
     // Session ID Length
     h.sessionIDLength = {
-        description: "Session ID Length",
+        description: "Session ID长度",
         length: 1,
         data: b.getBytes(1),
         value: s.readInt(1)
@@ -145,7 +147,7 @@ function parseClientHello(s, b, h) {
 
     // Cipher Suites Length
     h.cipherSuitesLength = {
-        description: "Cipher Suites Length",
+        description: "加密套件长度",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
@@ -153,7 +155,7 @@ function parseClientHello(s, b, h) {
 
     // Cipher Suites
     h.cipherSuites = {
-        description: "Cipher Suites",
+        description: "加密套件",
         length: h.cipherSuitesLength.value,
         data: b.getBytes(h.cipherSuitesLength.value),
         value: parseCipherSuites(s.getBytes(h.cipherSuitesLength.value))
@@ -161,7 +163,7 @@ function parseClientHello(s, b, h) {
 
     // Compression Methods Length
     h.compressionMethodsLength = {
-        description: "Compression Methods Length",
+        description: "压缩算法长度",
         length: 1,
         data: b.getBytes(1),
         value: s.readInt(1)
@@ -169,7 +171,7 @@ function parseClientHello(s, b, h) {
 
     // Compression Methods
     h.compressionMethods = {
-        description: "Compression Methods",
+        description: "压缩算法",
         length: h.compressionMethodsLength.value,
         data: b.getBytes(h.compressionMethodsLength.value),
         value: parseCompressionMethods(s.getBytes(h.compressionMethodsLength.value))
@@ -177,7 +179,7 @@ function parseClientHello(s, b, h) {
 
     // Extensions Length
     h.extensionsLength = {
-        description: "Extensions Length",
+        description: "扩展长度",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
@@ -185,7 +187,7 @@ function parseClientHello(s, b, h) {
 
     // Extensions
     h.extensions = {
-        description: "Extensions",
+        description: "扩展",
         length: h.extensionsLength.value,
         data: b.getBytes(h.extensionsLength.value),
         value: parseExtensions(s.getBytes(h.extensionsLength.value))
@@ -204,7 +206,7 @@ function parseClientHello(s, b, h) {
 function parseServerHello(s, b, h) {
     // Hello version
     h.helloVersion = {
-        description: "Server Hello Version",
+        description: "Server Hello版本",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
@@ -212,7 +214,7 @@ function parseServerHello(s, b, h) {
 
     // Random
     h.random = {
-        description: "Server Random",
+        description: "服务器随机数",
         length: 32,
         data: b.getBytes(32),
         value: s.getBytes(32)
@@ -220,7 +222,7 @@ function parseServerHello(s, b, h) {
 
     // Session ID Length
     h.sessionIDLength = {
-        description: "Session ID Length",
+        description: "Session ID长度",
         length: 1,
         data: b.getBytes(1),
         value: s.readInt(1)
@@ -236,15 +238,15 @@ function parseServerHello(s, b, h) {
 
     // Cipher Suite
     h.cipherSuite = {
-        description: "Selected Cipher Suite",
+        description: "选择的加密套件",
         length: 2,
         data: b.getBytes(2),
-        value: CIPHER_SUITES_LOOKUP[s.readInt(2)] || "Unknown"
+        value: CIPHER_SUITES_LOOKUP[s.readInt(2)] || "未知"
     };
 
     // Compression Method
     h.compressionMethod = {
-        description: "Selected Compression Method",
+        description: "选择的压缩算法",
         length: 1,
         data: b.getBytes(1),
         value: s.readInt(1) // TODO: Compression method name here
@@ -252,7 +254,7 @@ function parseServerHello(s, b, h) {
 
     // Extensions Length
     h.extensionsLength = {
-        description: "Extensions Length",
+        description: "扩展长度",
         length: 2,
         data: b.getBytes(2),
         value: s.readInt(2)
@@ -260,7 +262,7 @@ function parseServerHello(s, b, h) {
 
     // Extensions
     h.extensions = {
-        description: "Extensions",
+        description: "扩展",
         length: h.extensionsLength.value,
         data: b.getBytes(h.extensionsLength.value),
         value: parseExtensions(s.getBytes(h.extensionsLength.value))
@@ -279,10 +281,10 @@ function parseCipherSuites(bytes) {
 
     while (s.hasMore()) {
         cs.push({
-            description: "Cipher Suite",
+            description: "加密套件",
             length: 2,
             data: b.getBytes(2),
-            value: CIPHER_SUITES_LOOKUP[s.readInt(2)] || "Unknown"
+            value: CIPHER_SUITES_LOOKUP[s.readInt(2)] || "未知"
         });
     }
     return cs;
@@ -300,7 +302,7 @@ function parseCompressionMethods(bytes) {
 
     while (s.hasMore()) {
         cm.push({
-            description: "Compression Method",
+            description: "压缩算法",
             length: 1,
             data: b.getBytes(1),
             value: s.readInt(1) // TODO: Compression method name here
@@ -324,15 +326,15 @@ function parseExtensions(bytes) {
 
         // Type
         ext.type = {
-            description: "Extension Type",
+            description: "扩展类型",
             length: 2,
             data: b.getBytes(2),
-            value: EXTENSION_LOOKUP[s.readInt(2)] || "unknown"
+            value: EXTENSION_LOOKUP[s.readInt(2)] || "未知"
         };
 
         // Length
         ext.length = {
-            description: "Extension Length",
+            description: "扩展长度",
             length: 2,
             data: b.getBytes(2),
             value: s.readInt(2)
@@ -340,7 +342,7 @@ function parseExtensions(bytes) {
 
         // Value
         ext.value = {
-            description: "Extension Value",
+            description: "扩展数值",
             length: ext.length.value,
             data: b.getBytes(ext.length.value),
             value: s.getBytes(ext.length.value)

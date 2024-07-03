@@ -360,7 +360,7 @@ class ControlsWaiter {
 
         if (icon.getAttribute("hide-args") === "false") {
             icon.setAttribute("hide-args", "true");
-            icon.setAttribute("data-original-title", "Show arguments");
+            icon.setAttribute("data-original-title", "显示参数");
             icon.children[0].innerText = "keyboard_arrow_down";
             Array.from(document.getElementsByClassName("hide-args-icon")).forEach(function(item) {
                 item.setAttribute("hide-args", "true");
@@ -370,7 +370,7 @@ class ControlsWaiter {
             });
         } else {
             icon.setAttribute("hide-args", "false");
-            icon.setAttribute("data-original-title", "Hide arguments");
+            icon.setAttribute("data-original-title", "隐藏参数");
             icon.children[0].innerText = "keyboard_arrow_up";
             Array.from(document.getElementsByClassName("hide-args-icon")).forEach(function(item) {
                 item.setAttribute("hide-args", "false");

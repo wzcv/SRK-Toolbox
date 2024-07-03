@@ -2,6 +2,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -21,26 +23,26 @@ class ECDSAVerify extends Operation {
     constructor() {
         super();
 
-        this.name = "ECDSA Verify";
+        this.name = "ECDSA验证";
         this.module = "Ciphers";
-        this.description = "Verify a message against a signature and a public PEM encoded EC key.";
+        this.description = "使用PEM编码的EC公钥和签名验证信息。";
         this.infoURL = "https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Input Format",
+                name: "输入格式",
                 type: "option",
                 value: [
-                    "Auto",
-                    "ASN.1 HEX",
-                    "P1363 HEX",
-                    "JSON Web Signature",
-                    "Raw JSON"
+                    "自动检测",
+                    "ASN.1十六进制",
+                    "P1363十六进制",
+                    "JSON Web签名（JWS）",
+                    "原始JSON"
                 ]
             },
             {
-                name: "Message Digest Algorithm",
+                name: "消息摘要算法",
                 type: "option",
                 value: [
                     "SHA-256",
@@ -51,12 +53,12 @@ class ECDSAVerify extends Operation {
                 ]
             },
             {
-                name: "ECDSA Public Key (PEM)",
+                name: "ECDSA公钥(PEM)",
                 type: "text",
                 value: "-----BEGIN PUBLIC KEY-----"
             },
             {
-                name: "Message",
+                name: "信息",
                 type: "text",
                 value: ""
             }
@@ -73,61 +75,61 @@ class ECDSAVerify extends Operation {
         const [, mdAlgo, keyPem, msg] = args;
 
         if (keyPem.replace("-----BEGIN PUBLIC KEY-----", "").length === 0) {
-            throw new OperationError("Please enter a public key.");
+            throw new OperationError("请输入公钥。");
         }
 
         // detect input format
         let inputJson;
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动检测") {
             try {
                 inputJson = JSON.parse(input);
                 if (typeof(inputJson) === "object") {
-                    inputFormat = "Raw JSON";
+                    inputFormat = "原始JSON";
                 }
             } catch {}
         }
 
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动检测") {
             const hexRegex = /^[a-f\d]{2,}$/gi;
             if (hexRegex.test(input)) {
                 if (input.substring(0, 2) === "30" && r.ASN1HEX.isASN1HEX(input)) {
-                    inputFormat = "ASN.1 HEX";
+                    inputFormat = "ASN.1十六进制";
                 } else {
-                    inputFormat = "P1363 HEX";
+                    inputFormat = "P1363十六进制";
                 }
             }
         }
 
         let inputBase64;
-        if (inputFormat === "Auto") {
+        if (inputFormat === "自动检测") {
             try {
                 inputBase64 = fromBase64(input, "A-Za-z0-9-_", false);
-                inputFormat = "JSON Web Signature";
+                inputFormat = "JSON Web签名（JWS）";
             } catch {}
         }
 
         // convert to ASN.1 signature
         let signatureASN1Hex;
         switch (inputFormat) {
-            case "Auto":
-                throw new OperationError("Signature format could not be detected");
-            case "ASN.1 HEX":
+            case "自动检测":
+                throw new OperationError("无法检测到签名格式");
+            case "ASN.1十六进制":
                 signatureASN1Hex = input;
                 break;
-            case "P1363 HEX":
+            case "P1363十六进制":
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.concatSigToASN1Sig(input);
                 break;
-            case "JSON Web Signature":
+            case "JSON Web签名（JWS）":
                 if (!inputBase64) inputBase64 = fromBase64(input, "A-Za-z0-9-_");
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.concatSigToASN1Sig(toHexFast(inputBase64));
                 break;
-            case "Raw JSON": {
+            case "原始JSON": {
                 if (!inputJson) inputJson = JSON.parse(input);
                 if (!inputJson.r) {
-                    throw new OperationError('No "r" value in the signature JSON');
+                    throw new OperationError('签名JSON中没有"r"值');
                 }
                 if (!inputJson.s) {
-                    throw new OperationError('No "s" value in the signature JSON');
+                    throw new OperationError('签名JSON中没有"s"值');
                 }
                 signatureASN1Hex = r.KJUR.crypto.ECDSA.hexRSSigToASN1Sig(inputJson.r, inputJson.s);
                 break;
@@ -139,15 +141,15 @@ class ECDSAVerify extends Operation {
         const sig = new r.KJUR.crypto.Signature({ alg: internalAlgorithmName });
         const key = r.KEYUTIL.getKey(keyPem);
         if (key.type !== "EC") {
-            throw new OperationError("Provided key is not an EC key.");
+            throw new OperationError("提供的密钥不是EC密钥。");
         }
         if (!key.isPublic) {
-            throw new OperationError("Provided key is not a public key.");
+            throw new OperationError("提供的密钥不是公钥。");
         }
         sig.init(key);
         sig.updateString(msg);
         const result = sig.verify(signatureASN1Hex);
-        return result ? "Verified OK" : "Verification Failure";
+        return result ? "验证成功" : "验证失败";
     }
 }
 

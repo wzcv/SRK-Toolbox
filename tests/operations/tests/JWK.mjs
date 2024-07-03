@@ -4,6 +4,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -139,10 +141,10 @@ TestRegister.addTests([
     {
         name: "PEM to JWK: Missing footer",
         input: RSA_512.private.pem1.substring(0, RSA_512.private.pem1.length / 2),
-        expectedOutput: "PEM footer '-----END RSA PRIVATE KEY-----' not found",
+        expectedOutput: "未找到PEM footer '-----END RSA PRIVATE KEY-----'",
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -150,10 +152,10 @@ TestRegister.addTests([
     {
         name: "PEM to JWK: DSA not supported",
         input: PEM_PRIV_DSA1024,
-        expectedOutput: "DSA keys are not supported for JWK",
+        expectedOutput: "JWK不支持DSA密钥。",
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -166,7 +168,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(RSA_512.private.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -177,7 +179,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(RSA_512.private.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -185,10 +187,10 @@ TestRegister.addTests([
     {
         name: "PEM to JWK: RSA Public Key PKCS1",
         input: RSA_512.public.pem1,
-        expectedOutput: "Unsupported RSA public key format. Only PKCS#8 is supported.",
+        expectedOutput: "不支持的RSA公钥格式。仅支持PKCS#8。",
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -199,7 +201,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(RSA_512.public.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -210,7 +212,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(RSA_512.public.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -223,7 +225,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(EC_P256.private.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -234,7 +236,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(EC_P256.private.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -245,7 +247,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(EC_P256.public.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -256,7 +258,7 @@ TestRegister.addTests([
         expectedOutput: JSON.stringify(EC_P256.public.jwk),
         recipeConfig: [
             {
-                op: "PEM to JWK",
+                op: "PEM转JWK",
                 args: [],
             }
         ],
@@ -266,10 +268,10 @@ TestRegister.addTests([
     {
         name: "JWK to PEM: not a JWK",
         input: "\"foobar\"",
-        expectedOutput: "Input is not a JSON Web Key",
+        expectedOutput: "输入内容不是有效的JSON Web Key",
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -277,10 +279,10 @@ TestRegister.addTests([
     {
         name: "JWK to PEM: unsupported key type",
         input: JSON.stringify(JWK_PUB_ED25591),
-        expectedOutput: "Unsupported JWK key type 'OKP'",
+        expectedOutput: "不支持的JWK密钥类型'OKP'",
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -293,7 +295,7 @@ TestRegister.addTests([
         expectedOutput: RSA_512.private.pem8.replace(/\r/g, "").replace(/\n/g, "\r\n")+"\r\n",
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -304,7 +306,7 @@ TestRegister.addTests([
         expectedOutput: RSA_512.public.pem8.replace(/\r/g, "").replace(/\n/g, "\r\n")+"\r\n",
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -317,7 +319,7 @@ TestRegister.addTests([
         expectedOutput: EC_P256.private.pem8.replace(/\r/g, "").replace(/\n/g, "\r\n")+"\r\n",
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -328,7 +330,7 @@ TestRegister.addTests([
         expectedOutput: EC_P256.public.pem8.replace(/\r/g, "").replace(/\n/g, "\r\n")+"\r\n",
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -340,7 +342,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_512.public.pem8 + "\n" + EC_P256.public.pem8 + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],
@@ -351,7 +353,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_512.public.pem8 + "\n" + EC_P256.public.pem8 + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "JWK to PEM",
+                op: "JWK转PEM",
                 args: [],
             }
         ],

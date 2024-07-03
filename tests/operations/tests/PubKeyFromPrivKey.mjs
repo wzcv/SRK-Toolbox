@@ -4,6 +4,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -134,10 +136,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Private Key: Missing footer",
         input: RSA_PRIVKEY_PKCS1.substring(0, RSA_PRIVKEY_PKCS1.length / 2),
-        expectedOutput: "PEM footer '-----END RSA PRIVATE KEY-----' not found",
+        expectedOutput: "未找到PEM footer '-----END RSA PRIVATE KEY-----'",
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -150,7 +152,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -161,7 +163,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -174,7 +176,7 @@ TestRegister.addTests([
         expectedOutput: (EC_P256_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -185,7 +187,7 @@ TestRegister.addTests([
         expectedOutput: (EC_P256_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -198,7 +200,7 @@ TestRegister.addTests([
         expectedOutput: (DSA_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -206,10 +208,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Private Key: DSA PKCS#8",
         input: DSA_PRIVKEY_PKCS8,
-        expectedOutput: "DSA Private Key in PKCS#8 is not supported",
+        expectedOutput: "不支持PKCS#8格式DSA私钥",
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -219,10 +221,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Private Key: Ed25519",
         input: ED25519_PRIVKEY,
-        expectedOutput: "Unsupported key type: Error: malformed PKCS8 private key(code:004)",
+        expectedOutput: "不支持的密钥类型：Error: malformed PKCS8 private key(code:004)",
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -230,10 +232,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Private Key: Ed448",
         input: ED448_PRIVKEY,
-        expectedOutput: "Unsupported key type: Error: malformed PKCS8 private key(code:004)",
+        expectedOutput: "不支持的密钥类型：Error: malformed PKCS8 private key(code:004)",
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],
@@ -246,7 +248,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_PUBKEY + "\n" + EC_P256_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Private Key",
+                op: "从私钥提取公钥",
                 args: [],
             }
         ],

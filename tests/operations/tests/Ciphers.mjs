@@ -27,7 +27,7 @@ TestRegister.addTests([
     {
         name: "Affine Encode: invalid a & b (non-integer)",
         input: "some keys are shaped as locks. index[me]",
-        expectedOutput: "The values of a and b can only be integers.",
+        expectedOutput: "a和b的值只能是整数。",
         recipeConfig: [
             {
                 op: "仿射密码加密",

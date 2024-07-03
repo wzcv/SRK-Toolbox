@@ -60,8 +60,8 @@ TestRegister.addTests([
         expectedOutput: "t1204h2_cca9_1428ce7b4018",
         recipeConfig: [
             {
-                "op": "JA4Server Fingerprint",
-                "args": ["Hex", "JA4S"]
+                "op": "JA4S指纹",
+                "args": ["十六进制", "JA4S"]
             }
         ]
     },
@@ -71,8 +71,8 @@ TestRegister.addTests([
         expectedOutput: "t1204h2_cca9_0000,ff01,000b,0010",
         recipeConfig: [
             {
-                "op": "JA4Server Fingerprint",
-                "args": ["Hex", "JA4S Raw"]
+                "op": "JA4S指纹",
+                "args": ["十六进制", "JA4S原始"]
             }
         ]
     },
@@ -82,8 +82,8 @@ TestRegister.addTests([
         expectedOutput: "t130200_1301_234ea6891581",
         recipeConfig: [
             {
-                "op": "JA4Server Fingerprint",
-                "args": ["Hex", "JA4S"]
+                "op": "JA4S指纹",
+                "args": ["十六进制", "JA4S"]
             }
         ]
     },
@@ -93,8 +93,8 @@ TestRegister.addTests([
         expectedOutput: "t130200_1301_0033,002b",
         recipeConfig: [
             {
-                "op": "JA4Server Fingerprint",
-                "args": ["Hex", "JA4S Raw"]
+                "op": "JA4S指纹",
+                "args": ["十六进制", "JA4S原始"]
             }
         ]
     },
@@ -104,8 +104,8 @@ TestRegister.addTests([
         expectedOutput: "t130200_1301_234ea6891581",
         recipeConfig: [
             {
-                "op": "JA4Server Fingerprint",
-                "args": ["Hex", "JA4S"]
+                "op": "JA4S指纹",
+                "args": ["十六进制", "JA4S"]
             }
         ]
     },
@@ -115,8 +115,8 @@ TestRegister.addTests([
         expectedOutput: "t130200_1301_0033,002b",
         recipeConfig: [
             {
-                "op": "JA4Server Fingerprint",
-                "args": ["Hex", "JA4S Raw"]
+                "op": "JA4S指纹",
+                "args": ["十六进制", "JA4S原始"]
             }
         ]
     },

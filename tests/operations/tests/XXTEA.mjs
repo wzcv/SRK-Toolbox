@@ -17,27 +17,27 @@ TestRegister.addTests([
         expectedOutput: "Hello World! 你好，中国！",
         recipeConfig: [
             {
-                "op": "XXTEA Encrypt",
+                "op": "XXTEA加密",
                 "args": [{ "option": "UTF8", "string": "1234567890" }]
             },
             {
-                "op": "XXTEA Decrypt",
+                "op": "XXTEA解密",
                 "args": [{ "option": "UTF8", "string": "1234567890" }]
             }
         ],
     },
     {
-        name: "XXTEA Encrypt",
+        name: "XXTEA加密",
         input: "ნუ პანიკას",
         expectedOutput: "3db5a39db1663fc029bb630a38635b8de5bfef62192e52cc4bf83cda8ccbc701",
         recipeConfig: [
             {
-                "op": "XXTEA Encrypt",
+                "op": "XXTEA加密",
                 "args": [{ "option": "UTF8", "string": "1234567890" }]
             },
             {
-                "op": "To Hex",
-                "args": ["None", 0]
+                "op": "字符转十六进制",
+                "args": ["无", 0]
             }
         ],
     }

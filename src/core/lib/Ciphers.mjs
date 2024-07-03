@@ -30,11 +30,11 @@ export function affineEncode(input, args) {
     let output = "";
 
     if (!/^\+?(0|[1-9]\d*)$/.test(a) || !/^\+?(0|[1-9]\d*)$/.test(b)) {
-        throw new OperationError("The values of a and b can only be integers.");
+        throw new OperationError("a和b的值只能是整数。");
     }
 
     if (Utils.gcd(a, 26) !== 1) {
-        throw new OperationError("The value of `a` must be coprime to 26.");
+        throw new OperationError("`a`的值必须与26互质。");
     }
 
     for (let i = 0; i < input.length; i++) {

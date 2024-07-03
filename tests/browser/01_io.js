@@ -712,7 +712,7 @@ module.exports = {
     //     browser.expect.element(`#output-text .cm-content`).to.have.property("textContent").match(/^.{44}$/);
     //     browser.expect.element("#output-text .cm-status-bar .stats-length-value").text.to.equal("44");
     //     browser.expect.element("#output-text .cm-status-bar .stats-lines-value").text.to.equal("1");
-    // },
+    },
 
     "Replace input with output": browser => {
         /* Input is correctly populated */

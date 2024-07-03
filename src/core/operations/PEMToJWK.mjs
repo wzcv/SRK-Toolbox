@@ -2,6 +2,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import r from "jsrsasign";
@@ -19,9 +21,9 @@ class PEMToJWK extends Operation {
     constructor() {
         super();
 
-        this.name = "PEM to JWK";
+        this.name = "PEM转JWK";
         this.module = "PublicKey";
-        this.description = "Converts Keys in PEM format to a JSON Web Key format.";
+        this.description = "将PEM格式转换为JSON Web Key格式。";
         this.infoURL = "https://datatracker.ietf.org/doc/html/rfc7517";
         this.inputType = "string";
         this.outputType = "string";
@@ -50,18 +52,18 @@ class PEMToJWK extends Operation {
             const footer = `-----END ${match[1]}-----`;
             const indexFooter = input.indexOf(footer, indexBase64);
             if (indexFooter === -1) {
-                throw new OperationError(`PEM footer '${footer}' not found`);
+                throw new OperationError(`未找到PEM footer '${footer}'`);
             }
 
             const pem = input.substring(match.index, indexFooter + footer.length);
             if (match[1].indexOf("KEY") !== -1) {
                 if (header === "-----BEGIN RSA PUBLIC KEY-----") {
-                    throw new OperationError("Unsupported RSA public key format. Only PKCS#8 is supported.");
+                    throw new OperationError("不支持的RSA公钥格式。仅支持PKCS#8。");
                 }
 
                 const key = r.KEYUTIL.getKey(pem);
                 if (key.type === "DSA") {
-                    throw new OperationError("DSA keys are not supported for JWK");
+                    throw new OperationError("JWK不支持DSA密钥。");
                 }
                 const jwk = r.KEYUTIL.getJWKFromKey(key);
                 if (output.length > 0) {
@@ -78,7 +80,7 @@ class PEMToJWK extends Operation {
                 }
                 output += JSON.stringify(jwk);
             } else {
-                throw new OperationError(`Unsupported PEM type '${match[1]}'`);
+                throw new OperationError(`不支持的PEM类型'${match[1]}'`);
             }
         }
         return output;

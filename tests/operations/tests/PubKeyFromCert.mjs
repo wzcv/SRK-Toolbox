@@ -4,6 +4,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2023
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 import TestRegister from "../../lib/TestRegister.mjs";
 
@@ -128,10 +130,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Certificate: Missing footer",
         input: RSA_CERT.substring(0, RSA_CERT.length / 2),
-        expectedOutput: "PEM footer '-----END CERTIFICATE-----' not found",
+        expectedOutput: "未找到PEM footer '-----END CERTIFICATE-----'",
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],
@@ -144,7 +146,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],
@@ -157,7 +159,7 @@ TestRegister.addTests([
         expectedOutput: (EC_P256_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],
@@ -170,7 +172,7 @@ TestRegister.addTests([
         expectedOutput: (DSA_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],
@@ -180,10 +182,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Certificate: Ed25519",
         input: ED25519_CERT,
-        expectedOutput: "Unsupported public key type",
+        expectedOutput: "不支持的公钥类型",
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],
@@ -191,10 +193,10 @@ TestRegister.addTests([
     {
         name: "Public Key from Certificate: Ed448",
         input: ED448_CERT,
-        expectedOutput: "Unsupported public key type",
+        expectedOutput: "不支持的公钥类型",
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],
@@ -207,7 +209,7 @@ TestRegister.addTests([
         expectedOutput: (RSA_PUBKEY + "\n" + EC_P256_PUBKEY + "\n").replace(/\r/g, "").replace(/\n/g, "\r\n"),
         recipeConfig: [
             {
-                op: "Public Key from Certificate",
+                op: "从证书提取公钥",
                 args: [],
             }
         ],

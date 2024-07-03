@@ -1543,12 +1543,12 @@ class OutputWaiter {
             this.app.ioSplitter.collapse(0);
 
             $(el).attr("data-original-title", "恢复");
-            $(el).attr("aria-label", "Restore output pane");
+            $(el).attr("aria-label", "恢复输出框");
             el.querySelector("i").innerHTML = "fullscreen_exit";
         } else {
             document.body.classList.remove("output-maximised");
             $(el).attr("data-original-title", "最大化");
-            $(el).attr("aria-label", "Maximise output pane");
+            $(el).attr("aria-label", "最大化输出框");
             el.querySelector("i").innerHTML = "fullscreen";
             this.app.initialiseSplitter(false);
             this.app.resetLayout();

@@ -7,6 +7,8 @@
  *
  * JA4 Copyright 2023 FoxIO, LLC.
  * @license BSD-3-Clause
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import OperationError from "../errors/OperationError.mjs";
@@ -29,7 +31,7 @@ export function toJA4(bytes) {
             throw new Error();
         }
     } catch (err) {
-        throw new OperationError("Data is not a valid TLS Client Hello. QUIC is not yet supported.\n" + err);
+        throw new OperationError("数据不是有效的TLS Client Hello。暂不支持QUIC协议。\n" + err);
     }
 
     /* QUIC
@@ -174,7 +176,7 @@ export function toJA4S(bytes) {
             throw new Error();
         }
     } catch (err) {
-        throw new OperationError("Data is not a valid TLS Server Hello. QUIC is not yet supported.\n" + err);
+        throw new OperationError("数据不是有效的TLS Client Hello。暂不支持QUIC协议。\n" + err);
     }
 
     /* QUIC

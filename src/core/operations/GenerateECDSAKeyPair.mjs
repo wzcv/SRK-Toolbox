@@ -2,6 +2,8 @@
  * @author cplussharp
  * @copyright Crown Copyright 2021
  * @license Apache-2.0
+ *
+ * Modified by Raka-loah@github for zh-CN i18n
  */
 
 import Operation from "../Operation.mjs";
@@ -19,15 +21,15 @@ class GenerateECDSAKeyPair extends Operation {
     constructor() {
         super();
 
-        this.name = "Generate ECDSA Key Pair";
+        this.name = "生成ECDSA密钥对";
         this.module = "Ciphers";
-        this.description = `Generate an ECDSA key pair with a given Curve.<br><br>${cryptNotice}`;
+        this.description = `使用给定的曲线生成ECDSA密钥对。<br><br>${cryptNotice}`;
         this.infoURL = "https://wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm";
         this.inputType = "string";
         this.outputType = "string";
         this.args = [
             {
-                name: "Elliptic Curve",
+                name: "椭圆曲线",
                 type: "option",
                 value: [
                     "P-256",
@@ -36,7 +38,7 @@ class GenerateECDSAKeyPair extends Operation {
                 ]
             },
             {
-                name: "Output Format",
+                name: "输出格式",
                 type: "option",
                 value: [
                     "PEM",
