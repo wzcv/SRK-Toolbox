@@ -694,7 +694,7 @@ module.exports = {
 
         /* Complex deep link populates the input correctly (encoding, eol, input) */
         browser
-            .urlHash("recipe=To_Base64('A-Za-z0-9%2B/%3D')&input=VGhlIHNoaXBzIGh1bmcgaW4gdGhlIHNreSBpbiBtdWNoIHRoZSBzYW1lIHdheSB0aGF0IGJyaWNrcyBkb24ndC4M&ienc=21866&oenc=1201&ieol=FF&oeol=PS")
+            .urlHash("recipe=Base64编码('A-Za-z0-9%2B/%3D')&input=VGhlIHNoaXBzIGh1bmcgaW4gdGhlIHNreSBpbiBtdWNoIHRoZSBzYW1lIHdheSB0aGF0IGJyaWNrcyBkb24ndC4M&ienc=21866&oenc=1201&ieol=FF&oeol=PS")
             .waitForElementVisible("#rec-list li.operation");
 
     //     browser.expect.element(`#input-text .cm-content`).to.have.property("textContent").match(/^.{65}$/);

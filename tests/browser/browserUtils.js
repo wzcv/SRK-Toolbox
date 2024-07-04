@@ -53,7 +53,7 @@ function bake(browser) {
     browser
         // Ensure we're not currently busy
         .waitForElementNotVisible("#output-loader", 5000)
-        .expect.element("#bake span").text.to.equal("BAKE!");
+        .expect.element("#bake span").text.to.equal("开整！");
 
     browser
         .click("#bake")

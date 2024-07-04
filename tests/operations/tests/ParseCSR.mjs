@@ -31,17 +31,17 @@ NFgFNIvSXhbqMYoHAAApMHJOxiWpBFdYKp3tESnlgh2lUh7lQtmOjD4a1dzfU8PU
 oViyp+UJGasN2WRd+4VtaPw64w==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_RSA_1024 = `Subject
+const OUT_EXAMPLE_COM_RSA_1024 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      RSA
-  Length:         1024 bits
-  Modulus:        00:ae:b4:eb:2c:8e:85:93:38:d7:f0:56:5f:72:5b:76:
+公钥
+  算法:           RSA
+  长度:           1024 bits
+  模数:           00:ae:b4:eb:2c:8e:85:93:38:d7:f0:56:5f:72:5b:76:
                   a3:1d:43:cf:b2:91:c2:de:5f:e9:f7:d9:89:ce:ed:c0:
                   b0:0a:27:86:a8:fc:7d:c0:3e:3c:28:15:55:17:1a:38:
                   8d:8f:f5:c5:d9:19:48:77:85:31:07:56:fa:0a:05:a3:
@@ -50,10 +50,10 @@ Public Key
                   86:e7:e5:fe:36:ee:82:3b:34:e9:50:f0:e3:e1:b2:08:
                   5f:fb:8f:93:77:c3:60:31:2a:2c:29:55:cb:cf:d5:4b:
                   8f
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      SHA256withRSA
-  Signature:      74:99:49:4f:82:de:a9:b7:f9:23:0f:4a:73:39:43:64:
+  指数:           65537 (0x10001)
+签名
+  算法:           SHA256withRSA
+  签名:           74:99:49:4f:82:de:a9:b7:f9:23:0f:4a:73:39:43:64:
                   e5:ef:67:04:54:18:40:6b:86:20:71:98:6c:f5:f7:9a:
                   2e:16:77:db:d4:09:d3:e2:c6:d3:d2:4e:e9:c7:5a:cd:
                   9c:c5:7d:a7:33:cf:8c:75:c3:53:63:ee:d0:34:58:05:
@@ -61,15 +61,15 @@ Signature
                   25:a9:04:57:58:2a:9d:ed:11:29:e5:82:1d:a5:52:1e:
                   e5:42:d9:8e:8c:3e:1a:d5:dc:df:53:c3:d4:a1:58:b2:
                   a7:e5:09:19:ab:0d:d9:64:5d:fb:85:6d:68:fc:3a:e3
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -99,17 +99,17 @@ m9cpVxuxGLtONBnohzohnFECytSXWEXPIj8L9SpYK97G02nJYYCAcb5BF11Alfux
 sNxtsr6zgPaLRrvOBT11WxJVKerbhfezAJ3naem1eM3VLxCGWwMwxg==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_RSA_2048 = `Subject
+const OUT_EXAMPLE_COM_RSA_2048 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      RSA
-  Length:         2048 bits
-  Modulus:        00:a3:e8:80:b9:96:3e:e2:bf:20:67:5c:b7:6b:ff:dc:
+公钥
+  算法:           RSA
+  长度:           2048 bits
+  模数:           00:a3:e8:80:b9:96:3e:e2:bf:20:67:5c:b7:6b:ff:dc:
                   c1:4a:55:a5:5e:2a:9d:87:97:96:ad:ff:30:c5:2c:20:
                   1e:e7:56:f0:87:b0:6a:35:52:44:72:2e:00:a7:09:57:
                   03:55:95:99:03:c1:14:12:65:63:04:19:56:3c:f9:50:
@@ -126,10 +126,10 @@ Public Key
                   8f:4e:03:6c:44:ee:02:2a:e8:35:67:09:a1:f3:2e:9a:
                   71:9e:ec:61:bf:dd:6a:bf:07:39:ea:89:9d:cd:29:0a:
                   ff
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      SHA256withRSA
-  Signature:      1b:47:23:7d:10:58:d6:90:73:bb:e8:df:ef:23:10:ac:
+  指数:           65537 (0x10001)
+签名
+  算法:           SHA256withRSA
+  签名:           1b:47:23:7d:10:58:d6:90:73:bb:e8:df:ef:23:10:ac:
                   ae:66:42:b8:7b:d9:a8:ab:56:e5:c7:9a:87:21:9b:25:
                   31:ca:dd:06:ee:8b:e7:36:12:84:af:e5:fd:b2:74:a1:
                   24:b8:b9:aa:5c:af:9d:bd:ab:a2:2c:25:0a:6b:b0:18:
@@ -145,15 +145,15 @@ Signature
                   be:41:17:5d:40:95:fb:b1:b0:dc:6d:b2:be:b3:80:f6:
                   8b:46:bb:ce:05:3d:75:5b:12:55:29:ea:db:85:f7:b3:
                   00:9d:e7:69:e9:b5:78:cd:d5:2f:10:86:5b:03:30:c6
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -176,16 +176,16 @@ zj0EAwIDSAAwRQIgQkum/qaLzE3QZ3WD00uLpalUn113FObd7rM5Mr3HQwQCIQCr
 7OjzYI9v7qIJp/E9N16XfJN87G2ZVIZ4FuPXVjokCQ==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_EC_P256 = `Subject
+const OUT_EXAMPLE_COM_EC_P256 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      ECDSA
-  Length:         256 bits
+公钥
+  算法:           ECDSA
+  长度:           256 bits
   Pub:            04:09:a9:61:73:61:f8:bf:44:d1:0d:ec:2e:1a:ce:f8:
                   c1:75:5e:02:82:7e:a2:67:b6:b3:b2:22:4a:c6:c2:88:
                   90:7e:d1:db:25:64:c0:e9:db:b1:42:15:3f:dd:df:41:
@@ -193,22 +193,22 @@ Public Key
                   9e
   ASN1 OID:       secp256r1
   NIST CURVE:     P-256
-Signature
-  Algorithm:      SHA256withECDSA
-  Signature:      30:45:02:20:42:4b:a6:fe:a6:8b:cc:4d:d0:67:75:83:
+签名
+  算法:           SHA256withECDSA
+  签名:           30:45:02:20:42:4b:a6:fe:a6:8b:cc:4d:d0:67:75:83:
                   d3:4b:8b:a5:a9:54:9f:5d:77:14:e6:dd:ee:b3:39:32:
                   bd:c7:43:04:02:21:00:ab:ec:e8:f3:60:8f:6f:ee:a2:
                   09:a7:f1:3d:37:5e:97:7c:93:7c:ec:6d:99:54:86:78:
                   16:e3:d7:56:3a:24:09
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -232,16 +232,16 @@ aNHEC+qfuIitonWHOatm+qiiaNSh80QjLw5P1rszg9yQQigHd8cD7I4DAjEAzmo1
 DLpcESwZCBrh3sPflDA38TZjoedRNeWcVxdn1QmwDWMeprD/zgPAey8GOmyj
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_EC_P384 = `Subject
+const OUT_EXAMPLE_COM_EC_P384 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      ECDSA
-  Length:         384 bits
+公钥
+  算法:           ECDSA
+  长度:           384 bits
   Pub:            04:4d:eb:a5:13:b5:eb:83:6d:5f:1d:a4:60:c3:f5:ce:
                   53:7b:62:01:c4:8a:77:0e:e1:88:30:a3:20:18:c8:99:
                   b7:2f:07:1b:47:e5:f2:2a:0e:80:fe:2f:83:51:a1:96:
@@ -251,24 +251,24 @@ Public Key
                   7f
   ASN1 OID:       secp384r1
   NIST CURVE:     P-384
-Signature
-  Algorithm:      SHA256withECDSA
-  Signature:      30:66:02:31:00:96:ae:d1:68:45:d4:68:d1:c4:0b:ea:
+签名
+  算法:           SHA256withECDSA
+  签名:           30:66:02:31:00:96:ae:d1:68:45:d4:68:d1:c4:0b:ea:
                   9f:b8:88:ad:a2:75:87:39:ab:66:fa:a8:a2:68:d4:a1:
                   f3:44:23:2f:0e:4f:d6:bb:33:83:dc:90:42:28:07:77:
                   c7:03:ec:8e:03:02:31:00:ce:6a:35:0c:ba:5c:11:2c:
                   19:08:1a:e1:de:c3:df:94:30:37:f1:36:63:a1:e7:51:
                   35:e5:9c:57:17:67:d5:09:b0:0d:63:1e:a6:b0:ff:ce:
                   03:c0:7b:2f:06:3a:6c:a3
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -294,16 +294,16 @@ DVik93CLqjFm5Ieq02d81GwusSgAA82WlZZVZRsTEjkZXtk96zMBnh5/uxk+wN+j
 uhcl2rK/DLQutuJF6JIBe5s7lieKfQ==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_EC_P521 = `Subject
+const OUT_EXAMPLE_COM_EC_P521 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      ECDSA
-  Length:         521 bits
+公钥
+  算法:           ECDSA
+  长度:           521 bits
   Pub:            04:00:a7:f9:05:10:79:ee:cb:df:82:54:73:e5:d3:34:
                   6e:72:40:9e:27:8c:16:33:63:38:57:1a:e7:fa:49:d9:
                   b3:a9:39:19:29:f5:4a:25:c7:ff:e6:1d:8e:56:38:c6:
@@ -315,9 +315,9 @@ Public Key
                   f1:3e:3c:e5:37
   ASN1 OID:       secp521r1
   NIST CURVE:     P-521
-Signature
-  Algorithm:      SHA256withECDSA
-  Signature:      30:81:87:02:41:0d:e2:29:4a:eb:c8:4f:e9:22:13:46:
+签名
+  算法:           SHA256withECDSA
+  签名:           30:81:87:02:41:0d:e2:29:4a:eb:c8:4f:e9:22:13:46:
                   67:27:03:d2:0d:58:a4:f7:70:8b:aa:31:66:e4:87:aa:
                   d3:67:7c:d4:6c:2e:b1:28:00:03:cd:96:95:96:55:65:
                   1b:13:12:39:19:5e:d9:3d:eb:33:01:9e:1e:7f:bb:19:
@@ -326,15 +326,15 @@ Signature
                   90:fd:99:fc:3f:49:5e:99:26:22:e2:2c:84:fd:c9:ea:
                   00:d1:9a:27:ba:17:25:da:b2:bf:0c:b4:2e:b6:e2:45:
                   e8:92:01:7b:9b:3b:96:27:8a:7d
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -366,16 +366,16 @@ ezKrOKpP07i2E9Zz0n/yjIvw4wIdAMB5yVMOEgI877vOFQ7zzf7oDR9eJMYlf4QV
 2sQ=
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_DSA_1024 = `Subject
+const OUT_EXAMPLE_COM_DSA_1024 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      DSA
-  Length:         1024 bits
+公钥
+  算法:           DSA
+  长度:           1024 bits
   Pub:            00:cc:f5:e6:54:4f:54:08:fc:72:37:b7:4a:16:ee:00:
                   21:cf:54:4f:39:77:44:e4:d0:3c:3d:a9:47:10:34:23:
                   52:e8:0d:d2:4d:26:d4:88:b1:8a:7a:24:4c:1a:0d:af:
@@ -405,22 +405,22 @@ Public Key
                   7a:3a:f4:05:c6:6f:ce:4c:d4:d3:91:e9:85:74:07:e9:
                   4f:f6:03:4b:0f:a7:d7:12:ce:0d:37:de:81:3f:e8:c8:
                   ea
-Signature
-  Algorithm:      SHA256withDSA
-  Signature:
+签名
+  算法:           SHA256withDSA
+  签名:
       R:          00:91:3a:20:51:4c:8a:13:9b:fd:7b:32:ab:38:aa:4f:
                   d3:b8:b6:13:d6:73:d2:7f:f2:8c:8b:f0:e3
       S:          00:c0:79:c9:53:0e:12:02:3c:ef:bb:ce:15:0e:f3:cd:
                   fe:e8:0d:1f:5e:24:c6:25:7f:84:15:da:c4
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -460,16 +460,16 @@ MCfsZUeycKrKQmAJAHxuoGPCKl7yAhwhNH9RNxBm5roO2U901BeF2p0pT410ghH8
 oA+F
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_DSA_2048 = `Subject
+const OUT_EXAMPLE_COM_DSA_2048 = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      DSA
-  Length:         2048 bits
+公钥
+  算法:           DSA
+  长度:           2048 bits
   Pub:            29:d5:bf:ed:51:3a:b5:22:1c:0c:27:c5:71:a5:b1:97:
                   53:11:86:5f:59:b1:3c:0a:d7:ab:d7:92:4d:36:a8:7f:
                   67:57:1d:22:9f:66:d6:df:eb:54:5e:bd:9d:25:90:be:
@@ -521,22 +521,22 @@ Public Key
                   23:3c:8d:c1:85:3a:69:99:58:01:4d:c2:dd:37:6e:af:
                   7f:31:ad:2a:de:30:74:0f:2c:fb:20:31:a6:f0:3e:98:
                   ef:bd:30:25:13:f7:8d:fe:e2:09:56:2d:f2:30:78:f6
-Signature
-  Algorithm:      SHA256withDSA
-  Signature:
+签名
+  算法:           SHA256withDSA
+  签名:
       R:          00:b2:ae:cb:68:a9:fb:ec:30:27:ec:65:47:b2:70:aa:
                   ca:42:60:09:00:7c:6e:a0:63:c2:2a:5e:f2
       S:          21:34:7f:51:37:10:66:e6:ba:0e:d9:4f:74:d4:17:85:
                   da:9d:29:4f:8d:74:82:11:fc:a0:0f:85
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -580,17 +580,17 @@ sJzlG6/nhmMaCqneIn97gkguvSgpOuKSeo/fjbpnthufgilrpDQoGrhZaXic0GVZ
 oA==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_SAN = `Subject
+const OUT_EXAMPLE_COM_SAN = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      RSA
-  Length:         4096 bits
-  Modulus:        00:97:fc:b9:00:c5:71:07:e3:ea:a0:ae:3d:ae:21:37:
+公钥
+  算法:           RSA
+  长度:           4096 bits
+  模数:           00:97:fc:b9:00:c5:71:07:e3:ea:a0:ae:3d:ae:21:37:
                   20:d6:af:72:f0:cd:f7:37:a9:06:5d:3a:03:49:fe:4c:
                   a6:1b:1c:51:1d:45:c9:c8:1b:60:92:60:2a:0e:84:86:
                   9a:0d:61:51:68:2d:f5:e6:70:77:f0:9f:e1:67:77:aa:
@@ -623,10 +623,10 @@ Public Key
                   84:9f:13:ac:89:6a:fb:96:e4:56:8d:4e:0e:e8:72:44:
                   8c:3d:60:1d:7d:22:b9:b2:b5:a5:6f:91:1f:3a:db:82:
                   dd
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      SHA256withRSA
-  Signature:      2d:3a:e8:7a:30:4a:da:97:08:02:84:91:c1:68:62:5a:
+  指数:           65537 (0x10001)
+签名
+  算法:           SHA256withRSA
+  签名:           2d:3a:e8:7a:30:4a:da:97:08:02:84:91:c1:68:62:5a:
                   bc:1c:69:09:0d:29:e4:ae:fb:46:50:0f:22:4e:50:32:
                   fe:74:f3:a0:f1:89:91:05:04:a0:91:89:94:6d:90:eb:
                   e8:d1:a0:87:52:7d:da:c0:3a:e5:10:e8:04:0a:20:18:
@@ -658,15 +658,15 @@ Signature
                   99:9b:3a:1d:ed:2c:c5:5f:e2:8a:32:c9:a2:df:38:27:
                   d5:d8:53:75:da:b0:da:de:97:56:85:0e:0c:54:de:20:
                   83:d5:37:0a:ad:31:ef:24:50:2a:24:81:94:19:f0:a0
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com
     IP: 127.0.0.1
@@ -700,17 +700,17 @@ Xr9GUXL3FqUb7sIaYKAaghr2haqKhFsIH57XVK3DZYhOkLd9uC8TLdl2e+t9Hcy9
 ymLwiIGMUfuBQMP8nVu3jGXAQ5N4VV+IZfF8UaBFW8tG+Ms2TeW68Q==
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_KEY_USAGE = `Subject
+const OUT_EXAMPLE_COM_KEY_USAGE = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      RSA
-  Length:         2048 bits
-  Modulus:        00:a1:d0:5b:1a:ad:74:94:35:97:b0:29:4e:0c:20:b3:
+公钥
+  算法:           RSA
+  长度:           2048 bits
+  模数:           00:a1:d0:5b:1a:ad:74:94:35:97:b0:29:4e:0c:20:b3:
                   2a:cd:fe:44:43:ae:88:3f:0e:c5:25:65:08:37:62:87:
                   58:e1:14:40:80:fa:fe:01:e4:35:06:1b:96:0d:5c:5a:
                   5d:e8:a7:d1:79:97:38:44:87:80:af:59:ed:7f:e1:2e:
@@ -727,10 +727,10 @@ Public Key
                   3e:bd:2a:ca:66:3f:ac:b2:e2:82:21:63:3b:bb:d0:62:
                   83:62:34:9a:21:25:e4:05:eb:0e:5c:19:3c:18:4c:f4:
                   53
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      SHA256withRSA
-  Signature:      3c:ea:fa:8d:fa:bf:99:78:a5:a9:70:35:d4:24:f3:6b:
+  指数:           65537 (0x10001)
+签名
+  算法:           SHA256withRSA
+  签名:           3c:ea:fa:8d:fa:bf:99:78:a5:a9:70:35:d4:24:f3:6b:
                   af:58:75:de:1f:be:9e:aa:50:6e:3b:3d:e7:f3:42:a4:
                   a6:62:da:54:ca:dc:19:44:b1:90:d4:81:51:95:87:97:
                   c1:b6:b3:54:b9:11:98:b3:70:a5:b0:7c:0b:97:e1:f4:
@@ -746,20 +746,20 @@ Signature
                   d9:76:7b:eb:7d:1d:cc:bd:ca:62:f0:88:81:8c:51:fb:
                   81:40:c3:fc:9d:5b:b7:8c:65:c0:43:93:78:55:5f:88:
                   65:f1:7c:51:a0:45:5b:cb:46:f8:cb:36:4d:e5:ba:f1
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Non-repudiation
-    Key encipherment
-    Data encipherment
-    Key agreement
-    Key certificate signing
-    CRL signing
-  Extended Key Usage:
-    TLS Web Server Authentication
-  Subject Alternative Name:
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    非否认
+    密钥加密
+    数据加密
+    密钥协商
+    证书签名
+    CRL签名
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -792,17 +792,17 @@ pMBis9CL4AbXtTcztU5qy4VpB1/Ej3AbAjuJIbpbPH6XtxIEtqdM4Seqi44w9oX4
 rxQagXmvJPp+E4253EkeHwhfHh4SnJEtsibQ
 -----END CERTIFICATE REQUEST-----`;
 
-const OUT_EXAMPLE_COM_EXTENDED_KEY_USAGE = `Subject
+const OUT_EXAMPLE_COM_EXTENDED_KEY_USAGE = `主体
   C  = CH
   ST = Zurich
   L  = Zurich
   O  = Example RE
   OU = IT Department
   CN = example.com
-Public Key
-  Algorithm:      RSA
-  Length:         2048 bits
-  Modulus:        00:c8:d0:fc:1c:fe:0b:30:3f:59:a4:be:37:2a:77:8a:
+公钥
+  算法:           RSA
+  长度:           2048 bits
+  模数:           00:c8:d0:fc:1c:fe:0b:30:3f:59:a4:be:37:2a:77:8a:
                   35:b3:62:52:98:ec:69:80:fd:ad:85:bb:33:52:3d:09:
                   6b:5a:e1:b2:64:97:1f:6f:40:a9:2c:8a:51:17:ca:9c:
                   0e:59:40:7b:e8:45:42:75:46:9e:4d:ec:bd:02:21:7c:
@@ -819,10 +819,10 @@ Public Key
                   19:e3:d6:f2:42:c4:40:5d:6f:13:36:73:9a:2b:d3:e1:
                   9a:fc:32:fe:2a:c4:5d:4f:4f:12:5d:ee:ec:ab:d2:9c:
                   d7
-  Exponent:       65537 (0x10001)
-Signature
-  Algorithm:      SHA256withRSA
-  Signature:      9c:61:68:f5:78:8c:63:fc:55:04:86:19:b6:95:9a:f4:
+  指数:           65537 (0x10001)
+签名
+  算法:           SHA256withRSA
+  签名:           9c:61:68:f5:78:8c:63:fc:55:04:86:19:b6:95:9a:f4:
                   e8:fa:b8:18:4b:48:56:c3:16:c3:92:2b:52:7d:85:20:
                   56:ff:c9:8f:31:18:7b:81:e6:fe:d7:34:0f:fc:ce:14:
                   56:bc:80:17:19:a6:bc:06:76:a3:93:89:91:d2:b9:31:
@@ -838,18 +838,18 @@ Signature
                   21:ba:5b:3c:7e:97:b7:12:04:b6:a7:4c:e1:27:aa:8b:
                   8e:30:f6:85:f8:af:14:1a:81:79:af:24:fa:7e:13:8d:
                   b9:dc:49:1e:1f:08:5f:1e:1e:12:9c:91:2d:b2:26:d0
-Requested Extensions
-  Basic Constraints: critical
-    CA = false
-  Key Usage: critical
-    Digital Signature
-    Key encipherment
-  Extended Key Usage:
-    TLS Web Server Authentication
-    TLS Web Client Authentication
-    Code signing
-    E-mail Protection (S/MIME)
-    Trusted Timestamping
+请求的扩展程序
+  证书基本约束: 关键
+    CA = 否
+  证书密钥用法: 关键
+    签名
+    密钥加密
+  扩展密钥用法:
+    TLS WWW 服务器身份验证
+    TLS WWW 客户端身份验证
+    代码签名
+    电子邮件保护 (S/MIME)
+    可信任时间戳
     Microsoft Individual Code Signing
     Microsoft Commercial Code Signing
     Microsoft Trust List Signing
@@ -857,7 +857,7 @@ Requested Extensions
     Microsoft Encrypted File System
     Microsoft Smartcard Login
     Microsoft Server Gated Crypto
-  Subject Alternative Name:
+  主体备用名称:
     DNS: example.com
     DNS: www.example.com`;
 
@@ -868,7 +868,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_RSA_1024,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -879,7 +879,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_RSA_2048,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -890,7 +890,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_EC_P256,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -901,7 +901,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_EC_P384,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -912,7 +912,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_EC_P521,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -923,7 +923,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_DSA_1024,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -934,7 +934,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_DSA_2048,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -945,7 +945,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_DSA_2048,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -956,7 +956,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_SAN,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -967,7 +967,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_KEY_USAGE,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]
@@ -978,7 +978,7 @@ TestRegister.addTests([
         expectedOutput: OUT_EXAMPLE_COM_EXTENDED_KEY_USAGE,
         recipeConfig: [
             {
-                "op": "Parse CSR",
+                "op": "解析CSR",
                 "args": ["PEM"]
             }
         ]

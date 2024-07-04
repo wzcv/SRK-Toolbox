@@ -52,7 +52,7 @@ class Recipe  {
                     disabled: c.disabled || c.op === "Comment",
                 });
             } catch (error) {
-                console.log(`[WARNING] ${c.op} Not found: ${error}`);
+                log.warn(`[WARNING] ${c.op} Not found: ${error}`);
             }
 
         });

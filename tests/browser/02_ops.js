@@ -238,7 +238,7 @@ module.exports = {
         // testOp(browser, "OR", "test input", "test_output");
         // testOp(browser, "Object Identifier to Hex", "test input", "test_output");
         testOpHtml(browser, "偏移检测", "test input\n\nbest input", ".hl5", "est input");
-        testOpFile(browser, "Optical Character Recognition", "files/testocr.png", false, /This is a lot of 12 point text to test the/, [], 10000);
+        testOpFile(browser, "光学字符识别", "files/testocr.png", false, /This is a lot of 12 point text to test the/, [], 10000);
         // testOp(browser, "PEM to Hex", "test input", "test_output");
     // testOp(browser, "PGP Decrypt", "test input", "test_output");
     // testOp(browser, "PGP Decrypt and Verify", "test input", "test_output");

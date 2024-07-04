@@ -57,10 +57,10 @@ class ParseCSR extends Operation {
         // Parse the CSR into JSON parameters
         const csrParam = new r.KJUR.asn1.csr.CSRUtil.getParam(input);
 
-        return `Subject\n${formatDnObj(csrParam.subject, 2)}
-Public Key${formatSubjectPublicKey(csrParam.sbjpubkey)}
-Signature${formatSignature(csrParam.sigalg, csrParam.sighex)}
-Requested Extensions${formatRequestedExtensions(csrParam)}`;
+        return `主体\n${formatDnObj(csrParam.subject, 2)}
+公钥${formatSubjectPublicKey(csrParam.sbjpubkey)}
+签名${formatSignature(csrParam.sigalg, csrParam.sighex)}
+请求的扩展程序${formatRequestedExtensions(csrParam)}`;
     }
 }
 
@@ -73,18 +73,18 @@ Requested Extensions${formatRequestedExtensions(csrParam)}`;
 function formatSignature(sigAlg, sigHex) {
     let out = `\n`;
 
-    out += `  Algorithm:      ${sigAlg}\n`;
+    out += `  算法:           ${sigAlg}\n`;
 
     if (new RegExp("withdsa", "i").test(sigAlg)) {
         const d = new r.KJUR.crypto.DSA();
         const sigParam = d.parseASN1Signature(sigHex);
-        out += `  Signature:
+        out += `  签名:
       R:          ${formatHexOntoMultiLine(absBigIntToHex(sigParam[0]))}
       S:          ${formatHexOntoMultiLine(absBigIntToHex(sigParam[1]))}\n`;
     } else if (new RegExp("withrsa", "i").test(sigAlg)) {
-        out += `  Signature:      ${formatHexOntoMultiLine(sigHex)}\n`;
+        out += `  签名:           ${formatHexOntoMultiLine(sigHex)}\n`;
     } else {
-        out += `  Signature:      ${formatHexOntoMultiLine(ensureHexIsPositiveInTwosComplement(sigHex))}\n`;
+        out += `  签名:           ${formatHexOntoMultiLine(ensureHexIsPositiveInTwosComplement(sigHex))}\n`;
     }
 
     return chop(out);
@@ -100,25 +100,25 @@ function formatSubjectPublicKey(publicKeyPEM) {
 
     const publicKey = r.KEYUTIL.getKey(publicKeyPEM);
     if (publicKey instanceof r.RSAKey) {
-        out += `  Algorithm:      RSA
-  Length:         ${publicKey.n.bitLength()} bits
-  Modulus:        ${formatHexOntoMultiLine(absBigIntToHex(publicKey.n))}
-  Exponent:       ${publicKey.e} (0x${Utils.hex(publicKey.e)})\n`;
+        out += `  算法:           RSA
+  长度:           ${publicKey.n.bitLength()} bits
+  模数:           ${formatHexOntoMultiLine(absBigIntToHex(publicKey.n))}
+  指数:           ${publicKey.e} (0x${Utils.hex(publicKey.e)})\n`;
     } else if (publicKey instanceof r.KJUR.crypto.ECDSA) {
-        out += `  Algorithm:      ECDSA
-  Length:         ${publicKey.ecparams.keylen} bits
+        out += `  算法:           ECDSA
+  长度:           ${publicKey.ecparams.keylen} bits
   Pub:            ${formatHexOntoMultiLine(publicKey.pubKeyHex)}
   ASN1 OID:       ${r.KJUR.crypto.ECDSA.getName(publicKey.getShortNISTPCurveName())}
   NIST CURVE:     ${publicKey.getShortNISTPCurveName()}\n`;
     } else if (publicKey instanceof r.KJUR.crypto.DSA) {
-        out += `  Algorithm:      DSA
-  Length:         ${publicKey.p.toString(16).length * 4} bits
+        out += `  算法:           DSA
+  长度:           ${publicKey.p.toString(16).length * 4} bits
   Pub:            ${formatHexOntoMultiLine(absBigIntToHex(publicKey.y))}
   P:              ${formatHexOntoMultiLine(absBigIntToHex(publicKey.p))}
   Q:              ${formatHexOntoMultiLine(absBigIntToHex(publicKey.q))}
   G:              ${formatHexOntoMultiLine(absBigIntToHex(publicKey.g))}\n`;
     } else {
-        out += `unsupported public key algorithm\n`;
+        out += `不支持的公钥算法\n`;
     }
 
     return chop(out);
@@ -138,22 +138,22 @@ function formatRequestedExtensions(csrParam) {
             switch (extension.extname) {
                 case "basicConstraints" :
                     parts = describeBasicConstraints(extension);
-                    formattedExtensions[0] = `  Basic Constraints:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
+                    formattedExtensions[0] = `  证书基本约束:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
                     break;
                 case "keyUsage" :
                     parts = describeKeyUsage(extension);
-                    formattedExtensions[1] = `  Key Usage:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
+                    formattedExtensions[1] = `  证书密钥用法:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
                     break;
                 case "extKeyUsage" :
                     parts = describeExtendedKeyUsage(extension);
-                    formattedExtensions[2] = `  Extended Key Usage:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
+                    formattedExtensions[2] = `  扩展密钥用法:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
                     break;
                 case "subjectAltName" :
                     parts = describeSubjectAlternativeName(extension);
-                    formattedExtensions[3] = `  Subject Alternative Name:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
+                    formattedExtensions[3] = `  主体备用名称:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`;
                     break;
                 default :
-                    parts = ["(unsuported extension)"];
+                    parts = ["(不支持的扩展程序)"];
                     formattedExtensions.push(`  ${extension.extname}:${formatExtensionCriticalTag(extension)}\n${indent(4, parts)}`);
             }
         }
@@ -176,7 +176,7 @@ function formatRequestedExtensions(csrParam) {
  * @returns String describing whether the extension is critical or not
  */
 function formatExtensionCriticalTag(extension) {
-    return Object.hasOwn(extension, "critical") && extension.critical ? " critical" : "";
+    return Object.hasOwn(extension, "critical") && extension.critical ? " 关键" : "";
 }
 
 /**
@@ -245,8 +245,8 @@ function formatMultiLine(longStr) {
 function describeBasicConstraints(extension) {
     const constraints = [];
 
-    constraints.push(`CA = ${Object.hasOwn(extension, "cA") && extension.cA ? "true" : "false"}`);
-    if (Object.hasOwn(extension, "pathLen")) constraints.push(`PathLenConstraint = ${extension.pathLen}`);
+    constraints.push(`CA = ${Object.hasOwn(extension, "cA") && extension.cA ? "是" : "否"}`);
+    if (Object.hasOwn(extension, "pathLen")) constraints.push(`中级CA证书数目上限 = ${extension.pathLen}`);
 
     return constraints;
 }
@@ -261,15 +261,15 @@ function describeKeyUsage(extension) {
     const usage = [];
 
     const kuIdentifierToName = {
-        digitalSignature: "Digital Signature",
-        nonRepudiation:   "Non-repudiation",
-        keyEncipherment:  "Key encipherment",
-        dataEncipherment: "Data encipherment",
-        keyAgreement:     "Key agreement",
-        keyCertSign:      "Key certificate signing",
-        cRLSign:          "CRL signing",
-        encipherOnly:     "Encipher Only",
-        decipherOnly:     "Decipher Only",
+        digitalSignature: "签名",
+        nonRepudiation:   "非否认",
+        keyEncipherment:  "密钥加密",
+        dataEncipherment: "数据加密",
+        keyAgreement:     "密钥协商",
+        keyCertSign:      "证书签名",
+        cRLSign:          "CRL签名",
+        encipherOnly:     "仅加密",
+        decipherOnly:     "仅解密",
     };
 
     if (Object.hasOwn(extension, "names")) {
@@ -277,7 +277,7 @@ function describeKeyUsage(extension) {
             if (Object.hasOwn(kuIdentifierToName, ku)) {
                 usage.push(kuIdentifierToName[ku]);
             } else {
-                usage.push(`unknown key usage (${ku})`);
+                usage.push(`未知的密钥用法 (${ku})`);
             }
         });
     }
@@ -297,11 +297,11 @@ function describeExtendedKeyUsage(extension) {
     const usage = [];
 
     const ekuIdentifierToName = {
-        "serverAuth":             "TLS Web Server Authentication",
-        "clientAuth":             "TLS Web Client Authentication",
-        "codeSigning":            "Code signing",
-        "emailProtection":        "E-mail Protection (S/MIME)",
-        "timeStamping":           "Trusted Timestamping",
+        "serverAuth":             "TLS WWW 服务器身份验证",
+        "clientAuth":             "TLS WWW 客户端身份验证",
+        "codeSigning":            "代码签名",
+        "emailProtection":        "电子邮件保护 (S/MIME)",
+        "timeStamping":           "可信任时间戳",
         "1.3.6.1.4.1.311.2.1.21": "Microsoft Individual Code Signing",  // msCodeInd
         "1.3.6.1.4.1.311.2.1.22": "Microsoft Commercial Code Signing",  // msCodeCom
         "1.3.6.1.4.1.311.10.3.1": "Microsoft Trust List Signing",  // msCTLSign
@@ -359,7 +359,7 @@ function describeSubjectAlternativeName(extension) {
                             names.push(`Other: ${altName[key].oid}::${altName[key].value.utf8str.str}`);
                             break;
                         default:
-                            names.push(`(unable to format SAN '${key}':${altName[key]})\n`);
+                            names.push(`(无法格式化SAN '${key}':${altName[key]})\n`);
                     }
                 });
             }
