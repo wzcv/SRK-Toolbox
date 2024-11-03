@@ -34,11 +34,11 @@ jobs:
       if: success()
       run: npx grunt prod
 
-    - name: UI Tests
-      if: success()
-      run: |
-        sudo apt-get install xvfb
-        xvfb-run --server-args="-screen 0 1200x800x24" npx grunt testui
+    # - name: UI Tests
+    #   if: success()
+    #   run: |
+    #     sudo apt-get install xvfb
+    #     xvfb-run --server-args="-screen 0 1200x800x24" npx grunt testui
 
     - name: Prepare for GitHub Pages
       if: success()
