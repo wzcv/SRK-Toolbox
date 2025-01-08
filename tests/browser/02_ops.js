@@ -314,7 +314,7 @@ module.exports = {
     // testOp(browser, "Shake", "test input", "test_output");
         testOpImage(browser, "锐化图像", "files/Hitchhikers_Guide.jpeg");
         testOpHtml(browser, "显示Base64偏移形式", "test input", "span:nth-last-of-type(2)", "B");
-        //testOpHtml(browser, "在地图上显示", "51.5007° N, 0.1246° W", "#presentedMap .leaflet-popup-content", "51.5007,-0.1246");
+        // testOpHtml(browser, "在地图上显示", "51.5007° N, 0.1246° W", "#presentedMap .leaflet-popup-content", "51.5007,-0.1246");
         // testOp(browser, "Sleep", "test input", "test_output");
     // testOp(browser, "SM3", "test input", "test output");
         // testOp(browser, "Snefru", "test input", "test_output");
