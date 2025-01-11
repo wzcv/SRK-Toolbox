@@ -292,7 +292,7 @@ module.exports = function (grunt) {
                     process: function (content, srcpath) {
                         if (srcpath.indexOf("index.html") >= 0) {
                             // Replace download link with version number
-                            content = content.replace(/<a [^>]+>下载离线版.+?<\/a>/,
+                            content = content.replace(/<a [^>]+>.+下载离线版SRK Toolbox.+?<\/a>/,
                                 `<span>版本 ${pkg.version}</span>`);
 
                             return grunt.template.process(content, srcpath);

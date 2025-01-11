@@ -46,7 +46,7 @@ export function toJA4(bytes) {
         the TLS version is the value of the Protocol Version. Handshake version (located at the top of the packet)
         should be ignored.
     */
-    let version = tlsr.version.value;
+    let version = tlsr.handshake.value.helloVersion.value;
     for (const ext of tlsr.handshake.value.extensions.value) {
         if (ext.type.value === "supported_versions") {
             version = parseHighestSupportedVersion(ext.value.data);
@@ -191,7 +191,7 @@ export function toJA4S(bytes) {
         the TLS version is the value of the Protocol Version. Handshake version (located at the top of the packet)
         should be ignored.
     */
-    let version = tlsr.version.value;
+    let version = tlsr.handshake.value.helloVersion.value;
     for (const ext of tlsr.handshake.value.extensions.value) {
         if (ext.type.value === "supported_versions") {
             version = parseHighestSupportedVersion(ext.value.data);

@@ -10,6 +10,7 @@ import Operation from "../Operation.mjs";
 import OperationError from "../errors/OperationError.mjs";
 import forge from "node-forge";
 import { MD_ALGORITHMS } from "../lib/RSA.mjs";
+import Utils from "../Utils.mjs";
 
 /**
  * RSA Verify operation
@@ -40,6 +41,11 @@ class RSAVerify extends Operation {
                 value: ""
             },
             {
+                name: "消息格式",
+                type: "option",
+                value: ["原始字节", "十六进制", "Base64"]
+            },
+            {
                 name: "消息摘要算法",
                 type: "option",
                 value: Object.keys(MD_ALGORITHMS)
@@ -53,7 +59,7 @@ class RSAVerify extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        const [pemKey, message, mdAlgo] = args;
+        const [pemKey, message, format, mdAlgo] = args;
         if (pemKey.replace("-----BEGIN RSA PUBLIC KEY-----", "").length === 0) {
             throw new OperationError("请输入公钥。");
         }
@@ -62,7 +68,8 @@ class RSAVerify extends Operation {
             const pubKey = forge.pki.publicKeyFromPem(pemKey);
             // Generate message digest
             const md = MD_ALGORITHMS[mdAlgo].create();
-            md.update(message, "utf8");
+            const messageStr = Utils.convertToByteString(message, format);
+            md.update(messageStr, "raw");
             // Compare signed message digest and generated message digest
             const result = pubKey.verify(md.digest().bytes(), input);
             return result ? "验证成功" : "验证失败";
