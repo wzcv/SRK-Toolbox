@@ -24,7 +24,7 @@ class JWTVerify extends Operation {
 
         this.name = "JWT验证";
         this.module = "Crypto";
-        this.description = "使用提供的secret或私钥验证JSON Web Token是否有效。<br><br>Key必须是HMAC算法的secret或PEM编码的RSA/ECDSA密钥。";
+        this.description = "Verifies that a JSON Web Token is valid and has been signed with the provided secret / private key.<br><br>The key should be either the secret for HMAC algorithms or the PEM-encoded public key for RSA and ECDSA.";
         this.infoURL = "https://wikipedia.org/wiki/JSON_Web_Token";
         this.inputType = "string";
         this.outputType = "JSON";

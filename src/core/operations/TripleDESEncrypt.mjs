@@ -24,7 +24,7 @@ class TripleDESEncrypt extends Operation {
 
         this.name = "3DES加密";
         this.module = "Ciphers";
-        this.description = "三重DES（3DES）对每个块进行三次DES来增加key长度。<br><br><b>Key:</b> 3DES的key长度为24字节（192位）。<br>DES的key长度为8字节（64位）。<br><br>你可以通过密钥派生操作来生成基于密码的key。<br><br><b>IV:</b>初始化向量的长度是8字节。<br><br><b>填充:</b>CBC和ECB模式下会使用PKCS#7填充。";
+        this.description = "Triple DES applies DES three times to each block to increase key size.<br><br><b>Key:</b> Triple DES uses a key length of 24 bytes (192 bits).<br><br>You can generate a password-based key using one of the KDF operations.<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used.";
         this.infoURL = "https://wikipedia.org/wiki/Triple_DES";
         this.inputType = "string";
         this.outputType = "string";
@@ -74,8 +74,7 @@ class TripleDESEncrypt extends Operation {
         if (key.length !== 24 && key.length !== 16) {
             throw new OperationError(`无效的key长度： ${key.length} 字节
 
-三重DES的key长度为24字节（192位）。
-DES的key长度为8字节（64位）。`);
+Triple DES uses a key length of 24 bytes (192 bits).`);
         }
         if (iv.length !== 8 && mode !== "ECB") {
             throw new OperationError(`无效的IV长度： ${iv.length} 字节

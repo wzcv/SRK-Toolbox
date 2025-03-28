@@ -78,8 +78,8 @@ class BlowfishDecrypt extends Operation {
 Blowfish的key长度需要在4到56字节之间（32-448位）`);
         }
 
-        if (iv.length !== 8) {
-            throw new OperationError(`无效的IV长度： ${iv.length}字节。必须为8字节。`);
+        if (mode !== "ECB" && iv.length !== 8) {
+            throw new OperationError(`无效的IV长度： ${iv.length}字节。必须为8字节。.`);
         }
 
         input = Utils.convertToByteString(input, inputType);

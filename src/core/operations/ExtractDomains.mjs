@@ -7,7 +7,7 @@
  */
 
 import Operation from "../Operation.mjs";
-import { search, DOMAIN_REGEX } from "../lib/Extract.mjs";
+import { search, DOMAIN_REGEX, DMARC_DOMAIN_REGEX } from "../lib/Extract.mjs";
 import { caseInsensitiveSort } from "../lib/Sort.mjs";
 
 /**
@@ -41,6 +41,11 @@ class ExtractDomains extends Operation {
                 name: "去重",
                 type: "boolean",
                 value: false
+            },
+            {
+                name: "Underscore (DMARC, DKIM, etc)",
+                type: "boolean",
+                value: false
             }
         ];
     }
@@ -51,11 +56,11 @@ class ExtractDomains extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        const [displayTotal, sort, unique] = args;
+        const [displayTotal, sort, unique, dmarc] = args;
 
         const results = search(
             input,
-            DOMAIN_REGEX,
+            dmarc ? DMARC_DOMAIN_REGEX : DOMAIN_REGEX,
             null,
             sort ? caseInsensitiveSort : null,
             unique

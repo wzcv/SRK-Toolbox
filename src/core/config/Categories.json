@@ -74,7 +74,10 @@
             "CBOR解码",
             "Caret/M-解码",
             "Rison编码",
-            "Rison解码"
+            "Rison解码",
+            "To Modhex",
+            "From Modhex",
+            "MIME Decoding"
         ]
     },
     {
@@ -164,6 +167,7 @@
         "name": "公钥",
         "ops": [
             "解析X.509证书",
+            "Parse X.509 CRL",
             "解析ASN.1十六进制字符串",
             "PEM转十六进制",
             "十六进制转PEM",
@@ -233,9 +237,14 @@
             "解析User Agent",
             "解析IP范围",
             "解析IPv6地址",
+            "IPv6 Transition Addresses",
             "解析IPv4首部",
+            "Strip IPv4 header",
             "解析TCP",
+            "Strip TCP header",
+            "Parse TLS record",
             "解析UDP",
+            "Strip UDP header",
             "解析SSH主机密钥",
             "解析URI",
             "URL编码",
@@ -268,7 +277,8 @@
             "Unicode文本格式",
             "移除变音符号",
             "Unicode转义恢复",
-            "转换为北约音标字母"
+            "转换为北约音标字母",
+            "Convert Leet Speak"
         ]
     },
     {
@@ -320,7 +330,9 @@
             "字符串转义恢复",
             "伪随机数生成器",
             "Sleep",
-            "文件树"
+            "文件树",
+            "Take nth bytes",
+            "Drop nth bytes"
         ]
     },
     {
