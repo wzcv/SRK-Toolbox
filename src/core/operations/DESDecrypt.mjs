@@ -24,7 +24,7 @@ class DESDecrypt extends Operation {
 
         this.name = "DES解密";
         this.module = "Ciphers";
-        this.description = "数据加密标准（英语：Data Encryption Standard，缩写为 DES）是一种对称密钥加密块密码算法，1976年被美国联邦政府的国家标准局确定为联邦资料处理标准（FIPS），随后在国际上广泛流传开来。DES现在已经不是一种安全的加密方法，主要因为它使用的56位密钥过短。<br><br><b>Key：</b>DES的key长度为8字节（64位）。<br>三重DES的key长度为24字节（192位）。<br><br>你可以通过密钥派生操作来生成基于密码的key。<br><br><b>IV：</b>初始化向量的长度是8字节。<br><br><b>填充：</b>CBC和ECB模式下会使用PKCS#7填充。";
+        this.description = "DES is a previously dominant algorithm for encryption, and was published as an official U.S. Federal Information Processing Standard (FIPS). It is now considered to be insecure due to its small key size.<br><br><b>Key:</b> DES uses a key length of 8 bytes (64 bits).<br><br><b>IV:</b> The Initialization Vector should be 8 bytes long. If not entered, it will default to 8 null bytes.<br><br><b>Padding:</b> In CBC and ECB mode, PKCS#7 padding will be used as a default.";
         this.infoURL = "https://wikipedia.org/wiki/Data_Encryption_Standard";
         this.inputType = "string";
         this.outputType = "string";
@@ -74,8 +74,7 @@ class DESDecrypt extends Operation {
         if (key.length !== 8) {
             throw new OperationError(`无效的key长度： ${key.length} 字节
 
-DES的key长度为8字节（64位）。
-三重DES的key长度为24字节（192位）。`);
+DES uses a key length of 8 bytes (64 bits).`);
         }
         if (iv.length !== 8 && mode !== "ECB") {
             throw new OperationError(`无效的IV长度： ${iv.length} 字节

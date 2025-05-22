@@ -38,6 +38,11 @@ class JWTSign extends Operation {
                 name: "签名算法",
                 type: "option",
                 value: JWT_ALGORITHMS
+            },
+            {
+                name: "Header",
+                type: "text",
+                value: "{}"
             }
         ];
     }
@@ -48,11 +53,12 @@ class JWTSign extends Operation {
      * @returns {string}
      */
     run(input, args) {
-        const [key, algorithm] = args;
+        const [key, algorithm, header] = args;
 
         try {
             return jwt.sign(input, key, {
-                algorithm: algorithm === "None" ? "none" : algorithm
+                algorithm: algorithm === "None" ? "none" : algorithm,
+                header: JSON.parse(header || "{}")
             });
         } catch (err) {
             throw new OperationError(`错误：Key必须是HMAC算法的secret或PEM编码的RSA/ECDSA密钥。

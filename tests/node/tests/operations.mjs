@@ -577,12 +577,11 @@ Top Drawer`, {
     }),
 
     it("Generate HOTP", () => {
-        const result = chef.generateHOTP("Cut The Mustard", {
-            名称: "colonel",
+        const result = chef.generateHOTP("JBSWY3DPEHPK3PXP", {
         });
-        const expected = `URI： otpauth://hotp/colonel?secret=IN2XIICUNBSSATLVON2GC4TE
+        const expected = `URI： otpauth://hotp/?secret=JBSWY3DPEHPK3PXP&algorithm=SHA1&digits=6&counter=0
 
-动态码： 034148`;
+动态码： 282760`;
         assert.strictEqual(result.toString(), expected);
     }),
 
