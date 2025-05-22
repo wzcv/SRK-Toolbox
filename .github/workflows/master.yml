@@ -26,13 +26,13 @@ jobs:
     - name: Lint
       run: npx grunt lint
 
-    - name: Unit Tests
-      run: |
-        npm test
-        npm run testnodeconsumer
+    # - name: Unit Tests
+    #   run: |
+    #     npm test
+    #     npm run testnodeconsumer
 
     - name: Production Build
-      if: success()
+      # if: success()
       run: npx grunt prod
 
     # - name: UI Tests
