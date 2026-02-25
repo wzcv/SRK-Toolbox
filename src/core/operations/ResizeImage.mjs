@@ -11,13 +11,12 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import Jimp from "jimp/es/index.js";
+import { Jimp, JimpMime, ResizeStrategy } from "jimp";
 
 /**
  * Resize Image operation
  */
 class ResizeImage extends Operation {
-
     /**
      * ResizeImage constructor
      */
@@ -26,7 +25,8 @@ class ResizeImage extends Operation {
 
         this.name = "图像尺寸修改";
         this.module = "Image";
-        this.description = "将图像尺寸变更为给定的高和宽。";
+        this.description =
+            "将图像尺寸变更为给定的高和宽。";
         this.infoURL = "https://wikipedia.org/wiki/Image_scaling";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -36,23 +36,23 @@ class ResizeImage extends Operation {
                 name: "宽度",
                 type: "number",
                 value: 100,
-                min: 1
+                min: 1,
             },
             {
                 name: "高度",
                 type: "number",
                 value: 100,
-                min: 1
+                min: 1,
             },
             {
                 name: "单位",
                 type: "option",
-                value: ["像素", "百分比"]
+                value: ["像素", "百分比"],
             },
             {
                 name: "保持长宽比",
                 type: "boolean",
-                value: false
+                value: false,
             },
             {
                 name: "缩放插值算法",
@@ -62,10 +62,10 @@ class ResizeImage extends Operation {
                     "双线性",
                     "双三次",
                     "Hermite",
-                    "Bezier"
+                    "Bezier",
                 ],
-                defaultIndex: 1
-            }
+                defaultIndex: 1,
+            },
         ];
     }
 
@@ -82,11 +82,11 @@ class ResizeImage extends Operation {
             resizeAlg = args[4];
 
         const resizeMap = {
-            "临近": Jimp.RESIZE_NEAREST_NEIGHBOR,
-            "双线性": Jimp.RESIZE_BILINEAR,
-            "双三次": Jimp.RESIZE_BICUBIC,
-            "Hermite": Jimp.RESIZE_HERMITE,
-            "Bezier": Jimp.RESIZE_BEZIER
+            "临近": ResizeStrategy.NEAREST_NEIGHBOR,
+            双线性: ResizeStrategy.BILINEAR,
+            双三次: ResizeStrategy.BICUBIC,
+            Hermite: ResizeStrategy.HERMITE,
+            Bezier: ResizeStrategy.BEZIER,
         };
 
         if (!isImage(input)) {
@@ -101,23 +101,31 @@ class ResizeImage extends Operation {
         }
         try {
             if (unit === "百分比") {
-                width = image.getWidth() * (width / 100);
-                height = image.getHeight() * (height / 100);
+                width = image.width * (width / 100);
+                height = image.height * (height / 100);
             }
 
             if (isWorkerEnvironment())
                 self.sendStatusMessage("缩放图像……");
             if (aspect) {
-                image.scaleToFit(width, height, resizeMap[resizeAlg]);
+                image.scaleToFit({
+                    w: width,
+                    h: height,
+                    mode: resizeMap[resizeAlg],
+                });
             } else {
-                image.resize(width, height, resizeMap[resizeAlg]);
+                image.resize({
+                    w: width,
+                    h: height,
+                    mode: resizeMap[resizeAlg],
+                });
             }
 
             let imageBuffer;
-            if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
+            if (image.mime === "image/gif") {
+                imageBuffer = await image.getBuffer(JimpMime.png);
             } else {
-                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
+                imageBuffer = await image.getBuffer(image.mime);
             }
             return imageBuffer.buffer;
         } catch (err) {
@@ -141,7 +149,6 @@ class ResizeImage extends Operation {
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;
     }
-
 }
 
 export default ResizeImage;

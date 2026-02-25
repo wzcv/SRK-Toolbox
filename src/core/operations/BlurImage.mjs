@@ -11,14 +11,12 @@ import OperationError from "../errors/OperationError.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
-import { gaussianBlur } from "../lib/ImageManipulation.mjs";
-import Jimp from "jimp/es/index.js";
+import { Jimp, JimpMime } from "jimp";
 
 /**
  * Blur Image operation
  */
 class BlurImage extends Operation {
-
     /**
      * BlurImage constructor
      */
@@ -27,7 +25,8 @@ class BlurImage extends Operation {
 
         this.name = "模糊图像";
         this.module = "Image";
-        this.description = "给图像应用模糊效果。<br><br>高斯模糊比快速模糊运算速度慢很多，但效果较好。";
+        this.description =
+            "给图像应用模糊效果。<br><br>高斯模糊比快速模糊运算速度慢很多，但效果较好。";
         this.infoURL = "https://wikipedia.org/wiki/Gaussian_blur";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -37,13 +36,13 @@ class BlurImage extends Operation {
                 name: "模糊量",
                 type: "number",
                 value: 5,
-                min: 1
+                min: 1,
             },
             {
                 name: "类型",
                 type: "option",
-                value: ["快速", "高斯"]
-            }
+                value: ["快速", "高斯"],
+            },
         ];
     }
 
@@ -75,15 +74,15 @@ class BlurImage extends Operation {
                 case "高斯":
                     if (isWorkerEnvironment())
                         self.sendStatusMessage("应用高斯模糊……");
-                    image = gaussianBlur(image, blurAmount);
+                    image.gaussian(blurAmount);
                     break;
             }
 
             let imageBuffer;
-            if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
+            if (image.mime === "image/gif") {
+                imageBuffer = await image.getBuffer(JimpMime.png);
             } else {
-                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
+                imageBuffer = await image.getBuffer(image.mime);
             }
             return imageBuffer.buffer;
         } catch (err) {
@@ -108,7 +107,6 @@ class BlurImage extends Operation {
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;
     }
-
 }
 
 export default BlurImage;

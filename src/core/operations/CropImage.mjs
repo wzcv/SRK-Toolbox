@@ -11,13 +11,12 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import Jimp from "jimp/es/index.js";
+import { Jimp, JimpMime } from "jimp";
 
 /**
  * Crop Image operation
  */
 class CropImage extends Operation {
-
     /**
      * CropImage constructor
      */
@@ -26,7 +25,8 @@ class CropImage extends Operation {
 
         this.name = "裁剪图像";
         this.module = "Image";
-        this.description = "将图像裁剪到给定区域，或自动裁剪到边缘。<br><br><b><u>自动裁剪</u></b><br>自动按照图片中同一颜色的边框裁剪。<br><br><u>自动裁剪容错</u><br>指边框像素之间色差允许的最大百分比值。<br><br><u>仅自动裁剪完整边框</u><br>仅裁剪完整边框（四边边框相同）。<br><br><u>对称自动裁剪</u><br>强制进行对称的自动裁剪（上下和左右裁剪相同长度）。<br><br><u>自动裁剪保留边框</u><br>裁剪边框外保留的像素数。";
+        this.description =
+            "将图像裁剪到给定区域，或自动裁剪到边缘。<br><br><b><u>自动裁剪</u></b><br>自动按照图片中同一颜色的边框裁剪。<br><br><u>自动裁剪容错</u><br>指边框像素之间色差允许的最大百分比值。<br><br><u>仅自动裁剪完整边框</u><br>仅裁剪完整边框（四边边框相同）。<br><br><u>对称自动裁剪</u><br>强制进行对称的自动裁剪（上下和左右裁剪相同长度）。<br><br><u>自动裁剪保留边框</u><br>裁剪边框外保留的像素数。";
         this.infoURL = "https://wikipedia.org/wiki/Cropping_(image)";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -36,30 +36,30 @@ class CropImage extends Operation {
                 name: "X坐标",
                 type: "number",
                 value: 0,
-                min: 0
+                min: 0,
             },
             {
                 name: "Y坐标",
                 type: "number",
                 value: 0,
-                min: 0
+                min: 0,
             },
             {
                 name: "宽度",
                 type: "number",
                 value: 10,
-                min: 1
+                min: 1,
             },
             {
                 name: "高度",
                 type: "number",
                 value: 10,
-                min: 1
+                min: 1,
             },
             {
                 name: "自动裁剪",
                 type: "boolean",
-                value: false
+                value: false,
             },
             {
                 name: "自动裁剪容错 (%)",
@@ -67,24 +67,24 @@ class CropImage extends Operation {
                 value: 0.02,
                 min: 0,
                 max: 100,
-                step: 0.01
+                step: 0.01,
             },
             {
                 name: "仅自动裁剪完整边框",
                 type: "boolean",
-                value: true
+                value: true,
             },
             {
                 name: "对称自动裁剪",
                 type: "boolean",
-                value: false
+                value: false,
             },
             {
                 name: "自动裁剪保留边框 (px)",
                 type: "number",
                 value: 0,
-                min: 0
-            }
+                min: 0,
+            },
         ];
     }
 
@@ -94,7 +94,17 @@ class CropImage extends Operation {
      * @returns {byteArray}
      */
     async run(input, args) {
-        const [xPos, yPos, width, height, autocrop, autoTolerance, autoFrames, autoSymmetric, autoBorder] = args;
+        const [
+            xPos,
+            yPos,
+            width,
+            height,
+            autocrop,
+            autoTolerance,
+            autoFrames,
+            autoSymmetric,
+            autoBorder,
+        ] = args;
         if (!isImage(input)) {
             throw new OperationError("无效的文件类型。");
         }
@@ -110,20 +120,25 @@ class CropImage extends Operation {
                 self.sendStatusMessage("裁剪图像……");
             if (autocrop) {
                 image.autocrop({
-                    tolerance: (autoTolerance / 100),
+                    tolerance: autoTolerance / 100,
                     cropOnlyFrames: autoFrames,
                     cropSymmetric: autoSymmetric,
-                    leaveBorder: autoBorder
+                    leaveBorder: autoBorder,
                 });
             } else {
-                image.crop(xPos, yPos, width, height);
+                image.crop({
+                    x: xPos,
+                    y: yPos,
+                    w: width,
+                    h: height,
+                });
             }
 
             let imageBuffer;
-            if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
+            if (image.mime === "image/gif") {
+                imageBuffer = await image.getBuffer(JimpMime.png);
             } else {
-                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
+                imageBuffer = await image.getBuffer(image.mime);
             }
             return imageBuffer.buffer;
         } catch (err) {
@@ -147,7 +162,6 @@ class CropImage extends Operation {
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;
     }
-
 }
 
 export default CropImage;

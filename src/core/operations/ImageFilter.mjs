@@ -11,13 +11,12 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import Jimp from "jimp/es/index.js";
+import { Jimp, JimpMime } from "jimp";
 
 /**
  * Image Filter operation
  */
 class ImageFilter extends Operation {
-
     /**
      * ImageFilter constructor
      */
@@ -35,11 +34,8 @@ class ImageFilter extends Operation {
             {
                 name: "滤镜类型",
                 type: "option",
-                value: [
-                    "灰度",
-                    "深褐（Sepia）"
-                ]
-            }
+                value: ["灰度", "深褐（Sepia）"],
+            },
         ];
     }
 
@@ -62,7 +58,11 @@ class ImageFilter extends Operation {
         }
         try {
             if (isWorkerEnvironment())
-                self.sendStatusMessage("应用 " + filterType.toLowerCase() + " 滤镜……");
+                self.sendStatusMessage(
+                    "应用 " +
+                        filterType.toLowerCase() +
+                        " 滤镜……",
+                );
             if (filterType === "灰度") {
                 image.greyscale();
             } else {
@@ -70,14 +70,16 @@ class ImageFilter extends Operation {
             }
 
             let imageBuffer;
-            if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
+            if (image.mime === "image/gif") {
+                imageBuffer = await image.getBuffer(JimpMime.png);
             } else {
-                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
+                imageBuffer = await image.getBuffer(image.mime);
             }
             return imageBuffer.buffer;
         } catch (err) {
-            throw new OperationError(`应用滤镜出错：(${err})`);
+            throw new OperationError(
+                `应用滤镜出错：(${err})`,
+            );
         }
     }
 
@@ -97,7 +99,6 @@ class ImageFilter extends Operation {
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;
     }
-
 }
 
 export default ImageFilter;

@@ -11,13 +11,18 @@ import OperationError from "../errors/OperationError.mjs";
 import { isImage } from "../lib/FileType.mjs";
 import { toBase64 } from "../lib/Base64.mjs";
 import { isWorkerEnvironment } from "../Utils.mjs";
-import Jimp from "jimp/es/index.js";
+import {
+    Jimp,
+    JimpMime,
+    ResizeStrategy,
+    HorizontalAlign,
+    VerticalAlign,
+} from "jimp";
 
 /**
  * Contain Image operation
  */
 class ContainImage extends Operation {
-
     /**
      * ContainImage constructor
      */
@@ -26,7 +31,8 @@ class ContainImage extends Operation {
 
         this.name = "容纳图像";
         this.module = "Image";
-        this.description = "将图像维持纵横比缩放并完整放置在指定宽高的图像区域中。图像可能会出现黑边。";
+        this.description =
+            "将图像维持纵横比缩放并完整放置在指定宽高的图像区域中。图像可能会出现黑边。";
         this.infoURL = "";
         this.inputType = "ArrayBuffer";
         this.outputType = "ArrayBuffer";
@@ -36,33 +42,25 @@ class ContainImage extends Operation {
                 name: "宽",
                 type: "number",
                 value: 100,
-                min: 1
+                min: 1,
             },
             {
                 name: "高",
                 type: "number",
                 value: 100,
-                min: 1
+                min: 1,
             },
             {
                 name: "水平对齐",
                 type: "option",
-                value: [
-                    "左对齐",
-                    "居中",
-                    "右对齐"
-                ],
-                defaultIndex: 1
+                value: ["左对齐", "居中", "右对齐"],
+                defaultIndex: 1,
             },
             {
                 name: "垂直对齐",
                 type: "option",
-                value: [
-                    "顶端",
-                    "中间",
-                    "底端"
-                ],
-                defaultIndex: 1
+                value: ["顶端", "中间", "底端"],
+                defaultIndex: 1,
             },
             {
                 name: "缩放插值算法",
@@ -72,15 +70,15 @@ class ContainImage extends Operation {
                     "双线性",
                     "双三次",
                     "Hermite",
-                    "Bezier"
+                    "Bezier",
                 ],
-                defaultIndex: 1
+                defaultIndex: 1,
             },
             {
                 name: "不透明背景",
                 type: "boolean",
-                value: true
-            }
+                value: true,
+            },
         ];
     }
 
@@ -93,20 +91,20 @@ class ContainImage extends Operation {
         const [width, height, hAlign, vAlign, alg, opaqueBg] = args;
 
         const resizeMap = {
-            "临近": Jimp.RESIZE_NEAREST_NEIGHBOR,
-            "双线性": Jimp.RESIZE_BILINEAR,
-            "双三次": Jimp.RESIZE_BICUBIC,
-            "Hermite": Jimp.RESIZE_HERMITE,
-            "Bezier": Jimp.RESIZE_BEZIER
+            "临近": ResizeStrategy.NEAREST_NEIGHBOR,
+            双线性: ResizeStrategy.BILINEAR,
+            双三次: ResizeStrategy.BICUBIC,
+            Hermite: ResizeStrategy.HERMITE,
+            Bezier: ResizeStrategy.BEZIER,
         };
 
         const alignMap = {
-            "左对齐": Jimp.HORIZONTAL_ALIGN_LEFT,
-            "居中": Jimp.HORIZONTAL_ALIGN_CENTER,
-            "右对齐": Jimp.HORIZONTAL_ALIGN_RIGHT,
-            "顶端": Jimp.VERTICAL_ALIGN_TOP,
-            "中间": Jimp.VERTICAL_ALIGN_MIDDLE,
-            "底端": Jimp.VERTICAL_ALIGN_BOTTOM
+            左对齐: HorizontalAlign.LEFT,
+            居中: HorizontalAlign.CENTER,
+            右对齐: HorizontalAlign.RIGHT,
+            顶端: VerticalAlign.TOP,
+            中间: VerticalAlign.MIDDLE,
+            底端: VerticalAlign.BOTTOM,
         };
 
         if (!isImage(input)) {
@@ -119,22 +117,35 @@ class ContainImage extends Operation {
         } catch (err) {
             throw new OperationError(`载入图像出错：(${err})`);
         }
+        const originalMime = image.mime;
         try {
             if (isWorkerEnvironment())
                 self.sendStatusMessage("容纳图像……");
-            image.contain(width, height, alignMap[hAlign] | alignMap[vAlign], resizeMap[alg]);
+            image.contain({
+                w: width,
+                h: height,
+                align: alignMap[hAlign] | alignMap[vAlign],
+                mode: resizeMap[alg],
+            });
 
             if (opaqueBg) {
-                const newImage = await Jimp.read(width, height, 0x000000FF);
-                newImage.blit(image, 0, 0);
-                image = newImage;
+                const newImage = new Jimp({
+                    width,
+                    height,
+                    color: 0x000000ff,
+                });
+                image = newImage.blit({
+                    src: image,
+                    x: 0,
+                    y: 0,
+                });
             }
 
             let imageBuffer;
-            if (image.getMIME() === "image/gif") {
-                imageBuffer = await image.getBufferAsync(Jimp.MIME_PNG);
+            if (originalMime === "image/gif") {
+                imageBuffer = await image.getBuffer(JimpMime.png);
             } else {
-                imageBuffer = await image.getBufferAsync(Jimp.AUTO);
+                imageBuffer = await image.getBuffer(originalMime);
             }
             return imageBuffer.buffer;
         } catch (err) {
@@ -158,7 +169,6 @@ class ContainImage extends Operation {
 
         return `<img src="data:${type};base64,${toBase64(dataArray)}">`;
     }
-
 }
 
 export default ContainImage;

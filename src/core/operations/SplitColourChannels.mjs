@@ -9,14 +9,13 @@
 import Operation from "../Operation.mjs";
 import OperationError from "../errors/OperationError.mjs";
 import Utils from "../Utils.mjs";
-import {isImage} from "../lib/FileType.mjs";
-import Jimp from "jimp/es/index.js";
+import { isImage } from "../lib/FileType.mjs";
+import { Jimp, JimpMime } from "jimp";
 
 /**
  * Split Colour Channels operation
  */
 class SplitColourChannels extends Operation {
-
     /**
      * SplitColourChannels constructor
      */
@@ -25,7 +24,8 @@ class SplitColourChannels extends Operation {
 
         this.name = "色彩通道分离";
         this.module = "Image";
-        this.description = "将给定图像分离成红、绿、蓝色通道。";
+        this.description =
+            "将给定图像分离成红、绿、蓝色通道。";
         this.infoURL = "https://wikipedia.org/wiki/Channel_(digital_image)";
         this.inputType = "ArrayBuffer";
         this.outputType = "List<File>";
@@ -50,26 +50,44 @@ class SplitColourChannels extends Operation {
                 const split = parsedImage
                     .clone()
                     .color([
-                        {apply: "blue", params: [-255]},
-                        {apply: "green", params: [-255]}
+                        { apply: "blue", params: [-255] },
+                        { apply: "green", params: [-255] },
                     ])
-                    .getBufferAsync(Jimp.MIME_PNG);
-                resolve(new File([new Uint8Array((await split).values())], "红.png", {type: "image/png"}));
+                    .getBuffer(JimpMime.png);
+                resolve(
+                    new File(
+                        [new Uint8Array((await split).values())],
+                        "红.png",
+                        { type: "image/png" },
+                    ),
+                );
             } catch (err) {
-                reject(new OperationError(`无法分离红色通道：${err}`));
+                reject(
+                    new OperationError(`无法分离红色通道：${err}`),
+                );
             }
         });
 
         const green = new Promise(async (resolve, reject) => {
             try {
-                const split = parsedImage.clone()
+                const split = parsedImage
+                    .clone()
                     .color([
-                        {apply: "red", params: [-255]},
-                        {apply: "blue", params: [-255]},
-                    ]).getBufferAsync(Jimp.MIME_PNG);
-                resolve(new File([new Uint8Array((await split).values())], "绿.png", {type: "image/png"}));
+                        { apply: "red", params: [-255] },
+                        { apply: "blue", params: [-255] },
+                    ])
+                    .getBuffer(JimpMime.png);
+                resolve(
+                    new File(
+                        [new Uint8Array((await split).values())],
+                        "绿.png",
+                        { type: "image/png" },
+                    ),
+                );
             } catch (err) {
-                reject(new OperationError(`无法分离绿色通道：${err}`));
+                reject(
+                    new OperationError(`无法分离绿色通道：${err}`),
+                );
             }
         });
 
@@ -77,12 +95,21 @@ class SplitColourChannels extends Operation {
             try {
                 const split = parsedImage
                     .color([
-                        {apply: "red", params: [-255]},
-                        {apply: "green", params: [-255]},
-                    ]).getBufferAsync(Jimp.MIME_PNG);
-                resolve(new File([new Uint8Array((await split).values())], "蓝.png", {type: "image/png"}));
+                        { apply: "red", params: [-255] },
+                        { apply: "green", params: [-255] },
+                    ])
+                    .getBuffer(JimpMime.png);
+                resolve(
+                    new File(
+                        [new Uint8Array((await split).values())],
+                        "蓝.png",
+                        { type: "image/png" },
+                    ),
+                );
             } catch (err) {
-                reject(new OperationError(`无法分离蓝色通道：${err}`));
+                reject(
+                    new OperationError(`无法分离蓝色通道：${err}`),
+                );
             }
         });
 
@@ -98,7 +125,6 @@ class SplitColourChannels extends Operation {
     async present(files) {
         return await Utils.displayFilesAsHTML(files);
     }
-
 }
 
 export default SplitColourChannels;
