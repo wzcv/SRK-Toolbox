@@ -45,7 +45,7 @@ class Bcrypt extends Operation {
         const rounds = args[0];
         const salt = await bcrypt.genSalt(rounds);
 
-        return await bcrypt.hash(input, salt, null, p => {
+        return await bcrypt.hash(input, salt, undefined, p => {
             // Progress callback
             if (isWorkerEnvironment())
                 self.sendStatusMessage(`进度: ${(p * 100).toFixed(0)}%`);

@@ -45,7 +45,7 @@ class BcryptCompare extends Operation {
     async run(input, args) {
         const hash = args[0];
 
-        const match = await bcrypt.compare(input, hash, null, p => {
+        const match = await bcrypt.compare(input, hash, undefined, p => {
             // Progress callback
             if (isWorkerEnvironment())
                 self.sendStatusMessage(`进度： ${(p * 100).toFixed(0)}%`);
