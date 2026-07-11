@@ -10,9 +10,9 @@
 
 const assert = require("assert");
 
-require("srktoolbox").then(chef => {
+require("srktoolbox").then(async chef => {
 
-    const d = chef.bake("Testing, 1 2 3", [
+    const d = await chef.bake("Testing, 1 2 3", [
         chef.toHex,
         chef.reverse,
         {

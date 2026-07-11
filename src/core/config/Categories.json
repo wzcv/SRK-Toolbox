@@ -41,6 +41,7 @@
             "其它进制数转十进制",
             "BCD码编码",
             "BCD码解码",
+            "Text-Integer Conversion",
             "HTML实体编码",
             "HTML实体解码",
             "URL编码",
@@ -109,6 +110,8 @@
             "Rabbit",
             "SM4加密",
             "SM4解密",
+            "RC6 Encrypt",
+            "RC6 Decrypt",
             "GOST加密",
             "GOST解密",
             "GOST签名",
@@ -164,7 +167,10 @@
             "Typex",
             "Lorenz",
             "Colossus",
-            "SIGABA"
+            "SIGABA",
+            "Flask Session Decode",
+            "Flask Session Sign",
+            "Flask Session Verify"
         ]
     },
     {
@@ -222,6 +228,9 @@
             "求差",
             "求积",
             "求商",
+            "Modular Exponentiation",
+            "Modular Inverse",
+            "Extended GCD",
             "求平均",
             "求中位数",
             "求标准差",
@@ -240,6 +249,7 @@
             "DNS over HTTPS",
             "移除HTTP标头",
             "合并HTTP响应分块",
+            "Parse Ethernet frame",
             "解析User Agent",
             "解析IP范围",
             "解析IPv6地址",
@@ -338,6 +348,7 @@
             "伪随机数生成器",
             "Sleep",
             "文件树",
+            "Wrap",
             "提取每N个字节",
             "删除每N个字节"
         ]
@@ -376,6 +387,7 @@
             "CSS选择器",
             "提取EXIF",
             "提取ID3",
+            "Extract Audio Metadata",
             "提取文件",
             "RAKE",
             "模板渲染"
@@ -454,7 +466,8 @@
             "Luhn校验和",
             "CRC校验和",
             "TCP/IP校验和",
-            "XOR校验和"
+            "XOR校验和",
+            "Parity Bit"
         ]
     },
     {
@@ -505,7 +518,8 @@
             "查看位平面",
             "色板随机化",
             "提取LSB",
-            "ELF信息"
+            "ELF信息",
+            "Extract Audio Metadata"
         ]
     },
     {
@@ -538,7 +552,8 @@
             "六边形密度图",
             "散点图",
             "折线图",
-            "热图"
+            "热图",
+            "Extract Audio Metadata"
         ]
     },
     {
@@ -550,7 +565,9 @@
             "卡方分布",
             "P-list查看器",
             "x86反汇编",
+            "Disassemble ARM",
             "伪随机数生成器",
+            "Pseudo-Random Integer Generator",
             "生成德布鲁因序列",
             "生成UUID",
             "解析UUID",

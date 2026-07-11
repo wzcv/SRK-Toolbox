@@ -35,6 +35,12 @@ class ParseIPv4Header extends Operation {
                 "name": "输入格式",
                 "type": "option",
                 "value": ["十六进制", "原始"]
+            },
+            {
+                "name": "Output format",
+                "type": "option",
+                "value": ["Table", "Data (hex)", "Data (raw)"],
+                defaultIndex: 0,
             }
         ];
     }
@@ -46,6 +52,8 @@ class ParseIPv4Header extends Operation {
      */
     run(input, args) {
         const format = args[0];
+        const outputFormat = args[1];
+
         let output;
 
         if (format === "十六进制") {
@@ -100,7 +108,10 @@ class ParseIPv4Header extends Operation {
             checksumResult = givenChecksum + " （不正确，应为 " + correctChecksum + "）";
         }
 
-        output = `<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>字段</th><th>值</th></tr>
+        const data = input.slice(ihl * 4);
+
+        if (outputFormat === "Table") {
+            output = `<table class='table table-hover table-sm table-bordered table-nonfluid'><tr><th>字段</th><th>值</th></tr>
 <tr><td>版本</td><td>${version}</td></tr>
 <tr><td>标头长度（IHL）</td><td>${ihl} （${ihl * 4} 字节）</td></tr>
 <tr><td>区分服务码点（DSCP）</td><td>${dscp}</td></tr>
@@ -118,13 +129,19 @@ class ParseIPv4Header extends Operation {
 <tr><td>协议</td><td>${protocol}, ${protocolInfo.protocol} (${protocolInfo.keyword})</td></tr>
 <tr><td>标头检验和</td><td>${checksumResult}</td></tr>
 <tr><td>源地址</td><td>${ipv4ToStr(srcIP)}</td></tr>
-<tr><td>目的地址</td><td>${ipv4ToStr(dstIP)}</td></tr>`;
+<tr><td>目的地址</td><td>${ipv4ToStr(dstIP)}</td></tr>
+<tr><td>Data (hex)</td><td>${toHex(data)}</td></tr>`;
 
-        if (ihl > 5) {
-            output += `<tr><td>选项</td><td>${toHex(options)}</td></tr>`;
+            if (ihl > 5) {
+                output += `<tr><td>选项</td><td>${toHex(options)}</td></tr>`;
+            }
+
+            return output + "</table>";
+        } else if (outputFormat === "Data (hex)") {
+            return toHex(data);
+        } else if (outputFormat === "Data (raw)") {
+            return Utils.byteArrayToChars(data);
         }
-
-        return output + "</table>";
     }
 
 }
